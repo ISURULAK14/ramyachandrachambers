@@ -6,7 +6,32 @@
     <!-- Primary Meta Tags -->
     <title>RAMYACHANDRA CHAMBERS</title>
     <meta name="title" content="Ramya Chandra Chambers - Advocate & Legal Consultant">
-    <meta name="description" content="Ramya Chandra Chambers offers professional legal services including civil, criminal, and family law. Experienced advocate dedicated to protecting your rights.">
+    <meta name="description" content="Professional lawyer in Matara providing expert legal services in Sri Lanka, specializing in property deeds, private limited company registration, beneficial ownership, attestation, and court representation.">
+    <link rel="alternate" hreflang="en" href="https://ramyachandrachambers.com/">
+    <link rel="alternate" hreflang="si" href="https://ramyachandrachambers.com/si/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Ramyachandra Gunasekera Chambers",
+      "url": "https://ramyachandrachambers.com/",
+      "telephone": "+94412226755",
+      "description": "Providing expert legal counsel for property deeds, private limited company incorporation, beneficial ownership, notarial services, and court representation in Matara and across Sri Lanka.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Matara",
+        "addressCountry": "LK"
+      },
+      "areaServed": ["Matara", "Sri Lanka"],
+      "serviceType": [
+        "Property and conveyancing",
+        "Corporate law and company registration",
+        "Notarial services",
+        "Litigation and court representation",
+        "Foreign investment consultancy"
+      ]
+    }
+    </script>
     <meta name="keywords" content="advocate, lawyer, legal services, Ramya Chandra Chambers, law firm, legal consultant, civil law, criminal law, family law">
     <meta name="author" content="Ramya Chandra Chambers">
     <meta name="robots" content="index, follow">
@@ -22,7 +47,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ramyachandrachambers.com/">
     <meta property="og:title" content="Ramya Chandra Chambers - Advocate & Legal Consultant">
-    <meta property="og:description" content="Ramya Chandra Chambers offers professional legal services including civil, criminal, and family law. Experienced advocate dedicated to protecting your rights.">
+    <meta property="og:description" content="Professional lawyer in Matara providing expert legal services in Sri Lanka, specializing in property deeds, company registration, notarial services, and court representation.">
     <meta property="og:image" content="https://ramyachandrachambers.com/photo.gif">
     <meta property="og:site_name" content="Ramya Chandra Chambers">
 
@@ -30,7 +55,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://ramyachandrachambers.com/">
     <meta name="twitter:title" content="Ramya Chandra Chambers - Advocate & Legal Consultant">
-    <meta name="twitter:description" content="Ramya Chandra Chambers offers professional legal services including civil, criminal, and family law.">
+    <meta name="twitter:description" content="Professional lawyer in Matara providing expert legal services in Sri Lanka, specializing in property deeds, company registration, notarial services, and court representation.">
     <meta name="twitter:image" content="https://ramyachandrachambers.com/photo.gif">
 
     <!-- Additional SEO -->
@@ -501,9 +526,9 @@
         .hero-title.reveal.active, .hero-subtitle.reveal.active, .banner-stats.reveal.active, .service-card.reveal.active, .review-card.reveal.active, .section-header.reveal.active, .central-contact-banner.reveal.active, .office-card.reveal.active { opacity: 1; }
         .services-grid { position: relative; isolation: isolate; }
         .services-grid .service-card { position: relative; z-index: 1; }
-        .services-grid:has(.service-card.is-open)::after { content: ''; position: absolute; inset: -1.5rem; z-index: 8; border-radius: 28px; background: rgba(3,10,20,.68); backdrop-filter: blur(9px) saturate(70%); -webkit-backdrop-filter: blur(9px) saturate(70%); box-shadow: inset 0 0 90px rgba(0,0,0,.25); pointer-events: none; }
-        .services-grid:has(.service-card.is-open) { grid-template-columns: 1fr; }
-        .services-grid .service-card.is-open { z-index: 20; grid-column: 1 / -1; width: 100%; }
+        /* Open cards stay in the normal grid; other service boxes remain visible and uncovered. */
+        .services-grid:has(.service-card.is-open) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .services-grid .service-card.is-open { z-index: 3; grid-column: auto; width: 100%; }
         .service-card.is-open { box-shadow: 0 35px 100px rgba(0,0,0,.66), 0 0 0 1px rgba(214,183,124,.46), inset 0 1px 0 rgba(255,255,255,.28); }
         .banner-stats { width: min(100%, 980px); justify-content: space-around; gap: 2rem; }
         .banner-stats .stat-item { min-width: 150px; }
@@ -572,7 +597,7 @@
         @media (max-width: 600px) { .review-card-google { min-height: 500px; } .review-widget-stage { height: 430px; min-height: 430px; } .review-widget-slot { inset: 0 0 30px; } }
         @media (min-width: 901px) { .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (min-width: 601px) and (max-width: 1100px) { .nav-container { padding-inline: 1rem; } .nav-links a { padding-inline: .65rem; font-size: .68rem; } section { padding-inline: 1.25rem; } .hero-title-stepped { font-size: clamp(3rem, 8vw, 5rem); } .banner-stats { width: min(100%, 760px); } }
-        @media (max-width: 600px) { body { overflow-x: hidden; } nav { min-height: 66px; } .logo { font-size: 1.35rem; } .logo svg { width: 22px; height: 22px; } .nav-container { min-height: 38px; } .nav-links a { font-size: .58rem; padding: .42rem .42rem; letter-spacing: .7px; } #home { padding-top: 8rem; } .hero-title-stepped { font-size: clamp(2.4rem, 13vw, 4rem); gap: .08em; } .hero-title-stepped .title-word-one, .hero-title-stepped .title-word-two, .hero-title-stepped .title-word-three { transform: none; } .hero-subtitle { font-size: .92rem; } .banner-stats { width: 100%; padding: 1.5rem 1rem; gap: 1.3rem; } .banner-stats .stat-item, .banner-stats .stat-item:nth-child(2) { min-width: 0; width: 100%; } .banner-stats .stat-item:nth-child(2) .stat-value { font-size: 3.2rem; } .services-grid { grid-template-columns: 1fr; gap: 1rem; } .services-grid:has(.service-card.is-open) { grid-template-columns: 1fr; } .accordion-header { padding: 1.45rem 1.2rem; } .accordion-title { font-size: 1.22rem; } .accordion-inner { padding-inline: 1.2rem; } .office-card { padding: 1.5rem; } .kotavila-gallery { width: min(100%, 290px); } .action-buttons { flex-direction: column; } .theme-toggle-pill { right: 14px !important; bottom: 14px !important; } }
+        @media (max-width: 600px) { body { overflow-x: hidden; } nav { min-height: 66px; } .logo { font-size: 1.35rem; } .logo svg { width: 22px; height: 22px; } .nav-container { min-height: 38px; } .nav-links a { font-size: .58rem; padding: .42rem .42rem; letter-spacing: .7px; } #home { padding-top: 8rem; } .hero-title-stepped { font-size: clamp(2.4rem, 13vw, 4rem); gap: .08em; } .hero-title-stepped .title-word-one, .hero-title-stepped .title-word-two, .hero-title-stepped .title-word-three { transform: none; } .hero-subtitle { font-size: .92rem; } .banner-stats { width: 100%; padding: 1.5rem 1rem; gap: 1.3rem; } .banner-stats .stat-item, .banner-stats .stat-item:nth-child(2) { min-width: 0; width: 100%; } .banner-stats .stat-item:nth-child(2) .stat-value { font-size: 3.2rem; } .services-grid, .services-grid:has(.service-card.is-open) { grid-template-columns: 1fr; gap: 1rem; } .accordion-header { padding: 1.45rem 1.2rem; } .accordion-title { font-size: 1.22rem; } .accordion-inner { padding-inline: 1.2rem; } .office-card { padding: 1.5rem; } .kotavila-gallery { width: min(100%, 290px); } .action-buttons { flex-direction: column; } .theme-toggle-pill { right: 14px !important; bottom: 14px !important; } }
         @media (prefers-reduced-motion: reduce) { .service-card, .static-card, .review-card, .kotavila-gallery img { animation: none !important; transition: none !important; } }
         /* Final visual polish: Fort image, reviewer row, dark metal, and precise cursor light */
         .fort-gallery { width: 100%; aspect-ratio: 16 / 7; margin: 1.75rem 0 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 22px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.28); background: linear-gradient(135deg, rgba(214,183,124,.18), rgba(31,108,120,.24)); }
@@ -619,6 +644,13 @@
         .map-pin:nth-child(4n+2) .pin-label { transform: translateX(-50%) translateY(0) scale(1); }
         .map-pin:nth-child(4n+3) .pin-label { transform: translateX(-50%) translateY(0) scale(1); }
         @media (max-width: 600px) { .pin-label { max-width: 112px; font-size: .62rem; padding: .36rem .55rem; } }
+        /* Five active labels use alternating above/below steps to keep names apart. */
+        .map-pin.step-0 .pin-label { top: -42px; transform: translateX(-50%) translateY(0) scale(1); }
+        .map-pin.step-1 .pin-label { top: 18px; transform: translateX(-50%) translateY(0) scale(1); }
+        .map-pin.step-2 .pin-label { top: -58px; transform: translateX(-50%) translateY(0) scale(1); }
+        .map-pin.step-3 .pin-label { top: 18px; transform: translateX(-50%) translateY(0) scale(1); }
+        .map-pin.step-4 .pin-label { top: -42px; transform: translateX(-50%) translateY(0) scale(1); }
+        @media (max-width: 600px) { .map-pin.step-0 .pin-label, .map-pin.step-4 .pin-label { top: -36px; } .map-pin.step-1 .pin-label, .map-pin.step-3 .pin-label { top: 14px; } .map-pin.step-2 .pin-label { top: -48px; } }
     </style>
 </head>
 <body>
@@ -795,17 +827,17 @@
             <!-- Service 6 -->
             <div class="service-card glass-panel reveal reveal-flip" style="transition-delay: 0.5s;">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="accordion-title serif">Foreign Investment & IP</span>
+                    <span class="accordion-title serif">Foreign Investment Consultancy</span>
                     <div class="interaction-icon"><span class="arrow-icon">▼</span></div>
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>Advice for overseas clients acquiring or holding Sri Lankan assets, plus trademark and patent registration and enforcement.</p>
+                        <p>Advice for overseas clients acquiring or holding Sri Lankan assets and structuring cross-border investments in Sri Lanka.</p>
                         <ul>
                             <li>Foreign investment structuring</li>
-                            <li>Trademark & patent registration</li>
+                            
                             <li>Non-resident powers of attorney</li>
-                            <li>Foreign investment consultancy</li> 
+                             
                         </ul>
                     </div>
                 </div>
@@ -1041,7 +1073,7 @@
             }, 8500);
         });
 
-        // Services: one covered, focused card at a time; auto-minimizes after ten seconds.
+        // Services: one open card at a time; other cards remain visible and uncovered; auto-minimizes after 30 seconds.
         const serviceTimers = new WeakMap();
         function setServiceState(card, open) {
             const content = card.querySelector('.accordion-content');
@@ -1052,7 +1084,7 @@
             header.setAttribute('aria-expanded', String(open));
             content.style.maxHeight = open ? content.scrollHeight + 'px' : '0px';
             arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-            if (open) serviceTimers.set(card, setTimeout(() => setServiceState(card, false), 10000));
+            if (open) serviceTimers.set(card, setTimeout(() => setServiceState(card, false), 30000));
         }
         function toggleAccordion(element) {
             const card = element.closest('.service-card');
@@ -1110,27 +1142,33 @@
         window.addEventListener("scroll", reveal);
         reveal(); // Trigger on load
 
-        // Worldwide client map: A, B, C, D ... in the exact DOM country order.
-        // Only one pin is active at a time, so labels never overlap.
+        // Worldwide client map: five countries at a time in a staggered step pattern.
+        // Each group uses geographically separated pins and staggered labels to prevent overlap.
         document.addEventListener('DOMContentLoaded', () => {
             const pins = [...document.querySelectorAll('.map-pin')];
             const mapSection = document.getElementById('testimonials');
-            const countrySequence = pins.map(pin => pin.id);
-            let sequenceIndex = 0, timer = null, transitionTimer = null;
-            const clearPins = () => {
-                if (transitionTimer) clearTimeout(transitionTimer);
-                pins.forEach(pin => pin.classList.remove('active'));
-            };
-            const showNextCountry = () => {
+            const countryGroups = [
+                ['pin-usa', 'pin-portugal', 'pin-india', 'pin-australia', 'pin-japan'],
+                ['pin-romania', 'pin-malaysia', 'pin-uae', 'pin-srilanka', 'pin-nz'],
+                ['pin-ireland', 'pin-austria', 'pin-korea', 'pin-maldives', 'pin-usa'],
+                ['pin-latvia', 'pin-israel', 'pin-singapore', 'pin-nz', 'pin-portugal']
+            ];
+            let groupIndex = 0, timer = null;
+            const clearPins = () => pins.forEach(pin => {
+                pin.classList.remove('active', 'step-0', 'step-1', 'step-2', 'step-3', 'step-4');
+            });
+            const showNextGroup = () => {
                 clearPins();
-                const currentId = countrySequence[sequenceIndex];
-                document.getElementById(currentId)?.classList.add('active');
-                sequenceIndex = (sequenceIndex + 1) % countrySequence.length;
+                countryGroups[groupIndex].forEach((id, index) => {
+                    const pin = document.getElementById(id);
+                    if (pin) pin.classList.add('active', `step-${index}`);
+                });
+                groupIndex = (groupIndex + 1) % countryGroups.length;
             };
             const start = () => {
                 if (!timer) {
-                    showNextCountry();
-                    timer = setInterval(showNextCountry, 2600);
+                    showNextGroup();
+                    timer = setInterval(showNextGroup, 4200);
                 }
             };
             const stop = () => {
