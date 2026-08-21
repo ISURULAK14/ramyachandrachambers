@@ -3,7 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramyachandra Gunasekera Chambers</title>
+    <!-- Primary Meta Tags -->
+    <title>RAMYACHANDRA CHAMBERS</title>
+    <meta name="title" content="Ramya Chandra Chambers - Advocate & Legal Consultant">
+    <meta name="description" content="Ramya Chandra Chambers offers professional legal services including civil, criminal, and family law. Experienced advocate dedicated to protecting your rights.">
+    <meta name="keywords" content="advocate, lawyer, legal services, Ramya Chandra Chambers, law firm, legal consultant, civil law, criminal law, family law">
+    <meta name="author" content="Ramya Chandra Chambers">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://ramyachandrachambers.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ramyachandrachambers.com/">
+    <meta property="og:title" content="Ramya Chandra Chambers - Advocate & Legal Consultant">
+    <meta property="og:description" content="Ramya Chandra Chambers offers professional legal services including civil, criminal, and family law. Experienced advocate dedicated to protecting your rights.">
+    <meta property="og:image" content="https://ramyachandrachambers.com/photo.gif">
+    <meta property="og:site_name" content="Ramya Chandra Chambers">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ramyachandrachambers.com/">
+    <meta name="twitter:title" content="Ramya Chandra Chambers - Advocate & Legal Consultant">
+    <meta name="twitter:description" content="Ramya Chandra Chambers offers professional legal services including civil, criminal, and family law.">
+    <meta name="twitter:image" content="https://ramyachandrachambers.com/photo.gif">
+
+    <!-- Additional SEO -->
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/jpeg" href="favicon.jfif">
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif">
+    <meta name="color-scheme" content="dark light">
+    <meta name="format-detection" content="telephone=yes">
     <!-- Premium Font Pairings -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -245,7 +277,7 @@
         .banner-stats { display: flex; gap: 4rem; flex-wrap: wrap; justify-content: center; padding: 2.5rem 5rem; position: relative; }
         .stat-item { display: flex; flex-direction: column; align-items: center; }
         .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--accent-main); }
-        .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 0.5rem; font-weight: 500; }
+        .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500; }
 
         /* General Section Styles */
         section { padding: 7rem 2rem; max-width: 1200px; margin: 0 auto; }
@@ -276,24 +308,19 @@
         .postcard-space img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
         .postcard-space:hover { transform: scale(1.02) rotate(0.5deg); border-color: var(--accent-main); box-shadow: var(--glass-shadow); }
 
-        /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .service-card { transition: transform 0.5s var(--smooth), box-shadow 0.5s var(--smooth); }
-        .service-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--glass-shadow); }
-        .accordion-header { padding: 2.2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        /* Services Grid — one deliberate, fully expanded card at a time */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start; }
+        .service-card { transition: transform 0.28s var(--smooth), box-shadow 0.28s var(--smooth), border-color 0.28s ease; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 28px 70px rgba(0,0,0,.32); }
+        .service-card.is-open { border-color: rgba(214,183,124,.58); box-shadow: 0 28px 80px rgba(0,0,0,.4), 0 0 0 1px rgba(214,183,124,.14); }
+        .accordion-header { padding: 2.2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
         .accordion-title { font-size: 1.5rem; font-weight: 600; color: var(--accent-main); }
-        .interaction-icon {
-            width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--glass-border-side);
-            display: flex; justify-content: center; align-items: center; transition: all 0.4s var(--smooth);
-            background: rgba(150,150,150,0.05); color: var(--text-primary); font-size: 0.8rem;
-        }
-        .accordion-header:hover .interaction-icon { background: var(--accent-main); color: var(--text-inverse); border-color: var(--accent-main); transform: scale(1.15); }
-        .arrow-icon { transition: transform 0.5s var(--smooth); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.6s var(--smooth); }
-        .accordion-inner {
-            padding: 0 2.2rem 2.2rem 2.2rem; color: var(--text-muted); font-size: 0.95rem;
-            border-top: 1px solid var(--glass-border-side); margin-top: -10px; padding-top: 1.8rem; font-weight: 300;
-        }
+        .interaction-icon { width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--glass-border-side); display: flex; justify-content: center; align-items: center; transition: all 0.28s var(--smooth); background: rgba(150,150,150,0.05); color: var(--text-primary); font-size: 0.8rem; }
+        .accordion-header:hover .interaction-icon, .service-card.is-open .interaction-icon { background: var(--accent-main); color: var(--text-inverse); border-color: var(--accent-main); transform: scale(1.1); }
+        .arrow-icon { transition: transform 0.28s var(--smooth); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.38s var(--smooth), opacity 0.28s ease; opacity: 0; }
+        .service-card.is-open .accordion-content { opacity: 1; }
+        .accordion-inner { padding: 0 2.2rem 2.2rem 2.2rem; color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--glass-border-side); margin-top: -10px; padding-top: 1.8rem; font-weight: 300; }
         .accordion-inner ul { margin-top: 1.2rem; padding-left: 1.5rem; }
         .accordion-inner li { margin-bottom: 0.6rem; color: var(--text-primary); }
         .accordion-inner li::marker { color: var(--accent-main); }
@@ -424,31 +451,148 @@
             .contact-grid, .reviews-grid { grid-template-columns: 1fr; } section { padding: 5rem 1.5rem; }
             .map-wrapper { min-height: 250px; height: 40vh; } .central-contact-banner { flex-direction: column; gap: 1.5rem; }
         }
+
+        /* Premium finish: polished metal, warm wood grain, and pointer illumination */
+        :root {
+            --accent-main: #c5a870;
+            --accent-red: #a65d52;
+            --bg-base: #0f1724;
+            --glass-bg: linear-gradient(135deg, rgba(28, 44, 66, .65), rgba(15, 23, 36, .55));
+            --glass-border-top: rgba(255,255,255,.22);
+            --glass-border-side: rgba(255,255,255,.08);
+            --glass-shadow: 0 30px 75px rgba(0,0,0,.45);
+            --bg-texture: radial-gradient(circle at 18% 12%, rgba(197,168,112,.08), transparent 26%), radial-gradient(circle at 82% 75%, rgba(68,107,122,.1), transparent 30%), repeating-linear-gradient(94deg, rgba(255,255,255,.018) 0 1px, transparent 1px 5px), repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 4px), linear-gradient(135deg, #121c2b 0%, #1a2b3d 42%, #0f1724 100%);
+        }
+        body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .42; background: repeating-linear-gradient(12deg, transparent 0 8px, rgba(255,255,255,.018) 8px 9px), repeating-linear-gradient(102deg, transparent 0 14px, rgba(0,0,0,.04) 14px 15px); mix-blend-mode: overlay; }
+        .cursor-light { position: fixed; width: 360px; height: 360px; left: 0; top: 0; border-radius: 50%; pointer-events: none; z-index: 0; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(214,183,124,.16) 0%, rgba(55,137,151,.08) 28%, transparent 68%); filter: blur(8px); opacity: .9; transition: opacity .25s ease; }
+        body > *:not(.cursor-light) { position: relative; z-index: 1; }
+        .map-wrapper { background-color: rgba(8,18,31,.45); background-blend-mode: screen; box-shadow: inset 0 0 80px rgba(0,0,0,.3), 0 25px 70px rgba(0,0,0,.24); }
+        .map-pin { transition: opacity .8s var(--smooth), transform .8s var(--smooth), filter .8s ease; }
+        .map-pin.active { transform: translate(-50%, -50%) scale(1.16); filter: saturate(1.25); }
+        .map-pin.active::after { animation-duration: 2.1s; }
+        .review-source a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(214,183,124,.5); }
+        .review-source a:hover { color: var(--accent-main); }
+        .contact-pill a, .office-detail a { text-decoration: none; }
+        .contact-pill a[href^="mailto"], .office-detail a[href^="tel"] { color: inherit; border-bottom: 1px solid rgba(214,183,124,.42); }
+        @media (prefers-reduced-motion: reduce) { .cursor-light { display: none; } .map-pin, .accordion-content { transition-duration: .01ms !important; } }
+        /* Second refinement pass: stepped title glass, persistent nav, richer glass, and calmer motion */
+        .hero-title-stepped { display: flex; flex-direction: column; align-items: center; gap: .04em; font-size: clamp(3rem, 7vw, 5.9rem); line-height: .92; letter-spacing: .015em; text-shadow: 0 18px 42px rgba(0,0,0,.55); }
+        .hero-title-stepped .title-word { display: inline-block; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--text-primary); }
+        .hero-title-stepped .title-word-one { transform: translateX(-.7em); }
+        .hero-title-stepped .title-word-two { transform: translateX(.1em) translateY(-.02em); }
+        .hero-title-stepped .title-word-three { transform: translateX(.9em) translateY(-.04em); color: var(--text-primary); }
+        .hero-title-stepped .unique-cap { color: var(--accent-main); font-size: 1.16em; line-height: .8; text-shadow: 0 0 22px rgba(197,168,112,.45); margin-right: -.105em; letter-spacing: -.035em; }
+        .theme-toggle-pill { position: fixed !important; right: 24px !important; bottom: 24px !important; z-index: 10001 !important; width: 82px; height: 42px; box-shadow: 0 16px 42px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.32); }
+        nav { position: fixed !important; top: 0 !important; left: 0; right: 0; z-index: 10000 !important; min-height: 74px; background: linear-gradient(180deg, rgba(8,16,28,.92), rgba(8,16,28,.7)); box-shadow: 0 12px 38px rgba(0,0,0,.25), inset 0 -1px 0 rgba(255,255,255,.12); }
+        .nav-container { min-height: 42px; }
+        .nav-links { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+        .nav-links::-webkit-scrollbar { display: none; }
+        .nav-links a { white-space: nowrap; }
+        .glass-panel { background: linear-gradient(135deg, rgba(255,255,255,.13), rgba(14,28,46,.44) 48%, rgba(4,11,22,.36)); border-color: rgba(255,255,255,.16); border-top-color: rgba(255,255,255,.42); border-left-color: rgba(255,255,255,.3); box-shadow: 0 30px 80px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.18), inset 0 -24px 45px rgba(0,0,0,.11); backdrop-filter: blur(26px) saturate(145%); -webkit-backdrop-filter: blur(26px) saturate(145%); }
+        .glass-panel::after { content: ''; position: absolute; inset: 1px; pointer-events: none; border-radius: inherit; background: linear-gradient(115deg, rgba(255,255,255,.16), transparent 24%, transparent 72%, rgba(214,183,124,.08)); mix-blend-mode: screen; opacity: .62; }
+        /* Motion is selective rather than applied to every page element. */
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .hero-title.reveal, .hero-subtitle.reveal, .banner-stats.reveal, .service-card.reveal, .review-card.reveal, .section-header.reveal, .central-contact-banner.reveal, .office-card.reveal { opacity: 0; transition: opacity .68s cubic-bezier(.23,1,.32,1), transform .68s cubic-bezier(.23,1,.32,1); }
+        .hero-title.reveal.active, .hero-subtitle.reveal.active, .banner-stats.reveal.active, .service-card.reveal.active, .review-card.reveal.active, .section-header.reveal.active, .central-contact-banner.reveal.active, .office-card.reveal.active { opacity: 1; }
+        .services-grid { position: relative; isolation: isolate; }
+        .services-grid .service-card { position: relative; z-index: 1; }
+        .services-grid:has(.service-card.is-open)::after { content: ''; position: absolute; inset: -1.5rem; z-index: 8; border-radius: 28px; background: rgba(3,10,20,.68); backdrop-filter: blur(9px) saturate(70%); -webkit-backdrop-filter: blur(9px) saturate(70%); box-shadow: inset 0 0 90px rgba(0,0,0,.25); pointer-events: none; }
+        .services-grid:has(.service-card.is-open) { grid-template-columns: 1fr; }
+        .services-grid .service-card.is-open { z-index: 20; grid-column: 1 / -1; width: 100%; }
+        .service-card.is-open { box-shadow: 0 35px 100px rgba(0,0,0,.66), 0 0 0 1px rgba(214,183,124,.46), inset 0 1px 0 rgba(255,255,255,.28); }
+        .banner-stats { width: min(100%, 980px); justify-content: space-around; gap: 2rem; }
+        .banner-stats .stat-item { min-width: 150px; }
+        .banner-stats .stat-item:nth-child(2) { min-width: 230px; }
+        .banner-stats .stat-item:nth-child(2) .stat-value { font-size: clamp(3rem, 5vw, 4.2rem); }
+        .banner-stats .stat-item:nth-child(2) .stat-label { font-size: .9rem; letter-spacing: 2.4px; }
+        @keyframes serviceGlide { from { opacity: 0; transform: translateY(32px) rotateX(-7deg); } to { opacity: 1; transform: translateY(0) rotateX(0); } }
+        @keyframes serviceDrift { from { opacity: 0; transform: translateX(-34px) rotate(-1deg); } to { opacity: 1; transform: translateX(0) rotate(0); } }
+        @keyframes serviceRise { from { opacity: 0; transform: translateY(28px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .service-card:nth-child(1).reveal.active { animation: serviceGlide .72s cubic-bezier(.23,1,.32,1) both; }
+        .service-card:nth-child(2).reveal.active { animation: serviceDrift .78s cubic-bezier(.23,1,.32,1) both; }
+        .service-card:nth-child(3).reveal.active { animation: serviceRise .82s cubic-bezier(.23,1,.32,1) both; }
+        .service-card:nth-child(4).reveal.active { animation: serviceDrift .88s cubic-bezier(.23,1,.32,1) both; }
+        .service-card:nth-child(5).reveal.active { animation: serviceGlide .94s cubic-bezier(.23,1,.32,1) both; }
+        .service-card:nth-child(6).reveal.active { animation: serviceRise 1s cubic-bezier(.23,1,.32,1) both; }
+        /* Keep the world map fully colored; only the active pin changes emphasis. */
+        .map-wrapper { filter: none !important; background-color: #12384a; background-blend-mode: screen; background-image: linear-gradient(135deg, rgba(25,132,143,.5), rgba(24,55,101,.5)), url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg'); box-shadow: inset 0 0 80px rgba(0,0,0,.2), 0 25px 70px rgba(0,0,0,.24); }
+        .map-wrapper::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 32% 32%, rgba(214,183,124,.18), transparent 22%), radial-gradient(circle at 72% 62%, rgba(78,204,214,.2), transparent 28%); mix-blend-mode: screen; }
+        .map-pin { background-color: #6ed6d2; opacity: .72; box-shadow: 0 0 10px rgba(110,214,210,.35); }
+        .map-pin.active { background-color: #f2c879; box-shadow: 0 0 18px #f2c879, 0 0 34px rgba(242,200,121,.75); }
+        @media (max-width: 900px) { .hero-title-stepped { font-size: clamp(2.5rem, 11vw, 4.25rem); } .hero-title-stepped .title-word-one { transform: translateX(-.25em); } .hero-title-stepped .title-word-two { transform: translateX(.1em); } .hero-title-stepped .title-word-three { transform: translateX(.45em); } .nav-container { padding: 0 .8rem; } .nav-links { display: flex; gap: 0; } .nav-links a { padding: .5rem .55rem; font-size: .65rem; } }
+        /* Final refinement pass: responsive layout, square maps, reviews, and Kotavila hover gallery */
+        .map-container, .map-container-square { width: 100%; aspect-ratio: 1 / 1; height: auto; min-height: 0; flex: none; margin-top: 2rem; }
+        .map-container iframe { display: block; width: 100%; height: 100%; filter: none !important; }
+        .reviews-grid { margin-top: 3rem; }
+        .review-card-google, .review-card-direct { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+        .review-source a { display: inline-flex; align-items: center; gap: .6rem; }
+        .review-card-google { border-color: rgba(66,133,244,.35); }
+        .review-card-google::before { background: linear-gradient(120deg, rgba(66,133,244,.18), transparent 38%, rgba(52,168,83,.1)); }
+        .review-card-direct { border-color: rgba(214,183,124,.32); }
+        .kotavila-gallery { position: relative; width: min(100%, 360px); aspect-ratio: 1 / 1; margin: 1.7rem auto 0; display: flex; align-items: center; justify-content: center; perspective: 900px; }
+        .kotavila-gallery::after { content: 'Kotavila branch views'; position: absolute; left: 50%; bottom: -1.5rem; transform: translateX(-50%); color: var(--text-muted); font-size: .66rem; text-transform: uppercase; letter-spacing: 2px; white-space: nowrap; }
+        .kotavila-gallery img { position: absolute; width: 70%; height: 70%; object-fit: cover; border-radius: 16px; border: 1px solid rgba(255,255,255,.36); box-shadow: 0 24px 48px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.4); transition: transform .7s cubic-bezier(.23,1,.32,1), filter .5s ease, opacity .5s ease; }
+        .kotavila-gallery img:first-child { transform: translateX(-10%) rotate(-7deg); filter: saturate(.9); z-index: 1; }
+        .kotavila-gallery img:last-child { transform: translateX(10%) rotate(7deg); filter: saturate(.9); z-index: 2; }
+        .kotavila-gallery:hover img:first-child, .kotavila-gallery:focus-within img:first-child { transform: translateX(-48%) rotate(-20deg) translateY(-2%); filter: saturate(1.18); }
+        .kotavila-gallery:hover img:last-child, .kotavila-gallery:focus-within img:last-child { transform: translateX(48%) rotate(20deg) translateY(-2%); filter: saturate(1.18); }
+        .kotavila-gallery:hover::after { color: var(--accent-main); }
+        .contact-grid { align-items: stretch; }
+        .office-card { min-width: 0; }
+        .office-card-1 .map-container, .office-card-2 .map-container { margin-top: auto; }
+        .static-card:nth-child(1) { transition: transform .55s cubic-bezier(.23,1,.32,1), box-shadow .55s ease; }
+        .static-card:nth-child(2) { transition: transform .7s cubic-bezier(.23,1,.32,1), box-shadow .7s ease; }
+        .static-card:nth-child(3) { transition: transform .85s cubic-bezier(.23,1,.32,1), box-shadow .85s ease; }
+        .static-card:hover { transform: translateX(10px) rotate(.2deg); }
+        .review-card-google { transition: transform .55s cubic-bezier(.23,1,.32,1), box-shadow .55s ease; }
+        .review-card-direct { transition: transform .75s cubic-bezier(.23,1,.32,1), box-shadow .75s ease; }
+        .review-card-google:hover, .review-card-direct:hover { transform: translateY(-9px); }
+        @media (min-width: 901px) { .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 601px) and (max-width: 1100px) { .nav-container { padding-inline: 1rem; } .nav-links a { padding-inline: .65rem; font-size: .68rem; } section { padding-inline: 1.25rem; } .hero-title-stepped { font-size: clamp(3rem, 8vw, 5rem); } .banner-stats { width: min(100%, 760px); } }
+        @media (max-width: 600px) { body { overflow-x: hidden; } nav { min-height: 66px; } .logo { font-size: 1.35rem; } .logo svg { width: 22px; height: 22px; } .nav-container { min-height: 38px; } .nav-links a { font-size: .58rem; padding: .42rem .42rem; letter-spacing: .7px; } #home { padding-top: 8rem; } .hero-title-stepped { font-size: clamp(2.4rem, 13vw, 4rem); gap: .08em; } .hero-title-stepped .title-word-one, .hero-title-stepped .title-word-two, .hero-title-stepped .title-word-three { transform: none; } .hero-subtitle { font-size: .92rem; } .banner-stats { width: 100%; padding: 1.5rem 1rem; gap: 1.3rem; } .banner-stats .stat-item, .banner-stats .stat-item:nth-child(2) { min-width: 0; width: 100%; } .banner-stats .stat-item:nth-child(2) .stat-value { font-size: 3.2rem; } .services-grid { grid-template-columns: 1fr; gap: 1rem; } .services-grid:has(.service-card.is-open) { grid-template-columns: 1fr; } .accordion-header { padding: 1.45rem 1.2rem; } .accordion-title { font-size: 1.22rem; } .accordion-inner { padding-inline: 1.2rem; } .office-card { padding: 1.5rem; } .kotavila-gallery { width: min(100%, 290px); } .action-buttons { flex-direction: column; } .theme-toggle-pill { right: 14px !important; bottom: 14px !important; } }
+        @media (prefers-reduced-motion: reduce) { .service-card, .static-card, .review-card, .kotavila-gallery img { animation: none !important; transition: none !important; } }
+        /* Final visual polish: Fort image, reviewer row, dark metal, and precise cursor light */
+        .fort-gallery { width: 100%; aspect-ratio: 16 / 7; margin: 1.75rem 0 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 22px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.28); background: linear-gradient(135deg, rgba(214,183,124,.18), rgba(31,108,120,.24)); }
+        .fort-gallery img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.23,1,.32,1), filter .6s ease; }
+        .fort-gallery:hover img { transform: scale(1.045); filter: saturate(1.16) contrast(1.04); }
+        .reviewer-meta { display: flex; align-items: center; gap: .8rem; margin: .15rem 0 1rem; }
+        .reviewer-meta img { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.36); box-shadow: 0 8px 20px rgba(0,0,0,.28); }
+        .reviewer-meta div { display: flex; flex-direction: column; gap: .1rem; }
+        .reviewer-meta strong { color: var(--text-primary); font-size: .86rem; font-weight: 600; }
+        .reviewer-meta span { color: var(--text-muted); font-size: .68rem; letter-spacing: .8px; text-transform: uppercase; }
+        /* Dark mode polished-metal grain layered under the glass panels. */
+        :root { --bg-texture: radial-gradient(ellipse at 18% 8%, rgba(197,168,112,.08), transparent 28%), linear-gradient(116deg, rgba(255,255,255,.045) 0%, transparent 24%, rgba(255,255,255,.065) 42%, transparent 58%), repeating-linear-gradient(90deg, rgba(255,255,255,.028) 0 1px, rgba(0,0,0,.022) 1px 3px, transparent 3px 7px), repeating-linear-gradient(0deg, rgba(255,255,255,.015) 0 1px, transparent 1px 5px), linear-gradient(135deg, #111b28 0%, #26384a 42%, #0b111b 72%, #1c2937 100%); }
+        body { background-image: var(--bg-texture); background-size: auto, auto, 180px 100%, 100% 140px, auto; }
+        .glass-panel, .theme-toggle-pill, nav { box-shadow: 0 30px 80px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.22), inset 0 -24px 48px rgba(0,0,0,.12); }
+        .glass-panel::before { background: linear-gradient(105deg, transparent 10%, rgba(255,255,255,.12) 40%, transparent 63%); opacity: .72; }
+        .glass-panel::after { opacity: .82; }
+        /* Small, visible cursor illumination rather than a large diffuse halo. */
+        .cursor-light { width: 92px !important; height: 92px !important; filter: blur(3px) !important; background: radial-gradient(circle, rgba(214,183,124,.22) 0%, rgba(78,204,214,.08) 34%, transparent 72%) !important; opacity: .72 !important; }
+        @media (max-width: 600px) { .fort-gallery { aspect-ratio: 16 / 9; } .reviewer-meta img { width: 40px; height: 40px; } }
+        /* Precision title alignment: equal rhythm, controlled step, and no accidental drift */
+        .hero-title-stepped { width: min(100%, 980px); margin-inline: auto; align-items: center; gap: .08em; line-height: .96; --title-step: clamp(2.4rem, 5.1vw, 5.6rem); }
+        .hero-title-stepped .title-word { position: relative; display: block; min-height: 1em; white-space: nowrap; text-align: center; }
+        .hero-title-stepped .title-word-one { transform: translateX(calc(var(--title-step) * -1)); }
+        .hero-title-stepped .title-word-two { transform: translateX(0); }
+        .hero-title-stepped .title-word-three { transform: translateX(calc(var(--title-step) + .32em)); }
+        .hero-title-stepped .unique-cap { display: inline-block; font-size: 1.16em; line-height: .82; vertical-align: -.04em; margin-right: -.105em; letter-spacing: -.035em; }
+        @media (min-width: 1101px) { .hero-title-stepped { --title-step: clamp(4rem, 5vw, 6.2rem); gap: .06em; } }
+        @media (min-width: 601px) and (max-width: 1100px) { .hero-title-stepped { --title-step: clamp(2.2rem, 4.8vw, 4.2rem); gap: .07em; } }
+        @media (max-width: 600px) { .hero-title-stepped { width: 100%; --title-step: 0rem; gap: .1em; line-height: .98; } .hero-title-stepped .title-word-one, .hero-title-stepped .title-word-two { transform: none; } .hero-title-stepped .title-word-three { transform: translateX(.28em); } }
+        /* Larger statistics typography to balance the full glass panel */
+        .banner-stats { min-height: 190px; align-items: center; padding-block: 3rem; }
+        .banner-stats .stat-item { min-width: 180px; gap: .45rem; }
+        .banner-stats .stat-value { font-size: clamp(3.35rem, 5vw, 4.8rem); line-height: .92; }
+        .banner-stats .stat-label { font-size: clamp(.82rem, 1.05vw, 1rem); letter-spacing: 2.35px; line-height: 1.25; }
+        .banner-stats .stat-item:nth-child(2) { min-width: 270px; }
+        .banner-stats .stat-item:nth-child(2) .stat-value { font-size: clamp(3.8rem, 6vw, 5.4rem); }
+        @media (max-width: 600px) { .banner-stats { min-height: 0; padding-block: 2rem; gap: 1.8rem; } .banner-stats .stat-item, .banner-stats .stat-item:nth-child(2) { min-width: 0; width: 100%; } .banner-stats .stat-value, .banner-stats .stat-item:nth-child(2) .stat-value { font-size: clamp(3.2rem, 16vw, 4.4rem); } .banner-stats .stat-label { font-size: .82rem; letter-spacing: 2px; } }
     </style>
 </head>
 <body>
+    <div class="cursor-light" aria-hidden="true"></div>
 
-    <!-- Theme Toggle Pill Switch -->
-    <div class="theme-toggle-pill" id="themeToggle" title="Toggle Theme">
-        <div class="thumb">
-            <!-- Moon Icon (Default visible) -->
-            <svg id="moonIcon" viewBox="0 0 24 24">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-            <!-- Sun Icon (Hidden by default) -->
-            <svg id="sunIcon" style="display: none;" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-        </div>
-    </div>
+
 
     <!-- Navigation -->
     <nav>
@@ -461,7 +605,7 @@
                     <path d="M12 3v18"/>
                     <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
                 </svg>
-                RG Chambers
+                RG CHAMBERS
             </a>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
@@ -477,9 +621,10 @@
     <!-- Hero Section -->
     <section id="home">
         <!-- Specifically tailored heading -->
-        <h1 class="hero-title reveal reveal-slide-up">
-            <span class="unique-cap">R</span>amyachandra <br>
-            <span class="unique-cap">G</span>unasekera Chambers
+        <h1 class="hero-title hero-title-stepped reveal reveal-slide-up" aria-label="Ramyachandra Gunasekera Chambers">
+            <span class="title-word title-word-one"><span class="unique-cap">R</span>amyachandra</span>
+            <span class="title-word title-word-two"><span class="unique-cap">G</span>unasekera</span>
+            <span class="title-word title-word-three"><span class="unique-cap">C</span>hambers</span>
         </h1>
         <p class="hero-subtitle reveal reveal-slide-up" style="transition-delay: 0.2s;">Dedicated to offering reliable legal and corporate counsel to clients with over three decades of distinguished practice.</p>
         
@@ -719,16 +864,20 @@
 
         <!-- Reviews Grids -->
         <div class="reviews-grid">
-            <div class="review-card glass-panel reveal reveal-slide-right">
-                <div class="review-source">
+            <div class="review-card glass-panel review-card-google">
+                <div class="review-source"><a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener" aria-label="Open Google reviews for Ramyachandra Gunasekera">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-                    Google Reviews
+                    Google Reviews</a>
+                </div>
+                <div class="reviewer-meta">
+                    <img src="reviewer-photo.svg" alt="Google reviewer photo placeholder">
+                    <div><strong>Google reviewer</strong><span>Verified review source</span></div>
                 </div>
                 <div class="review-stars">★★★★★</div>
                 <p class="review-text">"Highly recommended for corporate matters and real estate conveyancing. The level of professionalism and due diligence provided by the chambers is unparalleled."</p>
             </div>
 
-            <div class="review-card glass-panel reveal reveal-slide-left" style="transition-delay: 0.15s;">
+            <div class="review-card glass-panel review-card-direct">
                 <div class="review-source">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                     Direct Testimonial
@@ -751,11 +900,11 @@
         <div class="central-contact-banner glass-panel reveal reveal-scale">
             <div class="contact-pill">
                 <span class="contact-icon">✉️</span>
-                <a href="mailto:ramyachndra@sltnet.lk">ramyachndra@sltnet.lk</a>
+                <a href="mailto:ramyachandra@sltnet.lk">ramyachandra@sltnet.lk</a>
             </div>
             <div class="contact-pill">
                 <span class="contact-icon">📱</span>
-                <span>071 4236429</span>
+                <a href="tel:+94714236429">071 4236429</a>
                 <span class="whatsapp-badge">
                     <svg viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.128.552 4.195 1.6 6.009L.416 22.188l4.28-1.121a11.968 11.968 0 005.735 1.455c6.647 0 12.03-5.383 12.03-12.031S18.678 0 12.031 0zm0 20.485c-1.802 0-3.568-.484-5.116-1.401l-.367-.218-3.181.834.848-3.1-2.4-.383a9.98 9.98 0 01-1.528-5.286c0-5.513 4.49-10.003 10.003-10.003 5.514 0 10.003 4.49 10.003 10.003s-4.489 10.003-10.003 10.003zm5.498-7.518c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.201.302-.78 1.007-.957 1.209-.176.201-.353.226-.655.075-.302-.151-1.275-.47-2.428-1.5-.898-.802-1.503-1.794-1.68-2.096-.176-.302-.019-.465.132-.616.136-.136.302-.353.453-.529.151-.176.201-.302.302-.504.101-.201.05-.378-.025-.529-.075-.151-.68-1.637-.932-2.242-.244-.59-.493-.51-.68-.52-.176-.01-.378-.01-.58-.01-.201 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.518 0 1.486 1.083 2.922 1.234 3.123.151.201 2.128 3.25 5.156 4.557.719.31 1.28.495 1.718.634.721.23 1.378.197 1.895.12.578-.087 1.785-.729 2.037-1.434.252-.705.252-1.31.176-1.434-.075-.124-.277-.2-.579-.351z"/></svg>
                     WhatsApp
@@ -770,16 +919,16 @@
                 <h3 class="office-name serif">Matara Fort</h3>
                 <div class="office-reviews">
                     <span class="stars">★ ★ ★ ★ ★</span>
-                    <span>4.6 · 22 Google reviews</span>
+                    <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener">4.6 · 22 Google reviews</a>
                 </div>
                 <div class="office-detail">
                     📍 <span>No. 33, Sri Dharmarama Mawatha, Fort (Court Road), Matara 81000<br>Plus code: WGVW+J3</span>
                 </div>
                 <div class="office-detail">
-                    📞 <span>+94 41 222 6755</span>
+                    📞 <a href="tel:+94412226755">+94 41 222 6755</a>
                 </div>
                 <div class="office-detail">
-                    📞 <span>+94 41 223 9429</span>
+                    📞 <a href="tel:+94412239429">+94 41 223 9429</a>
                 </div>
                 <div class="office-detail">
                     🕒 <span>Monday to Friday, 8.00 a.m. to 5.00 p.m.</span>
@@ -788,13 +937,16 @@
                     🏛️ <span>Minutes from the Matara District & Magistrate's Courts</span>
                 </div>
                 
+                <div class="fort-gallery" aria-label="Matara Fort photograph">
+                    <img src="fort.gif" alt="Matara Fort near the Head Office">
+                </div>
                 <div class="map-container">
                     <iframe src="https://maps.google.com/maps?q=WGVW%2BJ3%20Matara,%20Sri%20Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe>
                 </div>
 
                 <div class="action-buttons">
-                    <a href="#" class="btn btn-primary">Get Directions</a>
-                    <a href="#" class="btn btn-outline">Call Office</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=WGVW%2BJ3%20Matara%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+                    <a href="tel:+94412226755" class="btn btn-outline">Call Office</a>
                 </div>
             </div>
 
@@ -804,13 +956,13 @@
                 <h3 class="office-name serif">Kamburugamuwa (Mirissa)</h3>
                 <div class="office-reviews">
                     <span class="stars">★ ★ ★ ★ ★</span>
-                    <span>5.0 · 6 Google reviews</span>
+                    <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener">5.0 · 6 Google reviews</a>
                 </div>
                 <div class="office-detail">
                     📍 <span>Labima Road, Kamburugamuwa, Southern Province<br>Plus code: XF8W+RPQ</span>
                 </div>
                 <div class="office-detail">
-                    📞 <span>+94 41 223 9429</span>
+                    📞 <a href="tel:+94412239429">+94 41 223 9429</a>
                 </div>
                 <div class="office-detail">
                     🕒 <span>Monday to Friday, 8.00 a.m. to 5.00 p.m.</span>
@@ -819,13 +971,17 @@
                     🌊 <span>Convenient for Mirissa, Weligama & the coastal belt</span>
                 </div>
                 
-                <div class="map-container">
+                <div class="kotavila-gallery" aria-label="Kotavila branch photographs">
+                    <img src="kotavila1.gif" alt="Kotavila branch office view one">
+                    <img src="kotavila2.gif" alt="Kotavila branch office view two">
+                </div>
+                <div class="map-container map-container-square">
                     <iframe src="https://maps.google.com/maps?q=XF8W%2BRPQ%20Kamburugamuwa,%20Sri%20Lanka&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe>
                 </div>
 
                 <div class="action-buttons">
-                    <a href="#" class="btn btn-primary">Get Directions</a>
-                    <a href="#" class="btn btn-outline">Call Office</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=XF8W%2BRPQ%20Kamburugamuwa%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+                    <a href="tel:+94412239429" class="btn btn-outline">Call Office</a>
                 </div>
             </div>
         </div>
@@ -839,42 +995,43 @@
 
     <!-- Interactive Scripts -->
     <script>
-        // Theme Toggle Script
-        const toggleBtn = document.getElementById('themeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'light') {
-                document.documentElement.removeAttribute('data-theme');
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'block';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                sunIcon.style.display = 'block';
-                moonIcon.style.display = 'none';
-            }
-        });
-
-        // Accordion Toggle Script for Services
-        function toggleAccordion(element) {
-            const content = element.nextElementSibling;
-            const arrowIcon = element.querySelector('.arrow-icon');
-            const interactionIcon = element.querySelector('.interaction-icon');
-            
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                arrowIcon.style.transform = 'rotate(0deg)';
-                interactionIcon.style.background = '';
-                interactionIcon.style.color = '';
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                arrowIcon.style.transform = 'rotate(180deg)';
-                interactionIcon.style.background = 'var(--accent-main)';
-                interactionIcon.style.color = 'var(--text-inverse)';
-            }
+        // Services: one covered, focused card at a time; auto-minimizes after ten seconds.
+        const serviceTimers = new WeakMap();
+        function setServiceState(card, open) {
+            const content = card.querySelector('.accordion-content');
+            const header = card.querySelector('.accordion-header');
+            const arrow = card.querySelector('.arrow-icon');
+            clearTimeout(serviceTimers.get(card));
+            card.classList.toggle('is-open', open);
+            header.setAttribute('aria-expanded', String(open));
+            content.style.maxHeight = open ? content.scrollHeight + 'px' : '0px';
+            arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+            if (open) serviceTimers.set(card, setTimeout(() => setServiceState(card, false), 10000));
         }
+        function toggleAccordion(element) {
+            const card = element.closest('.service-card');
+            const willOpen = !card.classList.contains('is-open');
+            document.querySelectorAll('.service-card.is-open').forEach(openCard => setServiceState(openCard, false));
+            if (willOpen) setServiceState(card, true);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.service-card').forEach(card => {
+                const header = card.querySelector('.accordion-header');
+                header.setAttribute('role', 'button');
+                header.setAttribute('tabindex', '0');
+                header.setAttribute('aria-expanded', 'false');
+                header.addEventListener('keydown', event => {
+                    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleAccordion(header); }
+                });
+                card.addEventListener('click', event => {
+                    if (card.classList.contains('is-open') && !event.target.closest('.accordion-header')) setServiceState(card, false);
+                });
+            });
+            window.addEventListener('resize', () => {
+                const open = document.querySelector('.service-card.is-open');
+                if (open) open.querySelector('.accordion-content').style.maxHeight = open.querySelector('.accordion-content').scrollHeight + 'px';
+            });
+        });
 
         // Active Navigation Scroll Tracking
         const sections = document.querySelectorAll("section");
@@ -898,80 +1055,52 @@
         });
 
         // Advanced Varied Scroll Reveal Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 50; 
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
+                function reveal() {
+            const reveals = document.querySelectorAll('.hero-title.reveal, .hero-subtitle.reveal, .banner-stats.reveal, .service-card.reveal, .review-card.reveal, .section-header.reveal, .central-contact-banner.reveal, .office-card.reveal');
+            reveals.forEach(element => {
+                if (element.getBoundingClientRect().top < window.innerHeight - 70) element.classList.add('active');
+            });
         }
         window.addEventListener("scroll", reveal);
         reveal(); // Trigger on load
 
-        // Advanced Sequential Multi-Pin Map Animation
+        // Smooth, sequential country cycle for the worldwide client map.
         document.addEventListener('DOMContentLoaded', () => {
-            const pins = document.querySelectorAll('.map-pin');
-            let cycleInterval;
-            let currentGroupIndex = 0;
-
-            const pinGroups = [
-                ['pin-usa', 'pin-germany', 'pin-srilanka', 'pin-japan'],
-                ['pin-australia', 'pin-france', 'pin-uae', 'pin-malaysia'],
-                ['pin-uk', 'pin-romania', 'pin-india', 'pin-korea'],
-                ['pin-spain', 'pin-sweden', 'pin-bangladesh', 'pin-nz'],
-                ['pin-italy', 'pin-latvia', 'pin-singapore', 'pin-mali'],
-                ['pin-portugal', 'pin-austria', 'pin-maldives', 'pin-china'],
-                ['pin-ireland', 'pin-slovakia', 'pin-israel'],
-                ['pin-netherlands', 'pin-malta', 'pin-zanzibar'],
-                ['pin-belgium', 'pin-greece', 'pin-switzerland'],
-                ['pin-denmark', 'pin-norway', 'pin-luxembourg']
-            ];
-
-            const shuffledGroups = pinGroups.sort(() => 0.5 - Math.random());
-
-            function sequenceRandomPins() {
-                pins.forEach(pin => pin.classList.remove('active'));
-                const activeGroup = shuffledGroups[currentGroupIndex];
-                
-                activeGroup.forEach((pinId, index) => {
-                    setTimeout(() => {
-                        const el = document.getElementById(pinId);
-                        if (el) el.classList.add('active');
-                    }, index * 400); // 400ms sequential stagger
-                });
-
-                currentGroupIndex = (currentGroupIndex + 1) % shuffledGroups.length;
-            }
-
+            const pins = [...document.querySelectorAll('.map-pin')];
             const mapSection = document.getElementById('testimonials');
-            
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            if (!cycleInterval) {
-                                sequenceRandomPins();
-                                cycleInterval = setInterval(sequenceRandomPins, 2800); 
-                            }
-                        } else {
-                            clearInterval(cycleInterval);
-                            cycleInterval = null;
-                            pins.forEach(pin => pin.classList.remove('active'));
-                        }
-                    });
-                }, { threshold: 0.2 });
-
-                if (mapSection) observer.observe(mapSection);
-            } else {
-                sequenceRandomPins();
-                setInterval(sequenceRandomPins, 2800);
-            }
+            const pinGroups = [
+                ['pin-usa', 'pin-germany', 'pin-srilanka', 'pin-japan'], ['pin-australia', 'pin-france', 'pin-uae', 'pin-malaysia'],
+                ['pin-uk', 'pin-romania', 'pin-india', 'pin-korea'], ['pin-spain', 'pin-sweden', 'pin-bangladesh', 'pin-nz'],
+                ['pin-italy', 'pin-latvia', 'pin-singapore', 'pin-mali'], ['pin-portugal', 'pin-austria', 'pin-maldives', 'pin-china'],
+                ['pin-ireland', 'pin-slovakia', 'pin-israel'], ['pin-netherlands', 'pin-malta', 'pin-zanzibar'],
+                ['pin-belgium', 'pin-greece', 'pin-switzerland'], ['pin-denmark', 'pin-norway', 'pin-luxembourg']
+            ];
+            let groupIndex = 0, timer = null, transitionTimers = [];
+            const clearPins = () => { transitionTimers.forEach(clearTimeout); transitionTimers = []; pins.forEach(pin => pin.classList.remove('active')); };
+            const showGroup = () => {
+                clearPins();
+                pinGroups[groupIndex].forEach((id, index) => {
+                    const timerId = setTimeout(() => document.getElementById(id)?.classList.add('active'), 140 * index + 220);
+                    transitionTimers.push(timerId);
+                });
+                groupIndex = (groupIndex + 1) % pinGroups.length;
+            };
+            const start = () => { if (!timer) { showGroup(); timer = setInterval(showGroup, 4200); } };
+            const stop = () => { clearInterval(timer); timer = null; clearPins(); };
+            if (mapSection && 'IntersectionObserver' in window) {
+                new IntersectionObserver(entries => entries.forEach(entry => entry.isIntersecting ? start() : stop()), { threshold: .22 }).observe(mapSection);
+            } else start();
         });
+
+        // Pointer-following illumination on the textured background.
+        (() => {
+            const light = document.querySelector('.cursor-light');
+            if (!light || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            let raf = 0, x = innerWidth / 2, y = innerHeight / 2;
+            addEventListener('pointermove', event => { x = event.clientX; y = event.clientY; if (!raf) raf = requestAnimationFrame(() => { light.style.left = x + 'px'; light.style.top = y + 'px'; raf = 0; }); });
+            addEventListener('pointerleave', () => light.style.opacity = '0');
+            addEventListener('pointerenter', () => light.style.opacity = '.9');
+        })();
     </script>
 </body>
 </html>
