@@ -13,6 +13,11 @@
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://ramyachandrachambers.com/">
 
+    <!-- SociableKIT Google Reviews -->
+    <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
+    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ramyachandrachambers.com/">
@@ -547,6 +552,24 @@
         .review-card-google { transition: transform .55s cubic-bezier(.23,1,.32,1), box-shadow .55s ease; }
         .review-card-direct { transition: transform .75s cubic-bezier(.23,1,.32,1), box-shadow .75s ease; }
         .review-card-google:hover, .review-card-direct:hover { transform: translateY(-9px); }
+        .reviews-grid { align-items: stretch; }
+        .review-card-google { min-height: 560px; display: flex; flex-direction: column; }
+        .review-widget-stage { position: relative; height: 500px; min-height: 500px; margin-top: 1.4rem; width: 100%; overflow: hidden; }
+        .review-widget-slot { position: absolute; inset: 0 0 38px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .65s ease, visibility .65s ease; overflow: hidden; }
+        .review-widget-slot.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
+        .review-widget-slot > div { width: 100%; min-height: 320px; }
+        /* Keep both supplied widgets seamless and suppress common provider branding elements. */
+        .review-card-google .eapps-widget-toolbar,
+        .review-card-google .eapps-widget-toolbar-container,
+        .review-card-google [class*="watermark"],
+        .review-card-google [class*="branding"],
+        .review-card-google [class*="powered-by"],
+        .review-card-google .sk_branding,
+        .review-card-google .sk-powered-by,
+        .review-card-google .sk-ww-google-reviews a[href*="sociablekit"] { display: none !important; visibility: hidden !important; opacity: 0 !important; height: 0 !important; overflow: hidden !important; }
+        .review-card-google .sk-ww-google-reviews, .review-card-google .elfsight-app-f38da188-b8be-409a-93a0-5db6eeb8a314 { background: transparent !important; }
+        .review-card-google .sk-ww-google-reviews::after, .review-card-google .elfsight-app-f38da188-b8be-409a-93a0-5db6eeb8a314::after { content: ''; display: block; height: 38px; background: var(--glass-bg); }
+        @media (max-width: 600px) { .review-card-google { min-height: 500px; } .review-widget-stage { height: 430px; min-height: 430px; } .review-widget-slot { inset: 0 0 30px; } }
         @media (min-width: 901px) { .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (min-width: 601px) and (max-width: 1100px) { .nav-container { padding-inline: 1rem; } .nav-links a { padding-inline: .65rem; font-size: .68rem; } section { padding-inline: 1.25rem; } .hero-title-stepped { font-size: clamp(3rem, 8vw, 5rem); } .banner-stats { width: min(100%, 760px); } }
         @media (max-width: 600px) { body { overflow-x: hidden; } nav { min-height: 66px; } .logo { font-size: 1.35rem; } .logo svg { width: 22px; height: 22px; } .nav-container { min-height: 38px; } .nav-links a { font-size: .58rem; padding: .42rem .42rem; letter-spacing: .7px; } #home { padding-top: 8rem; } .hero-title-stepped { font-size: clamp(2.4rem, 13vw, 4rem); gap: .08em; } .hero-title-stepped .title-word-one, .hero-title-stepped .title-word-two, .hero-title-stepped .title-word-three { transform: none; } .hero-subtitle { font-size: .92rem; } .banner-stats { width: 100%; padding: 1.5rem 1rem; gap: 1.3rem; } .banner-stats .stat-item, .banner-stats .stat-item:nth-child(2) { min-width: 0; width: 100%; } .banner-stats .stat-item:nth-child(2) .stat-value { font-size: 3.2rem; } .services-grid { grid-template-columns: 1fr; gap: 1rem; } .services-grid:has(.service-card.is-open) { grid-template-columns: 1fr; } .accordion-header { padding: 1.45rem 1.2rem; } .accordion-title { font-size: 1.22rem; } .accordion-inner { padding-inline: 1.2rem; } .office-card { padding: 1.5rem; } .kotavila-gallery { width: min(100%, 290px); } .action-buttons { flex-direction: column; } .theme-toggle-pill { right: 14px !important; bottom: 14px !important; } }
@@ -587,6 +610,15 @@
         .banner-stats .stat-item:nth-child(2) { min-width: 270px; }
         .banner-stats .stat-item:nth-child(2) .stat-value { font-size: clamp(3.8rem, 6vw, 5.4rem); }
         @media (max-width: 600px) { .banner-stats { min-height: 0; padding-block: 2rem; gap: 1.8rem; } .banner-stats .stat-item, .banner-stats .stat-item:nth-child(2) { min-width: 0; width: 100%; } .banner-stats .stat-value, .banner-stats .stat-item:nth-child(2) .stat-value { font-size: clamp(3.2rem, 16vw, 4.4rem); } .banner-stats .stat-label { font-size: .82rem; letter-spacing: 2px; } }
+        /* World-map labels: one active label at a time, kept inside the map and readable. */
+        .map-pin { z-index: 2; }
+        .map-pin.active { z-index: 30; }
+        .pin-label { max-width: 150px; overflow: hidden; text-overflow: ellipsis; text-align: center; white-space: nowrap; line-height: 1.2; padding: .45rem .7rem; font-size: .7rem; letter-spacing: .7px; }
+        .map-pin.active .pin-label { z-index: 40; }
+        .map-pin:nth-child(4n+1) .pin-label { transform: translateX(-50%) translateY(0) scale(1); }
+        .map-pin:nth-child(4n+2) .pin-label { transform: translateX(-50%) translateY(0) scale(1); }
+        .map-pin:nth-child(4n+3) .pin-label { transform: translateX(-50%) translateY(0) scale(1); }
+        @media (max-width: 600px) { .pin-label { max-width: 112px; font-size: .62rem; padding: .36rem .55rem; } }
     </style>
 </head>
 <body>
@@ -869,12 +901,14 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                     Google Reviews</a>
                 </div>
-                <div class="reviewer-meta">
-                    <img src="reviewer-photo.svg" alt="Google reviewer photo placeholder">
-                    <div><strong>Google reviewer</strong><span>Verified review source</span></div>
+                <div class="review-widget-stage" aria-label="Google reviews from two widget providers">
+                    <div class="review-widget-slot review-widget-sociablekit is-visible">
+                        <div class="sk-ww-google-reviews" data-embed-id="25707318" aria-label="SociableKIT Google Reviews widget"></div>
+                    </div>
+                    <div class="review-widget-slot review-widget-elfsight">
+                        <div class="elfsight-app-f38da188-b8be-409a-93a0-5db6eeb8a314" data-elfsight-app-lazy aria-label="Elfsight Google Reviews widget"></div>
+                    </div>
                 </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Highly recommended for corporate matters and real estate conveyancing. The level of professionalism and due diligence provided by the chambers is unparalleled."</p>
             </div>
 
             <div class="review-card glass-panel review-card-direct">
@@ -995,6 +1029,18 @@
 
     <!-- Interactive Scripts -->
     <script>
+        // Review widgets alternate seamlessly while each provider controls its own internal review order.
+        document.addEventListener('DOMContentLoaded', () => {
+            const reviewSlots = [...document.querySelectorAll('.review-widget-slot')];
+            if (!reviewSlots.length) return;
+            let reviewIndex = 0;
+            setInterval(() => {
+                reviewSlots[reviewIndex]?.classList.remove('is-visible');
+                reviewIndex = (reviewIndex + 1) % reviewSlots.length;
+                reviewSlots[reviewIndex]?.classList.add('is-visible');
+            }, 8500);
+        });
+
         // Services: one covered, focused card at a time; auto-minimizes after ten seconds.
         const serviceTimers = new WeakMap();
         function setServiceState(card, open) {
@@ -1064,29 +1110,34 @@
         window.addEventListener("scroll", reveal);
         reveal(); // Trigger on load
 
-        // Smooth, sequential country cycle for the worldwide client map.
+        // Worldwide client map: A, B, C, D ... in the exact DOM country order.
+        // Only one pin is active at a time, so labels never overlap.
         document.addEventListener('DOMContentLoaded', () => {
             const pins = [...document.querySelectorAll('.map-pin')];
             const mapSection = document.getElementById('testimonials');
-            const pinGroups = [
-                ['pin-usa', 'pin-germany', 'pin-srilanka', 'pin-japan'], ['pin-australia', 'pin-france', 'pin-uae', 'pin-malaysia'],
-                ['pin-uk', 'pin-romania', 'pin-india', 'pin-korea'], ['pin-spain', 'pin-sweden', 'pin-bangladesh', 'pin-nz'],
-                ['pin-italy', 'pin-latvia', 'pin-singapore', 'pin-mali'], ['pin-portugal', 'pin-austria', 'pin-maldives', 'pin-china'],
-                ['pin-ireland', 'pin-slovakia', 'pin-israel'], ['pin-netherlands', 'pin-malta', 'pin-zanzibar'],
-                ['pin-belgium', 'pin-greece', 'pin-switzerland'], ['pin-denmark', 'pin-norway', 'pin-luxembourg']
-            ];
-            let groupIndex = 0, timer = null, transitionTimers = [];
-            const clearPins = () => { transitionTimers.forEach(clearTimeout); transitionTimers = []; pins.forEach(pin => pin.classList.remove('active')); };
-            const showGroup = () => {
-                clearPins();
-                pinGroups[groupIndex].forEach((id, index) => {
-                    const timerId = setTimeout(() => document.getElementById(id)?.classList.add('active'), 140 * index + 220);
-                    transitionTimers.push(timerId);
-                });
-                groupIndex = (groupIndex + 1) % pinGroups.length;
+            const countrySequence = pins.map(pin => pin.id);
+            let sequenceIndex = 0, timer = null, transitionTimer = null;
+            const clearPins = () => {
+                if (transitionTimer) clearTimeout(transitionTimer);
+                pins.forEach(pin => pin.classList.remove('active'));
             };
-            const start = () => { if (!timer) { showGroup(); timer = setInterval(showGroup, 4200); } };
-            const stop = () => { clearInterval(timer); timer = null; clearPins(); };
+            const showNextCountry = () => {
+                clearPins();
+                const currentId = countrySequence[sequenceIndex];
+                document.getElementById(currentId)?.classList.add('active');
+                sequenceIndex = (sequenceIndex + 1) % countrySequence.length;
+            };
+            const start = () => {
+                if (!timer) {
+                    showNextCountry();
+                    timer = setInterval(showNextCountry, 2600);
+                }
+            };
+            const stop = () => {
+                clearInterval(timer);
+                timer = null;
+                clearPins();
+            };
             if (mapSection && 'IntersectionObserver' in window) {
                 new IntersectionObserver(entries => entries.forEach(entry => entry.isIntersecting ? start() : stop()), { threshold: .22 }).observe(mapSection);
             } else start();
