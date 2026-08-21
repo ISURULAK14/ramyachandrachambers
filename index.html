@@ -31,6 +31,7 @@
         "Corporate law and company registration",
         "Notarial services",
         "Litigation and court representation",
+        "Strategic HR advisory and workplace dispute resolution",
         "Foreign investment consultancy"
       ]
     }
@@ -656,6 +657,11 @@
         .map-pin.step-3 .pin-label { top: 18px; transform: translateX(-50%) translateY(0) scale(1); }
         .map-pin.step-4 .pin-label { top: -42px; transform: translateX(-50%) translateY(0) scale(1); }
         @media (max-width: 600px) { .map-pin.step-0 .pin-label, .map-pin.step-4 .pin-label { top: -36px; } .map-pin.step-1 .pin-label, .map-pin.step-3 .pin-label { top: 14px; } .map-pin.step-2 .pin-label { top: -48px; } }
+        .pin-canada { top: 22%; left: 14%; }
+        .pin-russia { top: 18%; left: 66%; }
+        .pin-ukraine { top: 31%; left: 59%; }
+        .pin-hungary { top: 32%; left: 54%; }
+        .pin-scotland { top: 21%; left: 47%; }
         /* Responsive optimization pass: phones, tablets, iPads, and touch devices. */
         html { scroll-padding-top: 86px; }
         body { min-width: 0; overflow-x: hidden; }
@@ -904,6 +910,7 @@
                         <p>Contracts of service, disciplinary procedure, terminations, EPF/ETF questions and appearances before the Labour Tribunal.</p>
                         <ul>
                             <li>Employment contracts & handbooks</li>
+                            <li>Strategic HR advisory & workplace dispute resolution</li>
                             <li>Termination & disciplinary advice</li>
                             <li>Labour Tribunal representation</li>
                         </ul>
@@ -975,6 +982,11 @@
             <div class="map-wrapper">
                 <div class="map-pins-container" id="map-pins-container">
                     <div id="pin-usa" class="map-pin pin-usa"><div class="pin-label">United States</div></div>
+                    <div id="pin-canada" class="map-pin pin-canada"><div class="pin-label">Canada</div></div>
+                    <div id="pin-russia" class="map-pin pin-russia"><div class="pin-label">Russia</div></div>
+                    <div id="pin-ukraine" class="map-pin pin-ukraine"><div class="pin-label">Ukraine</div></div>
+                    <div id="pin-hungary" class="map-pin pin-hungary"><div class="pin-label">Hungary</div></div>
+                    <div id="pin-scotland" class="map-pin pin-scotland"><div class="pin-label">Scotland</div></div>
                     <div id="pin-romania" class="map-pin pin-romania"><div class="pin-label">Romania</div></div>
                     <div id="pin-malaysia" class="map-pin pin-malaysia"><div class="pin-label">Malaysia</div></div>
                     <div id="pin-portugal" class="map-pin pin-portugal"><div class="pin-label">Portugal</div></div>
@@ -1248,9 +1260,9 @@
             const mapSection = document.getElementById('testimonials');
             const countryGroups = [
                 ['pin-usa', 'pin-portugal', 'pin-india', 'pin-australia', 'pin-japan'],
-                ['pin-romania', 'pin-malaysia', 'pin-uae', 'pin-srilanka', 'pin-nz'],
-                ['pin-ireland', 'pin-austria', 'pin-korea', 'pin-maldives', 'pin-usa'],
-                ['pin-latvia', 'pin-israel', 'pin-singapore', 'pin-nz', 'pin-portugal']
+                ['pin-canada', 'pin-scotland', 'pin-ukraine', 'pin-singapore', 'pin-nz'],
+                ['pin-russia', 'pin-switzerland', 'pin-germany', 'pin-malaysia', 'pin-srilanka'],
+                ['pin-hungary', 'pin-ireland', 'pin-korea', 'pin-maldives', 'pin-usa']
             ];
             let groupIndex = 0, timer = null;
             const clearPins = () => pins.forEach(pin => {
