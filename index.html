@@ -728,6 +728,21 @@
             .banner-stats { margin-top: 2rem; }
             .map-wrapper { min-height: 360px; }
         }
+        /* Title spacing lock: preserve the deliberate three-line step after reveal completes. */
+        .hero-title-stepped.active .title-word { animation: none !important; opacity: 1 !important; }
+        .hero-title-stepped.active .title-word-one { transform: translateX(-.7em) !important; }
+        .hero-title-stepped.active .title-word-two { transform: translateX(0) translateY(-.02em) !important; }
+        .hero-title-stepped.active .title-word-three { transform: translateX(1.05em) translateY(-.04em) !important; }
+        @media (max-width: 900px) {
+            .hero-title-stepped.active .title-word-one { transform: translateX(-.25em) !important; }
+            .hero-title-stepped.active .title-word-two { transform: translateX(0) !important; }
+            .hero-title-stepped.active .title-word-three { transform: translateX(.6em) !important; }
+        }
+        @media (max-width: 600px) {
+            .hero-title-stepped.active .title-word-one,
+            .hero-title-stepped.active .title-word-two,
+            .hero-title-stepped.active .title-word-three { transform: none !important; }
+        }
         /* Google review author-row visibility fix for dynamically injected widget markup. */
         .review-card-google .rg-review-author,
         .review-card-google [class*="author"],
