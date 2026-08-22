@@ -1,4 +1,36 @@
+# ========================================================
+# robots.txt for https://ramyachandrachambers.com/
+# ========================================================
+
+# General Search Engine Crawlers (Google, Bing, Yahoo, etc.)
 User-agent: *
 Allow: /
 
+# Ensure search engines can access and render your scripts and styles
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Disallow sensitive or unnecessary backend paths (customize if needed)
+Disallow: /admin/
+Disallow: /private/
+
+# AI Search Crawlers (Ensures visibility in AI Overviews & AI Search engines)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# XML Sitemap Directive
 Sitemap: https://ramyachandrachambers.com/sitemap.xml
