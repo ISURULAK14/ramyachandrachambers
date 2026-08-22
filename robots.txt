@@ -6,7 +6,7 @@
 User-agent: *
 Allow: /
 
-# Ensure search engines can access and render your scripts and styles
+# Ensure search engines can access and render scripts and styles
 Allow: /*.js$
 Allow: /*.css$
 Allow: /*.png$
@@ -15,11 +15,11 @@ Allow: /*.jpeg$
 Allow: /*.svg$
 Allow: /*.webp$
 
-# Disallow sensitive or unnecessary backend paths (customize if needed)
+# Disallow sensitive or unnecessary backend paths
 Disallow: /admin/
 Disallow: /private/
 
-# AI Search Crawlers (Ensures visibility in AI Overviews & AI Search engines)
+# AI Search Crawlers
 User-agent: Google-Extended
 Allow: /
 
