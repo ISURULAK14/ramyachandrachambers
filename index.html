@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0KRJZFKLM"></script>
@@ -1229,7 +1233,7 @@
                     <img src="fort.gif" alt="Matara Fort near the Head Office" width="1061" height="585" loading="lazy" decoding="async">
                 </div>
                 <div class="map-container">
-                    <iframe src="https://maps.google.com/maps?q=WGVW%2BJ3%20Matara,%20Sri%20Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe>
+                    <iframe src="https://maps.google.com/maps?q=WGVW%2BJ3%20Matara,%20Sri%20Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed" title="Google Map showing the Matara Fort office" loading="lazy" allowfullscreen></iframe>
                 </div>
 
                 <div class="action-buttons">
@@ -1264,7 +1268,7 @@
                     <img src="kotavila2.gif" alt="Kamburugamuwa branch office view two" width="765" height="1020" loading="lazy" decoding="async">
                 </div>
                 <div class="map-container map-container-square">
-                    <iframe src="https://maps.google.com/maps?q=XF8W%2BRPQ%20Kamburugamuwa,%20Sri%20Lanka&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe>
+                    <iframe src="https://maps.google.com/maps?q=XF8W%2BRPQ%20Kamburugamuwa,%20Sri%20Lanka&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Google Map showing the Kamburugamuwa branch office" loading="lazy" allowfullscreen></iframe>
                 </div>
 
                 <div class="action-buttons">
@@ -1303,6 +1307,24 @@
         <p>This website is published for general information about the practice of Ramyachandra Gunasekera. All rights reserved.</p>
         <p>&copy; 2026 Ramyachandra Gunasekera. All rights reserved.</p>
     </footer>
+
+    <!-- Analytics interaction events -->
+    <script>
+        document.addEventListener('click', (event) => {
+            const target = event.target.closest('a[href], .accordion-header');
+            if (!target || typeof window.gtag !== 'function') return;
+            const href = target.getAttribute('href') || '';
+            if (href.startsWith('mailto:')) {
+                window.gtag('event', 'contact_email_click', { event_category: 'contact', link_url: href });
+            } else if (href.startsWith('tel:')) {
+                window.gtag('event', 'contact_phone_click', { event_category: 'contact', link_url: href });
+            } else if (href.includes('google.com/maps')) {
+                window.gtag('event', 'map_directions_click', { event_category: 'location', link_url: href });
+            } else if (target.classList.contains('accordion-header')) {
+                window.gtag('event', 'service_open', { event_category: 'services', service_name: target.querySelector('.accordion-title')?.textContent.trim() || 'service' });
+            }
+        });
+    </script>
 
     <!-- Interactive Scripts -->
     <script>
