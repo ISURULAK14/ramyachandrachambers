@@ -1034,6 +1034,63 @@
         .service-card.is-unwound, .service-card.is-unwound .accordion-header, .service-card.is-unwound::before, .service-card.is-unwound::after, .service-card.is-unwound .accordion-content::after { animation: none !important; transform: none !important; filter: none !important; }
         @media (max-width: 700px) { section { padding: 5.5rem 1.25rem; } #home { padding-top: 7.5rem; } .hero-title { width: 100%; max-width: 100%; font-size: clamp(2.55rem, 11.5vw, 4.6rem); letter-spacing: -.085em; } .hero-title-stepped .title-word { max-width: 100%; white-space: nowrap; } .nav-container { padding: 0 1.1rem; } }
         @media (prefers-reduced-motion: reduce) { .sparkle-space, .cursor-light { display: none !important; } .reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+        /* Human-centered editorial system: warm paper, ink, and one confident accent. */
+        :root {
+            --paper: #f7f6f2;
+            --paper-bright: #fffefa;
+            --ink: #20211f;
+            --ink-soft: #62645e;
+            --rule: rgba(32,33,31,.12);
+            --vermilion: #b84a3b;
+            --vermilion-dark: #933b30;
+            --sage: #6f8274;
+            --gold-soft: #bd9353;
+            --motion-ease: cubic-bezier(.16,1,.3,1);
+        }
+        html { background: var(--paper); }
+        body { color: var(--ink) !important; background: var(--paper) !important; background-image: radial-gradient(circle at 50% -15%, rgba(255,255,255,.96), transparent 42%), linear-gradient(120deg, rgba(255,255,255,.28), transparent 50%) !important; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif !important; line-height: 1.6; }
+        h1, h2, h3, h4, .serif, .logo, .stat-value, .review-text { font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif !important; letter-spacing: -.035em; }
+        nav { background: rgba(255,254,250,.78) !important; border-bottom: 1px solid var(--rule) !important; box-shadow: 0 1px 0 rgba(255,255,255,.86), 0 12px 30px rgba(32,33,31,.04) !important; backdrop-filter: blur(22px) saturate(120%) !important; -webkit-backdrop-filter: blur(22px) saturate(120%) !important; }
+        .logo, nav a, .nav-links a { color: var(--ink) !important; }
+        .logo { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif !important; font-size: 1.35rem; letter-spacing: -.04em; }
+        .logo svg { color: var(--vermilion) !important; filter: none !important; }
+        .nav-links a { font-size: .72rem; letter-spacing: .04em; font-weight: 600; }
+        .nav-links a::before { background: rgba(184,74,59,.08) !important; }
+        .nav-links a:hover, .nav-links a.active { color: var(--vermilion) !important; }
+        section { max-width: 1160px; padding: 8rem 2rem; }
+        #home { min-height: 100svh; padding-top: 9rem; padding-bottom: 5rem; }
+        .hero-title { max-width: 960px; color: var(--ink) !important; font-size: clamp(3.25rem, 8vw, 7.4rem); line-height: .96; letter-spacing: -.08em; font-weight: 600; text-shadow: none !important; }
+        .hero-title-stepped .unique-cap { color: var(--vermilion) !important; text-shadow: none !important; }
+        .hero-subtitle { color: var(--ink-soft) !important; max-width: 650px; font-size: clamp(1rem,1.5vw,1.15rem); line-height: 1.7; }
+        .glass-panel, .office-card, .static-card, .postcard-space, .banner-stats, .review-card-google, .central-contact-banner { background: rgba(255,254,250,.78) !important; border: 1px solid var(--rule) !important; box-shadow: 0 16px 40px rgba(32,33,31,.055), inset 0 1px 0 rgba(255,255,255,.82) !important; backdrop-filter: blur(18px) saturate(120%) !important; -webkit-backdrop-filter: blur(18px) saturate(120%) !important; }
+        .glass-panel::before, .glass-panel::after { display: none !important; }
+        .banner-stats { border-radius: 18px !important; }
+        .banner-stats .stat-value, .stat-value, .banner-stat-number { color: var(--vermilion) !important; font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif !important; }
+        .banner-stats .stat-label, .stat-label { color: var(--ink-soft) !important; }
+        .section-tag, .section-label, .eyebrow, .service-number { color: var(--vermilion) !important; background: rgba(184,74,59,.07) !important; border-color: rgba(184,74,59,.16) !important; }
+        .section-title, .accordion-title, .static-card h3, .office-name { color: var(--ink) !important; }
+        .section-desc, .about-text p, .static-card p, .accordion-inner, .hero-subtitle { color: var(--ink-soft) !important; }
+        .service-card, .review-card, .office-card, .static-card { border-color: var(--rule) !important; background: rgba(255,254,250,.7) !important; }
+        .service-card:hover, .office-card:hover, .static-card:hover, .review-card:hover { transform: translateY(-3px) !important; box-shadow: 0 12px 28px rgba(32,33,31,.08) !important; }
+        .interaction-icon { color: var(--vermilion) !important; background: rgba(184,74,59,.07) !important; border-color: rgba(184,74,59,.18) !important; }
+        .accordion-header:hover .interaction-icon, .service-card.is-open .interaction-icon { background: var(--vermilion) !important; color: #fff !important; border-color: var(--vermilion) !important; }
+        .btn-primary, .btn-outline:hover { background: var(--ink) !important; color: #fff !important; border-color: var(--ink) !important; box-shadow: none !important; }
+        .btn-primary:hover { background: var(--vermilion-dark) !important; transform: translateY(-2px) !important; }
+        .btn-outline { color: var(--ink) !important; background: rgba(255,254,250,.6) !important; border-color: rgba(32,33,31,.24) !important; }
+        .btn-outline:hover { background: var(--ink) !important; }
+        .contact-pill, .contact-pill a, .review-source a, .action-buttons a { color: var(--vermilion-dark) !important; }
+        a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 3px solid rgba(184,74,59,.48) !important; outline-offset: 4px; }
+        .sparkle-space { opacity: .42 !important; }
+        .cursor-light { width: 320px !important; height: 320px !important; opacity: .12 !important; filter: blur(30px) !important; background: radial-gradient(circle, rgba(184,74,59,.13), transparent 68%) !important; mix-blend-mode: multiply !important; }
+        body::before { display: none !important; }
+        .reveal { opacity: 0; transition: opacity .62s var(--motion-ease), transform .62s var(--motion-ease) !important; }
+        .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-flip { transform: translateY(14px) !important; }
+        .reveal.active { opacity: 1 !important; transform: none !important; }
+        .hero-title.reveal.active, .hero-subtitle.reveal.active, .banner-stats.reveal.active { animation: none !important; }
+        .hero-title-stepped .title-word { transform: none !important; }
+        @media (max-width: 700px) { section { padding: 5.5rem 1.25rem; } #home { padding-top: 7.8rem; } .hero-title { width: 100%; max-width: 100%; font-size: clamp(2.55rem, 11.5vw, 4.6rem); letter-spacing: -.085em; } .hero-title-stepped .title-word { max-width: 100%; white-space: nowrap; } .nav-container { padding: 0 1.1rem; } }
+        @media (prefers-reduced-motion: reduce) { .sparkle-space, .cursor-light { display: none !important; } .reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
     </style>
 </head>
 <body>
@@ -1663,63 +1720,66 @@
         })();
     </script>
 
-    <!-- Subtle depth-based sparkle field: premium ambient motion without shader dependencies. -->
+    <!-- Ambient 3D field: a lightweight, content-safe scene with parallax depth. -->
     <script>
         (() => {
             const canvas = document.getElementById('sparkle-space');
             const context = canvas?.getContext('2d', { alpha: true });
             if (!context) return;
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-            const stars = Array.from({ length: 92 }, (_, index) => ({
-                x: Math.random() * 2 - 1,
-                y: Math.random() * 2 - 1,
-                z: Math.random(),
-                size: .35 + Math.random() * 1.7,
-                phase: Math.random() * Math.PI * 2,
-                speed: .35 + Math.random() * .9,
-                warm: index % 5 === 0
+            const prefersCoarse = matchMedia('(pointer: coarse)').matches;
+            const count = Math.min(prefersCoarse ? 34 : 54, Math.max(26, Math.floor(innerWidth / 24)));
+            const particles = Array.from({ length: count }, (_, index) => ({
+                x: Math.random() * 2 - 1, y: Math.random() * 2 - 1, z: .15 + Math.random() * .85,
+                r: .65 + Math.random() * 2.1, phase: Math.random() * Math.PI * 2,
+                speed: .035 + Math.random() * .055, hue: index % 4 === 0 ? '184,74,59' : index % 3 === 0 ? '111,130,116' : '189,147,83'
             }));
-            let width = 0, height = 0, frame = 0;
+            const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+            let width = 0, height = 0, frame = 0, last = 0;
             const resize = () => {
-                const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
-                width = canvas.clientWidth = window.innerWidth;
-                height = canvas.clientHeight = window.innerHeight;
-                canvas.width = Math.floor(width * ratio);
-                canvas.height = Math.floor(height * ratio);
+                const ratio = Math.min(devicePixelRatio || 1, 1.5);
+                width = innerWidth; height = innerHeight;
+                canvas.width = Math.floor(width * ratio); canvas.height = Math.floor(height * ratio);
+                canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
                 context.setTransform(ratio, 0, 0, ratio, 0, 0);
             };
+            const project = (particle, time) => {
+                const orbit = time * particle.speed + particle.phase;
+                const z = .46 + .54 * ((Math.sin(orbit) + 1) / 2) * particle.z;
+                const spread = Math.min(width, height) * (.2 + z * .42);
+                return { x: width / 2 + particle.x * spread + pointer.x * z * 18, y: height / 2 + particle.y * spread + pointer.y * z * 12, z };
+            };
             const draw = now => {
-                const t = now * .001;
+                if (document.hidden) { frame = 0; return; }
+                if (now - last < 24 && !reduceMotion.matches) { frame = requestAnimationFrame(draw); return; }
+                last = now;
+                const time = now * .001;
+                pointer.x += (pointer.tx - pointer.x) * .045; pointer.y += (pointer.ty - pointer.y) * .045;
                 context.clearRect(0, 0, width, height);
-                const focal = Math.min(width, height) * .42;
-                stars.forEach(star => {
-                    const depth = (star.z + (reduceMotion.matches ? 0 : t * .012 * star.speed)) % 1;
-                    const scale = .22 + depth * 1.18;
-                    const x = width * .5 + star.x * focal * scale;
-                    const y = height * .5 + star.y * focal * scale;
-                    if (x < -10 || x > width + 10 || y < -10 || y > height + 10) return;
-                    const pulse = reduceMotion.matches ? .72 : .44 + .36 * Math.sin(t * star.speed + star.phase);
-                    const radius = star.size * (.45 + depth * .95);
-                    const color = star.warm ? '214,179,106' : '130,181,255';
-                    context.beginPath();
-                    context.fillStyle = `rgba(${color},${pulse * (.22 + depth * .52)})`;
-                    context.arc(x, y, radius, 0, Math.PI * 2);
-                    context.fill();
-                    if (depth > .58 && star.size > 1.15) {
-                        context.strokeStyle = `rgba(${color},${pulse * .18})`;
-                        context.lineWidth = .7;
-                        context.beginPath();
-                        context.moveTo(x - radius * 3.2, y); context.lineTo(x + radius * 3.2, y);
-                        context.moveTo(x, y - radius * 3.2); context.lineTo(x, y + radius * 3.2);
-                        context.stroke();
+                const points = particles.map(p => ({ p, ...project(p, time) })).sort((a,b) => a.z - b.z);
+                points.forEach((point, index) => {
+                    const radius = point.p.r * (.45 + point.z * .9);
+                    const alpha = .05 + point.z * .12;
+                    const glow = context.createRadialGradient(point.x, point.y, 0, point.x, point.y, radius * 6);
+                    glow.addColorStop(0, `rgba(${point.p.hue},${alpha * 1.7})`); glow.addColorStop(1, `rgba(${point.p.hue},0)`);
+                    context.fillStyle = glow; context.beginPath(); context.arc(point.x, point.y, radius * 6, 0, Math.PI * 2); context.fill();
+                    context.fillStyle = `rgba(${point.p.hue},${alpha + .05})`; context.beginPath(); context.arc(point.x, point.y, radius, 0, Math.PI * 2); context.fill();
+                    if (point.z > .7 && index % 4 === 0) {
+                        context.strokeStyle = `rgba(${point.p.hue},${alpha * .65})`; context.lineWidth = .7; context.beginPath();
+                        context.moveTo(point.x - radius * 3, point.y); context.lineTo(point.x + radius * 3, point.y);
+                        context.moveTo(point.x, point.y - radius * 3); context.lineTo(point.x, point.y + radius * 3); context.stroke();
                     }
                 });
+                for (let i = 0; i < points.length; i++) for (let j = i + 1; j < points.length; j++) {
+                    const a = points[i], b = points[j], dx = a.x - b.x, dy = a.y - b.y, distance = Math.hypot(dx, dy);
+                    if (distance < 125 && a.z > .48 && b.z > .48) { context.strokeStyle = `rgba(111,130,116,${.018 * Math.min(a.z,b.z)})`; context.lineWidth = .7; context.beginPath(); context.moveTo(a.x,a.y); context.lineTo(b.x,b.y); context.stroke(); }
+                }
                 if (!reduceMotion.matches) frame = requestAnimationFrame(draw);
             };
-            resize();
+            addEventListener('pointermove', event => { pointer.tx = (event.clientX / innerWidth - .5) * 2; pointer.ty = (event.clientY / innerHeight - .5) * 2; }, { passive: true });
             addEventListener('resize', resize, { passive: true });
-            addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(frame); else if (!reduceMotion.matches) frame = requestAnimationFrame(draw); });
-            frame = requestAnimationFrame(draw);
+            addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(frame); else if (!reduceMotion.matches && !frame) frame = requestAnimationFrame(draw); });
+            resize(); frame = requestAnimationFrame(draw);
         })();
     </script>
 </body>
