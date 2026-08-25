@@ -1160,6 +1160,53 @@
         .glass-panel, .office-card, .static-card, .postcard-space, .review-card-google, .central-contact-banner { background: rgba(255,254,250,.82) !important; }
         @media (max-width: 700px) { body { background-attachment: scroll; } body::after { opacity: .16; } .ambient-light-field { opacity: .18; } }
         @media (prefers-reduced-motion: reduce) { .ambient-light-field { display: none; } }
+
+        /* Hybrid luxury-modern brand system: law-firm authority with contemporary digital polish. */
+        :root { --lux-navy: #0d1726; --lux-navy-2: #132338; --lux-ivory: #f5f1e8; --lux-ivory-muted: #b7c0cc; --lux-gold: #d4ad62; --lux-gold-soft: #ecd59b; --lux-blue: #65a9ff; --lux-line: rgba(245,241,232,.15); --lux-surface: rgba(19,35,56,.76); --lux-ease: cubic-bezier(.16,1,.3,1); }
+        html { background: var(--lux-navy) !important; }
+        body { background: var(--lux-navy) !important; background-image: radial-gradient(circle at 12% 5%, rgba(212,173,98,.12), transparent 24%), radial-gradient(circle at 92% 20%, rgba(47,140,255,.12), transparent 28%), linear-gradient(140deg, #08111f 0%, #0e1a2a 52%, #091321 100%) !important; color: var(--lux-ivory) !important; }
+        body::after { opacity: .16; background: radial-gradient(ellipse 46% 34% at 10% 80%, rgba(212,173,98,.08), transparent 72%), radial-gradient(ellipse 38% 30% at 92% 72%, rgba(47,140,255,.08), transparent 72%); }
+        .ambient-light-field { opacity: .22; mix-blend-mode: screen; }
+        body > nav, body > section, body > footer { position: relative; z-index: 2; }
+        nav { height: 76px; background: rgba(8,17,31,.78) !important; border-bottom: 1px solid var(--lux-line) !important; box-shadow: 0 8px 30px rgba(0,0,0,.2) !important; backdrop-filter: blur(22px) saturate(130%) !important; -webkit-backdrop-filter: blur(22px) saturate(130%) !important; }
+        .nav-container { max-width: 1280px; padding: 0 2.5rem; }
+        .logo { color: var(--lux-ivory) !important; font-size: 1.18rem; letter-spacing: -.035em; }
+        .logo svg { color: var(--lux-gold) !important; }
+        .nav-links { gap: .25rem; }
+        .nav-links a { color: rgba(245,241,232,.68) !important; border-radius: 999px; padding: .62rem .8rem; font-size: .66rem; letter-spacing: .085em; font-weight: 700; transition: color .28s ease, background-color .28s ease, transform .42s var(--lux-ease); }
+        .nav-links a:hover { color: var(--lux-ivory) !important; background: rgba(212,173,98,.1); transform: translateY(-1px); }
+        .nav-links a.active { color: var(--lux-gold-soft) !important; background: rgba(212,173,98,.13); }
+        section { max-width: 1280px; padding: 9.5rem 2.5rem; }
+        #home { min-height: 100svh; padding-top: 10rem; padding-bottom: 7rem; }
+        .hero-title { max-width: 1080px; color: var(--lux-ivory) !important; font-size: clamp(3.6rem, 8vw, 8.6rem) !important; line-height: .91 !important; letter-spacing: -.09em !important; font-weight: 650 !important; }
+        .hero-title .title-word, .hero-title .title-first-three { color: var(--lux-ivory) !important; }
+        .hero-title .unique-cap { color: var(--lux-gold) !important; }
+        .hero-title-stepped .title-word { width: max-content; max-width: 100%; }
+        .hero-title-stepped .unique-cap { color: var(--lux-gold) !important; text-shadow: 0 0 32px rgba(212,173,98,.16) !important; }
+        .hero-subtitle { max-width: 650px; color: var(--lux-ivory-muted) !important; font-size: clamp(1rem,1.4vw,1.16rem); line-height: 1.72; }
+        .banner-stats { width: min(100%, 800px); background: linear-gradient(120deg, rgba(19,35,56,.86), rgba(16,29,47,.62)) !important; border: 1px solid var(--lux-line) !important; border-radius: 20px !important; box-shadow: 0 24px 70px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.08) !important; backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important; }
+        .banner-stats .stat-value, .stat-value, .banner-stat-number { color: var(--lux-gold-soft) !important; font-size: clamp(2.3rem,4vw,3.8rem); }
+        .banner-stats .stat-label, .stat-label { color: rgba(245,241,232,.62) !important; }
+        .section-tag, .section-label, .eyebrow, .service-number { color: var(--lux-gold-soft) !important; background: rgba(212,173,98,.1) !important; border: 1px solid rgba(212,173,98,.24) !important; }
+        .section-title { color: var(--lux-ivory) !important; font-size: clamp(2.8rem,5vw,5.6rem); letter-spacing: -.075em !important; }
+        .section-desc, .about-text p, .static-card p, .accordion-inner, .hero-subtitle { color: var(--lux-ivory-muted) !important; }
+        .glass-panel, .office-card, .static-card, .postcard-space, .review-card-google, .central-contact-banner { background: var(--lux-surface) !important; border: 1px solid var(--lux-line) !important; border-radius: 18px !important; box-shadow: 0 20px 56px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.07) !important; backdrop-filter: blur(18px) saturate(120%) !important; -webkit-backdrop-filter: blur(18px) saturate(120%) !important; }
+        .service-card, .review-card, .office-card, .static-card { background: rgba(19,35,56,.72) !important; border-color: var(--lux-line) !important; transition: transform .52s var(--lux-ease), box-shadow .52s var(--lux-ease), border-color .3s ease; }
+        .service-card:hover, .office-card:hover, .static-card:hover, .review-card:hover { transform: translateY(-6px); border-color: rgba(212,173,98,.36) !important; box-shadow: 0 26px 60px rgba(0,0,0,.28), 0 0 0 1px rgba(212,173,98,.08) !important; }
+        .service-card.is-open { border-color: rgba(212,173,98,.38) !important; }
+        .accordion-title, .static-card h3, .office-name { color: var(--lux-ivory) !important; }
+        .interaction-icon { color: var(--lux-gold-soft) !important; background: rgba(212,173,98,.1) !important; border-color: rgba(212,173,98,.25) !important; }
+        .accordion-header:hover .interaction-icon, .service-card.is-open .interaction-icon { background: var(--lux-gold) !important; color: var(--lux-navy) !important; border-color: var(--lux-gold) !important; }
+        .btn-primary { background: var(--lux-gold) !important; color: var(--lux-navy) !important; border-color: var(--lux-gold) !important; box-shadow: 0 10px 26px rgba(212,173,98,.18) !important; font-weight: 800; }
+        .btn-primary:hover { background: var(--lux-gold-soft) !important; color: var(--lux-navy) !important; transform: translateY(-3px) !important; }
+        .btn-outline { color: var(--lux-ivory) !important; background: transparent !important; border-color: rgba(245,241,232,.32) !important; }
+        .btn-outline:hover { color: var(--lux-navy) !important; background: var(--lux-ivory) !important; border-color: var(--lux-ivory) !important; }
+        .contact-pill, .contact-pill a, .review-source a, .action-buttons a { color: var(--lux-gold-soft) !important; }
+        .review-text { color: var(--lux-ivory) !important; }
+        .stars, .review-stars { color: var(--lux-gold) !important; }
+        a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--lux-blue) !important; outline-offset: 4px; }
+        .reveal { transition: opacity .62s var(--lux-ease), transform .62s var(--lux-ease) !important; }
+        @media (max-width: 700px) { nav { min-height: 70px; } .nav-container { padding: .75rem 1.1rem; } section { padding: 6.5rem 1.25rem; } #home { padding-top: 8.6rem; } .hero-title { font-size: clamp(2.85rem, 13vw, 5.4rem) !important; line-height: .95 !important; } .hero-subtitle { font-size: 1rem; } .banner-stats { margin-top: 2.6rem; } }
     </style>
 </head>
 <body>
@@ -1780,10 +1827,16 @@
             if (matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('(pointer: coarse)').matches) return;
             const cards = [...document.querySelectorAll('.service-card, .office-card, .review-card, .static-card')];
             cards.forEach(card => {
-                let frame = 0, tx = 0, ty = 0, rx = 0, ry = 0;
-                const render = () => { rx += (ty - rx) * .14; ry += (tx - ry) * .14; card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`; frame = 0; };
+                let frame = 0, active = false, tx = 0, ty = 0, rx = 0, ry = 0;
+                const render = () => {
+                    rx += (ty - rx) * .13; ry += (tx - ry) * .13;
+                    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(${active ? -4 : 0}px)`;
+                    const settling = Math.abs(rx - ty) > .01 || Math.abs(ry - tx) > .01;
+                    if (active || settling) frame = requestAnimationFrame(render); else { frame = 0; card.style.transform = ''; }
+                };
+                card.addEventListener('pointerenter', () => { active = true; if (!frame) frame = requestAnimationFrame(render); }, { passive: true });
                 card.addEventListener('pointermove', event => { const rect = card.getBoundingClientRect(); tx = ((event.clientX - rect.left) / rect.width - .5) * 2.2; ty = -((event.clientY - rect.top) / rect.height - .5) * 2.2; if (!frame) frame = requestAnimationFrame(render); }, { passive: true });
-                card.addEventListener('pointerleave', () => { tx = 0; ty = 0; card.style.transform = ''; });
+                card.addEventListener('pointerleave', () => { active = false; tx = 0; ty = 0; if (!frame) frame = requestAnimationFrame(render); });
             });
         })();
     </script>
@@ -1796,10 +1849,10 @@
             if (!ctx || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             const coarse = matchMedia('(pointer: coarse)').matches;
             const blobs = [
-                { x: .14, y: .2, size: .34, color: [167,66,53], speed: .18, phase: .2 },
-                { x: .82, y: .27, size: .3, color: [113,132,119], speed: .14, phase: 2.3 },
-                { x: .64, y: .82, size: .38, color: [189,147,83], speed: .12, phase: 4.1 },
-                { x: .23, y: .76, size: .24, color: [86,126,161], speed: .16, phase: 5.4 }
+                { x: .14, y: .2, size: .34, color: [212,173,98], speed: .18, phase: .2 },
+                { x: .82, y: .27, size: .3, color: [47,140,255], speed: .14, phase: 2.3 },
+                { x: .64, y: .82, size: .38, color: [236,213,155], speed: .12, phase: 4.1 },
+                { x: .23, y: .76, size: .24, color: [101,169,255], speed: .16, phase: 5.4 }
             ];
             const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
             let width = 0, height = 0, ratio = 1, raf = 0, last = 0;
