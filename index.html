@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <!-- Primary Meta Tags -->
     <title>RAMYACHANDRA CHAMBERS</title>
     <meta name="title" content="Ramya Chandra Chambers - Advocate & Legal Consultant">
-    <meta name="description" content="Ramya Chandra Chambers offers professional legal services including civil, criminal, and family law. Experienced advocate dedicated to protecting your rights.">
-    <meta name="keywords" content="advocate, lawyer, legal services, Ramya Chandra Chambers, law firm, legal consultant, civil law, criminal law, family law">
+    <meta name="description" content="Ramya Chandra Chambers provides trusted legal services in Sri Lanka, including civil, criminal, family, property, land and business law, with consultations for local and international clients.">
+    <meta name="keywords" content="Sri Lanka lawyer, Sri Lankan advocate, law chambers Sri Lanka, lawyer in Matara, lawyer in Colombo, civil lawyer Sri Lanka, criminal lawyer Sri Lanka, family lawyer Sri Lanka, property and land lawyer Sri Lanka, legal consultant Sri Lanka, business lawyer Sri Lanka, international legal consultation Sri Lanka, Ramya Chandra Chambers">
     <meta name="author" content="Ramya Chandra Chambers">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
@@ -30,13 +30,21 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://ramyachandrachambers.com/">
     <meta name="twitter:title" content="Ramya Chandra Chambers - Advocate & Legal Consultant">
-    <meta name="twitter:description" content="Ramya Chandra Chambers offers professional legal services including civil, criminal, and family law.">
+    <meta name="twitter:description" content="Trusted legal services in Sri Lanka for civil, criminal, family, property, land and business matters, serving local and international clients.">
     <meta name="twitter:image" content="https://ramyachandrachambers.com/photo.gif">
 
     <!-- Additional SEO -->
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#0b1720">
+    <meta name="application-name" content="Ramya Chandra Chambers">
+    <meta name="apple-mobile-web-app-title" content="RG Chambers">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="geo.region" content="LK">
+    <meta name="geo.country" content="Sri Lanka">
+    <meta property="og:locale" content="en_LK">
     <link rel="icon" type="image/jpeg" href="favicon.jfif">
     <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif">
     <meta name="color-scheme" content="dark light">
@@ -257,7 +265,7 @@
             padding: 1rem 0; transition: all 0.4s ease;
         }
 
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .nav-container { width: 100%; max-width: 1600px; box-sizing: border-box; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 clamp(1.25rem, 3vw, 3.25rem); }
 
         .logo { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--text-primary); text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 12px; }
         .logo svg { width: 32px; height: 32px; color: var(--accent-main); filter: drop-shadow(0 2px 5px rgba(120,120,120,0.3)); }
@@ -285,7 +293,7 @@
         .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500; }
 
         /* General Section Styles */
-        section { padding: 7rem 2rem; max-width: 1200px; margin: 0 auto; }
+        section { width: 100%; box-sizing: border-box; padding: 7rem clamp(1.25rem, 3vw, 3.25rem); max-width: 1600px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 4rem; }
         .section-tag {
             color: var(--accent-main); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 500; margin-bottom: 1rem;
@@ -469,8 +477,6 @@
             --bg-texture: radial-gradient(circle at 18% 12%, rgba(197,168,112,.08), transparent 26%), radial-gradient(circle at 82% 75%, rgba(68,107,122,.1), transparent 30%), repeating-linear-gradient(94deg, rgba(255,255,255,.018) 0 1px, transparent 1px 5px), repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 4px), linear-gradient(135deg, #121c2b 0%, #1a2b3d 42%, #0f1724 100%);
         }
         body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .42; background: repeating-linear-gradient(12deg, transparent 0 8px, rgba(255,255,255,.018) 8px 9px), repeating-linear-gradient(102deg, transparent 0 14px, rgba(0,0,0,.04) 14px 15px); mix-blend-mode: overlay; }
-        .cursor-light { position: fixed; width: 360px; height: 360px; left: 0; top: 0; border-radius: 50%; pointer-events: none; z-index: 0; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(214,183,124,.16) 0%, rgba(55,137,151,.08) 28%, transparent 68%); filter: blur(8px); opacity: .9; transition: opacity .25s ease; }
-        body > *:not(.cursor-light) { position: relative; z-index: 1; }
         .map-wrapper { background-color: rgba(8,18,31,.45); background-blend-mode: screen; box-shadow: inset 0 0 80px rgba(0,0,0,.3), 0 25px 70px rgba(0,0,0,.24); }
         .map-pin { transition: opacity .8s var(--smooth), transform .8s var(--smooth), filter .8s ease; }
         .map-pin.active { transform: translate(-50%, -50%) scale(1.16); filter: saturate(1.25); }
@@ -479,7 +485,7 @@
         .review-source a:hover { color: var(--accent-main); }
         .contact-pill a, .office-detail a { text-decoration: none; }
         .contact-pill a[href^="mailto"], .office-detail a[href^="tel"] { color: inherit; border-bottom: 1px solid rgba(214,183,124,.42); }
-        @media (prefers-reduced-motion: reduce) { .cursor-light { display: none; } .map-pin, .accordion-content { transition-duration: .01ms !important; } }
+ .accordion-content { transition-duration: .01ms !important; } }
         /* Second refinement pass: stepped title glass, persistent nav, richer glass, and calmer motion */
         .hero-title-stepped { display: flex; flex-direction: column; align-items: center; gap: .04em; font-size: clamp(3rem, 7vw, 5.9rem); line-height: .92; letter-spacing: .015em; text-shadow: 0 18px 42px rgba(0,0,0,.55); }
         .hero-title-stepped .title-word { display: inline-block; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--text-primary); }
@@ -589,8 +595,6 @@
         .glass-panel, .theme-toggle-pill, nav { box-shadow: 0 30px 80px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.22), inset 0 -24px 48px rgba(0,0,0,.12); }
         .glass-panel::before { background: linear-gradient(105deg, transparent 10%, rgba(255,255,255,.12) 40%, transparent 63%); opacity: .72; }
         .glass-panel::after { opacity: .82; }
-        /* Small, visible cursor illumination rather than a large diffuse halo. */
-        .cursor-light { width: 92px !important; height: 92px !important; filter: blur(3px) !important; background: radial-gradient(circle, rgba(214,183,124,.22) 0%, rgba(78,204,214,.08) 34%, transparent 72%) !important; opacity: .72 !important; }
         @media (max-width: 600px) { .fort-gallery { aspect-ratio: 16 / 9; } .reviewer-meta img { width: 40px; height: 40px; } }
         /* Precision title alignment: equal rhythm, controlled step, and no accidental drift */
         .hero-title-stepped { width: min(100%, 980px); margin-inline: auto; align-items: center; gap: .08em; line-height: .96; --title-step: clamp(2.4rem, 5.1vw, 5.6rem); }
@@ -618,15 +622,968 @@
         .map-pin:nth-child(4n+1) .pin-label { transform: translateX(-50%) translateY(0) scale(1); }
         .map-pin:nth-child(4n+2) .pin-label { transform: translateX(-50%) translateY(0) scale(1); }
         .map-pin:nth-child(4n+3) .pin-label { transform: translateX(-50%) translateY(0) scale(1); }
-        @media (max-width: 600px) { .pin-label { max-width: 112px; font-size: .62rem; padding: .36rem .55rem; } }
+        /* Four active map labels use separate lanes so nearby countries never overlap. */
+        .map-pin.active[data-label-slot="0"] .pin-label { transform: translateX(-100%) translateY(-8px) scale(1); }
+        .map-pin.active[data-label-slot="1"] .pin-label { transform: translateX(0) translateY(-8px) scale(1); }
+        .map-pin.active[data-label-slot="2"] .pin-label { transform: translateX(-100%) translateY(38px) scale(1); }
+        .map-pin.active[data-label-slot="3"] .pin-label { transform: translateX(0) translateY(38px) scale(1); }
+        .map-pin.active[data-label-slot="2"] .pin-label::after,
+        .map-pin.active[data-label-slot="3"] .pin-label::after { top: -5px; bottom: auto; border-width: 0 5px 5px; border-color: transparent transparent var(--glass-border-side); }
+        @media (max-width: 600px) {
+            .pin-label { max-width: 112px; font-size: .62rem; padding: .36rem .55rem; }
+            .map-pin.active[data-label-slot="0"] .pin-label { transform: translateX(-100%) translateY(-6px) scale(1); }
+            .map-pin.active[data-label-slot="1"] .pin-label { transform: translateX(0) translateY(-6px) scale(1); }
+            .map-pin.active[data-label-slot="2"] .pin-label { transform: translateX(-100%) translateY(34px) scale(1); }
+            .map-pin.active[data-label-slot="3"] .pin-label { transform: translateX(0) translateY(34px) scale(1); }
+        }
+        /* The four-item legend is the collision-free label layer; map pins remain visually active. */
+        .map-pin.active .pin-label { opacity: 0 !important; pointer-events: none; }
+        .map-active-countries {
+            position: absolute;
+            left: 1.25rem;
+            right: 1.25rem;
+            bottom: 1.25rem;
+            z-index: 50;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: .6rem;
+            pointer-events: none;
+        }
+        .map-active-country {
+            min-width: 0;
+            padding: .55rem .7rem;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.3);
+            border-radius: 999px;
+            background: rgba(5,16,28,.68);
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.2);
+            backdrop-filter: blur(12px) saturate(145%);
+            -webkit-backdrop-filter: blur(12px) saturate(145%);
+            text-align: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            animation: countryLegendIn .55s var(--smooth) both;
+        }
+        /* Labels sit beside their pins; the script selects the clearest side per country. */
+        .map-pin.active .pin-label {
+            opacity: 1 !important;
+            visibility: visible;
+            z-index: 100;
+            max-width: 128px;
+            padding: .42rem .62rem;
+            background: rgba(5,16,28,.82);
+            border-color: rgba(255,255,255,.38);
+            box-shadow: 0 8px 22px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.22);
+            transform: none !important;
+        }
+        .map-active-countries { display: none !important; }
+        .map-pin.active .pin-label[data-placement="right"]::after { left: -5px; top: 50%; bottom: auto; border-width: 5px 5px 5px 0; border-color: transparent var(--glass-border-side) transparent transparent; }
+        .map-pin.active .pin-label[data-placement="left"]::after { right: -5px; left: auto; top: 50%; bottom: auto; border-width: 5px 0 5px 5px; border-color: transparent transparent transparent var(--glass-border-side); }
+        .map-pin.active .pin-label[data-placement="top"]::after { left: 50%; top: auto; bottom: -5px; border-width: 5px 5px 0; border-color: var(--glass-border-side) transparent transparent; }
+        .map-pin.active .pin-label[data-placement="bottom"]::after { left: 50%; top: -5px; bottom: auto; border-width: 0 5px 5px; border-color: transparent transparent var(--glass-border-side); }
+        @keyframes countryLegendIn { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @media (max-width: 600px) {
+            .map-active-countries { left: .6rem; right: .6rem; bottom: .6rem; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; }
+            .map-active-country { padding: .42rem .45rem; font-size: .55rem; }
+        }
+
+        /* Smooth tab-to-section transitions and gentle page arrival motion. */
+        html { scroll-behavior: auto; }
+        section { scroll-margin-top: 96px; }
+        section.section-arrival { animation: sectionArrival .9s cubic-bezier(.22,1,.36,1) both; }
+        @keyframes sectionArrival {
+            0% { opacity: .72; transform: translateY(24px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .nav-links a { will-change: color, transform, background-color; }
+        .nav-links a::before { transition: opacity .45s var(--smooth), transform .45s var(--smooth), background-color .45s ease, box-shadow .45s ease; }
+        .nav-links a.active { transform: translateY(-1px); }
+        .nav-links a.active::before { box-shadow: 0 0 22px rgba(197,168,112,.28), inset 0 1px 0 rgba(255,255,255,.22); }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            section.section-arrival { animation: none; }
+            .nav-links a, .nav-links a::before { transition: none !important; }
+        }
+
+        /* Full glassmorphism finish: transparent depth, luminous edges, and layered refraction. */
+        .glass-panel,
+        .office-card,
+        .central-contact-banner,
+        .banner-stats,
+        .residence-card {
+            background:
+                linear-gradient(135deg, rgba(255,255,255,.19) 0%, rgba(255,255,255,.07) 28%, rgba(22,46,70,.22) 64%, rgba(4,14,28,.28) 100%),
+                rgba(255,255,255,.045) !important;
+            border: 1px solid rgba(255,255,255,.22) !important;
+            border-top-color: rgba(255,255,255,.58) !important;
+            border-left-color: rgba(255,255,255,.36) !important;
+            box-shadow:
+                0 30px 90px rgba(0,0,0,.38),
+                inset 0 1px 0 rgba(255,255,255,.32),
+                inset 0 -28px 60px rgba(0,0,0,.14),
+                inset 18px 0 35px rgba(255,255,255,.035) !important;
+            backdrop-filter: blur(34px) saturate(165%) contrast(105%) !important;
+            -webkit-backdrop-filter: blur(34px) saturate(165%) contrast(105%) !important;
+        }
+        .glass-panel::after,
+        .office-card::after,
+        .central-contact-banner::after,
+        .banner-stats::after,
+        .residence-card::after {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            pointer-events: none;
+            border-radius: inherit;
+            background:
+                linear-gradient(118deg, rgba(255,255,255,.2), transparent 25%, transparent 72%, rgba(197,168,112,.1)),
+                radial-gradient(circle at 15% 0%, rgba(255,255,255,.16), transparent 32%);
+            mix-blend-mode: screen;
+            opacity: .9;
+        }
+        .glass-panel:hover,
+        .office-card:hover,
+        .central-contact-banner:hover,
+        .residence-card:hover {
+            border-top-color: rgba(255,255,255,.78) !important;
+            box-shadow:
+                0 38px 105px rgba(0,0,0,.46),
+                0 0 32px rgba(119,213,220,.07),
+                inset 0 1px 0 rgba(255,255,255,.42),
+                inset 0 -28px 60px rgba(0,0,0,.12) !important;
+            transform: translateY(-4px);
+        }
+        .office-card-1,
+        .office-card-2 {
+            background:
+                linear-gradient(135deg, rgba(108,154,255,.16), rgba(255,255,255,.05) 42%, rgba(7,18,34,.28)),
+                rgba(255,255,255,.045) !important;
+        }
+        .office-card-2 {
+            background:
+                linear-gradient(135deg, rgba(64,209,189,.16), rgba(255,255,255,.05) 42%, rgba(7,22,31,.28)),
+                rgba(255,255,255,.045) !important;
+        }
+        .residence-card {
+            width: 100%;
+            margin-top: 3rem;
+            padding: 2.2rem 3rem;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            border-radius: 18px;
+            position: relative;
+            overflow: hidden;
+            transition: transform .45s var(--smooth), box-shadow .45s ease, border-color .45s ease;
+        }
+        .residence-card .residence-icon {
+            flex: 0 0 54px;
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            color: var(--accent-main);
+            border-radius: 50%;
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.28);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 12px 28px rgba(0,0,0,.2);
+        }
+        .residence-card .residence-icon svg { width: 25px; height: 25px; }
+        .residence-card-copy { position: relative; z-index: 1; }
+        .residence-label {
+            display: block;
+            margin-bottom: .35rem;
+            color: var(--accent-main);
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .residence-address {
+            color: var(--text-primary);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.45rem, 2.3vw, 2.15rem);
+            line-height: 1.15;
+            letter-spacing: .03em;
+        }
+        .residence-card-copy { flex: 1 1 260px; min-width: 0; }
+        .office-card, .residence-card { font-family: 'Montserrat', sans-serif; }
+        .office-card .office-name, .residence-card .residence-address {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            line-height: 1.15;
+        }
+        .residence-card.office-card { padding: 2.2rem 3rem; }
+        .residence-card .office-tag { margin-bottom: .8rem; }
+        .residence-card .office-name { margin-bottom: .8rem; }
+        .residence-card .office-detail { margin-bottom: 0; max-width: 520px; }
+        .residence-card .office-detail svg { flex: 0 0 auto; color: var(--accent-main); }
+        .residence-card .residence-card-copy { position: relative; z-index: 1; }
+        .residence-card .residence-map-container { align-self: center; }
+        .residence-map-container {
+            flex: 0 0 clamp(210px, 26vw, 300px);
+            width: clamp(210px, 26vw, 300px);
+            aspect-ratio: 1 / 1;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,.24);
+            background: rgba(4,14,28,.24);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.24), 0 18px 36px rgba(0,0,0,.22);
+        }
+        .residence-map-container iframe { display: block; width: 100%; height: 100%; border: 0; filter: saturate(.82) contrast(1.04); }
+
+        /* Service rows unfold together with a soft stagger while untouched rows remain intact. */
+        .services-grid { transition: grid-template-columns .62s var(--smooth), gap .62s var(--smooth); }
+        .services-grid.row-open:has(.service-card.is-open) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .services-grid.row-open::after { display: none; }
+        .services-grid.row-open .service-card.is-open { grid-column: auto; width: 100%; }
+        .services-grid .service-card { transform-origin: center top; transition: transform .55s var(--smooth), box-shadow .55s var(--smooth), border-color .45s ease, opacity .45s ease; }
+        .services-grid .service-card.is-opening { animation: serviceRowUnfold .72s var(--smooth) both; animation-delay: var(--service-delay, 0ms); }
+        @keyframes serviceRowUnfold {
+            0% { opacity: .45; transform: translateY(22px) scale(.975); filter: blur(2px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        .services-grid .service-card.is-open { border-top-color: rgba(255,255,255,.7) !important; }
+        @media (max-width: 900px) {
+            .services-grid.row-open { grid-template-columns: 1fr; }
+            .residence-card { flex-wrap: wrap; }
+            .residence-map-container { flex-basis: min(100%, 360px); width: min(100%, 360px); height: auto; aspect-ratio: 1 / 1; margin-inline: auto; }
+        }
+        @media (max-width: 600px) {
+            .residence-card { align-items: flex-start; padding: 1.5rem; gap: 1rem; margin-top: 1.8rem; }
+            .residence-card .residence-icon { flex-basis: 44px; width: 44px; height: 44px; }
+            .residence-card .residence-icon svg { width: 20px; height: 20px; }
+            .office-card .office-name, .residence-card .residence-address { font-size: 1.7rem; }
+            .residence-map-container { width: min(100%, 300px); flex-basis: min(100%, 300px); height: auto; aspect-ratio: 1 / 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .services-grid, .services-grid .service-card { transition: none !important; }
+            .services-grid .service-card.is-opening { animation: none !important; }
+        }
+
+        /* Geographic correction: align pins to their country positions on the full map canvas. */
+        .map-wrapper { background-size: 100% 100% !important; }
+        .pin-usa { top: 28.3%; left: 22.8%; }
+        .pin-romania { top: 24.4%; left: 56.9%; }
+        .pin-malaysia { top: 47.8%; left: 78.3%; }
+        .pin-portugal { top: 28%; left: 47.8%; }
+        .pin-uae { top: 36.7%; left: 65%; }
+        .pin-netherlands { top: 21.1%; left: 51.5%; }
+        .pin-sweden { top: 15.6%; left: 54.2%; }
+        .pin-slovakia { top: 23%; left: 55.5%; }
+        .pin-latvia { top: 18.3%; left: 56.9%; }
+        .pin-luxembourg { top: 22.3%; left: 51.7%; }
+        .pin-germany { top: 21.6%; left: 52.9%; }
+        .pin-maldives { top: 48.2%; left: 70.3%; }
+        .pin-bangladesh { top: 36.7%; left: 75%; }
+        .pin-australia { top: 63.9%; left: 87%; }
+        .pin-austria { top: 23.6%; left: 54%; }
+        .pin-singapore { top: 49.3%; left: 78.8%; }
+        .pin-norway { top: 16.4%; left: 52.4%; }
+        .pin-belgium { top: 21.8%; left: 51.25%; }
+        .pin-denmark { top: 18.9%; left: 52.8%; }
+        .pin-france { top: 24.2%; left: 50.6%; }
+        .pin-greece { top: 28.3%; left: 56.1%; }
+        .pin-ireland { top: 20.3%; left: 47.8%; }
+        .pin-israel { top: 32.5%; left: 59.7%; }
+        .pin-mali { top: 40.6%; left: 48.9%; }
+        .pin-malta { top: 30%; left: 54%; }
+        .pin-korea { top: 29.7%; left: 85.5%; }
+        .pin-switzerland { top: 24%; left: 52.3%; }
+        .pin-uk { top: 19.2%; left: 49.1%; }
+        .pin-italy { top: 26.2%; left: 53.5%; }
+        .pin-zanzibar { top: 53.4%; left: 61%; }
+        .pin-india { top: 38.6%; left: 71.9%; }
+        .pin-srilanka { top: 45.6%; left: 72.4%; }
+        .pin-china { top: 30.1%; left: 79%; }
+        .pin-japan { top: 29.9%; left: 88.4%; }
+        .pin-nz { top: 73%; left: 98.3%; }
+
+        /* 130% glassmorphism: deeper refraction, brighter edges, and a clearer liquid-glass surface. */
+        .glass-panel,
+        .office-card,
+        .central-contact-banner,
+        .banner-stats,
+        .residence-card {
+            background:
+                linear-gradient(135deg, rgba(255,255,255,.27) 0%, rgba(255,255,255,.09) 24%, rgba(27,73,96,.2) 58%, rgba(3,12,25,.34) 100%),
+                rgba(255,255,255,.035) !important;
+            border-color: rgba(255,255,255,.3) !important;
+            border-top-color: rgba(255,255,255,.74) !important;
+            border-left-color: rgba(255,255,255,.48) !important;
+            box-shadow:
+                0 34px 100px rgba(0,0,0,.44),
+                0 0 45px rgba(78,204,214,.08),
+                inset 0 1px 0 rgba(255,255,255,.42),
+                inset 0 -30px 64px rgba(0,0,0,.16),
+                inset 20px 0 42px rgba(255,255,255,.045) !important;
+            backdrop-filter: blur(42px) saturate(190%) brightness(1.08) !important;
+            -webkit-backdrop-filter: blur(42px) saturate(190%) brightness(1.08) !important;
+        }
+        .glass-panel::after,
+        .office-card::after,
+        .central-contact-banner::after,
+        .banner-stats::after,
+        .residence-card::after {
+            background:
+                linear-gradient(116deg, rgba(255,255,255,.28), transparent 23%, transparent 68%, rgba(214,183,124,.14)),
+                radial-gradient(circle at 12% 0%, rgba(255,255,255,.23), transparent 34%),
+                radial-gradient(circle at 88% 100%, rgba(76,201,209,.08), transparent 28%);
+            opacity: 1;
+        }
+        .glass-panel:hover,
+        .office-card:hover,
+        .central-contact-banner:hover,
+        .residence-card:hover {
+            border-top-color: rgba(255,255,255,.9) !important;
+            box-shadow:
+                0 42px 118px rgba(0,0,0,.5),
+                0 0 52px rgba(119,213,220,.13),
+                inset 0 1px 0 rgba(255,255,255,.5),
+                inset 0 -30px 64px rgba(0,0,0,.12) !important;
+        }
+
+        /* Final visual pass: larger location typography with darker, clearer glass. */
+        .office-card .office-tag,
+        .residence-card .office-tag {
+            font-size: .9rem;
+            letter-spacing: 2.6px;
+            padding: .55rem 1.45rem;
+        }
+        .office-card .office-name,
+        .residence-card .office-name {
+            font-size: 2.65rem;
+            line-height: 1.05;
+        }
+        .office-card .office-detail,
+        .residence-card .office-detail {
+            font-size: 1.05rem;
+            line-height: 1.55;
+        }
+        .residence-card.office-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2.4rem;
+            min-height: 230px;
+        }
+        .residence-card .office-tag { font-size: 1rem; letter-spacing: 2.8px; }
+        .residence-card .office-name { font-size: 3.25rem; line-height: 1; }
+        .residence-card .office-detail { font-size: 1.28rem; line-height: 1.6; letter-spacing: .01em; }
+        .residence-card .residence-card-copy { flex: 1 1 auto; }
+        .residence-card .residence-map-container { flex: 0 0 clamp(230px, 26vw, 320px); width: clamp(230px, 26vw, 320px); }
+
+        /* Dark liquid glass: remove the milky white cast while retaining depth and refraction. */
+        .glass-panel,
+        .office-card,
+        .central-contact-banner,
+        .banner-stats,
+        .residence-card {
+            background:
+                linear-gradient(135deg, rgba(19,48,68,.74) 0%, rgba(10,30,47,.66) 42%, rgba(3,13,25,.78) 100%),
+                rgba(5,18,31,.68) !important;
+            border-color: rgba(111,194,202,.2) !important;
+            border-top-color: rgba(169,224,221,.34) !important;
+            border-left-color: rgba(114,200,205,.26) !important;
+            box-shadow:
+                0 30px 90px rgba(0,0,0,.5),
+                0 0 34px rgba(63,190,201,.06),
+                inset 0 1px 0 rgba(184,227,225,.16),
+                inset 0 -30px 64px rgba(0,0,0,.22),
+                inset 18px 0 42px rgba(87,177,185,.035) !important;
+            backdrop-filter: blur(36px) saturate(145%) brightness(.98) !important;
+            -webkit-backdrop-filter: blur(36px) saturate(145%) brightness(.98) !important;
+        }
+        .glass-panel::after,
+        .office-card::after,
+        .central-contact-banner::after,
+        .banner-stats::after,
+        .residence-card::after {
+            background:
+                linear-gradient(116deg, rgba(117,205,205,.15), transparent 26%, transparent 70%, rgba(197,168,112,.055)),
+                radial-gradient(circle at 12% 0%, rgba(151,218,213,.11), transparent 34%),
+                radial-gradient(circle at 88% 100%, rgba(37,141,157,.08), transparent 28%);
+            opacity: .82;
+            mix-blend-mode: screen;
+        }
+        .glass-panel:hover,
+        .office-card:hover,
+        .central-contact-banner:hover,
+        .residence-card:hover {
+            border-top-color: rgba(184,235,228,.52) !important;
+            box-shadow:
+                0 38px 108px rgba(0,0,0,.58),
+                0 0 46px rgba(63,190,201,.1),
+                inset 0 1px 0 rgba(184,227,225,.22),
+                inset 0 -30px 64px rgba(0,0,0,.18) !important;
+        }
+        @media (max-width: 900px) {
+            .residence-card.office-card { flex-direction: column; align-items: stretch; }
+            .residence-card .residence-map-container { flex: 0 0 auto; width: min(100%, 340px); margin-inline: auto; }
+        }
+        @media (max-width: 600px) {
+            .office-card .office-tag, .residence-card .office-tag { font-size: .8rem; }
+            .office-card .office-name, .residence-card .office-name { font-size: 2.15rem; }
+        }
+        .glass-panel::before,
+        .office-card::before,
+        .central-contact-banner::before,
+        .banner-stats::before,
+        .residence-card::before {
+            background: linear-gradient(105deg, transparent 12%, rgba(82,183,190,.09) 42%, transparent 64%) !important;
+        }
+        .office-tag {
+            background: rgba(8,37,50,.5) !important;
+            border-color: rgba(93,190,194,.28) !important;
+        }
+    
+        /* Premium slab system: substantial glass surfaces with restrained depth. */
+        :root {
+            --slab-radius: 18px;
+            --slab-border: rgba(181, 224, 223, .24);
+            --slab-highlight: rgba(231, 250, 244, .34);
+            --slab-surface: linear-gradient(145deg, rgba(31, 67, 82, .80), rgba(7, 23, 36, .88));
+            --slab-shadow: 0 24px 70px rgba(0, 0, 0, .38), inset 0 1px 0 var(--slab-highlight), inset 0 -18px 36px rgba(0, 0, 0, .18);
+        }
+        .glass-panel, .office-card, .central-contact-banner, .banner-stats, .residence-card {
+            background: var(--slab-surface) !important;
+            border: 1px solid var(--slab-border) !important;
+            border-top-color: var(--slab-highlight) !important;
+            border-left-color: rgba(202, 239, 231, .28) !important;
+            border-radius: var(--slab-radius);
+            box-shadow: var(--slab-shadow) !important;
+            backdrop-filter: blur(26px) saturate(125%);
+            -webkit-backdrop-filter: blur(26px) saturate(125%);
+        }
+        .glass-panel::after, .office-card::after, .central-contact-banner::after, .banner-stats::after, .residence-card::after {
+            background: linear-gradient(115deg, rgba(255,255,255,.14), transparent 28%, transparent 72%, rgba(103, 202, 198, .07)) !important;
+            opacity: .75;
+        }
+        .glass-panel:hover, .office-card:hover, .central-contact-banner:hover, .residence-card:hover {
+            transform: translateY(-4px);
+            border-top-color: rgba(231, 250, 244, .56) !important;
+            box-shadow: 0 32px 82px rgba(0,0,0,.46), inset 0 1px 0 rgba(231,250,244,.42) !important;
+        }
+        .reviews-grid { gap: clamp(1rem, 2vw, 1.5rem); }
+        .review-card { padding: clamp(1.25rem, 2vw, 1.75rem); }
+        .review-card-google { min-height: 0; }
+        .review-widget-stage { height: 440px; min-height: 440px; margin-top: 1rem; }
+        .office-card { padding: clamp(1.35rem, 2.2vw, 2rem); }
+        .office-card .office-name, .residence-card .office-name { font-size: clamp(2rem, 3vw, 2.55rem); }
+        .office-card .office-detail, .residence-card .office-detail { font-size: .96rem; line-height: 1.55; }
+        .residence-card.office-card { min-height: 0; gap: 1.75rem; padding: clamp(1.45rem, 2.4vw, 2.2rem); }
+        .residence-card .office-tag { font-size: .84rem; letter-spacing: 2.2px; }
+        .residence-card .office-name { font-size: clamp(2.25rem, 3.4vw, 2.85rem); }
+        .residence-card .office-detail { font-size: 1rem; }
+        .residence-card .residence-map-container { flex-basis: clamp(205px, 22vw, 270px); width: clamp(205px, 22vw, 270px); }
+        .residence-map-container { max-width: 270px; }
+        .map-wrapper { width: min(100%, 920px); margin-inline: auto; }
+        @media (max-width: 900px) {
+            .residence-card.office-card { flex-direction: column; align-items: stretch; }
+            .residence-card .residence-map-container { flex: 0 0 auto; width: min(100%, 270px); margin-inline: auto; }
+            .map-wrapper { width: min(100%, 760px); }
+        }
+        @media (max-width: 600px) {
+            .review-card, .office-card, .residence-card.office-card { padding: 1.2rem; }
+            .review-widget-stage { height: 400px; min-height: 400px; }
+            .map-wrapper { width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .glass-panel:hover, .office-card:hover, .central-contact-banner:hover, .residence-card:hover { transform: none; }
+        }
+    
+        /* Final sizing system: one visual rhythm for every slab, with content allowed to breathe. */
+        :root {
+            --card-radius: 18px;
+            --card-padding: clamp(1.35rem, 2.2vw, 2rem);
+            --card-gap: clamp(1rem, 1.8vw, 1.5rem);
+            --world-map-max: 1112px;
+            --location-map-size: clamp(184px, 18vw, 228px);
+        }
+        :is(.service-card, .static-card, .review-card, .office-card, .central-contact-banner, .banner-stats) {
+            border-radius: var(--card-radius);
+            padding: var(--card-padding);
+        }
+        .services-grid, .reviews-grid, .contact-grid { gap: var(--card-gap); align-items: stretch; }
+        .service-card, .static-card, .review-card, .office-card { min-width: 0; }
+        .review-card { min-height: 430px; }
+        .review-card-google { min-height: 0; }
+        .review-widget-stage { height: 420px; min-height: 420px; }
+        .office-card { min-height: 380px; }
+        .office-card .office-name, .residence-card .office-name { font-size: clamp(1.95rem, 2.65vw, 2.4rem); line-height: 1.08; }
+        .office-card .office-detail, .residence-card .office-detail { font-size: .94rem; line-height: 1.52; }
+        .residence-card.office-card { min-height: 0; padding: var(--card-padding); gap: var(--card-gap); }
+        .residence-card .residence-map-container {
+            flex: 0 0 var(--location-map-size);
+            width: var(--location-map-size);
+            max-width: var(--location-map-size);
+        }
+        .residence-map-container { aspect-ratio: 1; }
+        .map-wrapper { width: min(100%, var(--world-map-max)); margin-inline: auto; }
+
+        /* Cursor illumination: a small pixel grid under the pointer, not a diffuse halo. */
+        .cursor-pixel-field {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 112px;
+            height: 112px;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0;
+            transform: translate3d(-200px, -200px, 0);
+            background-image:
+                linear-gradient(rgba(202, 239, 231, .18) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(202, 239, 231, .18) 1px, transparent 1px);
+            background-size: 8px 8px;
+            mask-image: radial-gradient(circle at center, #000 0%, rgba(0,0,0,.82) 28%, transparent 72%);
+            -webkit-mask-image: radial-gradient(circle at center, #000 0%, rgba(0,0,0,.82) 28%, transparent 72%);
+            mix-blend-mode: screen;
+            will-change: transform, opacity;
+            transition: opacity .22s ease;
+        }
+        body.pixel-cursor-ready .cursor-pixel-field { opacity: .7; }
+        @media (max-width: 900px) {
+            .map-wrapper { width: min(100%, 880px); }
+            .office-card { min-height: 350px; }
+            .residence-card.office-card { flex-direction: column; align-items: stretch; }
+            .residence-card .residence-map-container { margin-inline: auto; }
+        }
+        @media (max-width: 600px) {
+            :is(.service-card, .static-card, .review-card, .office-card, .central-contact-banner, .banner-stats) { padding: 1.2rem; }
+            .review-card { min-height: 0; }
+            .review-widget-stage { height: 390px; min-height: 390px; }
+            .office-card { min-height: 0; }
+            .map-wrapper { width: 100%; }
+            .cursor-pixel-field { display: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .cursor-pixel-field { display: none; }
+        }
+    
+        /* Final visual refinement: compact location slabs, exact desktop map scale, and a cinematic hero. */
+        :root {
+            --location-map-size: 240px; /* 2.5in at 96 CSS pixels per inch */
+            --location-card-padding: clamp(1.1rem, 1.8vw, 1.55rem);
+        }
+        #home {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background:
+                linear-gradient(180deg, rgba(5, 13, 24, .38), rgba(5, 14, 25, .76)),
+                radial-gradient(ellipse at 50% 22%, rgba(34, 130, 145, .22), transparent 44%),
+                url('photo.gif') center / cover no-repeat;
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background:
+                linear-gradient(90deg, rgba(4, 12, 22, .88), transparent 36%, transparent 64%, rgba(4, 12, 22, .88)),
+                radial-gradient(circle at 50% 42%, rgba(236, 206, 139, .12), transparent 25%);
+            pointer-events: none;
+        }
+        #home::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: .28;
+            background: repeating-linear-gradient(90deg, rgba(218, 242, 235, .05) 0 1px, transparent 1px 6px);
+            mix-blend-mode: screen;
+            pointer-events: none;
+        }
+        .hero-title-stepped { width: min(100%, 1120px); --title-step: clamp(2.8rem, 6.4vw, 7rem); }
+        .hero-title-stepped .title-word { text-shadow: 0 14px 34px rgba(0,0,0,.56); }
+        :is(.service-card, .static-card, .review-card, .office-card, .central-contact-banner, .banner-stats) {
+            padding: var(--location-card-padding);
+            border-radius: 16px;
+        }
+        .office-card { min-height: 0; }
+        .office-card .office-name, .residence-card .office-name { font-size: clamp(1.8rem, 2.4vw, 2.18rem); }
+        .office-card .office-detail, .residence-card .office-detail { font-size: .9rem; line-height: 1.48; }
+        .office-card .office-reviews { margin-block: .55rem .8rem; }
+        .map-container,
+        .map-container-square,
+        .residence-map-container {
+            width: var(--location-map-size);
+            height: var(--location-map-size);
+            max-width: var(--location-map-size);
+            aspect-ratio: 1 / 1;
+            margin-inline: auto;
+        }
+        .map-container iframe,
+        .map-container-square iframe,
+        .residence-map-container iframe { width: 100%; height: 100%; display: block; }
+        .office-card .map-container,
+        .office-card .map-container-square { margin-top: 1rem; }
+        .residence-card.office-card { padding: var(--location-card-padding); gap: 1.2rem; }
+        .residence-card .residence-map-container { flex: 0 0 var(--location-map-size); }
+        @media (min-width: 901px) {
+            .office-card-1, .office-card-2 { display: flex; flex-direction: column; }
+            .office-card-1 .map-container, .office-card-2 .map-container { margin-top: auto; }
+        }
+        @media (max-width: 900px) {
+            .map-container, .map-container-square, .residence-map-container {
+                width: min(var(--location-map-size), 100%);
+                height: min(var(--location-map-size), 100vw - 3rem);
+            }
+            .residence-card.office-card { flex-direction: column; align-items: stretch; }
+            .residence-card .residence-map-container { margin-inline: auto; }
+        }
+        @media (max-width: 600px) {
+            .hero-title-stepped { --title-step: clamp(2.55rem, 13vw, 4.8rem); }
+            .map-container, .map-container-square, .residence-map-container { width: min(100%, 240px); height: min(100%, 240px); }
+        }
+    
+        /* Final consistency pass: compact office slabs, stronger type hierarchy, one shared canvas. */
+        body {
+            background:
+                linear-gradient(180deg, rgba(4, 12, 22, .82), rgba(7, 20, 32, .88)),
+                radial-gradient(ellipse at 50% 10%, rgba(34, 130, 145, .18), transparent 42%),
+                url('photo.gif') center / cover fixed no-repeat !important;
+        }
+        main, section, footer, .section-shell { background-color: transparent !important; }
+        #home { background: transparent !important; }
+        .contact-grid { justify-items: center; }
+        .contact-grid > .office-card {
+            width: min(100%, 600px);
+            justify-self: center;
+        }
+        .office-card-1, .office-card-2 { min-height: 0; }
+        .hero-title-stepped { --title-step: clamp(3.05rem, 6.75vw, 7.333rem); }
+        .office-card-residence .office-detail { font-size: 1.15rem; line-height: 1.5; }
+        .office-card-residence .office-detail svg { width: 22px; height: 22px; }
+        @media (max-width: 900px) {
+            .contact-grid > .office-card { width: min(100%, 560px); }
+            .hero-title-stepped { --title-step: clamp(2.8rem, 13.5vw, 5.133rem); }
+        }
+        @media (max-width: 600px) {
+            .contact-grid > .office-card { width: 100%; }
+            .office-card-residence .office-detail { font-size: 1.05rem; }
+            .hero-title-stepped { --title-step: clamp(2.8rem, 13.5vw, 5.133rem); }
+        }
+    
+        /* Final requested pass: unified slabs, exact office alignment, and restrained sparkle motion. */
+        body, main, section, footer, .section-shell {
+            background-color: transparent !important;
+        }
+        body {
+            background:
+                linear-gradient(180deg, rgba(4, 12, 22, .84), rgba(7, 20, 32, .9)),
+                radial-gradient(ellipse at 50% 12%, rgba(34, 130, 145, .18), transparent 42%),
+                url('photo.gif') center / cover fixed no-repeat !important;
+        }
+        #home { background: transparent !important; }
+        .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: stretch; }
+        .contact-grid > .office-card-1,
+        .contact-grid > .office-card-2 { width: 100%; max-width: 600px; justify-self: center; }
+        .office-card-1, .office-card-2 { min-height: 0; }
+        .office-card-residence { width: 100%; }
+        .hero-title-stepped { --title-step: clamp(3.383rem, 7vw, 7.666rem); }
+        .office-card-residence .office-detail { font-size: 1.15rem; line-height: 1.5; }
+        .practice-areas .static-card:nth-child(1),
+        #practice-areas .static-card:nth-child(3) { transform: translateX(-96px); }
+        #practice-areas .static-card:nth-child(2) { transform: translateX(96px); }
+        #practice-areas .static-card:nth-child(1):hover,
+        #practice-areas .static-card:nth-child(3):hover { transform: translateX(-96px) translateY(-6px); }
+        #practice-areas .static-card:nth-child(2):hover { transform: translateX(96px) translateY(-6px); }
+        .cursor-pixel-field { width: 112px; height: 112px; }
+        .cursor-sparkle {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            background: #f3d68e;
+            box-shadow: 0 0 7px 2px rgba(243,214,142,.72), 0 0 14px rgba(116,213,211,.38);
+            transform: translate3d(-20px, -20px, 0) scale(.2);
+            will-change: transform, opacity;
+        }
+        .cursor-sparkle.is-active { animation: cursorSparkle .72s cubic-bezier(.16,1,.3,1) forwards; }
+        @keyframes cursorSparkle {
+            0% { opacity: 0; transform: translate3d(var(--x), var(--y), 0) scale(.2) rotate(0deg); }
+            18% { opacity: .92; }
+            100% { opacity: 0; transform: translate3d(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy)), 0) scale(0) rotate(120deg); }
+        }
+        @media (max-width: 1100px) {
+            #practice-areas .static-card:nth-child(1),
+            #practice-areas .static-card:nth-child(2),
+            #practice-areas .static-card:nth-child(3),
+            #practice-areas .static-card:nth-child(1):hover,
+            #practice-areas .static-card:nth-child(2):hover,
+            #practice-areas .static-card:nth-child(3):hover { transform: none; }
+        }
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .contact-grid > .office-card-1,
+            .contact-grid > .office-card-2 { max-width: 600px; }
+            .hero-title-stepped { --title-step: clamp(2.8rem, 13.5vw, 5.466rem); }
+        }
+        @media (max-width: 600px) {
+            .contact-grid > .office-card-1,
+            .contact-grid > .office-card-2 { max-width: none; }
+            .office-card-residence .office-detail { font-size: 1.05rem; }
+            .hero-title-stepped { --title-step: clamp(2.8rem, 13.5vw, 5.466rem); }
+            .cursor-pixel-field, .cursor-sparkle { display: none; }
+        }
+        @media (prefers-reduced-motion: reduce) { .cursor-pixel-field, .cursor-sparkle { display: none; } }
+    
+        /* Final typography adjustment: +4px hero title at every responsive breakpoint. */
+        .hero-title-stepped { font-size: calc(4.2rem + 4px); }
+        @media (min-width: 601px) and (max-width: 1100px) {
+            .hero-title-stepped { font-size: calc(clamp(3rem, 8vw, 5rem) + 4px); }
+        }
+        @media (max-width: 600px) {
+            .hero-title-stepped { font-size: calc(clamp(2.4rem, 13vw, 4rem) + 4px); }
+        }
+    
+        /* Compact alignment pass: subtract 1in from desktop card widths without harming touch layouts. */
+        @media (min-width: 901px) {
+            .reviews-grid > .review-card {
+                width: calc(100% - 96px);
+                justify-self: center;
+            }
+            .office-card-residence {
+                width: calc(100% - 96px);
+                margin-inline: auto;
+            }
+        }
+        /* Additional +4px hero title increase, preserving the existing responsive scale. */
+        .hero-title-stepped { font-size: calc(4.2rem + 8px); }
+        @media (min-width: 601px) and (max-width: 1100px) {
+            .hero-title-stepped { font-size: calc(clamp(3rem, 8vw, 5rem) + 8px); }
+        }
+        @media (max-width: 600px) {
+            .hero-title-stepped { font-size: calc(clamp(2.4rem, 13vw, 4rem) + 8px); }
+        }
+    
+        /* Core Services: calm flag-like movement that reverses naturally with scroll direction. */
+        .services-grid .service-card {
+            transform-origin: 50% 0%;
+            will-change: transform, translate, rotate;
+            backface-visibility: hidden;
+        }
+        @keyframes serviceFlagDown {
+            0% { translate: -28px 12px; rotate: -1.8deg; }
+            36% { translate: 11px -5px; rotate: 1deg; }
+            68% { translate: -5px 3px; rotate: -.35deg; }
+            100% { translate: 0 0; rotate: 0deg; }
+        }
+        @keyframes serviceFlagUp {
+            0% { translate: 28px -12px; rotate: 1.8deg; }
+            36% { translate: -11px 5px; rotate: -1deg; }
+            68% { translate: 5px -3px; rotate: .35deg; }
+            100% { translate: 0 0; rotate: 0deg; }
+        }
+        .services-grid.scroll-down .service-card { animation: serviceFlagDown .9s cubic-bezier(.16,1,.3,1) both; }
+        .services-grid.scroll-up .service-card { animation: serviceFlagUp .9s cubic-bezier(.16,1,.3,1) both; }
+        .services-grid.scroll-down .service-card:nth-child(2), .services-grid.scroll-up .service-card:nth-child(2) { animation-delay: 55ms; }
+        .services-grid.scroll-down .service-card:nth-child(3), .services-grid.scroll-up .service-card:nth-child(3) { animation-delay: 110ms; }
+        .services-grid.scroll-down .service-card:nth-child(4), .services-grid.scroll-up .service-card:nth-child(4) { animation-delay: 165ms; }
+        .services-grid.scroll-down .service-card:nth-child(5), .services-grid.scroll-up .service-card:nth-child(5) { animation-delay: 220ms; }
+        .services-grid.scroll-down .service-card:nth-child(6), .services-grid.scroll-up .service-card:nth-child(6) { animation-delay: 275ms; }
+        @supports (animation-timeline: view()) {
+            .services-grid .service-card {
+                animation-name: serviceFlagDown;
+                animation-duration: 1ms;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: view(block);
+                animation-range: entry 0% cover 48%;
+            }
+        }
+        /* Additional +10px hero title increase relative to the previous revision. */
+        .hero-title-stepped { font-size: calc(4.2rem + 18px); }
+        @media (min-width: 601px) and (max-width: 1100px) {
+            .hero-title-stepped { font-size: calc(clamp(3rem, 8vw, 5rem) + 18px); }
+        }
+        @media (max-width: 600px) {
+            .hero-title-stepped { font-size: calc(clamp(2.4rem, 13vw, 4rem) + 18px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .services-grid .service-card { animation: none !important; translate: none !important; rotate: none !important; }
+        }
+    
+        /* Kotavila gallery: enlarge both office-view photographs by 110% of the previous display size. */
+        .kotavila-gallery img { width: 77%; height: 77%; }
+        /* Hero initials: add 4px while retaining the existing distinctive cap treatment. */
+        .hero-title-stepped .unique-cap { font-size: calc(1.16em + 4px); }
+    
+        /* Prevent the enlarged R, G, and C initials from touching the following letters. */
+        .hero-title-stepped .unique-cap {
+            font-size: calc(1.16em + 4px);
+            margin-right: .08em;
+            letter-spacing: .01em;
+        }
+        @media (max-width: 600px) {
+            .hero-title-stepped .unique-cap { margin-right: .05em; letter-spacing: 0; }
+        }
+    
+        /* Asset QA fallback: preserve photo sizing and avoid broken-image icons if local files are absent. */
+        .kotavila-gallery img { object-position: center; }
+        .kotavila-gallery img.asset-missing {
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+            color: var(--text-muted);
+            background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(11,31,45,.62));
+            font-size: .7rem;
+            text-align: center;
+            line-height: 1.5;
+        }
+    
+        /* Final requested scale: 120% of the previous 77% gallery image size. */
+        .kotavila-gallery img {
+            width: 92.4%;
+            height: 92.4%;
+            max-width: none;
+        }
+        /* Increase R, G, and C by 7px while retaining visible breathing room. */
+        .hero-title-stepped .unique-cap {
+            font-size: calc(1.16em + 7px);
+            margin-right: .08em;
+            letter-spacing: .01em;
+        }
+        @media (max-width: 900px) {
+            .kotavila-gallery img { width: 92.4%; height: 92.4%; }
+        }
+        @media (max-width: 600px) {
+            .kotavila-gallery img { width: 92.4%; height: 92.4%; }
+            .hero-title-stepped .unique-cap { margin-right: .06em; letter-spacing: 0; }
+        }
+    
+        /* Latest requested refinement: 110% gallery scale, 10px initials, and calm accordion motion. */
+        .kotavila-gallery img {
+            width: 101.64%;
+            height: 101.64%;
+            max-width: none;
+        }
+        .hero-title-stepped .unique-cap {
+            font-size: calc(1.16em + 10px);
+            margin-right: .08em;
+            letter-spacing: .01em;
+        }
+        .services-grid {
+            transition: grid-template-columns 1.35s cubic-bezier(.16, 1, .3, 1), gap 1.35s cubic-bezier(.16, 1, .3, 1);
+        }
+        .services-grid .service-card {
+            transition: transform 1.35s cubic-bezier(.16, 1, .3, 1), box-shadow 1.35s cubic-bezier(.16, 1, .3, 1), border-color .8s ease;
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+        .services-grid .accordion-content {
+            overflow: hidden;
+            transition: max-height 1.35s cubic-bezier(.16, 1, .3, 1), opacity .85s ease !important;
+            will-change: max-height, opacity;
+        }
+        .services-grid .accordion-inner {
+            transform: translateY(-10px);
+            opacity: .72;
+            transition: transform 1.35s cubic-bezier(.16, 1, .3, 1), opacity .85s ease;
+        }
+        .services-grid .service-card.is-open .accordion-inner {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .services-grid .arrow-icon { transition: transform 1.1s cubic-bezier(.16, 1, .3, 1) !important; }
+        .services-grid .service-card.is-opening { animation: serviceClickRoll 1.45s cubic-bezier(.16, 1, .3, 1) both; }
+        @keyframes serviceClickRoll {
+            0% { opacity: .86; transform: perspective(900px) rotateX(-3deg) translateY(-8px); }
+            55% { opacity: 1; transform: perspective(900px) rotateX(1.5deg) translateY(2px); }
+            100% { opacity: 1; transform: perspective(900px) rotateX(0) translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .kotavila-gallery img { width: 101.64%; height: 101.64%; max-width: calc(100vw - 2.4rem); }
+            .services-grid .accordion-content { transition-duration: 1.1s !important; }
+            .services-grid .service-card.is-opening { animation-duration: 1.15s; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .services-grid, .services-grid .service-card, .services-grid .accordion-content, .services-grid .accordion-inner, .services-grid .arrow-icon { transition: none !important; animation: none !important; }
+        }
+    
+        /* Final responsive pass: keep the requested gallery and initial-letter scales explicit. */
+        .kotavila-gallery img {
+            width: 101.64%;
+            height: 101.64%;
+            max-width: none;
+        }
+        .hero-title-stepped .unique-cap {
+            font-size: calc(1.16em + 10px);
+            margin-right: .08em;
+            letter-spacing: .01em;
+        }
+        /* Apple-inspired accordion motion: slow, quiet, transform-led, and reversible. */
+        .services-grid .service-card {
+            transition: transform 1.45s cubic-bezier(.22, 1, .36, 1), box-shadow 1.45s cubic-bezier(.22, 1, .36, 1), border-color .9s ease;
+            transform-origin: 50% 0%;
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+        .services-grid .accordion-content {
+            transition: max-height 1.55s cubic-bezier(.22, 1, .36, 1), opacity .95s ease !important;
+            overflow: hidden;
+            will-change: max-height, opacity;
+        }
+        .services-grid .accordion-inner {
+            transform: translateY(-12px);
+            opacity: .65;
+            transition: transform 1.45s cubic-bezier(.22, 1, .36, 1), opacity .95s ease;
+        }
+        .services-grid .service-card.is-open .accordion-inner {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .services-grid .service-card.is-opening {
+            animation: serviceAppleRoll 1.5s cubic-bezier(.22, 1, .36, 1) both;
+        }
+        @keyframes serviceAppleRoll {
+            0% { opacity: .82; transform: perspective(1000px) rotateX(-4deg) translateY(-10px); }
+            48% { opacity: 1; transform: perspective(1000px) rotateX(1.5deg) translateY(2px); }
+            100% { opacity: 1; transform: perspective(1000px) rotateX(0) translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .kotavila-gallery img { width: 101.64%; height: 101.64%; max-width: calc(100vw - 2.4rem); }
+            .services-grid .accordion-content { transition-duration: 1.25s !important; }
+            .services-grid .service-card.is-opening { animation-duration: 1.25s; }
+            .hero-title-stepped .unique-cap { margin-right: .06em; letter-spacing: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .services-grid .service-card, .services-grid .accordion-content, .services-grid .accordion-inner { transition: none !important; animation: none !important; transform: none !important; }
+        }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Ramya Chandra Chambers",
+      "url": "https://ramyachandrachambers.com/",
+      "description": "Legal services in Sri Lanka covering civil, criminal, family, property, land and business matters.",
+      "areaServed": ["Sri Lanka", "International clients"],
+      "serviceType": ["Civil law", "Criminal law", "Family law", "Property law", "Land and deed services", "Business law", "Legal consultation"]
+    }
+    </script>
 </head>
 <body>
-    <div class="cursor-light" aria-hidden="true"></div>
-
-
-
-    <!-- Navigation -->
+    <div class="cursor-pixel-field" aria-hidden="true"></div>
+<!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#home" class="logo">
@@ -731,6 +1688,8 @@
                         <ul>
                             <li>Company incorporation & ROC filings</li>
                             <li>Registered company secretary</li>
+                            <li>BO Registration (Beneficial Ownership)</li>
+                            <li>Company TIN Registration</li>
                             <li>Shareholder & director agreements</li>
                         </ul>
                     </div>
@@ -795,15 +1754,14 @@
             <!-- Service 6 -->
             <div class="service-card glass-panel reveal reveal-flip" style="transition-delay: 0.5s;">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="accordion-title serif">Foreign Investment & IP</span>
+                    <span class="accordion-title serif">Foreign Investment</span>
                     <div class="interaction-icon"><span class="arrow-icon">▼</span></div>
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p>Advice for overseas clients acquiring or holding Sri Lankan assets, plus trademark and patent registration and enforcement.</p>
+                        <p>Advice for overseas clients acquiring or holding Sri Lankan assets, together with guidance for non-resident powers of attorney and foreign investment consultancy.</p>
                         <ul>
                             <li>Foreign investment structuring</li>
-                            <li>Trademark & patent registration</li>
                             <li>Non-resident powers of attorney</li>
                             <li>Foreign investment consultancy</li> 
                         </ul>
@@ -891,6 +1849,7 @@
                     <div id="pin-japan" class="map-pin pin-japan"><div class="pin-label">Japan</div></div>
                     <div id="pin-nz" class="map-pin pin-nz"><div class="pin-label">New Zealand</div></div>
                 </div>
+                <div class="map-active-countries" aria-live="polite" aria-label="Currently highlighted countries"></div>
             </div>
         </div>
 
@@ -1006,8 +1965,8 @@
                 </div>
                 
                 <div class="kotavila-gallery" aria-label="Kotavila branch photographs">
-                    <img src="kotavila1.gif" alt="Kotavila branch office view one">
-                    <img src="kotavila2.gif" alt="Kotavila branch office view two">
+                    <img src="kotavila1.gif" alt="Kotavila branch office view one" loading="lazy" decoding="async">
+                    <img src="kotavila2.gif" alt="Kotavila branch office view two" loading="lazy" decoding="async">
                 </div>
                 <div class="map-container map-container-square">
                     <iframe src="https://maps.google.com/maps?q=XF8W%2BRPQ%20Kamburugamuwa,%20Sri%20Lanka&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe>
@@ -1017,6 +1976,24 @@
                     <a href="https://www.google.com/maps/search/?api=1&query=XF8W%2BRPQ%20Kamburugamuwa%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
                     <a href="tel:+94412239429" class="btn btn-outline">Call Office</a>
                 </div>
+            </div>
+        </div>
+
+        <!-- Residence card, formatted consistently with the Head Office and Branch Office cards. -->
+        <div class="residence-card office-card office-card-residence glass-panel reveal reveal-slide-up" aria-label="Residence address">
+            <div class="residence-card-copy">
+                <span class="office-tag">Residence</span>
+                <h3 class="office-name serif">Colombo 7</h3>
+                <div class="office-detail">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 10.5c0 5-8 10.5-8 10.5S4 15.5 4 10.5a8 8 0 1 1 16 0Z"></path>
+                        <circle cx="12" cy="10.5" r="2.5"></circle>
+                    </svg>
+                    <span>1/3, 10A, Ward Place, Colombo 7, Sri Lanka</span>
+                </div>
+            </div>
+            <div class="residence-map-container" aria-label="Google Map for the residence at 1/3, 10A, Ward Place, Colombo 7, Sri Lanka">
+                <iframe src="https://maps.google.com/maps?q=1%2F3%2C%2010A%2C%20Ward%20Place%2C%20Colombo%207%2C%20Sri%20Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed" title="Map showing 1/3, 10A, Ward Place, Colombo 7, Sri Lanka" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -1041,8 +2018,11 @@
             }, 8500);
         });
 
-        // Services: one covered, focused card at a time; auto-minimizes after ten seconds.
+        // Services: open only the clicked row; every other row keeps its own normal state.
         const serviceTimers = new WeakMap();
+        const serviceGrid = document.querySelector('.services-grid');
+        const serviceCards = [...document.querySelectorAll('.service-card')];
+
         function setServiceState(card, open) {
             const content = card.querySelector('.accordion-content');
             const header = card.querySelector('.accordion-header');
@@ -1050,18 +2030,55 @@
             clearTimeout(serviceTimers.get(card));
             card.classList.toggle('is-open', open);
             header.setAttribute('aria-expanded', String(open));
-            content.style.maxHeight = open ? content.scrollHeight + 'px' : '0px';
+            content.style.maxHeight = open ? `${content.scrollHeight}px` : '0px';
             arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-            if (open) serviceTimers.set(card, setTimeout(() => setServiceState(card, false), 10000));
+            if (open) serviceTimers.set(card, setTimeout(() => closeServiceRow(card), 10000));
         }
+
+        function getServiceRow(card) {
+            const columnCount = Math.max(1, getComputedStyle(serviceGrid).gridTemplateColumns.split(' ').filter(Boolean).length);
+            const cardIndex = serviceCards.indexOf(card);
+            const rowStart = Math.floor(cardIndex / columnCount) * columnCount;
+            return serviceCards.slice(rowStart, rowStart + columnCount);
+        }
+
+        function closeAllServiceCards() {
+            serviceCards.forEach(card => {
+                card.classList.remove('is-opening');
+                setServiceState(card, false);
+            });
+            serviceGrid.classList.remove('row-open');
+        }
+
+        function closeServiceRow(card) {
+            getServiceRow(card).forEach(rowCard => {
+                rowCard.classList.remove('is-opening');
+                setServiceState(rowCard, false);
+            });
+            if (!serviceCards.some(openCard => openCard.classList.contains('is-open'))) serviceGrid.classList.remove('row-open');
+        }
+
+        function openServiceRow(row) {
+            if (!row.length) return;
+            serviceGrid.classList.add('row-open');
+            row.forEach((card, index) => {
+                card.style.setProperty('--service-delay', `${index * 90}ms`);
+                card.classList.add('is-opening');
+                setServiceState(card, true);
+                window.setTimeout(() => card.classList.remove('is-opening'), 1500 + index * 140);
+            });
+        }
+
         function toggleAccordion(element) {
             const card = element.closest('.service-card');
-            const willOpen = !card.classList.contains('is-open');
-            document.querySelectorAll('.service-card.is-open').forEach(openCard => setServiceState(openCard, false));
-            if (willOpen) setServiceState(card, true);
+            const row = getServiceRow(card);
+            const rowIsOpen = row.length > 0 && row.every(rowCard => rowCard.classList.contains('is-open'));
+            if (rowIsOpen) closeServiceRow(card);
+            else openServiceRow(row);
         }
+
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.service-card').forEach(card => {
+            serviceCards.forEach(card => {
                 const header = card.querySelector('.accordion-header');
                 header.setAttribute('role', 'button');
                 header.setAttribute('tabindex', '0');
@@ -1069,35 +2086,75 @@
                 header.addEventListener('keydown', event => {
                     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleAccordion(header); }
                 });
-                card.addEventListener('click', event => {
-                    if (card.classList.contains('is-open') && !event.target.closest('.accordion-header')) setServiceState(card, false);
-                });
             });
+
+            document.addEventListener('pointerdown', event => {
+                if (!event.target.closest('.service-card')) closeAllServiceCards();
+            });
+
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') closeAllServiceCards();
+            });
+
             window.addEventListener('resize', () => {
-                const open = document.querySelector('.service-card.is-open');
-                if (open) open.querySelector('.accordion-content').style.maxHeight = open.querySelector('.accordion-content').scrollHeight + 'px';
+                serviceCards.filter(card => card.classList.contains('is-open')).forEach(card => {
+                    const content = card.querySelector('.accordion-content');
+                    content.style.maxHeight = `${content.scrollHeight}px`;
+                });
             });
         });
 
-        // Active Navigation Scroll Tracking
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll(".nav-link");
+        // Active Navigation Scroll Tracking + animated tab-to-section transitions.
+        const sections = [...document.querySelectorAll("section")];
+        const navLinks = [...document.querySelectorAll(".nav-link")];
+        let arrivalTimer;
 
+        function setActiveNav(sectionId) {
+            navLinks.forEach(link => {
+                link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+            });
+        }
+
+        function animateSectionArrival(section) {
+            clearTimeout(arrivalTimer);
+            section.classList.remove("section-arrival");
+            void section.offsetWidth;
+            section.classList.add("section-arrival");
+            arrivalTimer = setTimeout(() => section.classList.remove("section-arrival"), 950);
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", event => {
+                const target = document.querySelector(link.getAttribute("href"));
+                if (!target) return;
+                event.preventDefault();
+                const navHeight = document.querySelector("nav")?.offsetHeight || 0;
+                const targetTop = Math.max(0, target.getBoundingClientRect().top + window.scrollY - navHeight - 16);
+                setActiveNav(target.id);
+                animateSectionArrival(target);
+                window.scrollTo({ top: targetTop, behavior: "smooth" });
+                history.replaceState(null, "", `#${target.id}`);
+            });
+        });
+
+        let scrollTicking = false;
         window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 250) {
-                    current = section.getAttribute("id");
-                }
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                const marker = window.scrollY + (document.querySelector("nav")?.offsetHeight || 0) + 180;
+                let current = sections[0]?.id || "";
+                sections.forEach(section => {
+                    if (marker >= section.offsetTop) current = section.id;
+                });
+                setActiveNav(current);
+                scrollTicking = false;
             });
+        }, { passive: true });
 
-            navLinks.forEach((link) => {
-                link.classList.remove("active");
-                if (link.getAttribute("href").includes(current)) {
-                    link.classList.add("active");
-                }
-            });
+        window.addEventListener("load", () => {
+            const initialSection = document.querySelector(location.hash) || sections[0];
+            if (initialSection) setActiveNav(initialSection.id);
         });
 
         // Advanced Varied Scroll Reveal Animation
@@ -1110,48 +2167,174 @@
         window.addEventListener("scroll", reveal);
         reveal(); // Trigger on load
 
-        // Worldwide client map: A, B, C, D ... in the exact DOM country order.
-        // Only one pin is active at a time, so labels never overlap.
+        // Worldwide client map: four countries appear together, then the groups cycle three times.
         document.addEventListener('DOMContentLoaded', () => {
             const pins = [...document.querySelectorAll('.map-pin')];
             const mapSection = document.getElementById('testimonials');
-            const countrySequence = pins.map(pin => pin.id);
-            let sequenceIndex = 0, timer = null, transitionTimer = null;
+            const mapLegend = document.querySelector('.map-active-countries');
+            const countryGroups = [];
+            const groupSize = 4;
+            for (let i = 0; i < pins.length; i += groupSize) {
+                const group = pins.slice(i, i + groupSize);
+                if (group.length < groupSize) group.push(...pins.slice(0, groupSize - group.length));
+                countryGroups.push(group.map(pin => pin.id));
+            }
+            const maxCycles = 3;
+            let groupIndex = 0, completedCycles = 0, timer = null, transitionTimer = null;
             const clearPins = () => {
                 if (transitionTimer) clearTimeout(transitionTimer);
-                pins.forEach(pin => pin.classList.remove('active'));
+                pins.forEach(pin => {
+                    pin.classList.remove('active');
+                    pin.removeAttribute('data-label-slot');
+                    pin.querySelector('.pin-label')?.removeAttribute('style');
+                    pin.querySelector('.pin-label')?.removeAttribute('data-placement');
+                });
+                if (mapLegend) mapLegend.replaceChildren();
             };
-            const showNextCountry = () => {
+            const positionActiveLabels = () => {
+                const map = document.querySelector('.map-wrapper');
+                if (!map) return;
+                const mapRect = map.getBoundingClientRect();
+                const placed = [];
+                const candidates = ['right', 'left', 'top', 'bottom'];
+                pins.filter(pin => pin.classList.contains('active')).forEach(pin => {
+                    const label = pin.querySelector('.pin-label');
+                    if (!label) return;
+                    const pinRect = pin.getBoundingClientRect();
+                    const pinLeft = pinRect.left - mapRect.left;
+                    const pinTop = pinRect.top - mapRect.top;
+                    const pinCenterX = pinLeft + pinRect.width / 2;
+                    const pinCenterY = pinTop + pinRect.height / 2;
+                    const width = label.offsetWidth || 100;
+                    const height = label.offsetHeight || 28;
+                    const gap = 9;
+                    const possible = {
+                        right: { left: pinCenterX + gap, top: pinCenterY - height / 2 },
+                        left: { left: pinCenterX - gap - width, top: pinCenterY - height / 2 },
+                        top: { left: pinCenterX - width / 2, top: pinCenterY - gap - height },
+                        bottom: { left: pinCenterX - width / 2, top: pinCenterY + gap }
+                    };
+                    const score = candidate => {
+                        const overflow = Math.max(0, -candidate.left) + Math.max(0, candidate.left + width - mapRect.width) + Math.max(0, -candidate.top) + Math.max(0, candidate.top + height - mapRect.height);
+                        const overlap = placed.reduce((total, other) => total + Math.max(0, Math.min(candidate.left + width, other.left + width) - Math.max(candidate.left, other.left)) * Math.max(0, Math.min(candidate.top + height, other.top + height) - Math.max(candidate.top, other.top)), 0);
+                        return overflow * 1000 + overlap;
+                    };
+                    const placement = candidates.sort((a, b) => score(possible[a]) - score(possible[b]))[0];
+                    const chosen = possible[placement];
+                    placed.push({ left: chosen.left, top: chosen.top });
+                    label.style.left = `${chosen.left - pinLeft}px`;
+                    label.style.top = `${chosen.top - pinTop}px`;
+                    label.style.transform = 'none';
+                    label.dataset.placement = placement;
+                });
+            };
+            const showNextGroup = () => {
                 clearPins();
-                const currentId = countrySequence[sequenceIndex];
-                document.getElementById(currentId)?.classList.add('active');
-                sequenceIndex = (sequenceIndex + 1) % countrySequence.length;
+                const activeIds = countryGroups[groupIndex] || [];
+                activeIds.forEach((id, slot) => {
+                    const pin = document.getElementById(id);
+                    pin?.classList.add('active');
+                    pin?.setAttribute('data-label-slot', String(slot));
+                    if (mapLegend && pin) {
+                        const label = document.createElement('span');
+                        label.className = 'map-active-country';
+                        label.textContent = pin.querySelector('.pin-label')?.textContent || id;
+                        mapLegend.appendChild(label);
+                    }
+                });
+                requestAnimationFrame(positionActiveLabels);
+                groupIndex += 1;
+                if (groupIndex >= countryGroups.length) {
+                    groupIndex = 0;
+                    completedCycles += 1;
+                }
+                if (completedCycles >= maxCycles) {
+                    clearInterval(timer);
+                    timer = null;
+                    transitionTimer = setTimeout(clearPins, 2600);
+                }
             };
             const start = () => {
-                if (!timer) {
-                    showNextCountry();
-                    timer = setInterval(showNextCountry, 2600);
-                }
+                if (timer || completedCycles >= maxCycles || !countryGroups.length) return;
+                groupIndex = 0;
+                completedCycles = 0;
+                showNextGroup();
+                if (completedCycles < maxCycles) timer = setInterval(showNextGroup, 2600);
             };
             const stop = () => {
                 clearInterval(timer);
                 timer = null;
+                groupIndex = 0;
+                completedCycles = 0;
                 clearPins();
             };
+            window.addEventListener('resize', () => requestAnimationFrame(positionActiveLabels));
             if (mapSection && 'IntersectionObserver' in window) {
                 new IntersectionObserver(entries => entries.forEach(entry => entry.isIntersecting ? start() : stop()), { threshold: .22 }).observe(mapSection);
             } else start();
         });
+    </script>
 
-        // Pointer-following illumination on the textured background.
+    <script>
+        // Small pooled sparkle particles for fine-pointer cursor feedback.
         (() => {
-            const light = document.querySelector('.cursor-light');
-            if (!light || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            let raf = 0, x = innerWidth / 2, y = innerHeight / 2;
-            addEventListener('pointermove', event => { x = event.clientX; y = event.clientY; if (!raf) raf = requestAnimationFrame(() => { light.style.left = x + 'px'; light.style.top = y + 'px'; raf = 0; }); });
-            addEventListener('pointerleave', () => light.style.opacity = '0');
-            addEventListener('pointerenter', () => light.style.opacity = '.9');
+            const field = document.querySelector('.cursor-pixel-field');
+            if (!field || matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(pointer: fine)').matches) return;
+            let x = -200, y = -200, raf = 0;
+            const render = () => {
+                field.style.transform = `translate3d(${x - 56}px, ${y - 56}px, 0)`;
+                raf = requestAnimationFrame(render);
+            };
+            addEventListener('pointermove', event => {
+                x = event.clientX;
+                y = event.clientY;
+                document.body.classList.add('pixel-cursor-ready');
+            }, { passive: true });
+            addEventListener('pointerleave', () => document.body.classList.remove('pixel-cursor-ready'));
+            addEventListener('visibilitychange', () => {
+                if (document.hidden) cancelAnimationFrame(raf);
+                else render();
+            });
+            render();
         })();
     </script>
-</body>
+
+    <script>
+        // Direction-aware fallback for browsers without scroll-driven animation timelines.
+        (() => {
+            const grid = document.querySelector('.services-grid');
+            if (!grid || CSS.supports('animation-timeline: view()') || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            let previousY = scrollY;
+            let direction = '';
+            let frame = 0;
+            const update = () => {
+                frame = 0;
+                const rect = grid.getBoundingClientRect();
+                const inView = rect.bottom > 0 && rect.top < innerHeight;
+                if (!inView) return;
+                const next = scrollY > previousY ? 'scroll-down' : scrollY < previousY ? 'scroll-up' : direction;
+                previousY = scrollY;
+                if (next && next !== direction) {
+                    direction = next;
+                    grid.classList.remove('scroll-down', 'scroll-up');
+                    void grid.offsetWidth;
+                    grid.classList.add(direction);
+                }
+            };
+            addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(update); }, { passive: true });
+            addEventListener('resize', () => { if (!frame) frame = requestAnimationFrame(update); }, { passive: true });
+        })();
+    </script>
+
+    <script>
+        // Keep missing local gallery assets graceful during deployment or offline previews.
+        document.querySelectorAll('.kotavila-gallery img').forEach(image => {
+            image.addEventListener('error', () => {
+                image.classList.add('asset-missing');
+                image.removeAttribute('src');
+                image.alt = `${image.alt} — image unavailable in this build`;
+            }, { once: true });
+        });
+    </script>
+    </body>
 </html>
