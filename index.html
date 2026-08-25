@@ -1085,6 +1085,7 @@
         .reveal { opacity: 0; transition: opacity .62s var(--motion-ease), transform .62s var(--motion-ease) !important; }
         .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-flip { transform: translateY(14px) !important; }
         .reveal.active { opacity: 1 !important; transform: none !important; }
+        .hero-title.reveal, .hero-subtitle.reveal, .banner-stats.reveal { opacity: 1 !important; transform: none !important; }
         .hero-title.reveal.active, .hero-subtitle.reveal.active, .banner-stats.reveal.active { animation: none !important; }
         .hero-title-stepped .title-word { transform: none !important; }
         @media (max-width: 700px) { section { padding: 5.5rem 1.25rem; } #home { padding-top: 7.8rem; } .hero-title { width: 100%; max-width: 100%; font-size: clamp(2.55rem, 11.5vw, 4.6rem); letter-spacing: -.085em; } .hero-title-stepped .title-word { max-width: 100%; white-space: nowrap; } .nav-container { padding: 0 1.1rem; } }
@@ -1131,32 +1132,38 @@
         .contact-pill, .contact-pill a, .review-source a, .action-buttons a { color: var(--brand-accent-dark) !important; }
         a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 3px solid rgba(167,66,53,.42) !important; outline-offset: 4px; }
         .map-wrapper { box-shadow: 0 18px 42px rgba(21,22,21,.1) !important; }
-        .reveal { opacity: 0; transition: opacity .62s var(--brand-ease), transform .62s var(--brand-ease) !important; }
+        .reveal { opacity: 0; transition: opacity .55s var(--brand-ease), transform .55s var(--brand-ease) !important; }
         .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-flip { transform: translateY(18px) !important; }
         .reveal.active { opacity: 1 !important; transform: none !important; }
+        .hero-title.reveal, .hero-subtitle.reveal, .banner-stats.reveal { opacity: 1 !important; transform: none !important; }
         .sparkle-space, .cursor-light { display: none !important; }
         @media (max-width: 700px) { nav { height: auto; min-height: 68px; } .nav-container { padding: .7rem 1.1rem; align-items: flex-start; } .nav-links { padding-top: .15rem; } section { padding: 6rem 1.25rem; } #home { min-height: 100svh; align-items: flex-start; padding-top: 8.8rem; } .hero-title { font-size: clamp(2.8rem, 13vw, 5.2rem); line-height: .94; } .hero-title-stepped .title-word { width: 100%; white-space: nowrap; } .hero-subtitle { font-size: 1rem; } .banner-stats { margin-top: 2.5rem; } }
         @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; transition: none !important; } .service-card, .office-card, .static-card, .review-card { transition: none !important; } }
 
+        /* Refined human brand system: one typographic voice, calm contrast, intentional hierarchy. */
+        h1, h2, h3, h4, .serif, .stat-value, .review-text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important; font-weight: 650 !important; letter-spacing: -.055em !important; }
+        body { font-size: 16px; letter-spacing: -.008em; }
+        .hero-title { font-size: clamp(3.2rem, 7.2vw, 7.2rem) !important; line-height: .94 !important; letter-spacing: -.095em !important; font-weight: 700 !important; }
+        .hero-subtitle { font-size: clamp(1.02rem, 1.4vw, 1.16rem) !important; line-height: 1.65 !important; }
+        .section-title { font-weight: 650 !important; letter-spacing: -.075em !important; }
+        .stat-value, .banner-stat-number { font-weight: 700 !important; letter-spacing: -.07em !important; }
+        .service-card, .office-card, .static-card, .review-card { box-shadow: 0 12px 34px rgba(21,22,21,.055) !important; }
+
         /* Static atmospheric brand canvas: layered light, no texture, no background motion. */
         html { background: #f3f0ea !important; }
-        body { background-color: #f3f0ea !important; background-image: url("paper-grain.svg"), radial-gradient(circle at 8% 8%, rgba(167,66,53,.11), transparent 25%), radial-gradient(circle at 92% 16%, rgba(113,132,119,.14), transparent 28%), radial-gradient(circle at 52% 92%, rgba(189,147,83,.08), transparent 30%), linear-gradient(135deg, #fbfaf7 0%, #f3f0ea 55%, #f8f7f3 100%) !important; background-attachment: fixed; }
+        body { background-color: #f3f0ea !important; background-image: radial-gradient(circle at 10% 8%, rgba(167,66,53,.09), transparent 24%), radial-gradient(circle at 92% 18%, rgba(113,132,119,.09), transparent 26%), linear-gradient(135deg, #fbfaf7 0%, #f3f0ea 58%, #f8f7f3 100%) !important; background-attachment: fixed; }
         body::after { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .28; background: radial-gradient(ellipse 42% 30% at 12% 78%, rgba(167,66,53,.07), transparent 72%), radial-gradient(ellipse 38% 32% at 90% 70%, rgba(113,132,119,.08), transparent 72%); }
-        .ambient-light-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: .26; mix-blend-mode: multiply; }
-        .sparkle-space { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: .3; }
-        .cursor-light { position: fixed; width: 260px; height: 260px; left: 0; top: 0; z-index: 1; pointer-events: none; opacity: 0; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle, rgba(167,66,53,.12), rgba(189,147,83,.045) 32%, transparent 70%); filter: blur(22px); mix-blend-mode: multiply; transition: opacity .5s ease; }
+        .ambient-light-field { position: fixed !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: 1 !important; pointer-events: none !important; opacity: .26; mix-blend-mode: multiply; }
+
         body > nav, body > section, body > footer { position: relative; z-index: 2; }
         nav { background: rgba(251,250,247,.84) !important; }
         .glass-panel, .office-card, .static-card, .postcard-space, .review-card-google, .central-contact-banner { background: rgba(255,254,250,.82) !important; }
-        @media (max-width: 700px) { body { background-attachment: scroll; } body::after { opacity: .2; } .ambient-light-field { opacity: .2; } .sparkle-space { opacity: .2; } .cursor-light { display: none; } }
-        @media (prefers-reduced-motion: reduce) { .ambient-light-field, .sparkle-space, .cursor-light { display: none; } }
+        @media (max-width: 700px) { body { background-attachment: scroll; } body::after { opacity: .16; } .ambient-light-field { opacity: .18; } }
         @media (prefers-reduced-motion: reduce) { .ambient-light-field { display: none; } }
     </style>
 </head>
 <body>
     <canvas class="ambient-light-field" id="ambient-light-field" aria-hidden="true"></canvas>
-    <canvas class="sparkle-space" id="sparkle-space" aria-hidden="true"></canvas>
-    <div class="cursor-light" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <nav>
@@ -1825,25 +1832,5 @@
         })();
     </script>
 
-    <!-- Refined sparkle field and pointer light: restrained depth, no content interference. -->
-    <script>
-        (() => {
-            const canvas = document.getElementById('sparkle-space');
-            const ctx = canvas?.getContext('2d', { alpha: true });
-            const light = document.querySelector('.cursor-light');
-            const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-            const coarse = matchMedia('(pointer: coarse)').matches;
-            if (!ctx || reduce.matches) return;
-            const points = Array.from({ length: coarse ? 22 : 34 }, (_, i) => ({ x: Math.random(), y: Math.random(), z: .2 + Math.random() * .8, r: .5 + Math.random() * 1.5, p: Math.random() * 6.28, warm: i % 4 === 0 }));
-            let w = 0, h = 0, frame = 0, last = 0, px = 0, py = 0, tx = 0, ty = 0;
-            const resize = () => { const ratio = Math.min(devicePixelRatio || 1, 1.5); w = innerWidth; h = innerHeight; canvas.width = w * ratio; canvas.height = h * ratio; ctx.setTransform(ratio,0,0,ratio,0,0); };
-            const draw = now => { if (document.hidden) { frame = 0; return; } if (now - last < 34) { frame = requestAnimationFrame(draw); return; } last = now; const t = now * .001; px += (tx-px)*.04; py += (ty-py)*.04; ctx.clearRect(0,0,w,h); points.forEach((point, i) => { const depth = .55 + .45 * Math.sin(t * (.08 + point.z*.05) + point.p); const x = point.x*w + px*point.z*16 + Math.sin(t*.05+point.p)*18; const y = point.y*h + py*point.z*12 + Math.cos(t*.045+point.p)*14; const radius = point.r * (.7 + point.z); const alpha = .025 + point.z*.08; const color = point.warm ? '167,66,53' : '189,147,83'; ctx.fillStyle = `rgba(${color},${alpha})`; ctx.beginPath(); ctx.arc(x,y,radius*(.8+depth*.35),0,Math.PI*2); ctx.fill(); if (point.z>.78 && i%5===0) { ctx.strokeStyle = `rgba(${color},${alpha*.55})`; ctx.lineWidth=.6; ctx.beginPath(); ctx.moveTo(x-radius*2.5,y); ctx.lineTo(x+radius*2.5,y); ctx.moveTo(x,y-radius*2.5); ctx.lineTo(x,y+radius*2.5); ctx.stroke(); } }); frame = requestAnimationFrame(draw); };
-            addEventListener('pointermove', event => { tx = (event.clientX/innerWidth-.5)*2; ty = (event.clientY/innerHeight-.5)*2; if (light) { light.style.left = event.clientX+'px'; light.style.top = event.clientY+'px'; light.style.opacity = '.9'; } }, { passive: true });
-            addEventListener('pointerleave', () => { if (light) light.style.opacity = '0'; });
-            addEventListener('resize', resize, { passive: true });
-            addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(frame); else if (!frame) frame = requestAnimationFrame(draw); });
-            resize(); frame = requestAnimationFrame(draw);
-        })();
-    </script>
 </body>
 </html>
