@@ -1567,6 +1567,12 @@
         @media (prefers-reduced-motion: reduce) {
             .services-grid .service-card, .services-grid .accordion-content, .services-grid .accordion-inner { transition: none !important; animation: none !important; transform: none !important; }
         }
+    
+        /* Isolated user request: move only Residence text 1.5in right on desktop. */
+        .residence-card .residence-card-copy { transform: translateX(144px); }
+        @media (max-width: 900px) {
+            .residence-card .residence-card-copy { transform: none; }
+        }
     </style>
 
     <script type="application/ld+json">
