@@ -1137,6 +1137,15 @@
         .sparkle-space, .cursor-light { display: none !important; }
         @media (max-width: 700px) { nav { height: auto; min-height: 68px; } .nav-container { padding: .7rem 1.1rem; align-items: flex-start; } .nav-links { padding-top: .15rem; } section { padding: 6rem 1.25rem; } #home { min-height: 100svh; align-items: flex-start; padding-top: 8.8rem; } .hero-title { font-size: clamp(2.8rem, 13vw, 5.2rem); line-height: .94; } .hero-title-stepped .title-word { width: 100%; white-space: nowrap; } .hero-subtitle { font-size: 1rem; } .banner-stats { margin-top: 2.5rem; } }
         @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; transition: none !important; } .service-card, .office-card, .static-card, .review-card { transition: none !important; } }
+
+        /* Static atmospheric brand canvas: layered light, no texture, no background motion. */
+        html { background: #f3f0ea !important; }
+        body { background-color: #f3f0ea !important; background-image: radial-gradient(circle at 8% 8%, rgba(167,66,53,.11), transparent 25%), radial-gradient(circle at 92% 16%, rgba(113,132,119,.14), transparent 28%), radial-gradient(circle at 52% 92%, rgba(189,147,83,.08), transparent 30%), linear-gradient(135deg, #fbfaf7 0%, #f3f0ea 55%, #f8f7f3 100%) !important; background-attachment: fixed; }
+        body::after { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .38; background: radial-gradient(ellipse 42% 30% at 12% 78%, rgba(167,66,53,.07), transparent 72%), radial-gradient(ellipse 38% 32% at 90% 70%, rgba(113,132,119,.08), transparent 72%); }
+        body > nav, body > section, body > footer { position: relative; z-index: 2; }
+        nav { background: rgba(251,250,247,.84) !important; }
+        .glass-panel, .office-card, .static-card, .postcard-space, .review-card-google, .central-contact-banner { background: rgba(255,254,250,.82) !important; }
+        @media (max-width: 700px) { body { background-attachment: scroll; } body::after { opacity: .26; } }
     </style>
 </head>
 <body>
