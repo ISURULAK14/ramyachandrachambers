@@ -278,10 +278,7 @@
         .nav-links a.active::before { background: var(--accent-main); box-shadow: 0 0 15px rgba(150, 150, 150, 0.2); }
 
         /* Hero Section */
-        #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8rem 2rem 4rem; position: relative; isolation: isolate; overflow: hidden; }
-        #home::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(7, 10, 18, .22), rgba(7, 10, 18, .58)); }
-        .hero-shader { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; display: block; background: radial-gradient(circle at 50% 35%, #8d7dca 0%, #606080 38%, #212121 100%); pointer-events: none; }
-        .hero-content { position: relative; z-index: 1; width: min(100%, 1100px); display: flex; flex-direction: column; align-items: center; }
+        #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8rem 2rem 4rem; }
         .hero-subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 680px; margin-bottom: 4rem; font-weight: 300; }
         .banner-stats { display: flex; gap: 4rem; flex-wrap: wrap; justify-content: center; padding: 2.5rem 5rem; position: relative; }
         .stat-item { display: flex; flex-direction: column; align-items: center; }
@@ -911,29 +908,26 @@
 
     <!-- Hero Section -->
     <section id="home">
-        <canvas class="hero-shader" id="hero-shader-gradient" aria-hidden="true"></canvas>
-        <div class="hero-content">
-            <!-- Specifically tailored heading -->
-            <h1 class="main-title hero-title hero-title-stepped reveal reveal-slide-up">
-                        <span class="title-word title-word-one"><span class="title-first-three"><span class="unique-cap">R</span>am</span>yachandra</span>
-                        <span class="title-word title-word-two"><span class="title-first-three"><span class="unique-cap">G</span>un</span>asekera</span>
-                        <span class="title-word title-word-three"><span class="title-first-three"><span class="unique-cap">C</span>ha</span>mbers</span>
-            </h1>
-            <p class="hero-subtitle reveal reveal-slide-up reveal-delay-02">A trusted Matara lawyer providing reliable legal services in Sri Lanka, with corporate, notarial, deed, company, and court counsel for individuals and businesses.</p>
-
+        <!-- Specifically tailored heading -->
+        <h1 class="main-title hero-title hero-title-stepped reveal reveal-slide-up">
+                    <span class="title-word title-word-one"><span class="title-first-three"><span class="unique-cap">R</span>am</span>yachandra</span>
+                    <span class="title-word title-word-two"><span class="title-first-three"><span class="unique-cap">G</span>un</span>asekera</span>
+                    <span class="title-word title-word-three"><span class="title-first-three"><span class="unique-cap">C</span>ha</span>mbers</span>
+        </h1>
+        <p class="hero-subtitle reveal reveal-slide-up reveal-delay-02">A trusted Matara lawyer providing reliable legal services in Sri Lanka, with corporate, notarial, deed, company, and court counsel for individuals and businesses.</p>
+        
         <div class="banner-stats glass-panel reveal reveal-scale reveal-delay-04">
-                <div class="stat-item">
-                    <span class="stat-value">37+</span>
-                    <span class="stat-label">Years of Practice</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">300+</span>
-                    <span class="stat-label">Registered Companies</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">2</span>
-                    <span class="stat-label">Locations</span>
-                </div>
+            <div class="stat-item">
+                <span class="stat-value">37+</span>
+                <span class="stat-label">Years of Practice</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">300+</span>
+                <span class="stat-label">Registered Companies</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">2</span>
+                <span class="stat-label">Locations</span>
             </div>
         </div>
     </section>
@@ -1528,125 +1522,6 @@
             });
             addEventListener('pointerleave', () => light.style.opacity = '0');
             addEventListener('pointerenter', () => light.style.opacity = '.66');
-        })();
-    </script>
-
-    <!-- Hero-only ShaderGradient adaptation: waterPlane, city-like color palette, 10 FPS update cadence. -->
-    <script>
-        (() => {
-            const canvas = document.getElementById('hero-shader-gradient');
-            if (!canvas) return;
-            const gl = canvas.getContext('webgl', { alpha: true, antialias: true, premultipliedAlpha: false });
-            if (!gl) return;
-
-            const vertexSource = `
-                attribute vec2 a_position;
-                varying vec2 v_uv;
-                void main() {
-                    v_uv = a_position * 0.5 + 0.5;
-                    gl_Position = vec4(a_position, 0.0, 1.0);
-                }
-            `;
-            const fragmentSource = `
-                precision mediump float;
-                uniform vec2 u_resolution;
-                uniform float u_time;
-                uniform vec3 u_color1;
-                uniform vec3 u_color2;
-                uniform vec3 u_color3;
-                varying vec2 v_uv;
-
-                float wave(vec2 p, float t) {
-                    float a = sin(p.x * 2.8 + t * 0.45) * 0.28;
-                    float b = sin(p.y * 4.6 - t * 0.32 + sin(p.x * 1.7)) * 0.18;
-                    float c = sin((p.x + p.y) * 5.4 + t * 0.24) * 0.12;
-                    float d = sin(length(p) * 10.0 - t * 0.7) * 0.08;
-                    return a + b + c + d;
-                }
-
-                void main() {
-                    vec2 uv = v_uv;
-                    vec2 p = uv - 0.5;
-                    p.x *= u_resolution.x / max(u_resolution.y, 1.0);
-                    float t = u_time;
-                    float w = wave(p * 1.65, t);
-                    float horizon = smoothstep(-0.62, 0.52, uv.y + w * 0.28);
-                    float glow = 1.0 - smoothstep(0.05, 1.15, length(p * vec2(0.82, 1.15)));
-                    vec3 upper = mix(u_color1, u_color2, clamp(horizon + w * 0.35, 0.0, 1.0));
-                    vec3 color = mix(u_color3, upper, clamp(horizon * 0.94 + glow * 0.26, 0.0, 1.0));
-                    color += vec3(0.045, 0.035, 0.08) * glow;
-                    gl_FragColor = vec4(color, 1.0);
-                }
-            `;
-
-            const compile = (type, source) => {
-                const shader = gl.createShader(type);
-                gl.shaderSource(shader, source);
-                gl.compileShader(shader);
-                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                    console.warn('Hero shader compilation failed:', gl.getShaderInfoLog(shader));
-                    gl.deleteShader(shader);
-                    return null;
-                }
-                return shader;
-            };
-            const vertex = compile(gl.VERTEX_SHADER, vertexSource);
-            const fragment = compile(gl.FRAGMENT_SHADER, fragmentSource);
-            if (!vertex || !fragment) return;
-            const program = gl.createProgram();
-            gl.attachShader(program, vertex);
-            gl.attachShader(program, fragment);
-            gl.linkProgram(program);
-            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
-            gl.useProgram(program);
-
-            const buffer = gl.createBuffer();
-            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
-            const position = gl.getAttribLocation(program, 'a_position');
-            gl.enableVertexAttribArray(position);
-            gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-
-            const resolution = gl.getUniformLocation(program, 'u_resolution');
-            const time = gl.getUniformLocation(program, 'u_time');
-            const color1 = gl.getUniformLocation(program, 'u_color1');
-            const color2 = gl.getUniformLocation(program, 'u_color2');
-            const color3 = gl.getUniformLocation(program, 'u_color3');
-            const hex = value => {
-                const clean = value.replace('#', '');
-                return [0, 2, 4].map(index => parseInt(clean.slice(index, index + 2), 16) / 255);
-            };
-            gl.uniform3fv(color1, hex('#606080'));
-            gl.uniform3fv(color2, hex('#8d7dca'));
-            gl.uniform3fv(color3, hex('#212121'));
-
-            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-            let lastFrame = 0;
-            const resize = () => {
-                const ratio = Math.min(window.devicePixelRatio || 1, 1);
-                const width = Math.max(1, Math.floor(canvas.clientWidth * ratio));
-                const height = Math.max(1, Math.floor(canvas.clientHeight * ratio));
-                if (canvas.width !== width || canvas.height !== height) {
-                    canvas.width = width;
-                    canvas.height = height;
-                    gl.viewport(0, 0, width, height);
-                }
-            };
-            const draw = now => {
-                resize();
-                if (!reducedMotion.matches && now - lastFrame < 100) {
-                    requestAnimationFrame(draw);
-                    return;
-                }
-                lastFrame = now;
-                gl.uniform2f(resolution, canvas.width, canvas.height);
-                gl.uniform1f(time, reducedMotion.matches ? 8.0 : now * 0.001 * 0.3);
-                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-                if (!reducedMotion.matches) requestAnimationFrame(draw);
-            };
-            window.addEventListener('resize', resize, { passive: true });
-            resize();
-            requestAnimationFrame(draw);
         })();
     </script>
 </body>
