@@ -930,9 +930,49 @@
         .map-wrapper { box-shadow: 0 20px 50px rgba(0, 0, 0, .12); }
         .office-card .office-address, .office-card .office-meta { color: #6e6e73; }
         @media (max-width: 600px) { #home { padding-top: 8.2rem; padding-bottom: 4rem; } }
+        /* Premium luxury-tech palette and restrained 3D sparkle field. */
+        :root {
+            --accent-main: #d6b36a;
+            --accent-red: #2f8cff;
+            --text-primary: #f7f7f2;
+            --text-muted: #b8bdc7;
+            --text-inverse: #111318;
+            --bg-base: #0b0e14;
+            --glass-bg: rgba(22, 27, 38, .68);
+            --glass-border-top: rgba(255, 255, 255, .2);
+            --glass-border-side: rgba(214, 179, 106, .24);
+            --glass-shadow: 0 24px 70px rgba(0, 0, 0, .34);
+            --glass-glow: inset 0 1px 0 rgba(255, 255, 255, .08);
+            --nav-bg: rgba(11, 14, 20, .72);
+            --cap-color: #f7f7f2;
+            --bg-texture: radial-gradient(circle at 50% -10%, rgba(72, 105, 156, .24), transparent 38%), linear-gradient(135deg, #0b0e14 0%, #121822 46%, #090b10 100%);
+        }
+        html { background: #0b0e14; }
+        body { background-color: #0b0e14; background-image: var(--bg-texture); color: #f7f7f2; }
+        nav { background: rgba(11, 14, 20, .72); border-bottom-color: rgba(214, 179, 106, .2); }
+        .nav-links a { color: #b8bdc7; }
+        .nav-links a:hover, .nav-links a.active { color: #d6b36a; }
+        .nav-links a::before, .nav-links a.active::before { background: rgba(214, 179, 106, .12); }
+        .logo, .hero-title, .section-title, .accordion-title, .static-card h3, .office-name { color: #f7f7f2; }
+        .hero-subtitle, .section-desc, .about-text p, .static-card p, .accordion-inner, .banner-stats .stat-label { color: #b8bdc7; }
+        .glass-panel { background: rgba(22, 27, 38, .7); border-color: rgba(214, 179, 106, .22); box-shadow: 0 24px 70px rgba(0, 0, 0, .34), inset 0 1px 0 rgba(255, 255, 255, .1); }
+        .banner-stats .stat-value { color: #d6b36a; }
+        .section-tag { color: #2f8cff; background: rgba(47, 140, 255, .1); border-color: rgba(47, 140, 255, .25); }
+        .btn-primary { background: #d6b36a !important; color: #111318 !important; border-color: #d6b36a !important; box-shadow: 0 10px 28px rgba(214, 179, 106, .2); }
+        .btn-primary:hover { background: #e6c982 !important; }
+        .btn-outline { color: #2f8cff !important; border-color: rgba(47, 140, 255, .48) !important; background: rgba(17, 24, 36, .55) !important; }
+        .btn-outline:hover { background: rgba(47, 140, 255, .12) !important; border-color: #2f8cff !important; }
+        .contact-pill, .contact-pill a, .review-source a, .action-buttons a { color: #6fb0ff; }
+        .interaction-icon { color: #d6b36a; background: rgba(214, 179, 106, .08); border-color: rgba(214, 179, 106, .3); }
+        .accordion-header:hover .interaction-icon, .service-card.is-open .interaction-icon { background: #d6b36a; color: #111318; border-color: #d6b36a; }
+        .sparkle-space { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .72; }
+        body > .bg-pixels, body > .cursor-light { z-index: 1; }
+        body > nav, body > section, body > footer { position: relative; z-index: 2; }
+        @media (prefers-reduced-motion: reduce) { .sparkle-space { opacity: .34; } }
     </style>
 </head>
 <body>
+    <canvas class="sparkle-space" id="sparkle-space" aria-hidden="true"></canvas>
     <div class="bg-pixels" aria-hidden="true"></div>
     <div class="cursor-light" aria-hidden="true"></div>
 
@@ -1578,6 +1618,66 @@
             });
             addEventListener('pointerleave', () => light.style.opacity = '0');
             addEventListener('pointerenter', () => light.style.opacity = '.66');
+        })();
+    </script>
+
+    <!-- Subtle depth-based sparkle field: premium ambient motion without shader dependencies. -->
+    <script>
+        (() => {
+            const canvas = document.getElementById('sparkle-space');
+            const context = canvas?.getContext('2d', { alpha: true });
+            if (!context) return;
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const stars = Array.from({ length: 92 }, (_, index) => ({
+                x: Math.random() * 2 - 1,
+                y: Math.random() * 2 - 1,
+                z: Math.random(),
+                size: .35 + Math.random() * 1.7,
+                phase: Math.random() * Math.PI * 2,
+                speed: .35 + Math.random() * .9,
+                warm: index % 5 === 0
+            }));
+            let width = 0, height = 0, frame = 0;
+            const resize = () => {
+                const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+                width = canvas.clientWidth = window.innerWidth;
+                height = canvas.clientHeight = window.innerHeight;
+                canvas.width = Math.floor(width * ratio);
+                canvas.height = Math.floor(height * ratio);
+                context.setTransform(ratio, 0, 0, ratio, 0, 0);
+            };
+            const draw = now => {
+                const t = now * .001;
+                context.clearRect(0, 0, width, height);
+                const focal = Math.min(width, height) * .42;
+                stars.forEach(star => {
+                    const depth = (star.z + (reduceMotion.matches ? 0 : t * .012 * star.speed)) % 1;
+                    const scale = .22 + depth * 1.18;
+                    const x = width * .5 + star.x * focal * scale;
+                    const y = height * .5 + star.y * focal * scale;
+                    if (x < -10 || x > width + 10 || y < -10 || y > height + 10) return;
+                    const pulse = reduceMotion.matches ? .72 : .44 + .36 * Math.sin(t * star.speed + star.phase);
+                    const radius = star.size * (.45 + depth * .95);
+                    const color = star.warm ? '214,179,106' : '130,181,255';
+                    context.beginPath();
+                    context.fillStyle = `rgba(${color},${pulse * (.22 + depth * .52)})`;
+                    context.arc(x, y, radius, 0, Math.PI * 2);
+                    context.fill();
+                    if (depth > .58 && star.size > 1.15) {
+                        context.strokeStyle = `rgba(${color},${pulse * .18})`;
+                        context.lineWidth = .7;
+                        context.beginPath();
+                        context.moveTo(x - radius * 3.2, y); context.lineTo(x + radius * 3.2, y);
+                        context.moveTo(x, y - radius * 3.2); context.lineTo(x, y + radius * 3.2);
+                        context.stroke();
+                    }
+                });
+                if (!reduceMotion.matches) frame = requestAnimationFrame(draw);
+            };
+            resize();
+            addEventListener('resize', resize, { passive: true });
+            addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(frame); else if (!reduceMotion.matches) frame = requestAnimationFrame(draw); });
+            frame = requestAnimationFrame(draw);
         })();
     </script>
 </body>
