@@ -592,14 +592,7 @@
         .glass-panel::after { opacity: .82; }
         /* Small, visible cursor illumination rather than a large diffuse halo. */
         .cursor-light { width: 74px !important; height: 74px !important; filter: blur(5px) !important; background: radial-gradient(circle, rgba(214,183,124,.22) 0%, rgba(78,204,214,.12) 28%, rgba(92,137,255,.08) 46%, transparent 74%) !important; opacity: .66 !important; mix-blend-mode: screen; transform: translate(-50%, -50%); transition: width .24s ease, height .24s ease, opacity .24s ease, background .38s ease; }
-        .bg-pixels { z-index: 3 !important; mix-blend-mode: screen; }
-        .bg-pixel { width: 3px; height: 3px; opacity: 0; }
-        .cursor-splash { z-index: 4; }
-        .cursor-splash { position: fixed; z-index: 2; width: 16px; height: 16px; pointer-events: none; border-radius: 50%; transform: translate(-50%,-50%) scale(.35); opacity: 0; background: radial-gradient(circle, rgba(214,183,124,.5), rgba(78,204,214,.2) 42%, transparent 72%); filter: blur(1px); mix-blend-mode: screen; animation: cursorSplash .8s cubic-bezier(.2,.8,.2,1) forwards; }
-        @keyframes cursorSplash { 0% { opacity: .7; transform: translate(-50%,-50%) scale(.25); } 45% { opacity: .34; transform: translate(-50%,-50%) scale(1.6); } 100% { opacity: 0; transform: translate(-50%,-50%) scale(3.2); } }
-        .bg-pixels { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-        .bg-pixel { position: absolute; width: 2px; height: 2px; border-radius: 50%; opacity: 0; background: #d6b77c; box-shadow: 0 0 9px 2px rgba(214,183,124,.6), 0 0 18px rgba(78,204,214,.25); animation: pixelTwinkle var(--pixel-duration) ease-in-out var(--pixel-delay) infinite; }
-        @keyframes pixelTwinkle { 0%,100% { opacity: 0; transform: scale(.7); } 34% { opacity: .74; transform: scale(1.4); } 58% { opacity: .24; transform: scale(.9); } }
+
         @media (max-width: 600px) { .fort-gallery { aspect-ratio: 16 / 9; } .reviewer-meta img { width: 40px; height: 40px; } }
         /* Final refinement: dark-only glass editorial system, silk service rows, and stable title rhythm. */
         body { background-color: #111b28; }
@@ -965,15 +958,33 @@
         .contact-pill, .contact-pill a, .review-source a, .action-buttons a { color: #6fb0ff; }
         .interaction-icon { color: #d6b36a; background: rgba(214, 179, 106, .08); border-color: rgba(214, 179, 106, .3); }
         .accordion-header:hover .interaction-icon, .service-card.is-open .interaction-icon { background: #d6b36a; color: #111318; border-color: #d6b36a; }
-        .sparkle-space { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .72; }
-        body > .bg-pixels, body > .cursor-light { z-index: 1; }
+        .sparkle-space { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .52; }
+        body > .sparkle-space, body > .cursor-light { position: fixed; inset: 0; z-index: 0; }
+        body > .cursor-light { z-index: 1; }
         body > nav, body > section, body > footer { position: relative; z-index: 2; }
         @media (prefers-reduced-motion: reduce) { .sparkle-space { opacity: .34; } }
+        /* Final polish: Apple-style restraint, no glow-heavy typography or theatrical motion. */
+        .hero-title, .hero-title-stepped .title-word { text-shadow: none !important; }
+        .hero-title-stepped .unique-cap { color: #d6b36a !important; text-shadow: 0 0 18px rgba(214, 179, 106, .22) !important; }
+        .hero-title-stepped.active .title-word { animation: none !important; transform: none !important; opacity: 1 !important; }
+        .hero-title.reveal.active { animation: appleHeroFade .8s cubic-bezier(.22, 1, .36, 1) both !important; }
+        .hero-subtitle.reveal.active { animation: appleHeroFade .9s cubic-bezier(.22, 1, .36, 1) .08s both !important; }
+        .banner-stats.reveal.active { animation: appleHeroFade .9s cubic-bezier(.22, 1, .36, 1) .16s both !important; }
+        @keyframes appleHeroFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+        .service-card.is-unwound, .service-card.is-unwound .accordion-header, .service-card.is-unwound::before, .service-card.is-unwound::after, .service-card.is-unwound .accordion-content::after { animation: none !important; transform: none !important; filter: none !important; }
+        .service-card.is-unwound { background: rgba(22, 27, 38, .7); border-color: rgba(214, 179, 106, .22); }
+        .service-card, .office-card, .static-card, .review-card { transition: transform .32s cubic-bezier(.22, 1, .36, 1), box-shadow .32s ease, border-color .32s ease; }
+        .service-card:hover, .office-card:hover, .static-card:hover, .review-card:hover { transform: translateY(-4px); }
+        .service-card.is-open { box-shadow: 0 24px 64px rgba(0, 0, 0, .3), 0 0 0 1px rgba(214, 179, 106, .24); }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-title.reveal.active, .hero-subtitle.reveal.active, .banner-stats.reveal.active { animation: none !important; }
+            .service-card, .office-card, .static-card, .review-card { transition: none !important; }
+            .service-card:hover, .office-card:hover, .static-card:hover, .review-card:hover { transform: none !important; }
+        }
     </style>
 </head>
 <body>
     <canvas class="sparkle-space" id="sparkle-space" aria-hidden="true"></canvas>
-    <div class="bg-pixels" aria-hidden="true"></div>
     <div class="cursor-light" aria-hidden="true"></div>
 
 
@@ -1585,39 +1596,17 @@
             } else start();
         });
 
-        // Pointer-following illumination, fluid color splashes, and restrained background pixels.
+        // A single restrained pointer light; the sparkle canvas provides the ambient depth layer.
         (() => {
             const light = document.querySelector('.cursor-light');
-            const pixelLayer = document.querySelector('.bg-pixels');
-            if (pixelLayer && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                for (let i = 0; i < 18; i++) {
-                    const pixel = document.createElement('span');
-                    pixel.className = 'bg-pixel';
-                    pixel.style.left = (5 + Math.random() * 90) + '%';
-                    pixel.style.top = (8 + Math.random() * 82) + '%';
-                    pixel.style.setProperty('--pixel-duration', (3.8 + Math.random() * 5.5) + 's');
-                    pixel.style.setProperty('--pixel-delay', (-Math.random() * 7) + 's');
-                    pixelLayer.appendChild(pixel);
-                }
-            }
             if (!light || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            let raf = 0, x = innerWidth / 2, y = innerHeight / 2, lastSplash = 0;
+            let raf = 0, x = innerWidth / 2, y = innerHeight / 2;
             addEventListener('pointermove', event => {
                 x = event.clientX; y = event.clientY;
                 if (!raf) raf = requestAnimationFrame(() => { light.style.left = x + 'px'; light.style.top = y + 'px'; raf = 0; });
-                const now = performance.now();
-                if (now - lastSplash > 120) {
-                    lastSplash = now;
-                    const splash = document.createElement('span');
-                    splash.className = 'cursor-splash';
-                    splash.style.left = x + 'px'; splash.style.top = y + 'px';
-                    splash.style.background = Math.random() > .5 ? 'radial-gradient(circle, rgba(214,183,124,.5), rgba(78,204,214,.2) 42%, transparent 72%)' : 'radial-gradient(circle, rgba(92,137,255,.4), rgba(214,183,124,.2) 42%, transparent 72%)';
-                    document.body.appendChild(splash);
-                    setTimeout(() => splash.remove(), 850);
-                }
-            });
+            }, { passive: true });
             addEventListener('pointerleave', () => light.style.opacity = '0');
-            addEventListener('pointerenter', () => light.style.opacity = '.66');
+            addEventListener('pointerenter', () => light.style.opacity = '.42');
         })();
     </script>
 
