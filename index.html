@@ -1141,17 +1141,17 @@
         /* Static atmospheric brand canvas: layered light, no texture, no background motion. */
         html { background: #f3f0ea !important; }
         body { background-color: #f3f0ea !important; background-image: radial-gradient(circle at 8% 8%, rgba(167,66,53,.11), transparent 25%), radial-gradient(circle at 92% 16%, rgba(113,132,119,.14), transparent 28%), radial-gradient(circle at 52% 92%, rgba(189,147,83,.08), transparent 30%), linear-gradient(135deg, #fbfaf7 0%, #f3f0ea 55%, #f8f7f3 100%) !important; background-attachment: fixed; }
-        body::after { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .38; background: radial-gradient(ellipse 42% 30% at 12% 78%, rgba(167,66,53,.07), transparent 72%), radial-gradient(ellipse 38% 32% at 90% 70%, rgba(113,132,119,.08), transparent 72%); }
+        body::after { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .28; background: radial-gradient(ellipse 42% 30% at 12% 78%, rgba(167,66,53,.07), transparent 72%), radial-gradient(ellipse 38% 32% at 90% 70%, rgba(113,132,119,.08), transparent 72%); }
+        .ambient-light-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: .42; mix-blend-mode: multiply; }
         body > nav, body > section, body > footer { position: relative; z-index: 2; }
         nav { background: rgba(251,250,247,.84) !important; }
         .glass-panel, .office-card, .static-card, .postcard-space, .review-card-google, .central-contact-banner { background: rgba(255,254,250,.82) !important; }
-        @media (max-width: 700px) { body { background-attachment: scroll; } body::after { opacity: .26; } }
+        @media (max-width: 700px) { body { background-attachment: scroll; } body::after { opacity: .2; } .ambient-light-field { opacity: .28; } }
+        @media (prefers-reduced-motion: reduce) { .ambient-light-field { display: none; } }
     </style>
 </head>
 <body>
-
-
-
+    <canvas class="ambient-light-field" id="ambient-light-field" aria-hidden="true"></canvas>
 
     <!-- Navigation -->
     <nav>
@@ -1773,6 +1773,50 @@
                 card.addEventListener('pointermove', event => { const rect = card.getBoundingClientRect(); tx = ((event.clientX - rect.left) / rect.width - .5) * 2.2; ty = -((event.clientY - rect.top) / rect.height - .5) * 2.2; if (!frame) frame = requestAnimationFrame(render); }, { passive: true });
                 card.addEventListener('pointerleave', () => { tx = 0; ty = 0; card.style.transform = ''; });
             });
+        })();
+    </script>
+
+    <!-- Slow organic light-field motion: one lightweight ambient layer, no particles or texture. -->
+    <script>
+        (() => {
+            const canvas = document.getElementById('ambient-light-field');
+            const ctx = canvas?.getContext('2d', { alpha: true });
+            if (!ctx || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            const coarse = matchMedia('(pointer: coarse)').matches;
+            const blobs = [
+                { x: .14, y: .2, size: .34, color: [167,66,53], speed: .18, phase: .2 },
+                { x: .82, y: .27, size: .3, color: [113,132,119], speed: .14, phase: 2.3 },
+                { x: .64, y: .82, size: .38, color: [189,147,83], speed: .12, phase: 4.1 },
+                { x: .23, y: .76, size: .24, color: [86,126,161], speed: .16, phase: 5.4 }
+            ];
+            const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+            let width = 0, height = 0, ratio = 1, raf = 0, last = 0;
+            const resize = () => { ratio = Math.min(devicePixelRatio || 1, 1.5); width = innerWidth; height = innerHeight; canvas.width = width * ratio; canvas.height = height * ratio; ctx.setTransform(ratio,0,0,ratio,0,0); };
+            const draw = now => {
+                if (document.hidden) { raf = 0; return; }
+                if (now - last < 32) { raf = requestAnimationFrame(draw); return; }
+                last = now; const t = now * .001;
+                pointer.x += (pointer.tx - pointer.x) * .035; pointer.y += (pointer.ty - pointer.y) * .035;
+                ctx.clearRect(0,0,width,height);
+                blobs.forEach((blob, index) => {
+                    const driftX = Math.sin(t * blob.speed + blob.phase) * width * .055;
+                    const driftY = Math.cos(t * blob.speed * .83 + blob.phase) * height * .045;
+                    const x = width * blob.x + driftX + pointer.x * (index + 1) * (coarse ? 3 : 8);
+                    const y = height * blob.y + driftY + pointer.y * (index + 1) * (coarse ? 2 : 6);
+                    const radius = Math.min(width,height) * blob.size;
+                    const gradient = ctx.createRadialGradient(x,y,0,x,y,radius);
+                    const [r,g,b] = blob.color;
+                    gradient.addColorStop(0, `rgba(${r},${g},${b},.11)`);
+                    gradient.addColorStop(.42, `rgba(${r},${g},${b},.045)`);
+                    gradient.addColorStop(1, `rgba(${r},${g},${b},0)`);
+                    ctx.fillStyle = gradient; ctx.beginPath(); ctx.arc(x,y,radius,0,Math.PI*2); ctx.fill();
+                });
+                raf = requestAnimationFrame(draw);
+            };
+            addEventListener('pointermove', event => { pointer.tx = (event.clientX / innerWidth - .5) * 2; pointer.ty = (event.clientY / innerHeight - .5) * 2; }, { passive: true });
+            addEventListener('resize', resize, { passive: true });
+            addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(raf); else if (!raf) raf = requestAnimationFrame(draw); });
+            resize(); raf = requestAnimationFrame(draw);
         })();
     </script>
 </body>
