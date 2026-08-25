@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com">
 
     <!-- Google tag (gtag.js) -->
@@ -109,16 +107,15 @@
     <!-- Additional SEO -->
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
-        <meta name="theme-color" content="#111b28">
+        <meta name="theme-color" content="#f5f5f7">
 
     <!-- RG monogram favicon assets: SVG and JPEG fallbacks. -->
     <link rel="icon" type="image/svg+xml" sizes="any" href="https://ramyachandrachambers.com/searchlogo.svg">
     <link rel="icon" type="image/jpeg" href="https://ramyachandrachambers.com/favicon.jfif">
-        <meta name="color-scheme" content="dark">
+        <meta name="color-scheme" content="light">
 
     <meta name="format-detection" content="telephone=yes">
-    <!-- Premium Font Pairings -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- System font stack: no external font dependency required. -->
     <style>
         :root {
             /* ---------------------------------
@@ -168,7 +165,7 @@
         html { scroll-behavior: smooth; scroll-padding-top: 100px; overflow-x: hidden; }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", sans-serif;
             color: var(--text-primary);
             line-height: 1.7;
             background-color: var(--bg-base);
@@ -179,7 +176,7 @@
         }
 
         /* Typography */
-        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; }
+        h1, h2, h3, h4, .serif { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", sans-serif; }
 
         .unique-cap {
             font-size: 1.35em;
@@ -227,14 +224,7 @@
         }
         .glass-panel:hover::before { left: 200%; }
         .glass-panel > * { position: relative; z-index: 1; }
-        /* Immersive staged hero movement inspired by the supplied reference. */
-        .hero-title-stepped .title-word { display: inline-block; will-change: transform, opacity; }
-        .hero-title-stepped.active .title-word-one { animation: heroWordOne 1.15s cubic-bezier(.2,.8,.2,1) both; }
-        .hero-title-stepped.active .title-word-two { animation: heroWordTwo 1.35s cubic-bezier(.2,.8,.2,1) .12s both; }
-        .hero-title-stepped.active .title-word-three { animation: heroWordThree 1.55s cubic-bezier(.2,.8,.2,1) .24s both; }
-        @keyframes heroWordOne { from { opacity: 0; transform: translate3d(-7vw,-24px,0) rotate(-2deg); } to { opacity: 1; transform: translate3d(0,0,0) rotate(0); } }
-        @keyframes heroWordTwo { from { opacity: 0; transform: translate3d(5vw,16px,0) rotate(1.5deg); } to { opacity: 1; transform: translate3d(0,0,0) rotate(0); } }
-        @keyframes heroWordThree { from { opacity: 0; transform: translate3d(8vw,42px,0) rotate(2deg); } to { opacity: 1; transform: translate3d(0,0,0) rotate(0); } }
+        .hero-title-stepped .title-word { display: inline-block; }
 
         /* Dynamic Scroll Entrance Animations */
         .reveal { opacity: 0; transition: all 1.2s var(--smooth); }
@@ -260,7 +250,7 @@
 
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
 
-        .logo { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--text-primary); text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 12px; }
+        .logo { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", sans-serif; font-size: 2rem; font-weight: 700; color: var(--text-primary); text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 12px; }
         .logo svg { width: 32px; height: 32px; color: var(--accent-main); filter: drop-shadow(0 2px 5px rgba(120,120,120,0.3)); }
 
         .nav-links { display: flex; gap: 0.2rem; list-style: none; }
@@ -282,7 +272,7 @@
         .hero-subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 680px; margin-bottom: 4rem; font-weight: 300; }
         .banner-stats { display: flex; gap: 4rem; flex-wrap: wrap; justify-content: center; padding: 2.5rem 5rem; position: relative; }
         .stat-item { display: flex; flex-direction: column; align-items: center; }
-        .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--accent-main); }
+        .stat-value { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--accent-main); }
         .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500; }
 
         /* General Section Styles */
@@ -383,7 +373,7 @@
         .review-card { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
         .review-source { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-main); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
         .review-stars { color: #fbbf24; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 1rem; }
-        .review-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--text-primary); line-height: 1.6; }
+        .review-text { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", sans-serif; font-size: 1.3rem; font-style: italic; color: var(--text-primary); line-height: 1.6; }
 
         /* Central Contact Banner */
         .central-contact-banner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3.5rem; padding: 2.2rem; margin-bottom: 3.5rem; border-radius: 14px; text-align: center; }
