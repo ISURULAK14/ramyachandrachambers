@@ -1674,6 +1674,41 @@
                 animation: none !important;
             }
         }
+    
+        /* Mobile-only single-service accordion refinement; desktop rules are unchanged. */
+        @media (max-width: 600px) {
+            .services-grid .accordion-content {
+                transition: max-height 1.65s cubic-bezier(.22, 1, .36, 1), opacity 1.05s ease !important;
+            }
+            .services-grid .accordion-inner {
+                transition: transform 1.55s cubic-bezier(.22, 1, .36, 1), opacity 1.05s ease;
+            }
+            .services-grid .service-card.is-opening { animation-duration: 1.65s; }
+            .services-grid .arrow-icon { transition-duration: 1.3s !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .services-grid .service-card,
+            .services-grid .accordion-content,
+            .services-grid .accordion-inner,
+            .services-grid .arrow-icon {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    
+        /* Mobile QA correction: keep the stepped hero title fully inside the viewport. */
+        @media (max-width: 600px) {
+            .hero-title-stepped {
+                width: min(100%, 23rem) !important;
+                max-width: 100% !important;
+                font-size: clamp(2.2rem, 10.8vw, 3.6rem) !important;
+                letter-spacing: .35px;
+                overflow: visible;
+            }
+            .hero-title-stepped .title-word-one,
+            .hero-title-stepped .title-word-two,
+            .hero-title-stepped .title-word-three { transform: none !important; }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -2179,6 +2214,26 @@
 
         function toggleAccordion(element) {
             const card = element.closest('.service-card');
+            // Mobile: keep the interaction focused on one service at a time.
+            if (window.matchMedia('(max-width: 600px)').matches) {
+                const isOpen = card.classList.contains('is-open');
+                serviceCards.filter(otherCard => otherCard !== card).forEach(otherCard => {
+                    otherCard.classList.remove('is-opening');
+                    setServiceState(otherCard, false);
+                });
+                serviceGrid.classList.remove('row-open');
+                if (isOpen) {
+                    card.classList.remove('is-opening');
+                    setServiceState(card, false);
+                } else {
+                    card.style.setProperty('--service-delay', '0ms');
+                    card.classList.add('is-opening');
+                    setServiceState(card, true);
+                    window.setTimeout(() => card.classList.remove('is-opening'), 1650);
+                }
+                return;
+            }
+            // Desktop: preserve the existing row-based behavior exactly.
             const row = getServiceRow(card);
             const rowIsOpen = row.length > 0 && row.every(rowCard => rowCard.classList.contains('is-open'));
             if (rowIsOpen) closeServiceRow(card);
