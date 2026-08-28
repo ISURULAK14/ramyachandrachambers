@@ -57,7 +57,15 @@
     <meta name="geo.placename" content="Matara, Southern Province, Sri Lanka">
     <meta name="geo.position" content="5.9449;80.5438">
     <meta name="ICBM" content="5.9449, 80.5438">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="target" content="all">
+    <meta name="audience" content="all">
+    <meta name="rating" content="General">
     <meta property="og:locale" content="en_LK">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta property="og:locale:alternate" content="en_AU">
     <meta name="color-scheme" content="dark light">
     <meta name="format-detection" content="telephone=yes">
 
@@ -1190,6 +1198,31 @@
             .residence-card .residence-map-container { flex: 0 0 auto; width: min(100%, 270px); margin-inline: auto; margin-top: 1.5rem; }
             .map-wrapper { width: min(100%, 880px); }
             section { padding: 5rem 1.5rem; }
+
+            /* Mobile-Only Pixie Dust Particle Animation */
+            .pixie-particle {
+                position: fixed;
+                pointer-events: none;
+                border-radius: 50%;
+                z-index: 99999;
+                box-shadow: 0 0 6px rgba(223,179,93,.9), 0 0 12px rgba(255,230,153,.6);
+                will-change: transform, opacity;
+                animation: pixieDustFloat .75s cubic-bezier(.22,1,.36,1) forwards;
+            }
+            @keyframes pixieDustFloat {
+                0% {
+                    opacity: .95;
+                    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+                }
+                50% {
+                    opacity: .85;
+                    transform: translate3d(var(--drift-x, 8px), -18px, 0) scale(1.25) rotate(45deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate3d(calc(var(--drift-x, 8px) * 1.6), -36px, 0) scale(0.2) rotate(90deg);
+                }
+            }
         }
 
         @media (max-width: 600px) {
@@ -1888,13 +1921,24 @@
             if (!pins.length) return;
             const mapSection = document.getElementById('testimonials');
             const mapWrapper = document.querySelector('.map-wrapper');
-            const countryGroups = [];
-            const groupSize = 4;
-            for (let i = 0; i < pins.length; i += groupSize) {
-                const group = pins.slice(i, i + groupSize);
-                if (group.length < groupSize) group.push(...pins.slice(0, groupSize - group.length));
-                countryGroups.push(group.map(pin => pin.id));
-            }
+            
+            // Curated 7-country rotations across separated continents to prevent overlapping
+            const countryGroups = [
+                // Cycle 1: USA (N. America), UK (NW Europe), Zanzibar (E. Africa), India (S. Asia), Malaysia (SE Asia), Japan (E. Asia), Australia (Oceania)
+                ['pin-usa', 'pin-uk', 'pin-zanzibar', 'pin-india', 'pin-malaysia', 'pin-japan', 'pin-australia'],
+
+                // Cycle 2: Portugal (Iberian), Sweden (Scandinavia), Mali (W. Africa), Sri Lanka (Indian Ocean Hub), China (E. Asia), Korea (East Asia), New Zealand (Oceania)
+                ['pin-portugal', 'pin-sweden', 'pin-mali', 'pin-srilanka', 'pin-china', 'pin-korea', 'pin-nz'],
+
+                // Cycle 3: Ireland (Atlantic), Germany (C. Europe), UAE (Middle East), Maldives (Indian Ocean), Bangladesh (S. Asia), Singapore (SE Asia), Australia (Oceania)
+                ['pin-ireland', 'pin-germany', 'pin-uae', 'pin-maldives', 'pin-bangladesh', 'pin-singapore', 'pin-australia'],
+
+                // Cycle 4: France (W. Europe), Norway (Nordic), Malta (Mediterranean), Israel (Levant), India (S. Asia), Japan (E. Asia), USA (N. America)
+                ['pin-france', 'pin-norway', 'pin-malta', 'pin-israel', 'pin-india', 'pin-japan', 'pin-usa'],
+
+                // Cycle 5: Switzerland (Alpine), Denmark (N. Europe), Romania (E. Europe), Zanzibar (E. Africa), Malaysia (SE Asia), Korea (E. Asia), New Zealand (Oceania)
+                ['pin-switzerland', 'pin-denmark', 'pin-romania', 'pin-zanzibar', 'pin-malaysia', 'pin-korea', 'pin-nz']
+            ];
 
             let groupIndex = 0;
             let cycleTimer = null;
@@ -1937,23 +1981,23 @@
                 const gap = 10;
 
                 const candidates = [
-                    { left: pinCenterX + gap, top: pinCenterY - height / 2, width, height }, // right
-                    { left: pinCenterX - gap - width, top: pinCenterY - height / 2, width, height }, // left
                     { left: pinCenterX - width / 2, top: pinCenterY - gap - height, width, height }, // top
-                    { left: pinCenterX - width / 2, top: pinCenterY + gap, width, height } // bottom
+                    { left: pinCenterX - width / 2, top: pinCenterY + gap, width, height }, // bottom
+                    { left: pinCenterX + gap, top: pinCenterY - height / 2, width, height }, // right
+                    { left: pinCenterX - gap - width, top: pinCenterY - height / 2, width, height }  // left
                 ];
 
                 const score = pos => {
                     let s = 0;
-                    if (pos.left < 5) s += (5 - pos.left) * 200;
-                    if (pos.left + width > mapRect.width - 5) s += (pos.left + width - (mapRect.width - 5)) * 200;
-                    if (pos.top < 5) s += (5 - pos.top) * 200;
-                    if (pos.top + height > mapRect.height - 5) s += (pos.top + height - (mapRect.height - 5)) * 200;
+                    if (pos.left < 4) s += (4 - pos.left) * 400;
+                    if (pos.left + width > mapRect.width - 4) s += (pos.left + width - (mapRect.width - 4)) * 400;
+                    if (pos.top < 4) s += (4 - pos.top) * 400;
+                    if (pos.top + height > mapRect.height - 4) s += (pos.top + height - (mapRect.height - 4)) * 400;
                     
                     placedBoxes.forEach(box => {
                         const overlapX = Math.max(0, Math.min(pos.left + width, box.left + box.width) - Math.max(pos.left, box.left));
                         const overlapY = Math.max(0, Math.min(pos.top + height, box.top + box.height) - Math.max(pos.top, box.top));
-                        if (overlapX > 0 && overlapY > 0) s += overlapX * overlapY * 800;
+                        if (overlapX > 0 && overlapY > 0) s += overlapX * overlapY * 2500;
                     });
                     return s;
                 };
@@ -1965,10 +2009,11 @@
                 label.style.top = `${chosen.top - pinTop}px`;
             };
 
+            // 1, 2, 3, 4, 5, 6, 7 Sequential Lighting with 2.0 Second Hold/Rest
             const runCycle = () => {
                 clearPins();
                 const currentIds = countryGroups[groupIndex] || [];
-                const stepDelay = 350;
+                const stepDelay = 280; // Sequential stagger for 1, 2, 3, 4, 5, 6, 7
                 currentIds.forEach((id, idx) => {
                     const t = setTimeout(() => {
                         const pin = document.getElementById(id);
@@ -1980,6 +2025,7 @@
                     stepTimers.push(t);
                 });
 
+                // Hold all 7 pins for a 2-second rest (2000ms) before starting the next cycle
                 const totalCycleTime = (currentIds.length * stepDelay) + 2000;
                 groupIndex = (groupIndex + 1) % countryGroups.length;
                 cycleTimer = setTimeout(runCycle, totalCycleTime);
@@ -2198,6 +2244,82 @@
                 else render();
             });
             render();
+        })();
+
+        // Mobile-Only Pixie Dust Trail on Scroll
+        (() => {
+            if (window.innerWidth > 900 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            let lastScrollY = window.scrollY;
+            let lastSpawnTime = 0;
+            let touchX = window.innerWidth * 0.5;
+            let touchY = window.innerHeight * 0.5;
+            let isTouching = false;
+
+            window.addEventListener('touchstart', e => {
+                if (e.touches && e.touches.length > 0) {
+                    touchX = e.touches[0].clientX;
+                    touchY = e.touches[0].clientY;
+                    isTouching = true;
+                }
+            }, { passive: true });
+
+            window.addEventListener('touchmove', e => {
+                if (e.touches && e.touches.length > 0) {
+                    touchX = e.touches[0].clientX;
+                    touchY = e.touches[0].clientY;
+                }
+            }, { passive: true });
+
+            window.addEventListener('touchend', () => { isTouching = false; }, { passive: true });
+
+            const sparkleColors = ['#ffe699', '#dfb35d', '#d4af37', '#ffffff'];
+
+            const createParticle = (x, y) => {
+                if (document.querySelectorAll('.pixie-particle').length >= 14) return;
+                const p = document.createElement('div');
+                p.className = 'pixie-particle';
+                const size = Math.random() * 3.5 + 2.5;
+                const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+                const driftX = (Math.random() - 0.5) * 26;
+                const jitterX = (Math.random() - 0.5) * 20;
+                const jitterY = (Math.random() - 0.5) * 16;
+
+                p.style.cssText = `
+                    left: ${Math.max(4, Math.min(window.innerWidth - 8, x + jitterX))}px;
+                    top: ${Math.max(4, Math.min(window.innerHeight - 8, y + jitterY))}px;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: ${color};
+                    --drift-x: ${driftX}px;
+                `;
+                document.body.appendChild(p);
+                p.addEventListener('animationend', () => p.remove(), { once: true });
+            };
+
+            let scrollTicking = false;
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth > 900) return;
+                if (scrollTicking) return;
+                scrollTicking = true;
+                requestAnimationFrame(() => {
+                    const now = performance.now();
+                    const currentY = window.scrollY;
+                    const diff = Math.abs(currentY - lastScrollY);
+
+                    if (diff > 3 && now - lastSpawnTime > 50) {
+                        lastSpawnTime = now;
+                        const spawnX = isTouching ? touchX : (window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0.5);
+                        const spawnY = isTouching ? touchY : (window.innerHeight * 0.5 + (Math.random() - 0.5) * 100);
+                        createParticle(spawnX, spawnY);
+                        if (Math.random() > 0.45) {
+                            createParticle(spawnX, spawnY);
+                        }
+                    }
+                    lastScrollY = currentY;
+                    scrollTicking = false;
+                });
+            }, { passive: true });
         })();
 
         // Image fallback handler

@@ -1,6 +1,15 @@
 /*
+  # Enterprise Grade Security Headers (A+ Rating)
+  X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Cross-Origin-Resource-Policy: cross-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://static.cloudflareinsights.com https://*.sociablekit.com https://*.elfsight.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://maps.google.com https://www.google.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://cloudflareinsights.com https://*.sociablekit.com https://*.elfsight.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;
 
+# Immutable Long-Term Caching for High Performance
 /*.webp
   Cache-Control: public, max-age=31536000, immutable
 
@@ -12,3 +21,6 @@
 
 /*.jfif
   Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
