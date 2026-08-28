@@ -2,7 +2,7 @@
 # robots.txt for https://ramyachandrachambers.com/
 # ========================================================
 
-# General Search Engine Crawlers (Google, Bing, Yahoo, etc.)
+# General Search Engine Crawlers
 User-agent: *
 Allow: /
 
