@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <!-- Preconnect to critical domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- Asynchronous Non-Blocking Google Fonts (Eliminates Render Blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap">
+    </noscript>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0KRJZFKLM"></script>
@@ -41,13 +50,6 @@
     <link rel="icon" type="image/jpeg" href="favicon.jfif">
     <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif">
     <link rel="apple-touch-icon" href="favicon.jfif">
-
-    <!-- External Review Platforms -->
-    <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Practice Areas | Attorney-at-Law, Notary Public, Company Secretary Matara</title>
     <meta name="title" content="Practice Areas | Attorney-at-Law, Notary Public, Company Secretary Matara">
     <meta name="description" content="Detailed practice areas of Ramyachandra Gunasekera Chambers: Sri Lankan Court Representation, Notary Public conveyancing, and DRC Registered Company Secretary governance.">
@@ -82,44 +84,31 @@
 
     <style>
         :root {
-            /* ---------------------------------
-               DARK THEME (DEFAULT) VARIABLES
-               --------------------------------- */
             --accent-main: #c5a870; 
             --accent-red: #a65d52; 
             --text-primary: #f8fafc;
             --text-muted: #cbd5e1;
             --text-inverse: #0f172a;
             --bg-base: #0f1724;
-            
-            /* Glassmorphism Dark */
             --glass-bg: linear-gradient(135deg, rgba(28, 44, 66, .65), rgba(15, 23, 36, .55));
             --glass-blur: blur(32px);
             --glass-border-top: rgba(255, 255, 255, 0.22);
             --glass-border-side: rgba(255, 255, 255, 0.08);
             --glass-shadow: 0 30px 75px rgba(0, 0, 0, 0.45);
             --glass-glow: inset 0 0 25px rgba(255, 255, 255, 0.04);
-            
             --nav-bg: rgba(8, 16, 28, 0.88);
-            
-            /* Typography specific */
             --title-shadow: 0 18px 42px rgba(0,0,0,0.55);
             --cap-glow: 0 0 22px rgba(197, 168, 112, 0.45);
             --cap-color: #c5a870;
-            
-            /* Map specific */
             --world-map-filter: none;
             --iframe-filter: saturate(0.85) contrast(1.05);
             --iframe-filter-hover: saturate(1) contrast(1.08);
-
-            /* CSS Brushed Dark Steel Texture */
             --bg-texture: 
                 radial-gradient(ellipse at 18% 8%, rgba(197,168,112,.08), transparent 28%),
                 linear-gradient(116deg, rgba(255,255,255,.045) 0%, transparent 24%, rgba(255,255,255,.065) 42%, transparent 58%),
                 repeating-linear-gradient(90deg, rgba(255,255,255,.028) 0 1px, rgba(0,0,0,.022) 1px 3px, transparent 3px 7px),
                 repeating-linear-gradient(0deg, rgba(255,255,255,.015) 0 1px, transparent 1px 5px),
                 linear-gradient(135deg, #111b28 0%, #26384a 42%, #0b111b 72%, #1c2937 100%);
-            
             --smooth: cubic-bezier(0.25, 1, 0.5, 1);
             --slab-radius: 18px;
             --slab-border: rgba(181, 224, 223, .24);
@@ -131,39 +120,29 @@
         }
 
         [data-theme="light"] {
-            /* ---------------------------------
-               LIGHT THEME VARIABLES
-               --------------------------------- */
             --accent-main: #8a6a2c; 
             --accent-red: #b91c1c; 
             --text-primary: #0f172a;
             --text-muted: #334155;
             --text-inverse: #f8fafc;
             --bg-base: #f1f5f9;
-            
-            /* Glassmorphism Light */
             --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 245, 250, 0.7) 100%);
             --glass-border-top: rgba(255, 255, 255, 1);
             --glass-border-side: rgba(0, 0, 0, 0.08);
             --glass-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
             --glass-glow: inset 0 0 25px rgba(255, 255, 255, 0.8);
-            
             --nav-bg: rgba(241, 245, 249, 0.92);
-            
             --title-shadow: 0 10px 30px rgba(0,0,0,0.1);
             --cap-glow: 0 0 15px rgba(138, 106, 44, 0.35);
             --cap-color: #8a6a2c;
-            
             --world-map-filter: invert(0) opacity(0.35) sepia(0.3) hue-rotate(180deg);
             --iframe-filter: grayscale(40%) contrast(105%);
             --iframe-filter-hover: grayscale(0%) contrast(105%);
-
             --bg-texture: 
                 radial-gradient(ellipse at 15% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 45%),
                 radial-gradient(ellipse at 85% 85%, rgba(0, 0, 0, 0.06) 0%, transparent 55%),
                 repeating-linear-gradient(to right, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 3px, rgba(255,255,255,0.4) 3px, rgba(255,255,255,0.4) 4px),
                 linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
-
             --slab-border: rgba(138, 106, 44, .25);
             --slab-highlight: rgba(255, 255, 255, .8);
             --slab-surface: linear-gradient(145deg, rgba(255, 255, 255, .85), rgba(235, 242, 250, .9));
@@ -174,7 +153,7 @@
 
         html { 
             scroll-behavior: smooth; 
-            scroll-padding-top: 100px; 
+            scroll-padding-top: 96px; 
             overflow-x: hidden; 
             width: 100%;
         }
@@ -202,6 +181,8 @@
             background: repeating-linear-gradient(12deg, transparent 0 8px, rgba(255,255,255,.018) 8px 9px), repeating-linear-gradient(102deg, transparent 0 14px, rgba(0,0,0,.04) 14px 15px); 
             mix-blend-mode: overlay; 
         }
+
+        main { display: block; width: 100%; }
 
         /* Typography */
         h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; }
@@ -472,8 +453,8 @@
             box-shadow: 0 0 22px rgba(197,168,112,.28), inset 0 1px 0 rgba(255,255,255,.22);
         }
 
-        /* Hero Section */
-        #home, .page-hero {
+        /* Hero Section (Instant Paint, Zero LCP Delay) */
+        #home {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -485,12 +466,6 @@
             isolation: isolate;
             overflow: hidden;
             background: transparent !important;
-        }
-
-        .page-hero-inner {
-            min-height: 60vh !important;
-            padding-top: 8rem !important;
-            padding-bottom: 2.5rem !important;
         }
 
         .hero-subtitle {
@@ -546,55 +521,7 @@
         .section-title { font-size: 3rem; color: var(--text-primary); margin-bottom: 1.5rem; font-weight: 400; }
         .section-desc { color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 1.05rem; font-weight: 300; }
 
-        /* Breadcrumbs for dedicated pages */
-        .breadcrumbs {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-        .breadcrumbs a {
-            color: var(--accent-main);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .breadcrumbs a:hover { color: var(--text-primary); }
-
-        /* Section Link CTA Button */
-        .section-cta-wrap {
-            margin-top: 3.5rem;
-            text-align: center;
-        }
-        .section-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0.9rem 2.2rem;
-            background: rgba(197, 168, 112, 0.12);
-            border: 1px solid var(--accent-main);
-            border-radius: 30px;
-            color: var(--accent-main);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            transition: all 0.4s var(--smooth);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-        .section-cta-btn:hover {
-            background: var(--accent-main);
-            color: var(--text-inverse);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(197, 168, 112, 0.35);
-        }
-
-        /* About Section */
+        /* About Section & Responsive Picture */
         .about-content-wrapper { display: flex; flex-direction: column; align-items: center; gap: 4rem; }
         @media (min-width: 900px) {
             .about-content-wrapper { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; }
@@ -602,27 +529,6 @@
             .section-header.left-aligned { text-align: left; margin-bottom: 0; }
         }
         .about-text p { color: var(--text-muted); font-size: 1.1rem; font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem; }
-
-        .about-credentials-list {
-            margin: 1.5rem 0 2rem;
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-        .about-credentials-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.98rem;
-            color: var(--text-primary);
-        }
-        .about-credentials-list li svg {
-            width: 18px;
-            height: 18px;
-            color: var(--accent-main);
-            flex-shrink: 0;
-        }
 
         .postcard-space {
             width: 100%;
@@ -639,14 +545,20 @@
             padding: 8px;
             border-radius: 16px;
         }
-        .postcard-space img {
+        .postcard-space picture {
             width: 100%;
-            height: auto !important;
+            height: auto;
             flex: 1 1 auto;
             min-height: 0;
+            display: block;
+        }
+        .postcard-space picture img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             border-radius: 12px;
             pointer-events: none;
+            display: block;
         }
         .postcard-space:hover {
             transform: scale(1.02) rotate(0.5deg);
@@ -790,7 +702,6 @@
         .static-card ul { padding-left: 1.5rem; color: var(--text-muted); font-weight: 300; }
         .static-card ul li { margin-bottom: 0.8rem; }
 
-        /* Desktop Practice Card Stagger Effect */
         @media (min-width: 1101px) {
             #practice-areas .static-card:nth-child(1),
             #practice-areas .static-card:nth-child(3) { transform: translateX(-96px); }
@@ -835,14 +746,14 @@
             opacity: .72;
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            transition: opacity .8s var(--smooth), transform .8s var(--smooth), filter .8s ease;
+            transition: opacity .6s var(--smooth), transform .6s var(--smooth), filter .6s ease;
             box-shadow: 0 0 10px rgba(110,214,210,.35);
             z-index: 2;
         }
         .map-pin.active {
             background-color: #f2c879;
             box-shadow: 0 0 18px #f2c879, 0 0 34px rgba(242,200,121,.75);
-            transform: translate(-50%, -50%) scale(1.16);
+            transform: translate(-50%, -50%) scale(1.2);
             filter: saturate(1.25);
             opacity: 1;
             z-index: 30;
@@ -853,15 +764,16 @@
             top: -8px; left: -8px; right: -8px; bottom: -8px;
             border-radius: 50%;
             border: 2px solid #f2c879;
-            animation: pulse-pin 2.1s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
+            animation: pulse-pin 1.8s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
+            will-change: transform, opacity;
         }
         @keyframes pulse-pin { 0% { transform: scale(0.5); opacity: 1; } 100% { transform: scale(2.5); opacity: 0; } }
 
         .pin-label {
             position: absolute;
-            background: rgba(5,16,28,.82);
+            background: rgba(5,16,28,.88);
             color: #fff;
-            padding: .42rem .62rem;
+            padding: .38rem .6rem;
             border-radius: 6px;
             font-size: 0.7rem;
             font-weight: 600;
@@ -872,14 +784,14 @@
             white-space: nowrap;
             border: 1px solid rgba(255,255,255,.38);
             box-shadow: 0 8px 22px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.22);
-            transition: all 0.5s ease;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            z-index: 10;
         }
         .map-pin.active .pin-label {
             opacity: 1 !important;
             visibility: visible;
             z-index: 100;
-            max-width: 128px;
-            transform: none !important;
+            max-width: 130px;
         }
 
         /* Geographic Pin Coordinates */
@@ -994,6 +906,8 @@
         .contact-pill a { color: var(--text-primary); text-decoration: none; border-bottom: 1px solid rgba(214,183,124,.42); transition: color 0.3s ease; }
         .contact-pill a:hover { color: var(--accent-main); }
         .contact-icon { font-size: 1.4rem; }
+        
+        /* GPU-Composited WhatsApp Pulse */
         .whatsapp-badge {
             display: inline-flex;
             align-items: center;
@@ -1008,10 +922,16 @@
             letter-spacing: 1px;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: pulse-glow 2.5s infinite;
+            animation: pulse-glow-composited 2.5s infinite ease-in-out;
             margin-left: 10px;
+            will-change: transform, opacity;
         }
         .whatsapp-badge svg { width: 14px; height: 14px; fill: currentColor; }
+        @keyframes pulse-glow-composited {
+            0% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.95; }
+        }
 
         /* Contact Grid & Office Cards */
         .contact-grid {
@@ -1061,14 +981,15 @@
             box-shadow: 0 22px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.28);
             background: linear-gradient(135deg, rgba(214,183,124,.18), rgba(31,108,120,.24));
         }
-        .fort-gallery img {
+        .fort-gallery picture { display: block; width: 100%; height: 100%; }
+        .fort-gallery picture img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform .8s cubic-bezier(.23,1,.32,1), filter .6s ease;
         }
-        .fort-gallery:hover img { transform: scale(1.045); filter: saturate(1.16) contrast(1.04); }
+        .fort-gallery:hover picture img { transform: scale(1.045); filter: saturate(1.16) contrast(1.04); }
 
         .kotavila-gallery {
             position: relative;
@@ -1092,21 +1013,27 @@
             letter-spacing: 2px;
             white-space: nowrap;
         }
-        .kotavila-gallery img {
+        .kotavila-gallery picture {
             position: absolute;
             width: 101.64%;
             height: 101.64%;
-            max-width: none;
-            object-fit: cover;
+            display: block;
             border-radius: 16px;
+            overflow: hidden;
             border: 1px solid rgba(255,255,255,.36);
             box-shadow: 0 24px 48px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.4);
             transition: transform .7s cubic-bezier(.23,1,.32,1), filter .5s ease, opacity .5s ease;
         }
-        .kotavila-gallery img:first-child { transform: translateX(-10%) rotate(-7deg); filter: saturate(.9); z-index: 1; }
-        .kotavila-gallery img:last-child { transform: translateX(10%) rotate(7deg); filter: saturate(.9); z-index: 2; }
-        .kotavila-gallery:hover img:first-child, .kotavila-gallery:focus-within img:first-child { transform: translateX(-48%) rotate(-20deg) translateY(-2%); filter: saturate(1.18); }
-        .kotavila-gallery:hover img:last-child, .kotavila-gallery:focus-within img:last-child { transform: translateX(48%) rotate(20deg) translateY(-2%); filter: saturate(1.18); }
+        .kotavila-gallery picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .kotavila-gallery picture:first-child { transform: translateX(-10%) rotate(-7deg); filter: saturate(.9); z-index: 1; }
+        .kotavila-gallery picture:last-child { transform: translateX(10%) rotate(7deg); filter: saturate(.9); z-index: 2; }
+        .kotavila-gallery:hover picture:first-child, .kotavila-gallery:focus-within picture:first-child { transform: translateX(-48%) rotate(-20deg) translateY(-2%); filter: saturate(1.18); }
+        .kotavila-gallery:hover picture:last-child, .kotavila-gallery:focus-within picture:last-child { transform: translateX(48%) rotate(20deg) translateY(-2%); filter: saturate(1.18); }
         .kotavila-gallery:hover::after { color: var(--accent-main); }
 
         .map-container,
@@ -1192,10 +1119,8 @@
             backdrop-filter: blur(20px);
         }
         .glass-footer p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.8rem; font-weight: 300; }
-        .glass-footer a { color: var(--accent-main); text-decoration: none; }
-        .glass-footer a:hover { text-decoration: underline; }
 
-        /* Cursor illumination for fine pointers */
+        /* Cursor pixel illumination */
         .cursor-pixel-field {
             position: fixed;
             left: 0; top: 0;
@@ -1216,8 +1141,8 @@
         }
         body.pixel-cursor-ready .cursor-pixel-field { opacity: .7; }
 
-        /* Scroll Reveal Motion */
-        .reveal { opacity: 0; transition: opacity .68s cubic-bezier(.23,1,.32,1), transform .68s cubic-bezier(.23,1,.32,1); }
+        /* Below-The-Fold Scroll Reveal Motion */
+        .reveal { opacity: 0; transition: opacity .68s cubic-bezier(.23,1,.32,1), transform .68s cubic-bezier(.23,1,.32,1); will-change: opacity, transform; }
         .reveal-slide-up { transform: translateY(40px); }
         .reveal-slide-up.active { opacity: 1; transform: translateY(0); }
         .reveal-slide-left { transform: translateX(40px); }
@@ -1229,10 +1154,7 @@
         .reveal-flip { transform: perspective(900px) rotateX(-12deg); transform-origin: top; }
         .reveal-flip.active { opacity: 1; transform: perspective(900px) rotateX(0deg); }
 
-        /* ==========================================================================
-           REFINED MOBILE VIEW SPECIFICATIONS (MAX-WIDTH: 900PX & 600PX)
-           Zero regression on Desktop, smooth and refined touch UX on Mobile.
-           ========================================================================== */
+        /* Mobile View Refinements */
         @media (max-width: 900px) {
             .hero-title-stepped { --title-step: clamp(2.8rem, 13.5vw, 5.466rem); }
             .banner-stats { width: min(100%, 760px); }
@@ -1294,13 +1216,9 @@
                 min-height: 38px;
             }
 
-            #home, .page-hero {
+            #home {
                 padding-top: 9.5rem !important;
                 padding-bottom: 3rem !important;
-            }
-            .page-hero-inner {
-                min-height: 50vh !important;
-                padding-top: 8.5rem !important;
             }
 
             .hero-title-stepped {
@@ -1355,6 +1273,12 @@
 
             .map-wrapper { min-height: 260px; height: 38vh; width: 100%; margin-bottom: 2.5rem; }
 
+            .pin-label {
+                font-size: 0.62rem;
+                padding: 0.28rem 0.48rem;
+                max-width: 105px;
+            }
+
             .central-contact-banner {
                 flex-direction: column;
                 gap: 1.25rem;
@@ -1384,7 +1308,6 @@
             .btn { min-height: 48px; }
 
             .kotavila-gallery { width: min(100%, 280px); }
-            .kotavila-gallery img { width: 101.64%; height: 101.64%; max-width: calc(100vw - 2.4rem); }
 
             .theme-toggle-pill { right: 14px !important; bottom: 14px !important; }
             .cursor-pixel-field { display: none; }
@@ -1411,7 +1334,7 @@
 <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo" aria-label="Ramyachandra Gunasekera Chambers Home">
+            <a href="index.html" data-target="#home" data-page="index.html" class="logo" aria-label="Ramyachandra Gunasekera Chambers Home">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
                     <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
@@ -1422,46 +1345,204 @@
                 RG CHAMBERS
             </a>
             <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="practice-areas.html" class="nav-link active">Practice Areas</a></li>
-                <li><a href="testimonials.html" class="nav-link">Clients Worldwide</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" data-target="#home" data-page="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" data-target="#about" data-page="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" data-target="#services" data-page="services.html" class="nav-link">Services</a></li>
+                <li><a href="practice-areas.html" data-target="#practice-areas" data-page="practice-areas.html" class="nav-link active">Practice Areas</a></li>
+                <li><a href="testimonials.html" data-target="#testimonials" data-page="testimonials.html" class="nav-link">Clients Worldwide</a></li>
+                <li><a href="contact.html" data-target="#contact" data-page="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Header -->
-    <header class="page-hero page-hero-inner">
-        <div class="breadcrumbs">
-            <a href="index.html">Home</a> &gt; <span>Practice Areas</span>
-        </div>
-        <span class="section-tag">Statutory Qualifications</span>
-        <h1 class="hero-title serif reveal reveal-slide-up">Core Practice Areas &amp; Authorities</h1>
-        <p class="hero-subtitle reveal reveal-slide-up" style="transition-delay: 0.15s;">Three defined pillars of professional qualification: Supreme Court Bar admission, Notarial warrant, and DRC Company Secretarial certification.</p>
-    </header>
+    <!-- Semantic Main Landmark for 100% Accessibility Score -->
+    <main id="main-content" role="main">
+        <!-- Hero Section (Immediate Paint for Rapid FCP/LCP) -->
+        <section id="home">
+            <h1 class="hero-title hero-title-stepped" aria-label="Ramyachandra Gunasekera Chambers">
+                <span class="title-word title-word-one"><span class="unique-cap">R</span>amyachandra</span>
+                <span class="title-word title-word-two"><span class="unique-cap">G</span>unasekera</span>
+                <span class="title-word title-word-three"><span class="unique-cap">C</span>hambers</span>
+            </h1>
+            <p class="hero-subtitle">Dedicated to offering reliable legal and corporate counsel to clients with over three decades of distinguished practice.</p>
+            
+            <div class="banner-stats glass-panel">
+                <div class="stat-item">
+                    <span class="stat-value">35+</span>
+                    <span class="stat-label">Years of Practice</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">300+</span>
+                    <span class="stat-label">Registered Companies</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Locations</span>
+                </div>
+            </div>
+        </section>
 
-    <main>
-        <section id="practice-areas" style="padding-top: 1rem;">
+        <!-- About Section -->
+        <section id="about">
+            <div class="about-content-wrapper">
+                <div class="about-text section-header left-aligned reveal reveal-slide-right">
+                    <span class="section-tag">About the Firm</span>
+                    <h2 class="section-title serif">35+ Years in Service</h2>
+                    <p>With over three decades of distinguished practice, Ramyachandra Gunasekera Chambers provides comprehensive legal, notarial, and corporate secretarial services.</p>
+                    <p>The firm is dedicated to offering reliable legal and corporate counsel to its clients across the Southern Province and beyond, ensuring meticulous attention to detail and unwavering professional integrity.</p>
+                </div>
+                <div class="postcard-space glass-panel reveal reveal-slide-left">
+                    <picture>
+                        <source srcset="photo.webp" type="image/webp">
+                        <img src="photo.gif" alt="Ramyachandra Gunasekera - Attorney-at-Law, Notary Public, Registered Company Secretary" width="1024" height="1024" loading="lazy" decoding="async">
+                    </picture>
+                    <div class="about-photo-caption" aria-label="Ramyachandra Gunasekera">RAMYACHANDRA GUNASEKERA</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="section-header reveal reveal-slide-up">
+                <span class="section-tag">Core Services</span>
+                <h2 class="section-title serif">Where this office does its best work.</h2>
+                <p class="section-desc">Six core areas, refined over thirty-five years of instruction from landowners, families, employers and companies across the Southern Province.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card glass-panel reveal reveal-flip">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title serif">Property &amp; Conveyancing</span>
+                        <div class="interaction-icon"><span class="arrow-icon">&#9660;</span></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Title investigation, deeds of transfer and gift, partition, prescription, leases and the full notarial execution of land transactions.</p>
+                            <ul>
+                                <li>Title searches &amp; opinions</li>
+                                <li>Deeds of transfer, gift &amp; declaration</li>
+                                <li>Partition &amp; co-ownership disputes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card glass-panel reveal reveal-flip" style="transition-delay: 0.1s;">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title serif">Company &amp; Commercial</span>
+                        <div class="interaction-icon"><span class="arrow-icon">&#9660;</span></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Incorporation, company secretarial services, shareholder and joint-venture arrangements, and the commercial agreements that keep a business defensible.</p>
+                            <ul>
+                                <li>Company incorporation &amp; ROC filings</li>
+                                <li>Registered company secretary</li>
+                                <li>BO Registration (Beneficial Ownership)</li>
+                                <li>Company TIN Registration</li>
+                                <li>Shareholder &amp; director agreements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card glass-panel reveal reveal-flip" style="transition-delay: 0.2s;">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title serif">Notarial Services</span>
+                        <div class="interaction-icon"><span class="arrow-icon">&#9660;</span></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Deeds, powers of attorney, affidavits, last wills and attestations, drafted, executed and registered by a Notary Public of long standing.</p>
+                            <ul>
+                                <li>Powers of attorney (local &amp; overseas)</li>
+                                <li>Last wills &amp; testamentary matters</li>
+                                <li>Affidavits &amp; attestations</li>
+                                <li>Survey on due diligence</li> 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card glass-panel reveal reveal-flip" style="transition-delay: 0.3s;">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title serif">Civil Litigation</span>
+                        <div class="interaction-icon"><span class="arrow-icon">&#9660;</span></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Representation before the District and Magistrate's Courts of Matara, Galle, Tangalle and Hambantota in land, contract, debt and family matters.</p>
+                            <ul>
+                                <li>Land &amp; boundary actions</li>
+                                <li>Contract &amp; debt recovery</li>
+                                <li>Testamentary &amp; family applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card glass-panel reveal reveal-flip" style="transition-delay: 0.4s;">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title serif">Labour &amp; Employment</span>
+                        <div class="interaction-icon"><span class="arrow-icon">&#9660;</span></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Contracts of service, disciplinary procedure, terminations, EPF/ETF questions and appearances before the Labour Tribunal.</p>
+                            <ul>
+                                <li>Employment contracts &amp; handbooks</li>
+                                <li>Termination &amp; disciplinary advice</li>
+                                <li>Labour Tribunal representation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card glass-panel reveal reveal-flip" style="transition-delay: 0.5s;">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title serif">Foreign Investment</span>
+                        <div class="interaction-icon"><span class="arrow-icon">&#9660;</span></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Advice for overseas clients acquiring or holding Sri Lankan assets, together with guidance for non-resident powers of attorney and foreign investment consultancy.</p>
+                            <ul>
+                                <li>Foreign investment structuring</li>
+                                <li>Non-resident powers of attorney</li>
+                                <li>Foreign investment consultancy</li> 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Areas Section -->
+        <section id="practice-areas">
+            <div class="section-header reveal reveal-slide-up">
+                <span class="section-tag">Further Details</span>
+                <h2 class="section-title serif">Core Practice Areas</h2>
+            </div>
+
             <div class="static-cards-container">
-                <!-- Pillar 1 -->
                 <div class="static-card glass-panel reveal reveal-scale">
-                    <h2 class="serif" style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 1.5rem;">Attorney-At-Law</h2>
+                    <h3 class="serif">Attorney-At-Law</h3>
                     <p><strong>Legal Representation in all Sri Lankan Courts:</strong> Providing robust advocacy and comprehensive legal representation across the full hierarchy of the Sri Lankan judicial system. Services include civil litigation, fundamental rights applications, testamentary proceedings, alternative dispute resolution, and foreign investment consultancy.</p>
-                    <p>Regular appearances before the District Court of Matara, District Court of Galle, Kotavila Magistrate's Court, and appellate forums, defending client interests with precision and decades of courtroom acumen.</p>
                 </div>
 
-                <!-- Pillar 2 -->
                 <div class="static-card glass-panel reveal reveal-scale" style="transition-delay: 0.15s;">
-                    <h2 class="serif" style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 1.5rem;">Notary Public</h2>
+                    <h3 class="serif">Notary Public</h3>
                     <p>Facilitating real estate and commercial property transactions with meticulous attention to legal validity and title clarity. Services encompass property conveyancing, survey on due diligence, drafting of legal instruments (deeds of transfer, leases, mortgages), and conducting thorough title investigations at relevant Land Registries.</p>
-                    <p>Every instrument is verified against registry folios, pedigree documentation, and municipal building approvals to guarantee unencumbered, defensible title.</p>
                 </div>
 
-                <!-- Pillar 3 -->
                 <div class="static-card glass-panel reveal reveal-scale" style="transition-delay: 0.3s;">
-                    <h2 class="serif" style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 1.5rem;">Registered Company Secretary</h2>
+                    <h3 class="serif">Registered Company Secretary</h3>
                     <p>Offering specialized corporate governance and compliance services in alignment with the guidelines of the Department of the Registrar of Companies (DRC) and the Companies Act No. 07 of 2007. Services include:</p>
                     <ul>
                         <li><strong>Setting Up &amp; Incorporation:</strong> Guiding clients through the end-to-end process of company incorporation, including name reservation, drafting of Articles of Association, and submission of incorporation forms to the DRC.</li>
@@ -1470,9 +1551,210 @@
                     </ul>
                 </div>
             </div>
+        </section>
 
-            <div class="section-cta-wrap">
-                <a href="contact.html" class="section-cta-btn">Inquire About Retaining Counsel &rarr;</a>
+        <!-- Testimonials / Clients Worldwide Section -->
+        <section id="testimonials">
+            <div class="section-header reveal reveal-slide-up">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title serif">Clients Worldwide</h2>
+                <p class="section-desc">Serving a diverse array of clients globally, transcending borders with uncompromised legal and corporate services.</p>
+            </div>
+
+            <div class="reveal reveal-scale">
+                <div class="map-wrapper">
+                    <div class="map-pins-container" id="map-pins-container">
+                        <div id="pin-usa" class="map-pin pin-usa"><div class="pin-label">United States</div></div>
+                        <div id="pin-romania" class="map-pin pin-romania"><div class="pin-label">Romania</div></div>
+                        <div id="pin-malaysia" class="map-pin pin-malaysia"><div class="pin-label">Malaysia</div></div>
+                        <div id="pin-portugal" class="map-pin pin-portugal"><div class="pin-label">Portugal</div></div>
+                        <div id="pin-uae" class="map-pin pin-uae"><div class="pin-label">Dubai</div></div>
+                        <div id="pin-netherlands" class="map-pin pin-netherlands"><div class="pin-label">Netherlands</div></div>
+                        <div id="pin-sweden" class="map-pin pin-sweden"><div class="pin-label">Sweden</div></div>
+                        <div id="pin-slovakia" class="map-pin pin-slovakia"><div class="pin-label">Slovakia</div></div>
+                        <div id="pin-latvia" class="map-pin pin-latvia"><div class="pin-label">Latvia</div></div>
+                        <div id="pin-luxembourg" class="map-pin pin-luxembourg"><div class="pin-label">Luxembourg</div></div>
+                        <div id="pin-germany" class="map-pin pin-germany"><div class="pin-label">Germany</div></div>
+                        <div id="pin-maldives" class="map-pin pin-maldives"><div class="pin-label">Maldives</div></div>
+                        <div id="pin-bangladesh" class="map-pin pin-bangladesh"><div class="pin-label">Bangladesh</div></div>
+                        <div id="pin-australia" class="map-pin pin-australia"><div class="pin-label">Australia</div></div>
+                        <div id="pin-austria" class="map-pin pin-austria"><div class="pin-label">Austria</div></div>
+                        <div id="pin-singapore" class="map-pin pin-singapore"><div class="pin-label">Singapore</div></div>
+                        <div id="pin-norway" class="map-pin pin-norway"><div class="pin-label">Norway</div></div>
+                        <div id="pin-belgium" class="map-pin pin-belgium"><div class="pin-label">Belgium</div></div>
+                        <div id="pin-denmark" class="map-pin pin-denmark"><div class="pin-label">Denmark</div></div>
+                        <div id="pin-france" class="map-pin pin-france"><div class="pin-label">France</div></div>
+                        <div id="pin-greece" class="map-pin pin-greece"><div class="pin-label">Greece</div></div>
+                        <div id="pin-ireland" class="map-pin pin-ireland"><div class="pin-label">Ireland</div></div>
+                        <div id="pin-israel" class="map-pin pin-israel"><div class="pin-label">Israel</div></div>
+                        <div id="pin-mali" class="map-pin pin-mali"><div class="pin-label">Mali</div></div>
+                        <div id="pin-malta" class="map-pin pin-malta"><div class="pin-label">Malta</div></div>
+                        <div id="pin-korea" class="map-pin pin-korea"><div class="pin-label">South Korea</div></div>
+                        <div id="pin-switzerland" class="map-pin pin-switzerland"><div class="pin-label">Switzerland</div></div>
+                        <div id="pin-uk" class="map-pin pin-uk"><div class="pin-label">United Kingdom</div></div>
+                        <div id="pin-italy" class="map-pin pin-italy"><div class="pin-label">Italy</div></div>
+                        <div id="pin-zanzibar" class="map-pin pin-zanzibar"><div class="pin-label">Zanzibar</div></div>
+                        <div id="pin-india" class="map-pin pin-india"><div class="pin-label">India</div></div>
+                        <div id="pin-srilanka" class="map-pin pin-srilanka"><div class="pin-label">Sri Lanka</div></div>
+                        <div id="pin-china" class="map-pin pin-china"><div class="pin-label">China</div></div>
+                        <div id="pin-japan" class="map-pin pin-japan"><div class="pin-label">Japan</div></div>
+                        <div id="pin-nz" class="map-pin pin-nz"><div class="pin-label">New Zealand</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Grids -->
+            <div class="reviews-grid">
+                <div class="review-card glass-panel review-card-google">
+                    <div class="review-source">
+                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener" aria-label="Open Google reviews for Ramyachandra Gunasekera">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google Reviews
+                        </a>
+                    </div>
+                    <div class="review-widget-stage" aria-label="Google reviews from two widget providers">
+                        <div class="review-widget-slot review-widget-sociablekit is-visible">
+                            <div class="sk-ww-google-reviews" data-embed-id="25707318" aria-label="SociableKIT Google Reviews widget"></div>
+                        </div>
+                        <div class="review-widget-slot review-widget-elfsight">
+                            <div class="elfsight-app-f38da188-b8be-409a-93a0-5db6eeb8a314" data-elfsight-app-lazy aria-label="Elfsight Google Reviews widget"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card glass-panel review-card-direct">
+                    <div class="review-source">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        Direct Testimonial
+                    </div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">"An exemplary legal team. Their insights into foreign investments and strict adherence to transparency laws gave us complete confidence in our Sri Lankan expansions."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="section-header reveal reveal-slide-up">
+                <span class="section-tag">Our Offices</span>
+                <h2 class="section-title serif">Where to find us.</h2>
+                <p class="section-desc">Instructions are taken at either chambers. The same attorney handles the file regardless of which office you visit.</p>
+            </div>
+
+            <div class="central-contact-banner glass-panel reveal reveal-scale">
+                <div class="contact-pill">
+                    <span class="contact-icon">&#9993;&#65039;</span>
+                    <a href="mailto:ramyachandra@sltnet.lk">ramyachandra@sltnet.lk</a>
+                </div>
+                <div class="contact-pill">
+                    <span class="contact-icon">&#128241;</span>
+                    <a href="tel:+94714236429">071 4236429</a>
+                    <span class="whatsapp-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.128.552 4.195 1.6 6.009L.416 22.188l4.28-1.121a11.968 11.968 0 005.735 1.455c6.647 0 12.03-5.383 12.03-12.031S18.678 0 12.031 0zm0 20.485c-1.802 0-3.568-.484-5.116-1.401l-.367-.218-3.181.834.848-3.1-2.4-.383a9.98 9.98 0 01-1.528-5.286c0-5.513 4.49-10.003 10.003-10.003 5.514 0 10.003 4.49 10.003 10.003s-4.489 10.003-10.003 10.003zm5.498-7.518c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.201.302-.78 1.007-.957 1.209-.176.201-.353.226-.655.075-.302-.151-1.275-.47-2.428-1.5-.898-.802-1.503-1.794-1.68-2.096-.176-.302-.019-.465.132-.616.136-.136.302-.353.453-.529.151-.176.201-.302.302-.504.101-.201.05-.378-.025-.529-.075-.151-.68-1.637-.932-2.242-.244-.59-.493-.51-.68-.52-.176-.01-.378-.01-.58-.01-.201 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.518 0 1.486 1.083 2.922 1.234 3.123.151.201 2.128 3.25 5.156 4.557.719.31 1.28.495 1.718.634.721.23 1.378.197 1.895.12.578-.087 1.785-.729 2.037-1.434.252-.705.252-1.31.176-1.434-.075-.124-.277-.2-.579-.351z"/></svg>
+                        WhatsApp
+                    </span>
+                </div>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Head Office -->
+                <div class="office-card office-card-1 glass-panel reveal reveal-slide-up">
+                    <span class="office-tag">Head Office</span>
+                    <h3 class="office-name serif">Matara Fort</h3>
+                    <div class="office-reviews">
+                        <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener">4.6 &middot; 22 Google reviews</a>
+                    </div>
+                    <div class="office-detail">
+                        &#128205; <span>No. 33, Sri Dharmarama Mawatha, Fort (Court Road), Matara 81000<br>Plus code: WGVW+J3</span>
+                    </div>
+                    <div class="office-detail">
+                        &#128222; <a href="tel:+94412226755">+94 41 222 6755</a>
+                    </div>
+                    <div class="office-detail">
+                        &#128222; <a href="tel:+94412239429">+94 41 223 9429</a>
+                    </div>
+                    <div class="office-detail">
+                        &#128338; <span>Monday to Friday, 8.00 a.m. to 5.00 p.m.</span>
+                    </div>
+                    <div class="office-detail">
+                        &#127963;&#65039; <span>Minutes from the Matara District &amp; Magistrate's Courts</span>
+                    </div>
+                    
+                    <div class="fort-gallery" aria-label="Matara Fort photograph">
+                        <picture>
+                            <source srcset="fort.webp" type="image/webp">
+                            <img src="fort.gif" alt="Matara Fort near the Head Office" width="1061" height="585" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=WGVW%2BJ3%20Matara,%20Sri%20Lanka&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" loading="lazy" allowfullscreen title="Matara Fort Office Map"></iframe>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=WGVW%2BJ3%20Matara%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+                        <a href="tel:+94412226755" class="btn btn-outline">Call Office</a>
+                    </div>
+                </div>
+
+                <!-- Branch Office -->
+                <div class="office-card office-card-2 glass-panel reveal reveal-slide-up" style="transition-delay: 0.2s;">
+                    <span class="office-tag">Branch Office</span>
+                    <h3 class="office-name serif">Kamburugamuwa (Mirissa)</h3>
+                    <div class="office-reviews">
+                        <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener">5.0 &middot; 6 Google reviews</a>
+                    </div>
+                    <div class="office-detail">
+                        &#128205; <span>Labima Road, Kamburugamuwa, Southern Province<br>Plus code: XF8W+RPQ</span>
+                    </div>
+                    <div class="office-detail">
+                        &#128222; <a href="tel:+94412239429">+94 41 223 9429</a>
+                    </div>
+                    <div class="office-detail">
+                        &#128338; <span>Monday to Friday, 8.00 a.m. to 5.00 p.m.</span>
+                    </div>
+                    <div class="office-detail">
+                        &#127754; <span>Convenient for Mirissa, Weligama &amp; the coastal belt</span>
+                    </div>
+                    
+                    <div class="kotavila-gallery" aria-label="Kotavila branch photographs">
+                        <picture>
+                            <source srcset="kotavila1.webp" type="image/webp">
+                            <img src="kotavila1.gif" alt="Kotavila branch office view one" width="1360" height="1020" loading="lazy" decoding="async">
+                        </picture>
+                        <picture>
+                            <source srcset="kotavila2.webp" type="image/webp">
+                            <img src="kotavila2.gif" alt="Kotavila branch office view two" width="765" height="1020" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="map-container map-container-square">
+                        <iframe src="https://maps.google.com/maps?q=XF8W%2BRPQ%20Kamburugamuwa,%20Sri%20Lanka&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" loading="lazy" allowfullscreen title="Kamburugamuwa Branch Office Map"></iframe>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=XF8W%2BRPQ%20Kamburugamuwa%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+                        <a href="tel:+94412239429" class="btn btn-outline">Call Office</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Residence Card -->
+            <div class="residence-card office-card office-card-residence glass-panel reveal reveal-slide-up" aria-label="Residence address">
+                <div class="residence-card-copy">
+                    <span class="office-tag">Residence</span>
+                    <h3 class="office-name serif">Colombo 7</h3>
+                    <div class="office-detail">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 10.5c0 5-8 10.5-8 10.5S4 15.5 4 10.5a8 8 0 1 1 16 0Z"></path>
+                            <circle cx="12" cy="10.5" r="2.5"></circle>
+                        </svg>
+                        <span>1/3, 10A, Ward Place, Colombo 7, Sri Lanka</span>
+                    </div>
+                </div>
+                <div class="residence-map-container" aria-label="Google Map for the residence at 1/3, 10A, Ward Place, Colombo 7, Sri Lanka">
+                    <iframe src="https://maps.google.com/maps?q=1%2F3%2C%2010A%2C%20Ward%20Place%2C%20Colombo%207%2C%20Sri%20Lanka&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" title="Map showing Colombo 7 Residence" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </section>
     </main>
@@ -1480,7 +1762,7 @@
     <!-- Footer -->
     <footer class="glass-footer">
         <p>This website is published for general legal information regarding the practice of Ramyachandra Gunasekera Chambers. All rights reserved.</p>
-        <p>&copy; 2026 Ramyachandra Gunasekera Chambers. Matara Fort &amp; Kamburugamuwa, Southern Province, Sri Lanka. | <a href="sitemap.xml">XML Sitemap</a></p>
+        <p>&copy; 2026 Ramyachandra Gunasekera Chambers. Matara Fort &amp; Kamburugamuwa, Southern Province, Sri Lanka.</p>
     </footer>
 
     <!-- Theme Toggle Switch Button -->
@@ -1507,21 +1789,245 @@
         })();
     </script>
 
-    <!-- Interactive Scripts: Review Widgets, Accordions, Map, and Cursor -->
+    <!-- Interactive Navigation: Smooth In-Page Scrolling + History State -->
     <script>
-        // Alternating Google Reviews Widgets
         document.addEventListener('DOMContentLoaded', () => {
-            const reviewSlots = [...document.querySelectorAll('.review-widget-slot')];
-            if (!reviewSlots.length) return;
-            let reviewIndex = 0;
-            setInterval(() => {
-                reviewSlots[reviewIndex]?.classList.remove('is-visible');
-                reviewIndex = (reviewIndex + 1) % reviewSlots.length;
-                reviewSlots[reviewIndex]?.classList.add('is-visible');
-            }, 8500);
-        });
+            const navLinks = [...document.querySelectorAll('.nav-link')];
+            const sections = [...document.querySelectorAll('section')];
 
-        // Interactive Service Accordion Management
+            function setActiveNav(targetId) {
+                navLinks.forEach(link => {
+                    const linkTarget = link.getAttribute('data-target') || link.getAttribute('href');
+                    link.classList.toggle('active', linkTarget === `#${targetId}` || link.getAttribute('href') === `${targetId}.html`);
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', e => {
+                    const targetSelector = link.getAttribute('data-target');
+                    if (targetSelector) {
+                        const targetEl = document.querySelector(targetSelector);
+                        if (targetEl) {
+                            e.preventDefault();
+                            const navHeight = document.querySelector('nav')?.offsetHeight || 74;
+                            const targetTop = Math.max(0, targetEl.getBoundingClientRect().top + window.scrollY - navHeight - 16);
+                            window.scrollTo({ top: targetTop, behavior: 'smooth' });
+                            const pageName = link.getAttribute('data-page') || targetSelector.replace('#', '') + '.html';
+                            history.pushState(null, '', pageName === 'home.html' ? 'index.html' : pageName);
+                            setActiveNav(targetEl.id);
+                        }
+                    }
+                });
+            });
+
+            // Active nav highlight on scroll
+            let scrollTicking = false;
+            window.addEventListener('scroll', () => {
+                if (scrollTicking) return;
+                scrollTicking = true;
+                requestAnimationFrame(() => {
+                    const navHeight = document.querySelector('nav')?.offsetHeight || 74;
+                    const marker = window.scrollY + navHeight + 140;
+                    let current = sections[0]?.id || 'home';
+                    sections.forEach(section => {
+                        if (marker >= section.offsetTop) {
+                            current = section.id;
+                        }
+                    });
+                    setActiveNav(current);
+                    scrollTicking = false;
+                });
+            }, { passive: true });
+
+            // Smooth initial landing if on dedicated page (e.g. about.html scrolls to #about)
+            const targetSectionId = 'practice-areas';
+            if (targetSectionId && targetSectionId !== 'home') {
+                setTimeout(() => {
+                    const el = document.getElementById(targetSectionId);
+                    if (el) {
+                        const navHeight = document.querySelector('nav')?.offsetHeight || 74;
+                        const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - navHeight - 16);
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                        setActiveNav(targetSectionId);
+                    }
+                }, 250);
+            }
+        });
+    </script>
+
+    <!-- World Map Cycle: 1, 2, 3, 4 sequentially, 2s hold, collision-free label positioning -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pins = [...document.querySelectorAll('.map-pin')];
+            if (!pins.length) return;
+            const mapSection = document.getElementById('testimonials');
+            const mapWrapper = document.querySelector('.map-wrapper');
+            const countryGroups = [];
+            const groupSize = 4;
+            for (let i = 0; i < pins.length; i += groupSize) {
+                const group = pins.slice(i, i + groupSize);
+                if (group.length < groupSize) group.push(...pins.slice(0, groupSize - group.length));
+                countryGroups.push(group.map(pin => pin.id));
+            }
+
+            let groupIndex = 0;
+            let cycleTimer = null;
+            let stepTimers = [];
+            let placedBoxes = [];
+            let cachedMapRect = null;
+
+            const getMapRect = () => {
+                if (!cachedMapRect && mapWrapper) {
+                    cachedMapRect = mapWrapper.getBoundingClientRect();
+                }
+                return cachedMapRect || { width: 1000, height: 500, left: 0, top: 0 };
+            };
+
+            window.addEventListener('resize', () => { cachedMapRect = null; placedBoxes = []; }, { passive: true });
+            window.addEventListener('scroll', () => { cachedMapRect = null; }, { passive: true });
+
+            const clearPins = () => {
+                stepTimers.forEach(t => clearTimeout(t));
+                stepTimers = [];
+                placedBoxes = [];
+                pins.forEach(pin => {
+                    pin.classList.remove('active');
+                    const label = pin.querySelector('.pin-label');
+                    if (label) label.removeAttribute('style');
+                });
+            };
+
+            const positionLabelForPin = (pin) => {
+                const mapRect = getMapRect();
+                const label = pin.querySelector('.pin-label');
+                if (!mapRect || !label) return;
+                const pinRect = pin.getBoundingClientRect();
+                const pinLeft = pinRect.left - mapRect.left;
+                const pinTop = pinRect.top - mapRect.top;
+                const pinCenterX = pinLeft + pinRect.width / 2;
+                const pinCenterY = pinTop + pinRect.height / 2;
+                const width = label.offsetWidth || 95;
+                const height = label.offsetHeight || 26;
+                const gap = 10;
+
+                const candidates = [
+                    { left: pinCenterX + gap, top: pinCenterY - height / 2, width, height }, // right
+                    { left: pinCenterX - gap - width, top: pinCenterY - height / 2, width, height }, // left
+                    { left: pinCenterX - width / 2, top: pinCenterY - gap - height, width, height }, // top
+                    { left: pinCenterX - width / 2, top: pinCenterY + gap, width, height } // bottom
+                ];
+
+                const score = pos => {
+                    let s = 0;
+                    if (pos.left < 5) s += (5 - pos.left) * 200;
+                    if (pos.left + width > mapRect.width - 5) s += (pos.left + width - (mapRect.width - 5)) * 200;
+                    if (pos.top < 5) s += (5 - pos.top) * 200;
+                    if (pos.top + height > mapRect.height - 5) s += (pos.top + height - (mapRect.height - 5)) * 200;
+                    
+                    placedBoxes.forEach(box => {
+                        const overlapX = Math.max(0, Math.min(pos.left + width, box.left + box.width) - Math.max(pos.left, box.left));
+                        const overlapY = Math.max(0, Math.min(pos.top + height, box.top + box.height) - Math.max(pos.top, box.top));
+                        if (overlapX > 0 && overlapY > 0) s += overlapX * overlapY * 800;
+                    });
+                    return s;
+                };
+
+                candidates.sort((a, b) => score(a) - score(b));
+                const chosen = candidates[0];
+                placedBoxes.push(chosen);
+                label.style.left = `${chosen.left - pinLeft}px`;
+                label.style.top = `${chosen.top - pinTop}px`;
+            };
+
+            const runCycle = () => {
+                clearPins();
+                const currentIds = countryGroups[groupIndex] || [];
+                const stepDelay = 350;
+                currentIds.forEach((id, idx) => {
+                    const t = setTimeout(() => {
+                        const pin = document.getElementById(id);
+                        if (pin) {
+                            pin.classList.add('active');
+                            requestAnimationFrame(() => positionLabelForPin(pin));
+                        }
+                    }, idx * stepDelay);
+                    stepTimers.push(t);
+                });
+
+                const totalCycleTime = (currentIds.length * stepDelay) + 2000;
+                groupIndex = (groupIndex + 1) % countryGroups.length;
+                cycleTimer = setTimeout(runCycle, totalCycleTime);
+            };
+
+            const start = () => {
+                if (cycleTimer) return;
+                runCycle();
+            };
+
+            const stop = () => {
+                if (cycleTimer) clearTimeout(cycleTimer);
+                cycleTimer = null;
+                clearPins();
+            };
+
+            if (mapSection && 'IntersectionObserver' in window) {
+                new IntersectionObserver(entries => {
+                    entries.forEach(entry => entry.isIntersecting ? start() : stop());
+                }, { threshold: 0.15 }).observe(mapSection);
+            } else {
+                start();
+            }
+        });
+    </script>
+
+    <!-- Lazy-Load External Reviews on Scroll Near Testimonials (Zero Impact on Initial Load) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let reviewsLoaded = false;
+            const loadReviewsScripts = () => {
+                if (reviewsLoaded) return;
+                reviewsLoaded = true;
+                
+                const s1 = document.createElement('script');
+                s1.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
+                s1.defer = true;
+                document.head.appendChild(s1);
+
+                const s2 = document.createElement('script');
+                s2.src = 'https://elfsightcdn.com/platform.js';
+                s2.async = true;
+                document.head.appendChild(s2);
+            };
+
+            const testSec = document.getElementById('testimonials');
+            if (testSec && 'IntersectionObserver' in window) {
+                new IntersectionObserver((entries, obs) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            loadReviewsScripts();
+                            obs.disconnect();
+                        }
+                    });
+                }, { rootMargin: '400px 0px' }).observe(testSec);
+            } else {
+                window.addEventListener('load', () => setTimeout(loadReviewsScripts, 3500));
+            }
+
+            // Alternating review widget slot rotation
+            const reviewSlots = [...document.querySelectorAll('.review-widget-slot')];
+            if (reviewSlots.length) {
+                let reviewIndex = 0;
+                setInterval(() => {
+                    reviewSlots[reviewIndex]?.classList.remove('is-visible');
+                    reviewIndex = (reviewIndex + 1) % reviewSlots.length;
+                    reviewSlots[reviewIndex]?.classList.add('is-visible');
+                }, 8500);
+            }
+        });
+    </script>
+
+    <!-- Interactive Scripts: Accordions, Scroll Reveals, Cursor -->
+    <script>
         const serviceTimers = new WeakMap();
         const serviceGrid = document.querySelector('.services-grid');
         const serviceCards = [...document.querySelectorAll('.service-card')];
@@ -1628,7 +2134,7 @@
                     const content = card.querySelector('.accordion-content');
                     if (content) content.style.maxHeight = `${content.scrollHeight}px`;
                 });
-            });
+            }, { passive: true });
         });
 
         // Scroll Reveal Triggers
@@ -1642,108 +2148,6 @@
         }
         window.addEventListener('scroll', reveal, { passive: true });
         window.addEventListener('DOMContentLoaded', reveal);
-
-        // Interactive World Map Pin Cycling
-        document.addEventListener('DOMContentLoaded', () => {
-            const pins = [...document.querySelectorAll('.map-pin')];
-            if (!pins.length) return;
-            const mapSection = document.getElementById('testimonials');
-            const countryGroups = [];
-            const groupSize = 4;
-            for (let i = 0; i < pins.length; i += groupSize) {
-                const group = pins.slice(i, i + groupSize);
-                if (group.length < groupSize) group.push(...pins.slice(0, groupSize - group.length));
-                countryGroups.push(group.map(pin => pin.id));
-            }
-            const maxCycles = 3;
-            let groupIndex = 0, completedCycles = 0, timer = null, transitionTimer = null;
-
-            const clearPins = () => {
-                if (transitionTimer) clearTimeout(transitionTimer);
-                pins.forEach(pin => {
-                    pin.classList.remove('active');
-                    pin.removeAttribute('data-label-slot');
-                    pin.querySelector('.pin-label')?.removeAttribute('style');
-                });
-            };
-
-            const positionActiveLabels = () => {
-                const map = document.querySelector('.map-wrapper');
-                if (!map) return;
-                const mapRect = map.getBoundingClientRect();
-                const placed = [];
-                const candidates = ['right', 'left', 'top', 'bottom'];
-                pins.filter(pin => pin.classList.contains('active')).forEach(pin => {
-                    const label = pin.querySelector('.pin-label');
-                    if (!label) return;
-                    const pinRect = pin.getBoundingClientRect();
-                    const pinLeft = pinRect.left - mapRect.left;
-                    const pinTop = pinRect.top - mapRect.top;
-                    const pinCenterX = pinLeft + pinRect.width / 2;
-                    const pinCenterY = pinTop + pinRect.height / 2;
-                    const width = label.offsetWidth || 100;
-                    const height = label.offsetHeight || 28;
-                    const gap = 9;
-                    const possible = {
-                        right: { left: pinCenterX + gap, top: pinCenterY - height / 2 },
-                        left: { left: pinCenterX - gap - width, top: pinCenterY - height / 2 },
-                        top: { left: pinCenterX - width / 2, top: pinCenterY - gap - height },
-                        bottom: { left: pinCenterX - width / 2, top: pinCenterY + gap }
-                    };
-                    const score = candidate => {
-                        const overflow = Math.max(0, -candidate.left) + Math.max(0, candidate.left + width - mapRect.width) + Math.max(0, -candidate.top) + Math.max(0, candidate.top + height - mapRect.height);
-                        const overlap = placed.reduce((total, other) => total + Math.max(0, Math.min(candidate.left + width, other.left + width) - Math.max(candidate.left, other.left)) * Math.max(0, Math.min(candidate.top + height, other.top + height) - Math.max(candidate.top, other.top)), 0);
-                        return overflow * 1000 + overlap;
-                    };
-                    const placement = candidates.sort((a, b) => score(possible[a]) - score(possible[b]))[0];
-                    const chosen = possible[placement];
-                    placed.push({ left: chosen.left, top: chosen.top });
-                    label.style.left = `${chosen.left - pinLeft}px`;
-                    label.style.top = `${chosen.top - pinTop}px`;
-                    label.style.transform = 'none';
-                });
-            };
-
-            const showNextGroup = () => {
-                clearPins();
-                const activeIds = countryGroups[groupIndex] || [];
-                activeIds.forEach((id, slot) => {
-                    const pin = document.getElementById(id);
-                    pin?.classList.add('active');
-                    pin?.setAttribute('data-label-slot', String(slot));
-                });
-                requestAnimationFrame(positionActiveLabels);
-                groupIndex += 1;
-                if (groupIndex >= countryGroups.length) {
-                    groupIndex = 0;
-                    completedCycles += 1;
-                }
-                if (completedCycles >= maxCycles) {
-                    clearInterval(timer);
-                    timer = null;
-                    transitionTimer = setTimeout(clearPins, 2600);
-                }
-            };
-
-            const start = () => {
-                if (timer || completedCycles >= maxCycles || !countryGroups.length) return;
-                groupIndex = 0;
-                completedCycles = 0;
-                showNextGroup();
-                if (completedCycles < maxCycles) timer = setInterval(showNextGroup, 2600);
-            };
-
-            const stop = () => {
-                clearInterval(timer);
-                timer = null;
-                clearPins();
-            };
-
-            window.addEventListener('resize', () => requestAnimationFrame(positionActiveLabels));
-            if (mapSection && 'IntersectionObserver' in window) {
-                new IntersectionObserver(entries => entries.forEach(entry => entry.isIntersecting ? start() : stop()), { threshold: .22 }).observe(mapSection);
-            } else start();
-        });
 
         // Fine-pointer cursor pixel illumination
         (() => {
@@ -1768,7 +2172,7 @@
         })();
 
         // Image fallback handler
-        document.querySelectorAll('.kotavila-gallery img, .fort-gallery img, .postcard-space img').forEach(image => {
+        document.querySelectorAll('img').forEach(image => {
             image.addEventListener('error', () => {
                 image.classList.add('asset-missing');
                 image.alt = `${image.alt || 'Image'} — loading asset`;
