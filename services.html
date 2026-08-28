@@ -17,13 +17,29 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap">
     </noscript>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0KRJZFKLM"></script>
+    <!-- Google tag (gtag.js) - High Performance Deferral -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-C0KRJZFKLM');
+
+      function loadAnalytics() {
+        if (window._gtagInit) return;
+        window._gtagInit = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-C0KRJZFKLM';
+        document.head.appendChild(s);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadAnalytics, { timeout: 3000 });
+      } else {
+        setTimeout(loadAnalytics, 2000);
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadAnalytics, { once: true, passive: true });
+      });
     </script>
 
     <meta name="author" content="Ramyachandra Gunasekera Chambers">
@@ -32,7 +48,7 @@
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
     <meta name="theme-color" content="#0b1720">
-    <meta name="application-name" content="Ramya Chandra Chambers">
+    <meta name="application-name" content="Ramyachandra Gunasekera Chambers">
     <meta name="apple-mobile-web-app-title" content="RG Chambers">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -62,7 +78,7 @@
     <meta property="og:title" content="Legal & Notarial Services Matara | Ramyachandra Gunasekera Chambers">
     <meta property="og:description" content="Comprehensive legal services in Matara: Property conveyancing, deed transfers, company incorporation, civil litigation, labour law & foreign investment.">
     <meta property="og:image" content="https://ramyachandrachambers.com/photo.gif">
-    <meta property="og:site_name" content="Ramya Chandra Chambers">
+    <meta property="og:site_name" content="Ramyachandra Gunasekera Chambers">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -114,8 +130,8 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Civil Litigation",
-              "description": "Court representation before District and Magistrate's Courts of Matara, Galle, Tangalle, and Hambantota."
+              "name": "Criminal & Civil Litigation",
+              "description": "Court defense and representation before High Courts, District Courts, and Magistrate's Courts in criminal defense, bail, land, contract, debt, and testamentary matters."
             }
           },
           {
@@ -1445,7 +1461,7 @@
                 <div class="about-text section-header left-aligned reveal reveal-slide-right">
                     <span class="section-tag">About the Firm</span>
                     <h2 class="section-title serif">35+ Years in Service</h2>
-                    <p>With over three decades of distinguished practice, Ramyachandra Gunasekera Chambers provides comprehensive legal, notarial, and corporate secretarial services.</p>
+                    <p>Called to the Bar in 1988, Ramyachandra Gunasekera Chambers provides comprehensive legal, notarial, and corporate secretarial services with over three and a half decades of distinguished standing.</p>
                     <p>The firm is dedicated to offering reliable legal and corporate counsel to its clients across the Southern Province and beyond, ensuring meticulous attention to detail and unwavering professional integrity.</p>
                 </div>
                 <div class="postcard-space glass-panel reveal reveal-slide-left">
@@ -1453,7 +1469,7 @@
                         <source srcset="photo.webp" type="image/webp">
                         <img src="photo.gif" alt="Ramyachandra Gunasekera - Attorney-at-Law, Notary Public, Registered Company Secretary" width="1024" height="1024" loading="lazy" decoding="async">
                     </picture>
-                    <div class="about-photo-caption" aria-label="Ramyachandra Gunasekera">RAMYACHANDRA GUNASEKERA</div>
+                    <div class="about-photo-caption">RAMYACHANDRA GUNASEKERA</div>
                 </div>
             </div>
         </section>
@@ -1527,13 +1543,15 @@
                 <!-- Service 4 -->
                 <div class="service-card glass-panel reveal reveal-flip" style="transition-delay: 0.3s;">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span class="accordion-title serif">Civil Litigation</span>
+                        <span class="accordion-title serif">Criminal &amp; Civil Litigation</span>
                         <div class="interaction-icon"><span class="arrow-icon">&#9660;</span></div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>Representation before the District and Magistrate's Courts of Matara, Galle, Tangalle and Hambantota in land, contract, debt and family matters.</p>
+                            <p>Representation and defense before the High Courts, District Courts, and Magistrate's Courts of Matara, Galle, Tangalle, and Hambantota.</p>
                             <ul>
+                                <li>Magistrate's Court criminal defense &amp; trials</li>
+                                <li>Bail applications &amp; High Court revisions</li>
                                 <li>Land &amp; boundary actions</li>
                                 <li>Contract &amp; debt recovery</li>
                                 <li>Testamentary &amp; family applications</li>
@@ -1590,7 +1608,7 @@
             <div class="static-cards-container">
                 <div class="static-card glass-panel reveal reveal-scale">
                     <h3 class="serif">Attorney-At-Law</h3>
-                    <p><strong>Legal Representation in all Sri Lankan Courts:</strong> Providing robust advocacy and comprehensive legal representation across the full hierarchy of the Sri Lankan judicial system. Services include civil litigation, fundamental rights applications, testamentary proceedings, alternative dispute resolution, and foreign investment consultancy.</p>
+                    <p><strong>Legal Representation in all Sri Lankan Courts:</strong> Providing robust advocacy and comprehensive legal representation across the full hierarchy of the Sri Lankan judicial system. Services include criminal defense, bail applications, civil litigation, fundamental rights applications, testamentary proceedings, alternative dispute resolution, and foreign investment consultancy.</p>
                 </div>
 
                 <div class="static-card glass-panel reveal reveal-scale" style="transition-delay: 0.15s;">
@@ -1669,12 +1687,12 @@
                             Google Reviews
                         </a>
                     </div>
-                    <div class="review-widget-stage" aria-label="Google reviews from two widget providers">
+                    <div class="review-widget-stage">
                         <div class="review-widget-slot review-widget-sociablekit is-visible">
-                            <div class="sk-ww-google-reviews" data-embed-id="25707318" aria-label="SociableKIT Google Reviews widget"></div>
+                            <div class="sk-ww-google-reviews" data-embed-id="25707318"></div>
                         </div>
                         <div class="review-widget-slot review-widget-elfsight">
-                            <div class="elfsight-app-f38da188-b8be-409a-93a0-5db6eeb8a314" data-elfsight-app-lazy aria-label="Elfsight Google Reviews widget"></div>
+                            <div class="elfsight-app-f38da188-b8be-409a-93a0-5db6eeb8a314" data-elfsight-app-lazy></div>
                         </div>
                     </div>
                 </div>
@@ -1720,7 +1738,7 @@
                     <h3 class="office-name serif">Matara Fort</h3>
                     <div class="office-reviews">
                         <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
-                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener">4.6 &middot; 22 Google reviews</a>
+                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener" aria-label="Google reviews for Matara Fort Office: 4.6 stars across 22 reviews">4.6 &middot; 22 Google reviews</a>
                     </div>
                     <div class="office-detail">
                         &#128205; <span>No. 33, Sri Dharmarama Mawatha, Fort (Court Road), Matara 81000<br>Plus code: WGVW+J3</span>
@@ -1738,7 +1756,7 @@
                         &#127963;&#65039; <span>Minutes from the Matara District &amp; Magistrate's Courts</span>
                     </div>
                     
-                    <div class="fort-gallery" aria-label="Matara Fort photograph">
+                    <div class="fort-gallery">
                         <picture>
                             <source srcset="fort.webp" type="image/webp">
                             <img src="fort.gif" alt="Matara Fort near the Head Office" width="1061" height="585" loading="lazy" decoding="async">
@@ -1749,8 +1767,8 @@
                     </div>
 
                     <div class="action-buttons">
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=WGVW%2BJ3%20Matara%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
-                        <a href="tel:+94412226755" class="btn btn-outline">Call Office</a>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=WGVW%2BJ3%20Matara%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Get directions to Matara Fort Office">Get Directions</a>
+                        <a href="tel:+94412226755" class="btn btn-outline" aria-label="Call Matara Fort Office">Call Office</a>
                     </div>
                 </div>
 
@@ -1760,7 +1778,7 @@
                     <h3 class="office-name serif">Kamburugamuwa (Mirissa)</h3>
                     <div class="office-reviews">
                         <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
-                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener">5.0 &middot; 6 Google reviews</a>
+                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener" aria-label="Google reviews for Kamburugamuwa Branch Office: 5.0 stars across 6 reviews">5.0 &middot; 6 Google reviews</a>
                     </div>
                     <div class="office-detail">
                         &#128205; <span>Labima Road, Kamburugamuwa, Southern Province<br>Plus code: XF8W+RPQ</span>
@@ -1775,7 +1793,7 @@
                         &#127754; <span>Convenient for Mirissa, Weligama &amp; the coastal belt</span>
                     </div>
                     
-                    <div class="kotavila-gallery" aria-label="Kotavila branch photographs">
+                    <div class="kotavila-gallery">
                         <picture>
                             <source srcset="kotavila1.webp" type="image/webp">
                             <img src="kotavila1.gif" alt="Kotavila branch office view one" width="1360" height="1020" loading="lazy" decoding="async">
@@ -1790,14 +1808,14 @@
                     </div>
 
                     <div class="action-buttons">
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=XF8W%2BRPQ%20Kamburugamuwa%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
-                        <a href="tel:+94412239429" class="btn btn-outline">Call Office</a>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=XF8W%2BRPQ%20Kamburugamuwa%2C%20Sri%20Lanka" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Get directions to Kamburugamuwa Branch Office">Get Directions</a>
+                        <a href="tel:+94412239429" class="btn btn-outline" aria-label="Call Kamburugamuwa Branch Office">Call Office</a>
                     </div>
                 </div>
             </div>
 
             <!-- Residence Card -->
-            <div class="residence-card office-card office-card-residence glass-panel reveal reveal-slide-up" aria-label="Residence address">
+            <div class="residence-card office-card office-card-residence glass-panel reveal reveal-slide-up">
                 <div class="residence-card-copy">
                     <span class="office-tag">Residence</span>
                     <h3 class="office-name serif">Colombo 7</h3>
@@ -1809,7 +1827,7 @@
                         <span>1/3, 10A, Ward Place, Colombo 7, Sri Lanka</span>
                     </div>
                 </div>
-                <div class="residence-map-container" aria-label="Google Map for the residence at 1/3, 10A, Ward Place, Colombo 7, Sri Lanka">
+                <div class="residence-map-container">
                     <iframe src="https://maps.google.com/maps?q=1%2F3%2C%2010A%2C%20Ward%20Place%2C%20Colombo%207%2C%20Sri%20Lanka&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" title="Map showing Colombo 7 Residence" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
@@ -1883,7 +1901,7 @@
                 if (scrollTicking) return;
                 scrollTicking = true;
                 requestAnimationFrame(() => {
-                    const navHeight = document.querySelector('nav')?.offsetHeight || 74;
+                    const navHeight = 74;
                     const marker = window.scrollY + navHeight + 140;
                     let current = sections[0]?.id || 'home';
                     sections.forEach(section => {
@@ -2194,17 +2212,20 @@
             }, { passive: true });
         });
 
-        // Scroll Reveal Triggers
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(element => {
-                if (element.getBoundingClientRect().top < window.innerHeight - 60) {
-                    element.classList.add('active');
-                }
-            });
+        // High-Performance Zero-Reflow Scroll Reveal Observer
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -40px 0px', threshold: 0.08 });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        } else {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
         }
-        window.addEventListener('scroll', reveal, { passive: true });
-        window.addEventListener('DOMContentLoaded', reveal);
 
         // Fine-pointer cursor pixel illumination
         (() => {
