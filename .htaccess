@@ -1,0 +1,44 @@
+# ========================================================
+# Apache / cPanel Security, HTTPS, 301 Redirects & Caching
+# ========================================================
+
+RewriteEngine On
+
+# Universal HTTPS Enforcement
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Canonical Domain (Strip www or enforce single domain)
+RewriteCond %{HTTP_HOST} ^www\.ramyachandrachambers\.com [NC]
+RewriteRule ^(.*)$ https://ramyachandrachambers.com/$1 [L,R=301]
+
+# Custom 404 Error Document
+ErrorDocument 404 /404.html
+
+# Modern Security Headers
+<IfModule mod_headers.c>
+    Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+</IfModule>
+
+# MIME Types for Modern Formats & LLM txt files
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType image/svg+xml .svg
+    AddType text/plain .txt
+</IfModule>
+
+# Cache-Control Directives
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/plain "access plus 1 hour"
+    ExpiresByType text/xml "access plus 1 hour"
+</IfModule>
