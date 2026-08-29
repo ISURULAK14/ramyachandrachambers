@@ -113,6 +113,16 @@
       }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ramyachandrachambers.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://ramyachandrachambers.com/about.html" }
+      ]
+    }
+    </script>
 
     <style>
         :root {
@@ -409,6 +419,184 @@
         .nav-links a.active::before {
             background: var(--accent-main);
             box-shadow: 0 0 22px rgba(197,168,112,.28), inset 0 1px 0 rgba(255,255,255,.22);
+        }
+
+        /* -------------------------------------------------------------
+           Dynamic Sovereign Ambient Systems (Hero & Global Atmosphere)
+           Dignified, living depth tailored for elite legal chambers
+        ------------------------------------------------------------- */
+        .global-ambient-system {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .ambient-layer {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        /* Blob 1: Gentle Upper Glow (between About & Services) */
+        .ambient-blob-1 {
+            width: clamp(500px, 60vw, 900px);
+            height: clamp(500px, 60vw, 900px);
+            top: 18%;
+            left: -15%;
+            background: radial-gradient(circle, rgba(29, 62, 92, 0.28) 0%, rgba(14, 30, 48, 0.08) 55%, transparent 75%);
+            animation: globalDrift1 38s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+        }
+
+        /* Blob 2: Warm Champagne Gold Depth (behind Practice Areas & Services) */
+        .ambient-blob-2 {
+            width: clamp(450px, 50vw, 750px);
+            height: clamp(450px, 50vw, 750px);
+            top: 52%;
+            right: -12%;
+            background: radial-gradient(circle, rgba(223, 179, 93, 0.085) 0%, rgba(197, 168, 112, 0.025) 50%, transparent 72%);
+            animation: globalDrift2 44s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+        }
+
+        /* Blob 3: Deep Sovereign Navy/Teal Bloom (around Testimonials, FAQ & Contact) */
+        .ambient-blob-3 {
+            width: clamp(550px, 65vw, 950px);
+            height: clamp(550px, 65vw, 950px);
+            top: 75%;
+            left: 18%;
+            background: radial-gradient(circle, rgba(23, 54, 76, 0.24) 0%, rgba(15, 32, 46, 0.06) 55%, transparent 75%);
+            animation: globalDrift3 42s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+        }
+
+        @keyframes globalDrift1 {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(10%, 14%, 0) scale(1.08); }
+            100% { transform: translate3d(-6%, 8%, 0) scale(0.95); }
+        }
+
+        @keyframes globalDrift2 {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(-14%, -10%, 0) scale(1.12); }
+            100% { transform: translate3d(8%, 12%, 0) scale(0.92); }
+        }
+
+        @keyframes globalDrift3 {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(-8%, 10%, 0) scale(1.06); }
+            100% { transform: translate3d(12%, -8%, 0) scale(0.96); }
+        }
+
+        .ambient-cosmos-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        /* Hero Dynamic Ambient Lighting */
+        .hero-ambient-lights {
+            position: absolute;
+            inset: -20% -10%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            filter: blur(80px);
+            opacity: 0.9;
+        }
+
+        .hero-glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: screen;
+            will-change: transform, opacity;
+        }
+
+        .hero-glow-gold {
+            width: clamp(380px, 48vw, 680px);
+            height: clamp(380px, 48vw, 680px);
+            top: 20%;
+            left: 26%;
+            background: radial-gradient(circle, rgba(223, 179, 93, 0.20) 0%, rgba(197, 168, 112, 0.07) 50%, transparent 72%);
+            animation: heroDriftGold 26s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+        }
+
+        .hero-glow-navy {
+            width: clamp(480px, 58vw, 880px);
+            height: clamp(480px, 58vw, 880px);
+            top: 8%;
+            right: 12%;
+            background: radial-gradient(circle, rgba(38, 74, 112, 0.38) 0%, rgba(20, 42, 68, 0.14) 55%, transparent 75%);
+            animation: heroDriftNavy 34s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+        }
+
+        .hero-glow-accent {
+            width: clamp(320px, 42vw, 560px);
+            height: clamp(320px, 42vw, 560px);
+            bottom: 10%;
+            left: 32%;
+            background: radial-gradient(circle, rgba(166, 93, 82, 0.14) 0%, rgba(197, 168, 112, 0.05) 50%, transparent 70%);
+            animation: heroDriftAccent 28s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+        }
+
+        .hero-aurora-band {
+            position: absolute;
+            inset: 12% -25%;
+            background: linear-gradient(115deg, transparent 20%, rgba(223, 179, 93, 0.045) 45%, rgba(42, 82, 122, 0.065) 60%, transparent 80%);
+            transform: rotate(-6deg);
+            animation: heroAuroraWave 22s ease-in-out infinite alternate;
+            mix-blend-mode: color-dodge;
+        }
+
+        @keyframes heroDriftGold {
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(7%, 10%, 0) scale(1.10); }
+            100% { transform: translate3d(-9%, -5%, 0) scale(0.95); }
+        }
+
+        @keyframes heroDriftNavy {
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(-10%, 7%, 0) scale(1.07); }
+            100% { transform: translate3d(5%, -9%, 0) scale(0.93); }
+        }
+
+        @keyframes heroDriftAccent {
+            0% { transform: translate3d(0, 0, 0) scale(0.96); }
+            50% { transform: translate3d(-7%, -8%, 0) scale(1.12); }
+            100% { transform: translate3d(9%, 7%, 0) scale(1.02); }
+        }
+
+        @keyframes heroAuroraWave {
+            0% { opacity: 0.35; transform: rotate(-6deg) translate3d(-3%, -2%, 0); }
+            50% { opacity: 0.75; transform: rotate(-4deg) translate3d(2%, 3%, 0); }
+            100% { opacity: 0.45; transform: rotate(-7deg) translate3d(4%, -1%, 0); }
+        }
+
+        #home > *:not(.hero-ambient-lights) {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-glow-gold,
+            .hero-glow-navy,
+            .hero-glow-accent,
+            .hero-aurora-band,
+            .ambient-blob-1,
+            .ambient-blob-2,
+            .ambient-blob-3 {
+                animation: none !important;
+            }
+            .ambient-cosmos-canvas {
+                display: none !important;
+            }
         }
 
         /* Hero Section (Instant Paint, Zero LCP Delay) */
@@ -1236,16 +1424,234 @@
         .residence-card .office-detail svg { flex: 0 0 auto; color: var(--accent-main); }
         .residence-card .residence-map-container { flex: 0 0 var(--location-map-size); align-self: center; margin-top: 0; }
 
-        /* Footer */
-        .glass-footer {
-            margin-top: 4rem;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--glass-border-side);
-            background: var(--nav-bg);
-            backdrop-filter: blur(20px);
+        /* Executive Footer (Matching User Design) */
+        .site-footer {
+            background: #080c10;
+            border-top: 1px solid rgba(214, 183, 124, 0.18);
+            box-shadow: inset 0 1px 0 rgba(214, 183, 124, 0.1);
+            padding: 3.8rem clamp(1.5rem, 4vw, 4.5rem) 3rem;
+            position: relative;
+            z-index: 10;
+            margin-top: 5rem;
         }
-        .glass-footer p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.8rem; font-weight: 300; }
+        .footer-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1.2fr;
+            align-items: center;
+            gap: 2rem;
+        }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.12rem;
+        }
+        .footer-brand-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(1.35rem, 1.8vw, 1.75rem);
+            font-weight: 700;
+            color: #dfb35d;
+            letter-spacing: 2.2px;
+            line-height: 1.15;
+            text-transform: uppercase;
+            text-shadow: 0 0 16px rgba(223, 179, 93, 0.18);
+        }
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.95rem;
+            text-align: center;
+        }
+        .footer-nav-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.2rem;
+        }
+        .footer-link {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.84rem;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            min-height: 32px;
+        }
+        .footer-link:hover {
+            color: #f4d08a;
+            transform: translateY(-1px);
+        }
+        .footer-legal {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            gap: 0.35rem;
+        }
+        .footer-copyright {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1.1px;
+            color: rgba(255, 255, 255, 0.82);
+            margin: 0;
+            line-height: 1.45;
+            text-transform: uppercase;
+        }
+        .footer-tagline {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.62);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Responsive Mobile Footer */
+        @media (max-width: 900px) {
+            .site-footer {
+                padding: 3rem 1.25rem 2.5rem;
+                margin-top: 3.5rem;
+            }
+            .footer-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 2.2rem;
+            }
+            .footer-brand {
+                align-items: center;
+                text-align: center;
+            }
+            .footer-brand-title {
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+            .footer-nav {
+                gap: 0.85rem;
+            }
+            .footer-nav-row {
+                gap: 1.4rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .footer-link {
+                font-size: 0.82rem;
+                min-height: 44px;
+            }
+            .footer-legal {
+                align-items: center;
+                text-align: center;
+            }
+            .footer-copyright {
+                text-align: center;
+                font-size: 0.78rem;
+            }
+            .footer-tagline {
+                text-align: center;
+                font-size: 0.76rem;
+            }
+        }
+
+        /* Accessible Legal Modals */
+        .legal-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 100005;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+        .legal-modal-backdrop.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .legal-modal-content {
+            width: min(100%, 640px);
+            max-height: 85vh;
+            overflow-y: auto;
+            background: #09121c !important;
+            border: 1px solid rgba(214, 183, 124, 0.4) !important;
+            border-radius: 16px;
+            padding: 2.2rem 2rem;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 30px rgba(214,183,124,0.15);
+            transform: scale(0.95);
+            transition: transform 0.35s cubic-bezier(.16, 1, .3, 1);
+        }
+        .legal-modal-backdrop.is-open .legal-modal-content {
+            transform: scale(1);
+        }
+        .legal-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0.25rem;
+            transition: color 0.25s ease;
+        }
+        .legal-modal-close:hover { color: var(--accent-main); }
+        .legal-modal-heading {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 2rem;
+            color: #dfb35d;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(214, 183, 124, 0.25);
+            padding-bottom: 0.6rem;
+        }
+        .legal-modal-body p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        .legal-modal-body strong {
+            color: #dfb35d;
+            font-weight: 600;
+        }
+
+        /* Breadcrumbs (WCAG 2.2 AA Navigation) */
+        .breadcrumb-trail {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            padding: 0.35rem 0.9rem;
+            background: rgba(8, 20, 32, 0.45);
+            border: 1px solid rgba(214, 183, 124, 0.2);
+            border-radius: 20px;
+        }
+        .breadcrumb-trail a { color: var(--accent-main); text-decoration: none; transition: color 0.3s ease; }
+        .breadcrumb-trail a:hover { color: #f4d08a; }
+        .breadcrumb-separator { color: rgba(255, 255, 255, 0.35); font-size: 0.9rem; }
+        .breadcrumb-current { color: rgba(255, 255, 255, 0.85); }
 
         /* Cursor pixel illumination */
         .cursor-pixel-field {
@@ -1331,12 +1737,27 @@
 
         @media (max-width: 600px) {
             body { overflow-x: hidden; width: 100%; }
-            html { overflow-x: hidden; width: 100%; }
+            html {
+                overflow-x: hidden;
+                width: 100%;
+                scroll-padding-top: 110px !important;
+            }
 
             nav {
-                min-height: 98px !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 100000 !important;
+                min-height: 84px !important;
                 height: auto !important;
-                padding: .65rem 0 .55rem !important;
+                padding: max(.45rem, env(safe-area-inset-top)) 0 .4rem !important;
+                transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            }
+            nav.scrolled {
+                padding: max(.32rem, env(safe-area-inset-top)) 0 .32rem !important;
+                background: rgba(7, 18, 30, 0.96) !important;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 -1px 0 rgba(214,183,124,.22) !important;
             }
             .nav-container {
                 min-height: 0 !important;
@@ -1344,37 +1765,49 @@
                 flex-direction: column !important;
                 align-items: stretch !important;
                 justify-content: center !important;
-                gap: .42rem !important;
+                gap: .3rem !important;
                 padding: 0 .75rem !important;
             }
             .nav-container .logo {
                 justify-content: center;
                 width: 100%;
-                font-size: 1.3rem;
+                font-size: 1.25rem;
+                letter-spacing: 0.5px;
+                transition: font-size 0.3s ease;
             }
-            .nav-container .logo svg { width: 22px; height: 22px; }
+            nav.scrolled .nav-container .logo {
+                font-size: 1.08rem;
+            }
+            .nav-container .logo svg { width: 20px; height: 20px; }
             .nav-links {
                 width: 100% !important;
                 min-width: 0 !important;
                 display: flex !important;
                 flex-wrap: nowrap !important;
                 overflow-x: auto !important;
-                overflow-y: hidden !important;
+                overflow-y: visible !important;
                 justify-content: flex-start !important;
-                gap: .3rem !important;
-                padding: .2rem 0 .3rem !important;
+                gap: .28rem !important;
+                padding: .2rem .25rem .35rem !important;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
+                scroll-behavior: smooth;
             }
             .nav-links::-webkit-scrollbar { display: none; }
             .nav-links li { flex: 0 0 auto !important; }
             .nav-links a {
                 display: block !important;
                 white-space: nowrap !important;
-                padding: .5rem .75rem !important;
-                font-size: .65rem !important;
+                padding: .46rem .75rem !important;
+                font-size: .68rem !important;
                 line-height: 1.25 !important;
-                min-height: 38px;
+                min-height: 36px;
+                border-radius: 20px;
+            }
+            .nav-links a.active {
+                background: rgba(214, 183, 124, 0.25) !important;
+                color: #fff !important;
+                border: 1px solid rgba(214, 183, 124, 0.6) !important;
             }
 
             #home {
@@ -1382,18 +1815,23 @@
                 padding-bottom: 3rem !important;
             }
 
+            /* Step Ladder Pattern in Mobile View */
             .hero-title-stepped {
                 width: 100% !important;
                 max-width: 100% !important;
-                font-size: clamp(2.55rem, 11vw, 3.85rem) !important;
-                gap: .06em;
-                line-height: 1.05;
-                --title-step: 0rem !important;
+                font-size: clamp(2.35rem, 9.8vw, 3.4rem) !important;
+                gap: .08em;
+                line-height: 1.02;
+                --title-step: clamp(1.2rem, 5.5vw, 2.2rem) !important;
             }
-            .hero-title-stepped .title-word-one,
-            .hero-title-stepped .title-word-two,
+            .hero-title-stepped .title-word-one {
+                transform: translateX(calc(var(--title-step) * -1)) !important;
+            }
+            .hero-title-stepped .title-word-two {
+                transform: translateX(0) !important;
+            }
             .hero-title-stepped .title-word-three {
-                transform: none !important;
+                transform: translateX(calc(var(--title-step) + .18em)) !important;
             }
             .hero-title-stepped .unique-cap {
                 font-size: 1.15em;
@@ -1420,7 +1858,7 @@
             }
             .banner-stats .stat-label { font-size: .82rem; letter-spacing: 2px; }
 
-            section { padding: 4.5rem 1.15rem; }
+            section { padding: 4.5rem 1.15rem; scroll-margin-top: 110px !important; }
             .section-title { font-size: 2.2rem; }
             .section-desc { font-size: .95rem; }
 
@@ -1491,6 +1929,14 @@
 <body>
     <div class="cursor-pixel-field" aria-hidden="true"></div>
 
+    <!-- Global Dynamic Ambient System (Prestigious & Living Atmosphere) -->
+    <div class="global-ambient-system" aria-hidden="true">
+        <div class="ambient-layer ambient-blob-1"></div>
+        <div class="ambient-layer ambient-blob-2"></div>
+        <div class="ambient-layer ambient-blob-3"></div>
+        <canvas id="ambient-cosmos-canvas" class="ambient-cosmos-canvas"></canvas>
+    </div>
+
 <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -1519,6 +1965,14 @@
     <main id="main-content" role="main">
         <!-- Hero Section (Immediate Paint for Rapid FCP/LCP) -->
         <section id="home">
+            <!-- Hero Dynamic Ambient Lighting (Sovereign Chambers Atmosphere) -->
+            <div class="hero-ambient-lights" aria-hidden="true">
+                <div class="hero-glow-orb hero-glow-gold"></div>
+                <div class="hero-glow-orb hero-glow-navy"></div>
+                <div class="hero-glow-orb hero-glow-accent"></div>
+                <div class="hero-aurora-band"></div>
+            </div>
+
             <h1 class="hero-title hero-title-stepped" aria-label="Ramyachandra Gunasekera Chambers">
                 <span class="title-word title-word-one"><span class="unique-cap">R</span>amyachandra</span>
                 <span class="title-word title-word-two"><span class="unique-cap">G</span>unasekera</span>
@@ -1528,15 +1982,15 @@
             
             <div class="banner-stats glass-panel">
                 <div class="stat-item">
-                    <span class="stat-value">35+</span>
+                    <span class="stat-value" data-target="35" data-suffix="+">35+</span>
                     <span class="stat-label">Years of Practice</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">300+</span>
+                    <span class="stat-value" data-target="300" data-suffix="+">300+</span>
                     <span class="stat-label">Registered Companies</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">2</span>
+                    <span class="stat-value" data-target="2" data-suffix="">2</span>
                     <span class="stat-label">Locations</span>
                 </div>
             </div>
@@ -1545,7 +1999,11 @@
         <!-- About Section -->
         <section id="about">
             <div class="about-content-wrapper">
-                <div class="about-text section-header left-aligned reveal reveal-slide-right">
+                <div class="about-text section-header left-aligned reveal reveal-slide-right">\n                    <nav class="breadcrumb-trail" aria-label="Breadcrumb navigation">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator" aria-hidden="true">&rsaquo;</span>
+                    <span class="breadcrumb-current" aria-current="page">About Ramyachandra Gunasekera Chambers</span>
+                </nav>
                     <span class="section-tag">About the Firm</span>
                     <h2 class="section-title serif">35+ Years in Service</h2>
                     <p>Called to the Bar in 1988, Ramyachandra Gunasekera Chambers provides comprehensive legal, notarial, and corporate secretarial services with over three and a half decades of distinguished standing.</p>
@@ -1795,6 +2253,42 @@
             </div>
         </section>
 
+        <!-- FAQ Section (Optimized for AI / GEO & Voice Search Extraction) -->
+        <section id="faq" aria-labelledby="faq-title">
+            <div class="section-header reveal reveal-slide-up">
+                <span class="section-tag">Direct Answers</span>
+                <h2 id="faq-title" class="section-title serif">Frequently Asked Questions</h2>
+                <p class="section-desc">Authoritative answers regarding court representation, notarial conveyancing, corporate compliance, and overseas client representation.</p>
+            </div>
+
+            <div class="faq-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
+                <div class="static-card glass-panel reveal reveal-scale">
+                    <h3 class="serif" style="font-size: 1.35rem; color: #dfb35d; margin-bottom: 0.8rem;">Which courts does Ramyachandra Gunasekera Chambers represent clients in?</h3>
+                    <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.65;">The chambers provides legal advocacy across all Sri Lankan courts, including District Courts (Matara, Galle, Hambantota, Tangalle), Provincial High Courts, Magistrate's Courts, and Labour Tribunals in civil trials, criminal defense, land partition actions, and commercial disputes.</p>
+                </div>
+
+                <div class="static-card glass-panel reveal reveal-scale" style="transition-delay: 0.1s;">
+                    <h3 class="serif" style="font-size: 1.35rem; color: #dfb35d; margin-bottom: 0.8rem;">What notarial and deed conveyancing services are handled?</h3>
+                    <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.65;">As an experienced Notary Public, Ramyachandra Gunasekera conducts comprehensive title investigations at Land Registries across the Southern Province and attests deeds of transfer, deeds of gift, leases, mortgage bonds, and powers of attorney for domestic and overseas clients.</p>
+                </div>
+
+                <div class="static-card glass-panel reveal reveal-scale" style="transition-delay: 0.2s;">
+                    <h3 class="serif" style="font-size: 1.35rem; color: #dfb35d; margin-bottom: 0.8rem;">How does the chambers assist with company incorporation &amp; DRC compliance?</h3>
+                    <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.65;">Operating as a Registered Company Secretary under the Companies Act No. 07 of 2007, the chambers facilitates end-to-end company incorporation, mandatory Beneficial Ownership (BO) filings with the Department of the Registrar of Companies (DRC), and Taxpayer Identification Number (TIN) registration with the Inland Revenue Department.</p>
+                </div>
+
+                <div class="static-card glass-panel reveal reveal-scale" style="transition-delay: 0.3s;">
+                    <h3 class="serif" style="font-size: 1.35rem; color: #dfb35d; margin-bottom: 0.8rem;">Can overseas clients and foreign investors obtain legal representation?</h3>
+                    <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.65;">Yes. The chambers represents international clients from over 40 countries, providing cross-border counsel, advice on legal property acquisition under Sri Lankan land statutes, corporate structuring, and non-resident powers of attorney.</p>
+                </div>
+
+                <div class="static-card glass-panel reveal reveal-scale" style="transition-delay: 0.4s;">
+                    <h3 class="serif" style="font-size: 1.35rem; color: #dfb35d; margin-bottom: 0.8rem;">Where are the chamber offices located and how do I schedule a consultation?</h3>
+                    <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.65;">The chambers operates two offices: the Head Office in Matara Fort (Court Road, minutes from the Combined Court Complex) and the Corporate &amp; Residence Chambers in Kamburugamuwa (Kotavila Road, near Mirissa). In-person and phone/WhatsApp appointments (+94 71 423 6429 / +94 41 222 6755) can be scheduled at either location.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact">
             <div class="section-header reveal reveal-slide-up">
@@ -1921,24 +2415,79 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="glass-footer">
-        <p>This website is published for general legal information regarding the practice of Ramyachandra Gunasekera Chambers. All rights reserved.</p>
-        <p>&copy; 2026 Ramyachandra Gunasekera Chambers. Matara Fort &amp; Kamburugamuwa, Southern Province, Sri Lanka.</p>
+    <!-- Footer (Matched to Requested User Design) -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <!-- Left: Stacked Golden Serif Brand -->
+            <div class="footer-brand">
+                <span class="footer-brand-title">RAMYACHANDRA</span>
+                <span class="footer-brand-title">GUNASEKERA</span>
+                <span class="footer-brand-title">CHAMBERS</span>
+            </div>
+
+            <!-- Middle: Legal Navigation & Sitemap -->
+            <nav class="footer-nav" aria-label="Footer Legal Navigation">
+                <div class="footer-nav-row">
+                    <a href="#privacy" class="footer-link" id="open-privacy-link">Privacy Policy</a>
+                    <a href="#terms" class="footer-link" id="open-terms-link">Terms of Engagement</a>
+                </div>
+                <div class="footer-nav-row">
+                    <a href="sitemap.xml" class="footer-link" target="_blank" rel="noopener">Sitemap</a>
+                </div>
+            </nav>
+
+            <!-- Right: Copyright & Tagline -->
+            <div class="footer-legal">
+                <p class="footer-copyright">&copy; 2026 RAMYACHANDRA GUNASEKERA<br>CHAMBERS.</p>
+                <p class="footer-tagline">Sovereign Authority in Law.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Accessible Legal Modals for Privacy Policy & Terms of Engagement -->
+    <div id="privacy-modal" class="legal-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+        <div class="legal-modal-content glass-panel">
+            <button class="legal-modal-close" aria-label="Close Privacy Policy Modal">&times;</button>
+            <h2 id="privacy-modal-title" class="legal-modal-heading">Privacy Policy</h2>
+            <div class="legal-modal-body">
+                <p><strong>Ramyachandra Gunasekera Chambers</strong> is dedicated to upholding the strictest standards of legal confidentiality, ethical advocacy, and professional privilege under the statutes of Sri Lanka and the Bar Association guidelines.</p>
+                <p><strong>Information Handling &amp; Confidentiality:</strong> All correspondence, consultation requests, and case particulars submitted via digital channels, telephone, or during in-person chamber sessions at Fort and Kamburugamuwa are protected under professional Attorney-Client privilege.</p>
+                <p><strong>Privacy Guarantee:</strong> This website maintains zero commercial advertising networks, zero data broking, and zero third-party behavioral profiling trackers.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="terms-modal" class="legal-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title">
+        <div class="legal-modal-content glass-panel">
+            <button class="legal-modal-close" aria-label="Close Terms of Engagement Modal">&times;</button>
+            <h2 id="terms-modal-title" class="legal-modal-heading">Terms of Engagement</h2>
+            <div class="legal-modal-body">
+                <p><strong>General Informational Notice:</strong> The materials and information made available on this website are presented exclusively for general informational context regarding the chamber practice of Attorney-at-Law and Notary Public Ramyachandra Gunasekera.</p>
+                <p><strong>Retainer &amp; Representation:</strong> Formal legal representation in judicial proceedings, deed attestation, title examinations, or corporate registrations is established solely through official appointment, proxy signing, and mutually agreed engagement terms.</p>
+                <p><strong>Jurisdiction:</strong> All chamber services and client representations are conducted subject to the statutory jurisdiction of the courts of Sri Lanka.</p>
+            </div>
+        </div>
+    </div>
 
     <div class="cursor-pixel-field" aria-hidden="true"></div>
 
-    <!-- Interactive Navigation: Smooth In-Page Scrolling + History State -->
+    <!-- Interactive Navigation: Smooth In-Page Scrolling + Active Tab Auto-Scroll -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = [...document.querySelectorAll('.nav-link')];
             const sections = [...document.querySelectorAll('section')];
+            const navEl = document.querySelector('nav');
 
             function setActiveNav(targetId) {
                 navLinks.forEach(link => {
                     const linkTarget = link.getAttribute('data-target') || link.getAttribute('href');
-                    link.classList.toggle('active', linkTarget === `#${targetId}` || link.getAttribute('href') === `${targetId}.html`);
+                    const isActive = linkTarget === `#${targetId}` || linkTarget === `${targetId}.html`;
+                    link.classList.toggle('active', isActive);
+                    if (isActive && window.innerWidth <= 900) {
+                        try {
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } catch (err) {}
+                    }
                 });
             }
 
@@ -1949,8 +2498,8 @@
                         const targetEl = document.querySelector(targetSelector);
                         if (targetEl) {
                             e.preventDefault();
-                            const navHeight = 74;
-                            const targetTop = Math.max(0, targetEl.offsetTop - navHeight - 16);
+                            const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 600 ? 92 : 74);
+                            const targetTop = Math.max(0, targetEl.offsetTop - navHeight - 12);
                             window.scrollTo({ top: targetTop, behavior: 'smooth' });
                             const pageName = link.getAttribute('data-page') || targetSelector.replace('#', '') + '.html';
                             history.pushState(null, '', pageName === 'home.html' ? 'index.html' : pageName);
@@ -1960,14 +2509,17 @@
                 });
             });
 
-            // Active nav highlight on scroll
+            // Active nav highlight, active tab scroll & sticky scrolled state
             let scrollTicking = false;
             window.addEventListener('scroll', () => {
                 if (scrollTicking) return;
                 scrollTicking = true;
                 requestAnimationFrame(() => {
-                    const navHeight = 74;
-                    const marker = window.scrollY + navHeight + 140;
+                    if (navEl) {
+                        navEl.classList.toggle('scrolled', window.scrollY > 30);
+                    }
+                    const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 600 ? 92 : 74);
+                    const marker = window.scrollY + navHeight + 80;
                     let current = sections[0]?.id || 'home';
                     sections.forEach(section => {
                         if (marker >= section.offsetTop) {
@@ -1985,11 +2537,66 @@
                 setTimeout(() => {
                     const el = document.getElementById(targetSectionId);
                     if (el) {
-                        const top = Math.max(0, el.offsetTop - 74 - 16);
+                        const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 600 ? 92 : 74);
+                        const top = Math.max(0, el.offsetTop - navHeight - 12);
                         window.scrollTo({ top: top, behavior: 'smooth' });
                         setActiveNav(targetSectionId);
                     }
                 }, 250);
+            }
+        });
+    </script>
+
+    <!-- Modern Animated Stats Counter (Numbers increase up to current value) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stats = [...document.querySelectorAll('.stat-value[data-target]')];
+            if (!stats.length) return;
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            let hasAnimated = false;
+            const animateStats = () => {
+                if (hasAnimated) return;
+                hasAnimated = true;
+
+                stats.forEach(el => {
+                    const target = parseInt(el.getAttribute('data-target'), 10);
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    const duration = 1800;
+                    const startTime = performance.now();
+
+                    const step = (currentTime) => {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // EaseOutExpo: 1 - Math.pow(2, -10 * progress)
+                        const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                        const currentVal = Math.floor(target * ease);
+                        el.textContent = currentVal + suffix;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            el.textContent = target + suffix;
+                        }
+                    };
+                    requestAnimationFrame(step);
+                });
+            };
+
+            const statsContainer = document.querySelector('.banner-stats');
+            if (statsContainer && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateStats();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                observer.observe(statsContainer);
+            } else {
+                setTimeout(animateStats, 300);
             }
         });
     </script>
@@ -2264,6 +2871,158 @@
             render();
         })();
 
+        // Sovereign Dynamic Ambient Atmosphere (Hero Tilt & Living Stardust Canvas)
+        (() => {
+            // 1. Interactive Hero Tilt & Gentle Light Responsiveness
+            const hero = document.getElementById('home');
+            const goldOrb = document.querySelector('.hero-glow-gold');
+            const navyOrb = document.querySelector('.hero-glow-navy');
+            
+            if (hero && goldOrb && navyOrb && window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                let targetX = 0, targetY = 0;
+                let currentX = 0, currentY = 0;
+                
+                hero.addEventListener('pointermove', e => {
+                    const rect = hero.getBoundingClientRect();
+                    const normX = (e.clientX - rect.left) / rect.width - 0.5;
+                    const normY = (e.clientY - rect.top) / rect.height - 0.5;
+                    targetX = normX * 36;
+                    targetY = normY * 26;
+                }, { passive: true });
+                
+                hero.addEventListener('pointerleave', () => {
+                    targetX = 0;
+                    targetY = 0;
+                });
+                
+                const updateHeroTilt = () => {
+                    currentX += (targetX - currentX) * 0.05;
+                    currentY += (targetY - currentY) * 0.05;
+                    goldOrb.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+                    navyOrb.style.transform = `translate3d(${-currentX * 0.75}px, ${-currentY * 0.75}px, 0)`;
+                    requestAnimationFrame(updateHeroTilt);
+                };
+                updateHeroTilt();
+            }
+
+            // 2. Global Atmospheric Micro-Particles Canvas
+            const canvas = document.getElementById('ambient-cosmos-canvas');
+            if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            
+            const ctx = canvas.getContext('2d', { alpha: true });
+            if (!ctx) return;
+            
+            let width = 0, height = 0;
+            let particles = [];
+            let animId = 0;
+            let lastScrollY = window.scrollY;
+            let mouseX = -1000, mouseY = -1000;
+            
+            const isMobile = window.innerWidth <= 768;
+            const particleCount = isMobile ? 16 : 34;
+            
+            const resize = () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            };
+            resize();
+            window.addEventListener('resize', resize, { passive: true });
+            
+            window.addEventListener('pointermove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            }, { passive: true });
+            
+            window.addEventListener('pointerleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+            
+            class StardustParticle {
+                constructor() {
+                    this.reset(true);
+                }
+                reset(initial = false) {
+                    this.x = Math.random() * width;
+                    this.y = initial ? Math.random() * height : height + 10;
+                    this.baseSize = Math.random() * 1.1 + 0.6;
+                    this.size = this.baseSize;
+                    this.vx = (Math.random() - 0.5) * 0.20;
+                    this.vy = -(Math.random() * 0.25 + 0.12);
+                    this.alpha = Math.random() * 0.35 + 0.15;
+                    this.pulseSpeed = Math.random() * 0.02 + 0.008;
+                    this.pulsePhase = Math.random() * Math.PI * 2;
+                    const colors = [
+                        'rgba(223, 179, 93, ',
+                        'rgba(244, 208, 138, ',
+                        'rgba(202, 239, 231, ',
+                        'rgba(255, 255, 255, '
+                    ];
+                    this.colorPrefix = colors[Math.floor(Math.random() * colors.length)];
+                }
+                update(scrollDelta) {
+                    this.pulsePhase += this.pulseSpeed;
+                    const pulse = Math.sin(this.pulsePhase) * 0.12;
+                    this.currentAlpha = Math.max(0.05, Math.min(0.65, this.alpha + pulse));
+                    
+                    this.x += this.vx;
+                    this.y += this.vy - (scrollDelta * 0.07);
+                    
+                    const dx = this.x - mouseX;
+                    const dy = this.y - mouseY;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 90 && dist > 0) {
+                        const force = (90 - dist) / 90 * 0.4;
+                        this.x += (dx / dist) * force;
+                        this.y += (dy / dist) * force;
+                    }
+                    
+                    if (this.y < -15) this.y = height + 10;
+                    else if (this.y > height + 15) this.y = -10;
+                    if (this.x < -15) this.x = width + 10;
+                    else if (this.x > width + 15) this.x = -10;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.colorPrefix + this.currentAlpha + ')';
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new StardustParticle());
+            }
+            
+            let isTabActive = true;
+            document.addEventListener('visibilitychange', () => {
+                isTabActive = !document.hidden;
+                if (isTabActive) {
+                    lastScrollY = window.scrollY;
+                    render();
+                } else {
+                    cancelAnimationFrame(animId);
+                }
+            });
+            
+            const render = () => {
+                if (!isTabActive) return;
+                const currentScrollY = window.scrollY;
+                const scrollDelta = currentScrollY - lastScrollY;
+                lastScrollY = currentScrollY;
+                
+                ctx.clearRect(0, 0, width, height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update(scrollDelta);
+                    particles[i].draw();
+                }
+                
+                animId = requestAnimationFrame(render);
+            };
+            render();
+        })();
+
         // Mobile-Only Pixie Dust Trail on Scroll
         (() => {
             if (window.innerWidth > 900 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -2351,6 +3110,56 @@
                 image.alt = `${image.alt || 'Image'} — loading asset`;
             }, { once: true });
         });
+
+        // Legal Modals Handler (Privacy Policy & Terms of Engagement)
+        (() => {
+            const openPrivacy = document.getElementById('open-privacy-link');
+            const openTerms = document.getElementById('open-terms-link');
+            const privacyModal = document.getElementById('privacy-modal');
+            const termsModal = document.getElementById('terms-modal');
+
+            function openModal(modal) {
+                if (!modal) return;
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal(modal) {
+                if (!modal) return;
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            if (openPrivacy) {
+                openPrivacy.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(privacyModal);
+                });
+            }
+            if (openTerms) {
+                openTerms.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(termsModal);
+                });
+            }
+
+            [privacyModal, termsModal].forEach(modal => {
+                if (!modal) return;
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal || e.target.classList.contains('legal-modal-close')) {
+                        closeModal(modal);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal(privacyModal);
+                    closeModal(termsModal);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
