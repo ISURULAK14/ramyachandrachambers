@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" translate="yes">
+<html lang="en" translate="yes" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -27,17 +27,15 @@
       function loadAnalytics() {
         if (window._gtagInit) return;
         window._gtagInit = true;
+        ['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach(function(evt) {
+          window.removeEventListener(evt, loadAnalytics);
+        });
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-C0KRJZFKLM';
         document.head.appendChild(s);
       }
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadAnalytics, { timeout: 3000 });
-      } else {
-        setTimeout(loadAnalytics, 2000);
-      }
-      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(evt) {
+      ['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach(function(evt) {
         window.addEventListener(evt, loadAnalytics, { once: true, passive: true });
       });
     </script>
@@ -66,8 +64,10 @@
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="en_GB">
     <meta property="og:locale:alternate" content="en_AU">
-    <meta name="color-scheme" content="dark light">
+    <meta name="color-scheme" content="dark">
     <meta name="format-detection" content="telephone=yes">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Monogram & Favicons -->
     <link rel="icon" type="image/svg+xml" sizes="any" href="searchlogo.svg">
@@ -141,36 +141,6 @@
             --slab-shadow: 0 24px 70px rgba(0, 0, 0, .38), inset 0 1px 0 var(--slab-highlight), inset 0 -18px 36px rgba(0, 0, 0, .18);
             --location-map-size: 240px;
             --location-card-padding: clamp(1.1rem, 1.8vw, 1.55rem);
-        }
-
-        [data-theme="light"] {
-            --accent-main: #8a6a2c; 
-            --accent-red: #b91c1c; 
-            --text-primary: #0f172a;
-            --text-muted: #334155;
-            --text-inverse: #f8fafc;
-            --bg-base: #f1f5f9;
-            --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 245, 250, 0.7) 100%);
-            --glass-border-top: rgba(255, 255, 255, 1);
-            --glass-border-side: rgba(0, 0, 0, 0.08);
-            --glass-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-            --glass-glow: inset 0 0 25px rgba(255, 255, 255, 0.8);
-            --nav-bg: rgba(241, 245, 249, 0.92);
-            --title-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --cap-glow: 0 0 15px rgba(138, 106, 44, 0.35);
-            --cap-color: #8a6a2c;
-            --world-map-filter: invert(0) opacity(0.35) sepia(0.3) hue-rotate(180deg);
-            --iframe-filter: grayscale(40%) contrast(105%);
-            --iframe-filter-hover: grayscale(0%) contrast(105%);
-            --bg-texture: 
-                radial-gradient(ellipse at 15% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 45%),
-                radial-gradient(ellipse at 85% 85%, rgba(0, 0, 0, 0.06) 0%, transparent 55%),
-                repeating-linear-gradient(to right, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 3px, rgba(255,255,255,0.4) 3px, rgba(255,255,255,0.4) 4px),
-                linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
-            --slab-border: rgba(138, 106, 44, .25);
-            --slab-highlight: rgba(255, 255, 255, .8);
-            --slab-surface: linear-gradient(145deg, rgba(255, 255, 255, .85), rgba(235, 242, 250, .9));
-            --slab-shadow: 0 20px 50px rgba(0, 0, 0, .08), inset 0 1px 0 #fff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -256,54 +226,6 @@
         .hero-title-stepped .title-word-one { transform: translateX(calc(var(--title-step) * -1)); }
         .hero-title-stepped .title-word-two { transform: translateX(0); }
         .hero-title-stepped .title-word-three { transform: translateX(calc(var(--title-step) + .32em)); }
-
-        /* Theme Toggle Pill Switch */
-        .theme-toggle-pill {
-            position: fixed !important;
-            right: 24px !important;
-            bottom: 24px !important;
-            width: 82px;
-            height: 42px;
-            border-radius: 40px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border-top);
-            box-shadow: 0 16px 42px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.32);
-            cursor: pointer;
-            z-index: 10001 !important;
-            display: flex;
-            align-items: center;
-            padding: 4px;
-            transition: all 0.3s ease;
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-        }
-
-        .theme-toggle-pill .thumb {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--accent-main);
-            color: var(--text-inverse);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        [data-theme="light"] .theme-toggle-pill .thumb {
-            transform: translateX(40px);
-        }
-
-        .theme-toggle-pill svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
 
         /* Glassmorphic Panels / Slabs */
         .glass-panel,
@@ -742,10 +664,10 @@
             min-height: 400px;
             position: relative;
             border-radius: 16px;
-            background: #12384a url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg') no-repeat center center;
+            background: #12384a url('world_map.svg') no-repeat center center;
             background-size: 100% 100% !important;
             background-blend-mode: screen;
-            background-image: linear-gradient(135deg, rgba(25,132,143,.5), rgba(24,55,101,.5)), url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');
+            background-image: linear-gradient(135deg, rgba(25,132,143,.5), rgba(24,55,101,.5)), url('world_map.svg');
             box-shadow: inset 0 0 80px rgba(0,0,0,.2), 0 25px 70px rgba(0,0,0,.24);
             margin: 0 auto 4rem auto;
             border: 1px solid var(--glass-border-side);
@@ -795,14 +717,17 @@
 
         .pin-label {
             position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
             background: rgba(5,16,28,.88);
             color: #fff;
-            padding: .38rem .6rem;
+            padding: .35rem .55rem;
             border-radius: 6px;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: .7px;
+            letter-spacing: .6px;
             opacity: 0;
             pointer-events: none;
             white-space: nowrap;
@@ -815,8 +740,10 @@
             opacity: 1 !important;
             visibility: visible;
             z-index: 100;
-            max-width: 130px;
         }
+        .pin-sweden .pin-label, .pin-norway .pin-label, .pin-denmark .pin-label, .pin-latvia .pin-label { bottom: auto; top: 125%; }
+        .pin-nz .pin-label, .pin-australia .pin-label, .pin-japan .pin-label { left: auto; right: 110%; transform: none; }
+        .pin-usa .pin-label { left: 110%; transform: none; }
 
         /* Geographic Pin Coordinates */
         .pin-usa { top: 28.3%; left: 22.8%; }
@@ -1197,22 +1124,31 @@
                 pointer-events: none;
                 border-radius: 50%;
                 z-index: 99999;
-                box-shadow: 0 0 6px rgba(223,179,93,.9), 0 0 12px rgba(255,230,153,.6);
+                filter: drop-shadow(0 0 5px #ffd700) drop-shadow(0 0 10px rgba(223,179,93,.9));
+                box-shadow: 0 0 8px #ffd700, 0 0 14px rgba(255,235,130,.8);
                 will-change: transform, opacity;
-                animation: pixieDustFloat .75s cubic-bezier(.22,1,.36,1) forwards;
+                animation: pixieDustFloat .92s cubic-bezier(.16,1,.3,1) forwards;
+            }
+            .pixie-particle.is-star {
+                border-radius: 0;
+                clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
             }
             @keyframes pixieDustFloat {
                 0% {
-                    opacity: .95;
-                    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+                    opacity: 0;
+                    transform: translate3d(0, 0, 0) scale(0.3) rotate(0deg);
                 }
-                50% {
-                    opacity: .85;
-                    transform: translate3d(var(--drift-x, 8px), -18px, 0) scale(1.25) rotate(45deg);
+                20% {
+                    opacity: 1;
+                    transform: translate3d(calc(var(--drift-x, 8px) * 0.3), -8px, 0) scale(1.3) rotate(35deg);
+                }
+                65% {
+                    opacity: 0.85;
+                    transform: translate3d(var(--drift-x, 8px), -24px, 0) scale(1.1) rotate(90deg);
                 }
                 100% {
                     opacity: 0;
-                    transform: translate3d(calc(var(--drift-x, 8px) * 1.6), -36px, 0) scale(0.2) rotate(90deg);
+                    transform: translate3d(calc(var(--drift-x, 8px) * 1.8), -44px, 0) scale(0.2) rotate(180deg);
                 }
             }
         }
@@ -1358,7 +1294,6 @@
 
             .kotavila-gallery { width: min(100%, 280px); }
 
-            .theme-toggle-pill { right: 14px !important; bottom: 14px !important; }
             .cursor-pixel-field { display: none; }
 
             footer.glass-footer {
@@ -1816,29 +1751,7 @@
         <p>&copy; 2026 Ramyachandra Gunasekera Chambers. Matara Fort &amp; Kamburugamuwa, Southern Province, Sri Lanka.</p>
     </footer>
 
-    <!-- Theme Toggle Switch Button -->
-    <button type="button" class="theme-toggle-pill" aria-label="Toggle Color Theme">
-        <div class="thumb">
-            <svg viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        </div>
-    </button>
     <div class="cursor-pixel-field" aria-hidden="true"></div>
-
-    <!-- Theme Toggle Switch Script -->
-    <script>
-        (() => {
-            const toggle = document.querySelector('.theme-toggle-pill');
-            if (!toggle) return;
-            const currentTheme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', currentTheme);
-
-            toggle.addEventListener('click', () => {
-                const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-                document.documentElement.setAttribute('data-theme', theme);
-                localStorage.setItem('theme', theme);
-            });
-        })();
-    </script>
 
     <!-- Interactive Navigation: Smooth In-Page Scrolling + History State -->
     <script>
@@ -1860,8 +1773,8 @@
                         const targetEl = document.querySelector(targetSelector);
                         if (targetEl) {
                             e.preventDefault();
-                            const navHeight = document.querySelector('nav')?.offsetHeight || 74;
-                            const targetTop = Math.max(0, targetEl.getBoundingClientRect().top + window.scrollY - navHeight - 16);
+                            const navHeight = 74;
+                            const targetTop = Math.max(0, targetEl.offsetTop - navHeight - 16);
                             window.scrollTo({ top: targetTop, behavior: 'smooth' });
                             const pageName = link.getAttribute('data-page') || targetSelector.replace('#', '') + '.html';
                             history.pushState(null, '', pageName === 'home.html' ? 'index.html' : pageName);
@@ -1896,8 +1809,7 @@
                 setTimeout(() => {
                     const el = document.getElementById(targetSectionId);
                     if (el) {
-                        const navHeight = document.querySelector('nav')?.offsetHeight || 74;
-                        const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - navHeight - 16);
+                        const top = Math.max(0, el.offsetTop - 74 - 16);
                         window.scrollTo({ top: top, behavior: 'smooth' });
                         setActiveNav(targetSectionId);
                     }
@@ -1914,94 +1826,35 @@
             const mapSection = document.getElementById('testimonials');
             const mapWrapper = document.querySelector('.map-wrapper');
             
-            // Curated 7-country rotations across separated continents to prevent overlapping
+            // Curated 7-country rotations across 7 separate global zones to guarantee zero label collisions
             const countryGroups = [
-                // Cycle 1: USA (N. America), UK (NW Europe), Zanzibar (E. Africa), India (S. Asia), Malaysia (SE Asia), Japan (E. Asia), Australia (Oceania)
+                // Cycle 1: USA (Americas), UK (NW Europe), Zanzibar (E. Africa), India (S. Asia), Malaysia (SE Asia), Japan (E. Asia), Australia (Oceania)
                 ['pin-usa', 'pin-uk', 'pin-zanzibar', 'pin-india', 'pin-malaysia', 'pin-japan', 'pin-australia'],
 
-                // Cycle 2: Portugal (Iberian), Sweden (Scandinavia), Mali (W. Africa), Sri Lanka (Indian Ocean Hub), China (E. Asia), Korea (East Asia), New Zealand (Oceania)
-                ['pin-portugal', 'pin-sweden', 'pin-mali', 'pin-srilanka', 'pin-china', 'pin-korea', 'pin-nz'],
+                // Cycle 2: USA (Americas), France (W. Europe), Zanzibar (E. Africa), Maldives (Indian Ocean), China (E. Asia), Japan (Far East), New Zealand (Oceania)
+                ['pin-usa', 'pin-france', 'pin-zanzibar', 'pin-maldives', 'pin-china', 'pin-japan', 'pin-nz'],
 
-                // Cycle 3: Ireland (Atlantic), Germany (C. Europe), UAE (Middle East), Maldives (Indian Ocean), Bangladesh (S. Asia), Singapore (SE Asia), Australia (Oceania)
-                ['pin-ireland', 'pin-germany', 'pin-uae', 'pin-maldives', 'pin-bangladesh', 'pin-singapore', 'pin-australia'],
+                // Cycle 3: USA (Americas), Germany (C. Europe), UAE (Middle East), Bangladesh (S. Asia), Singapore (SE Asia), Korea (E. Asia), Australia (Oceania)
+                ['pin-usa', 'pin-germany', 'pin-uae', 'pin-bangladesh', 'pin-singapore', 'pin-korea', 'pin-australia'],
 
-                // Cycle 4: France (W. Europe), Norway (Nordic), Malta (Mediterranean), Israel (Levant), India (S. Asia), Japan (E. Asia), USA (N. America)
-                ['pin-france', 'pin-norway', 'pin-malta', 'pin-israel', 'pin-india', 'pin-japan', 'pin-usa'],
+                // Cycle 4: USA (Americas), Portugal (SW Europe), Israel (Levant), Sri Lanka (S. Asia Hub), Malaysia (SE Asia), Japan (E. Asia), New Zealand (Oceania)
+                ['pin-usa', 'pin-portugal', 'pin-israel', 'pin-srilanka', 'pin-malaysia', 'pin-japan', 'pin-nz'],
 
-                // Cycle 5: Switzerland (Alpine), Denmark (N. Europe), Romania (E. Europe), Zanzibar (E. Africa), Malaysia (SE Asia), Korea (E. Asia), New Zealand (Oceania)
-                ['pin-switzerland', 'pin-denmark', 'pin-romania', 'pin-zanzibar', 'pin-malaysia', 'pin-korea', 'pin-nz']
+                // Cycle 5: USA (Americas), Norway (Nordic), Mali (W. Africa), India (S. Asia), China (E. Asia), Korea (E. Asia), Australia (Oceania)
+                ['pin-usa', 'pin-norway', 'pin-mali', 'pin-india', 'pin-china', 'pin-korea', 'pin-australia']
             ];
 
             let groupIndex = 0;
             let cycleTimer = null;
             let stepTimers = [];
-            let placedBoxes = [];
-            let cachedMapRect = null;
-
-            const getMapRect = () => {
-                if (!cachedMapRect && mapWrapper) {
-                    cachedMapRect = mapWrapper.getBoundingClientRect();
-                }
-                return cachedMapRect || { width: 1000, height: 500, left: 0, top: 0 };
-            };
-
-            window.addEventListener('resize', () => { cachedMapRect = null; placedBoxes = []; }, { passive: true });
-            window.addEventListener('scroll', () => { cachedMapRect = null; }, { passive: true });
 
             const clearPins = () => {
                 stepTimers.forEach(t => clearTimeout(t));
                 stepTimers = [];
-                placedBoxes = [];
-                pins.forEach(pin => {
-                    pin.classList.remove('active');
-                    const label = pin.querySelector('.pin-label');
-                    if (label) label.removeAttribute('style');
-                });
+                pins.forEach(pin => pin.classList.remove('active'));
             };
 
-            const positionLabelForPin = (pin) => {
-                const mapRect = getMapRect();
-                const label = pin.querySelector('.pin-label');
-                if (!mapRect || !label) return;
-                const pinRect = pin.getBoundingClientRect();
-                const pinLeft = pinRect.left - mapRect.left;
-                const pinTop = pinRect.top - mapRect.top;
-                const pinCenterX = pinLeft + pinRect.width / 2;
-                const pinCenterY = pinTop + pinRect.height / 2;
-                const width = label.offsetWidth || 95;
-                const height = label.offsetHeight || 26;
-                const gap = 10;
-
-                const candidates = [
-                    { left: pinCenterX - width / 2, top: pinCenterY - gap - height, width, height }, // top
-                    { left: pinCenterX - width / 2, top: pinCenterY + gap, width, height }, // bottom
-                    { left: pinCenterX + gap, top: pinCenterY - height / 2, width, height }, // right
-                    { left: pinCenterX - gap - width, top: pinCenterY - height / 2, width, height }  // left
-                ];
-
-                const score = pos => {
-                    let s = 0;
-                    if (pos.left < 4) s += (4 - pos.left) * 400;
-                    if (pos.left + width > mapRect.width - 4) s += (pos.left + width - (mapRect.width - 4)) * 400;
-                    if (pos.top < 4) s += (4 - pos.top) * 400;
-                    if (pos.top + height > mapRect.height - 4) s += (pos.top + height - (mapRect.height - 4)) * 400;
-                    
-                    placedBoxes.forEach(box => {
-                        const overlapX = Math.max(0, Math.min(pos.left + width, box.left + box.width) - Math.max(pos.left, box.left));
-                        const overlapY = Math.max(0, Math.min(pos.top + height, box.top + box.height) - Math.max(pos.top, box.top));
-                        if (overlapX > 0 && overlapY > 0) s += overlapX * overlapY * 2500;
-                    });
-                    return s;
-                };
-
-                candidates.sort((a, b) => score(a) - score(b));
-                const chosen = candidates[0];
-                placedBoxes.push(chosen);
-                label.style.left = `${chosen.left - pinLeft}px`;
-                label.style.top = `${chosen.top - pinTop}px`;
-            };
-
-            // 1, 2, 3, 4, 5, 6, 7 Sequential Lighting with 2.0 Second Hold/Rest
+            // 1, 2, 3, 4, 5, 6, 7 Sequential Lighting with 2.0 Second Hold/Rest (Zero Reflow)
             const runCycle = () => {
                 clearPins();
                 const currentIds = countryGroups[groupIndex] || [];
@@ -2009,10 +1862,7 @@
                 currentIds.forEach((id, idx) => {
                     const t = setTimeout(() => {
                         const pin = document.getElementById(id);
-                        if (pin) {
-                            pin.classList.add('active');
-                            requestAnimationFrame(() => positionLabelForPin(pin));
-                        }
+                        if (pin) pin.classList.add('active');
                     }, idx * stepDelay);
                     stepTimers.push(t);
                 });
@@ -2263,23 +2113,25 @@
                 }
             }, { passive: true });
 
-            window.addEventListener('touchend', () => { isTouching = false; }, { passive: true });
+            window.addEventListener('touchend', () => {
+                setTimeout(() => { isTouching = false; }, 350);
+            }, { passive: true });
 
-            const sparkleColors = ['#ffe699', '#dfb35d', '#d4af37', '#ffffff'];
+            const sparkleColors = ['#ffd700', '#ffea75', '#ffffff', '#dfb35d', '#ffe066'];
 
             const createParticle = (x, y) => {
-                if (document.querySelectorAll('.pixie-particle').length >= 14) return;
+                if (document.querySelectorAll('.pixie-particle').length >= 18) return;
                 const p = document.createElement('div');
-                p.className = 'pixie-particle';
-                const size = Math.random() * 3.5 + 2.5;
+                p.className = 'pixie-particle' + (Math.random() > 0.35 ? ' is-star' : '');
+                const size = Math.random() * 5 + 4; // 4px to 9px visible sparkle
                 const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-                const driftX = (Math.random() - 0.5) * 26;
-                const jitterX = (Math.random() - 0.5) * 20;
-                const jitterY = (Math.random() - 0.5) * 16;
+                const driftX = (Math.random() - 0.5) * 36;
+                const jitterX = (Math.random() - 0.5) * 28;
+                const jitterY = (Math.random() - 0.5) * 22;
 
                 p.style.cssText = `
-                    left: ${Math.max(4, Math.min(window.innerWidth - 8, x + jitterX))}px;
-                    top: ${Math.max(4, Math.min(window.innerHeight - 8, y + jitterY))}px;
+                    left: ${Math.max(6, Math.min(window.innerWidth - 12, x + jitterX))}px;
+                    top: ${Math.max(6, Math.min(window.innerHeight - 12, y + jitterY))}px;
                     width: ${size}px;
                     height: ${size}px;
                     background: ${color};
@@ -2297,14 +2149,16 @@
                 requestAnimationFrame(() => {
                     const now = performance.now();
                     const currentY = window.scrollY;
-                    const diff = Math.abs(currentY - lastScrollY);
+                    const diff = currentY - lastScrollY; // Positive value = scrolling DOWN
 
-                    if (diff > 3 && now - lastSpawnTime > 50) {
+                    // Trigger specifically when scrolling down
+                    if (diff > 2 && now - lastSpawnTime > 40) {
                         lastSpawnTime = now;
-                        const spawnX = isTouching ? touchX : (window.innerWidth * 0.25 + Math.random() * window.innerWidth * 0.5);
-                        const spawnY = isTouching ? touchY : (window.innerHeight * 0.5 + (Math.random() - 0.5) * 100);
+                        const spawnX = isTouching ? touchX : (window.innerWidth * 0.2 + Math.random() * window.innerWidth * 0.6);
+                        const spawnY = isTouching ? touchY : (window.innerHeight * 0.55 + (Math.random() - 0.5) * 120);
                         createParticle(spawnX, spawnY);
-                        if (Math.random() > 0.45) {
+                        createParticle(spawnX, spawnY);
+                        if (Math.random() > 0.4) {
                             createParticle(spawnX, spawnY);
                         }
                     }
