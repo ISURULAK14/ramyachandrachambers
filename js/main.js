@@ -162,27 +162,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const pins = [...document.querySelectorAll('.map-pin')];
     if (pins.length) {
         // 7 Non-Overlapping Globally Balanced Cohorts Covering All 35 Sovereign Jurisdictions
-        const cohorts = [
-            // Sequence 1 (Countries 1-5): Americas, NW Europe, N. Europe, E. Europe, E. Asia
-            ['pin-usa', 'pin-uk', 'pin-sweden', 'pin-romania', 'pin-japan'],
+                                const cohorts = [
+            // Cycle 1: Americas, SE Europe, Southeast Asia, SW Iberia, Middle East
+            ['pin-usa', 'pin-romania', 'pin-malaysia', 'pin-portugal', 'pin-uae'],
 
-            // Sequence 2 (Countries 6-10): SW Europe, C. Europe, Middle East, E. Asia, Oceania
-            ['pin-portugal', 'pin-germany', 'pin-uae', 'pin-korea', 'pin-australia'],
+            // Cycle 2: Northwest Europe, East Europe, Central-West Europe, Indian Ocean, Oceania
+            ['pin-netherlands', 'pin-slovakia', 'pin-luxembourg', 'pin-maldives', 'pin-australia'],
 
-            // Sequence 3 (Countries 11-15): N. Europe, W. Europe, SE Europe, S. Asia, E. Asia
-            ['pin-norway', 'pin-luxembourg', 'pin-greece', 'pin-srilanka', 'pin-china'],
+            // Cycle 3: Scandinavia North, Baltic East, Central Europe, South Asia, Mediterranean South
+            ['pin-sweden', 'pin-latvia', 'pin-germany', 'pin-bangladesh', 'pin-malta'],
 
-            // Sequence 4 (Countries 16-20): W. Europe, E. Europe, E. Africa, S. Asia, Oceania
-            ['pin-ireland', 'pin-slovakia', 'pin-zanzibar', 'pin-bangladesh', 'pin-nz'],
+            // Cycle 4: Central Europe, Southeast Asia, Scandinavia North, NW Atlantic, West Africa
+            ['pin-austria', 'pin-singapore', 'pin-norway', 'pin-ireland', 'pin-mali'],
 
-            // Sequence 5 (Countries 21-25): W. Europe, Baltic, Mediterranean, Middle East, SE Asia
-            ['pin-france', 'pin-latvia', 'pin-malta', 'pin-israel', 'pin-malaysia'],
+            // Cycle 5: West Europe, North Europe, SE Mediterranean, East Asia, East Africa
+            ['pin-belgium', 'pin-denmark', 'pin-greece', 'pin-korea', 'pin-zanzibar'],
 
-            // Sequence 6 (Countries 26-30): W. Europe, C. Europe, S. Europe, S. Asia, SE Asia
-            ['pin-netherlands', 'pin-austria', 'pin-italy', 'pin-india', 'pin-singapore'],
+            // Cycle 6: West Europe, Middle East, Mediterranean South, South Asia, East Asia
+            ['pin-france', 'pin-israel', 'pin-italy', 'pin-india', 'pin-china'],
 
-            // Sequence 7 (Countries 31-35): W. Europe, N. Europe, Alps, W. Africa, Indian Ocean
-            ['pin-belgium', 'pin-denmark', 'pin-switzerland', 'pin-mali', 'pin-maldives']
+            // Cycle 7: Alps, British Isles, South Asia, East Asia, Oceania
+            ['pin-switzerland', 'pin-uk', 'pin-srilanka', 'pin-japan', 'pin-nz']
         ];
 
         let cohortIndex = 0;
