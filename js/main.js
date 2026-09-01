@@ -12,18 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
         el.textContent = `${u}@${d}`;
     });
 
-    // 2. Navigation Highlighting & Smooth Scrolling
+        // 2. Navigation Highlighting & Smooth Scrolling
     const navLinks = [...document.querySelectorAll('.nav-link')];
-    const sections = [...document.querySelectorAll('section')];
+    const sections = [...document.querySelectorAll('section[id]')];
     const navEl = document.querySelector('nav.site-nav') || document.querySelector('nav');
 
     function setActiveNav(targetId) {
         if (!navLinks.length) return;
         navLinks.forEach(link => {
-            const linkTarget = link.getAttribute('data-target') || link.getAttribute('href') || '';
-            const isActive = linkTarget === `#${targetId}` || linkTarget === `${targetId}.html` || (targetId === 'home' && (linkTarget === '/' || linkTarget === 'index.html'));
-            link.classList.toggle('active', isActive);
-            if (isActive && window.innerWidth <= 900) {
+            const href = link.getAttribute('href') || '';
+            const isMatch = href === `#${targetId}` || href === `/#${targetId}` || (targetId === 'home' && (href === '/' || href === '#home' || href === '/#home'));
+            link.classList.toggle('active', isMatch);
+            if (isMatch && window.innerWidth <= 900) {
                 try {
                     link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
                 } catch (err) {}
@@ -34,21 +34,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navLinks.length) {
         navLinks.forEach(link => {
             link.addEventListener('click', e => {
-                const targetSelector = link.getAttribute('data-target');
-                if (targetSelector) {
-                    const targetEl = document.querySelector(targetSelector);
+                const href = link.getAttribute('href') || '';
+                if (href.startsWith('#')) {
+                    const targetEl = document.querySelector(href);
                     if (targetEl) {
                         e.preventDefault();
-                        const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 600 ? 92 : 74);
-                        const targetTop = Math.max(0, targetEl.offsetTop - navHeight - 12);
+                        const navHeight = navEl ? navEl.offsetHeight : 70;
+                        const targetTop = Math.max(0, targetEl.offsetTop - navHeight + 2);
                         window.scrollTo({ top: targetTop, behavior: 'smooth' });
-                        const pageName = link.getAttribute('data-page') || targetSelector.replace('#', '') + '.html';
-                        history.pushState(null, '', pageName === 'home.html' ? 'index.html' : pageName);
                         setActiveNav(targetEl.id);
                     }
                 }
             });
         });
+
+        // Check if page loaded with a hash (e.g. /#about)
+        if (window.location.hash) {
+            setTimeout(() => {
+                const targetEl = document.querySelector(window.location.hash);
+                if (targetEl) {
+                    const navHeight = navEl ? navEl.offsetHeight : 70;
+                    const targetTop = Math.max(0, targetEl.offsetTop - navHeight + 2);
+                    window.scrollTo({ top: targetTop, behavior: 'smooth' });
+                    setActiveNav(targetEl.id);
+                }
+            }, 100);
+        }
 
         let scrollTicking = false;
         window.addEventListener('scroll', () => {
@@ -59,12 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     navEl.classList.toggle('scrolled', window.scrollY > 30);
                 }
                 if (sections.length) {
-                    const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 600 ? 92 : 74);
-                    const marker = window.scrollY + navHeight + 80;
-                    let current = sections[0]?.id || 'home';
-                    sections.forEach(section => {
-                        if (marker >= section.offsetTop) {
-                            current = section.id;
+                    const navHeight = navEl ? navEl.offsetHeight : 70;
+                    const marker = window.scrollY + navHeight + 100;
+                    let current = sections[0].id;
+                    sections.forEach(sec => {
+                        if (marker >= sec.offsetTop) {
+                            current = sec.id;
                         }
                     });
                     setActiveNav(current);
