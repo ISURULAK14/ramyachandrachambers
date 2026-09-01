@@ -484,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let animId = 0;
             let mouseX = -1000, mouseY = -1000;
             const isMobile = window.innerWidth <= 768;
-            const particleCount = isMobile ? 24 : 40;
+            const particleCount = isMobile ? 36 : 48;
 
             const resize = () => {
                 width = canvas.width = window.innerWidth;
