@@ -488,4 +488,108 @@ document.addEventListener('DOMContentLoaded', () => {
             navigator.serviceWorker.register('/sw.js').catch(() => {});
         });
     }
+
+    // 6. Interactive FAQ Search, Filter Tabs, and Accordion Toggle
+    const faqCards = [...document.querySelectorAll('.faq-card')];
+    const faqSearchInput = document.getElementById('faq-search-input');
+    const faqClearBtn = document.getElementById('faq-clear-btn');
+    const faqCatButtons = [...document.querySelectorAll('.faq-category-btn')];
+    const faqCounterText = document.getElementById('faq-counter-text');
+
+    if (faqCards.length) {
+        let currentFaqCategory = 'all';
+        let faqSearchQuery = '';
+
+        function setFaqCardState(card, open) {
+            const body = card.querySelector('.faq-body');
+            const header = card.querySelector('.faq-header');
+            if (!body || !header) return;
+
+            card.classList.toggle('is-open', open);
+            header.setAttribute('aria-expanded', String(open));
+            body.style.maxHeight = open ? `${body.scrollHeight + 30}px` : '0px';
+        }
+
+        faqCards.forEach(card => {
+            const header = card.querySelector('.faq-header');
+            if (!header) return;
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isOpen = card.classList.contains('is-open');
+                setFaqCardState(card, !isOpen);
+            });
+        });
+
+        function applyFaqFilters() {
+            let visibleCount = 0;
+            const query = faqSearchQuery.trim().toLowerCase();
+
+            faqCards.forEach(card => {
+                const cat = card.getAttribute('data-category');
+                const question = card.querySelector('.faq-question')?.textContent.toLowerCase() || '';
+                const answer = card.querySelector('.faq-answer-text')?.textContent.toLowerCase() || '';
+
+                const matchesCategory = currentFaqCategory === 'all' || cat === currentFaqCategory;
+                const matchesSearch = !query || question.includes(query) || answer.includes(query);
+
+                const isVisible = matchesCategory && matchesSearch;
+                card.style.display = isVisible ? 'block' : 'none';
+                if (isVisible) visibleCount++;
+            });
+
+            if (faqCounterText) {
+                if (visibleCount === faqCards.length) {
+                    faqCounterText.textContent = `Showing all ${faqCards.length} legal topics`;
+                } else if (visibleCount === 0) {
+                    faqCounterText.textContent = `No matching questions found for "${faqSearchQuery}"`;
+                } else {
+                    faqCounterText.textContent = `Showing ${visibleCount} of ${faqCards.length} legal topics`;
+                }
+            }
+        }
+
+        if (faqSearchInput) {
+            faqSearchInput.addEventListener('input', e => {
+                faqSearchQuery = e.target.value;
+                if (faqClearBtn) faqClearBtn.style.display = faqSearchQuery ? 'block' : 'none';
+                applyFaqFilters();
+            });
+        }
+
+        if (faqClearBtn) {
+            faqClearBtn.addEventListener('click', () => {
+                if (faqSearchInput) faqSearchInput.value = '';
+                faqSearchQuery = '';
+                faqClearBtn.style.display = 'none';
+                applyFaqFilters();
+                if (faqSearchInput) faqSearchInput.focus();
+            });
+        }
+
+        faqCatButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                faqCatButtons.forEach(b => {
+                    b.classList.remove('is-active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('is-active');
+                btn.setAttribute('aria-selected', 'true');
+                currentFaqCategory = btn.getAttribute('data-cat') || 'all';
+                applyFaqFilters();
+            });
+        });
+
+        // Deep link handling (e.g. faq.html#property-deed-matara)
+        if (window.location.hash) {
+            const targetId = window.location.hash.substring(1);
+            const targetCard = document.getElementById(targetId);
+            if (targetCard) {
+                setTimeout(() => {
+                    setFaqCardState(targetCard, true);
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+    }
+
 });
