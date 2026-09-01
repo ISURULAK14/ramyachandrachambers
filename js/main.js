@@ -157,62 +157,140 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 4. World Map Active Pin Cycling (Sleek Global Single-Pin Rotation)
+    // 4. World Map Active Pin Cycling (Strict 500ms Step Cadence: 0ms, 500ms, 1000ms, 1500ms, 2000ms -> 2500ms Clear -> 3000ms Next)
     const mapWrapper = document.querySelector('.map-wrapper');
     const pins = [...document.querySelectorAll('.map-pin')];
     if (pins.length) {
-        let pinIndex = 0;
-        let timer = null;
-        let isHovered = false;
+        // 7 Non-Overlapping Globally Balanced Cohorts Covering All 35 Sovereign Jurisdictions
+        const cohorts = [
+            // Sequence 1 (Countries 1-5): Americas, NW Europe, N. Europe, E. Europe, E. Asia
+            ['pin-usa', 'pin-uk', 'pin-sweden', 'pin-romania', 'pin-japan'],
 
-        const featuredPinIds = [
-            'pin-srilanka', 'pin-uk', 'pin-usa', 'pin-australia', 
-            'pin-japan', 'pin-germany', 'pin-singapore', 'pin-dubai', 
-            'pin-switzerland', 'pin-india', 'pin-nz', 'pin-france', 
-            'pin-china', 'pin-maldives', 'pin-italy', 'pin-netherlands'
+            // Sequence 2 (Countries 6-10): SW Europe, C. Europe, Middle East, E. Asia, Oceania
+            ['pin-portugal', 'pin-germany', 'pin-uae', 'pin-korea', 'pin-australia'],
+
+            // Sequence 3 (Countries 11-15): N. Europe, W. Europe, SE Europe, S. Asia, E. Asia
+            ['pin-norway', 'pin-luxembourg', 'pin-greece', 'pin-srilanka', 'pin-china'],
+
+            // Sequence 4 (Countries 16-20): W. Europe, E. Europe, E. Africa, S. Asia, Oceania
+            ['pin-ireland', 'pin-slovakia', 'pin-zanzibar', 'pin-bangladesh', 'pin-nz'],
+
+            // Sequence 5 (Countries 21-25): W. Europe, Baltic, Mediterranean, Middle East, SE Asia
+            ['pin-france', 'pin-latvia', 'pin-malta', 'pin-israel', 'pin-malaysia'],
+
+            // Sequence 6 (Countries 26-30): W. Europe, C. Europe, S. Europe, S. Asia, SE Asia
+            ['pin-netherlands', 'pin-austria', 'pin-italy', 'pin-india', 'pin-singapore'],
+
+            // Sequence 7 (Countries 31-35): W. Europe, N. Europe, Alps, W. Africa, Indian Ocean
+            ['pin-belgium', 'pin-denmark', 'pin-switzerland', 'pin-mali', 'pin-maldives']
         ];
 
-        const clearAllActivePins = () => pins.forEach(p => p.classList.remove('active'));
+        let cohortIndex = 0;
+        let stepTimers = [];
+        let mainTimer = null;
+        let isRunning = false;
+        let isHovered = false;
 
-        const activateNext = () => {
+        const clearAllActivePins = () => {
+            pins.forEach(p => p.classList.remove('active'));
+        };
+
+        const clearStepTimers = () => {
+            stepTimers.forEach(t => clearTimeout(t));
+            stepTimers = [];
+        };
+
+        const runSequence = () => {
             if (isHovered) return;
+            clearStepTimers();
             clearAllActivePins();
-            const pinId = featuredPinIds[pinIndex % featuredPinIds.length];
-            const el = document.getElementById(pinId);
-            if (el) el.classList.add('active');
-            pinIndex++;
+
+            const currentCohort = cohorts[cohortIndex];
+            if (!currentCohort) return;
+
+            // 0 ms: Country 1 appears
+            stepTimers.push(setTimeout(() => {
+                if (isHovered) return;
+                const el = document.getElementById(currentCohort[0]);
+                if (el) el.classList.add('active');
+            }, 0));
+
+            // 500 ms: Country 2 appears (Country 1 remains)
+            stepTimers.push(setTimeout(() => {
+                if (isHovered) return;
+                const el = document.getElementById(currentCohort[1]);
+                if (el) el.classList.add('active');
+            }, 500));
+
+            // 1000 ms: Country 3 appears (Countries 1 and 2 remain)
+            stepTimers.push(setTimeout(() => {
+                if (isHovered) return;
+                const el = document.getElementById(currentCohort[2]);
+                if (el) el.classList.add('active');
+            }, 1000));
+
+            // 1500 ms: Country 4 appears (Countries 1, 2, and 3 remain)
+            stepTimers.push(setTimeout(() => {
+                if (isHovered) return;
+                const el = document.getElementById(currentCohort[3]);
+                if (el) el.classList.add('active');
+            }, 1500));
+
+            // 2000 ms: Country 5 appears (Countries 1, 2, 3, and 4 remain)
+            stepTimers.push(setTimeout(() => {
+                if (isHovered) return;
+                const el = document.getElementById(currentCohort[4]);
+                if (el) el.classList.add('active');
+            }, 2000));
+
+            // 2500 ms: Sequence clears. All elements (Countries 1 through 5) disappear simultaneously.
+            stepTimers.push(setTimeout(() => {
+                if (isHovered) return;
+                clearAllActivePins();
+            }, 2500));
+
+            // 3000 ms: Next sequence begins!
+            cohortIndex = (cohortIndex + 1) % cohorts.length;
+            mainTimer = setTimeout(runSequence, 3000);
         };
 
         const startSequence = () => {
-            if (timer) clearInterval(timer);
-            activateNext();
-            timer = setInterval(activateNext, 2400);
+            if (isRunning) return;
+            isRunning = true;
+            runSequence();
         };
 
         const stopSequence = () => {
-            if (timer) clearInterval(timer);
-            timer = null;
+            isRunning = false;
+            if (mainTimer) clearTimeout(mainTimer);
+            mainTimer = null;
+            clearStepTimers();
+            clearAllActivePins();
         };
 
         if (mapWrapper) {
             mapWrapper.addEventListener('mouseenter', () => {
                 isHovered = true;
-                stopSequence();
+                if (mainTimer) clearTimeout(mainTimer);
+                mainTimer = null;
+                clearStepTimers();
                 clearAllActivePins();
             });
             mapWrapper.addEventListener('mouseleave', () => {
                 isHovered = false;
-                startSequence();
+                clearAllActivePins();
+                runSequence();
             });
         }
 
         pins.forEach(pin => {
             pin.addEventListener('mouseenter', () => {
+                isHovered = true;
                 clearAllActivePins();
                 pin.classList.add('active');
             });
             pin.addEventListener('mouseleave', () => {
-                if (!isHovered) pin.classList.remove('active');
+                pin.classList.remove('active');
             });
         });
 
@@ -220,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) stopSequence();
-            else if (!isHovered) startSequence();
+            else startSequence();
         });
     }
 
