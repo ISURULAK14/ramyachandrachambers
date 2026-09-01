@@ -676,4 +676,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
+    // =========================================================================
+    // 10. Fine-Pointer Ambient Mouse Cursor Animation
+    // =========================================================================
+    (() => {
+        const field = document.querySelector('.cursor-pixel-field');
+        if (!field || window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.matchMedia('(pointer: fine)').matches) return;
+        
+        let x = -200, y = -200, raf = 0;
+        const render = () => {
+            field.style.transform = `translate3d(${x - 56}px, ${y - 56}px, 0)`;
+            raf = requestAnimationFrame(render);
+        };
+        
+        window.addEventListener('pointermove', (event) => {
+            x = event.clientX;
+            y = event.clientY;
+            document.body.classList.add('pixel-cursor-ready');
+            if (!raf) raf = requestAnimationFrame(render);
+        }, { passive: true });
+        
+        window.addEventListener('pointerleave', () => {
+            document.body.classList.remove('pixel-cursor-ready');
+            if (raf) {
+                cancelAnimationFrame(raf);
+                raf = 0;
+            }
+        });
+        
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (raf) { cancelAnimationFrame(raf); raf = 0; }
+            }
+        });
+    })();
+
 });
