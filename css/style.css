@@ -121,3 +121,63 @@ section{padding:8.5rem 1.25rem 4.5rem}.sr-only{position:absolute;width:1px;heigh
     .faq-inner{padding:0 1.2rem 1.4rem 1.2rem}
     .faq-title{font-size:2.2rem}
 }
+
+
+/* ==========================================================================
+   Accessibility Skip Links & Utility Components
+   ========================================================================== */
+.skip-link{position:absolute;top:-120px;left:1.5rem;background:#dfb35d;color:#05101c;padding:0.75rem 1.5rem;border-radius:8px;font-weight:700;font-size:0.9rem;text-decoration:none;z-index:999999;box-shadow:0 8px 25px rgba(0,0,0,0.6);transition:top 0.25s ease}
+.skip-link:focus{top:1.5rem}
+
+/* Hero Badge Tag */
+.hero-tag{display:inline-block;padding:0.45rem 1.3rem;background:linear-gradient(135deg,rgba(197,168,112,0.15),rgba(214,183,124,0.05));border:1px solid rgba(214,183,124,0.35);border-radius:30px;color:var(--accent-main);font-size:0.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;backdrop-filter:blur(8px);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+
+/* Secondary & Action Buttons */
+.btn-secondary{background:rgba(15,30,48,0.8);border:1px solid rgba(214,183,124,0.45);color:var(--text-primary);padding:0.85rem 1.8rem;border-radius:30px;font-weight:600;font-size:0.85rem;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;transition:all 0.35s ease;backdrop-filter:blur(10px)}
+.btn-secondary:hover{background:rgba(25,50,80,0.95);border-color:var(--accent-main);color:#ffffff;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.4)}
+
+/* Contact Pill Container & Banner Text */
+.contact-pill-container{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.banner-text{display:flex;flex-direction:column;gap:0.4rem}
+
+/* Testimonial Crest & Stars */
+.client-crest{width:42px;height:42px;border-radius:50%;background:rgba(214,183,124,0.12);border:1px solid rgba(214,183,124,0.35);display:flex;align-items:center;justify-content:center;color:var(--accent-main);font-weight:700;font-size:0.95rem;margin-bottom:0.75rem}
+.stars{color:#f59e0b;letter-spacing:3px;font-size:1.05rem;margin:0.4rem 0}
+.direct-client-footer{margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;color:var(--text-muted);display:flex;justify-content:space-between;align-items:center}
+
+/* Protected Email Link */
+.protected-email{color:var(--accent-main);text-decoration:none;font-weight:500;transition:color 0.25s ease}
+.protected-email:hover{color:#ffffff;text-decoration:underline}
+
+/* Map Background Vector Overlay */
+.map-bg-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:fill;z-index:1;pointer-events:none;opacity:0.85;mix-blend-mode:screen}
+
+/* 404 Error Page Components */
+.error-card{max-width:680px;margin:120px auto 60px;padding:3.5rem 2.5rem;text-align:center;border-radius:20px;background:rgba(10,26,42,0.75);backdrop-filter:blur(20px);border:1px solid var(--glass-border-side);box-shadow:0 30px 80px rgba(0,0,0,0.5)}
+.error-code{font-size:clamp(4.5rem,10vw,7.5rem);line-height:1;font-weight:700;color:var(--accent-main);font-family:'Cormorant Garamond',serif;text-shadow:0 0 35px rgba(223,179,93,0.4);margin-bottom:0.5rem}
+.error-heading{font-size:clamp(1.8rem,3.5vw,2.5rem);color:#ffffff;margin-bottom:1rem}
+.error-desc{color:var(--text-muted);font-size:1.08rem;line-height:1.7;max-width:520px;margin:0 auto 2rem}
+.nav-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0;text-align:left}
+.nav-grid a{display:flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem;border-radius:12px;background:rgba(15,35,55,0.6);border:1px solid rgba(255,255,255,0.08);color:var(--text-primary);text-decoration:none;font-weight:500;transition:all 0.3s ease}
+.nav-grid a:hover{background:rgba(25,55,85,0.85);border-color:var(--accent-main);color:#ffffff;transform:translateY(-2px)}
+.footer-note{color:var(--text-muted);font-size:0.85rem;margin-top:2rem}
+
+
+/* ==========================================================================
+   Legal Modals (Privacy & Terms)
+   ========================================================================== */
+.legal-modal{position:fixed;inset:0;z-index:999999;display:flex;align-items:center;justify-content:center;padding:1.5rem;visibility:hidden;opacity:0;pointer-events:none;transition:opacity 0.35s ease,visibility 0.35s ease}
+.legal-modal:not([hidden]){visibility:visible;opacity:1;pointer-events:auto}
+.legal-modal-backdrop{position:absolute;inset:0;background:rgba(4,12,20,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.legal-modal-dialog{position:relative;width:min(100%,620px);max-height:85vh;overflow-y:auto;background:rgba(10,26,42,0.95);border:1px solid rgba(214,183,124,0.45);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,0.7),inset 0 1px 0 rgba(255,255,255,0.15);padding:2.2rem;z-index:2}
+.legal-modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(214,183,124,0.25)}
+.legal-modal-header h3{font-size:1.6rem;color:#ffffff;margin:0}
+.legal-modal-close{background:none;border:none;color:var(--text-muted);font-size:2rem;cursor:pointer;line-height:1;padding:0.2rem;transition:color 0.2s ease}
+.legal-modal-close:hover{color:var(--accent-main)}
+.legal-modal-body{color:#cbd5e1;font-size:0.98rem;line-height:1.75;display:flex;flex-direction:column;gap:0.9rem}
+.legal-modal-body p{margin:0}
+.legal-modal-body strong{color:#ffffff}
+
+/* 404 Header and Logo text */
+.header{width:100%}
+.logo-text{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:1px}

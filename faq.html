@@ -207,7 +207,7 @@
 }
     </script>
 
-    <link rel="stylesheet" href="css/style.css?v=6.0.0">
+    <link rel="stylesheet" href="css/style.css?v=7.0.0">
     <!-- Security & XSS Protection Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com https://*.googleapis.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self' mailto: tel: https:;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -605,9 +605,40 @@
         </div>
     </footer>
 
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title" hidden>
+        <div class="legal-modal-backdrop" id="privacy-backdrop"></div>
+        <div class="legal-modal-dialog glass-panel">
+            <div class="legal-modal-header">
+                <h3 id="privacy-modal-title" class="serif">Client Privacy &amp; Data Protection</h3>
+                <button type="button" class="legal-modal-close" id="close-privacy-btn" aria-label="Close Privacy Policy">&times;</button>
+            </div>
+            <div class="legal-modal-body">
+                <p><strong>Ramyachandra Gunasekera Chambers</strong> is bound by the strict statutory duties of legal professional privilege and advocate-client confidentiality under Sri Lankan law.</p>
+                <p>Any documentation, personal data, title deeds, or instructions submitted to our chambers are maintained under strict security and used exclusively for legal representation, deed attestation, or company filings.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Engagement Modal -->
+    <div id="terms-modal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title" hidden>
+        <div class="legal-modal-backdrop" id="terms-backdrop"></div>
+        <div class="legal-modal-dialog glass-panel">
+            <div class="legal-modal-header">
+                <h3 id="terms-modal-title" class="serif">Terms of Legal Engagement</h3>
+                <button type="button" class="legal-modal-close" id="close-terms-btn" aria-label="Close Terms of Engagement">&times;</button>
+            </div>
+            <div class="legal-modal-body">
+                <p>Legal counsel and notarial services provided by Senior Attorney Ramyachandra Gunasekera are governed by the Supreme Court Rules of the Democratic Socialist Republic of Sri Lanka.</p>
+                <p>Notarial conveyancing requires formal title investigation and statutory verification of identity before deed execution.</p>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Interactive FAQ Script -->
 
     <!-- Main Deferred JavaScript -->
-    <script defer src="js/main.js?v=6.0.0"></script>
+    <script defer src="js/main.js?v=7.0.0"></script>
 </body>
 </html>
