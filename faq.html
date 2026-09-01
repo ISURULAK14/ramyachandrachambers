@@ -310,6 +310,18 @@
     .footer-legal{align-items:center;text-align:center}
 }
     </style>
+    <!-- Security & XSS Protection Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto: tel: https:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Dual-Language (English / Sinhala) & Regional Hreflang Mapping -->
+    <link rel="alternate" hreflang="en" href="https://ramyachandrachambers.com/faq.html">
+    <link rel="alternate" hreflang="en-LK" href="https://ramyachandrachambers.com/faq.html">
+    <link rel="alternate" hreflang="si-LK" href="https://ramyachandrachambers.com/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://ramyachandrachambers.com/faq.html">
 </head>
 <body>
     <!-- Ambient Living Atmosphere -->
@@ -694,7 +706,7 @@
                     if (visibleCount === cards.length) {
                         counterText.textContent = `Showing all ${cards.length} legal topics`;
                     } else if (visibleCount === 0) {
-                        counterText.textContent = `No matching questions found for "${searchQuery}"`;
+                        counterText.textContent = `No matching questions found for "${searchQuery.replace(/[<>\'"]/g, \'\')}"`;
                     } else {
                         counterText.textContent = `Showing ${visibleCount} of ${cards.length} legal topics`;
                     }
