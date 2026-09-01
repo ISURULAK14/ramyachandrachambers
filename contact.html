@@ -910,34 +910,34 @@
             }
         });
     </script>
-        <!-- World Map Sequence Animation (35 Countries in 7 Sequential Batches with Strict Cadence) -->
+            <!-- World Map Sequence Animation (Strict 500ms Step Cadence: 0ms, 500ms, 1000ms, 1500ms, 2000ms -> 2500ms Clear -> 3000ms Next) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const pins = [...document.querySelectorAll('.map-pin')];
             if (!pins.length) return;
 
-            // 7 Geographically Dispersed Non-overlapping Cohorts Covering all 35 Jurisdictions
+            // 7 Non-Overlapping Globally Balanced Cohorts Covering All 35 Sovereign Jurisdictions
             const cohorts = [
-                // Sequence 1 (Countries 1-5): Americas, W. Europe, S. Asia, E. Asia, Oceania
-                ['pin-usa', 'pin-uk', 'pin-india', 'pin-japan', 'pin-australia'],
+                // Sequence 1 (Countries 1-5): Americas, NW Europe, N. Europe, E. Europe, E. Asia
+                ['pin-usa', 'pin-uk', 'pin-sweden', 'pin-romania', 'pin-japan'],
 
-                // Sequence 2 (Countries 6-10): C. Europe, Middle East, S. Asia, E. Asia, Oceania
-                ['pin-germany', 'pin-uae', 'pin-srilanka', 'pin-korea', 'pin-nz'],
+                // Sequence 2 (Countries 6-10): SW Europe, C. Europe, Middle East, E. Asia, Oceania
+                ['pin-portugal', 'pin-germany', 'pin-uae', 'pin-korea', 'pin-australia'],
 
-                // Sequence 3 (Countries 11-15): W. Europe, W. Africa, S. Asia, E. Asia, N. Europe
-                ['pin-france', 'pin-mali', 'pin-bangladesh', 'pin-china', 'pin-norway'],
+                // Sequence 3 (Countries 11-15): N. Europe, W. Europe, SE Europe, S. Asia, E. Asia
+                ['pin-norway', 'pin-luxembourg', 'pin-greece', 'pin-srilanka', 'pin-china'],
 
-                // Sequence 4 (Countries 16-20): W. Europe, S. Europe, E. Africa, Indian Ocean, SE Asia
-                ['pin-ireland', 'pin-greece', 'pin-zanzibar', 'pin-maldives', 'pin-singapore'],
+                // Sequence 4 (Countries 16-20): W. Europe, E. Europe, E. Africa, S. Asia, Oceania
+                ['pin-ireland', 'pin-slovakia', 'pin-zanzibar', 'pin-bangladesh', 'pin-nz'],
 
-                // Sequence 5 (Countries 21-25): SW Europe, Levant, Scandinavia, SE Asia, E. Europe
-                ['pin-portugal', 'pin-israel', 'pin-sweden', 'pin-malaysia', 'pin-romania'],
+                // Sequence 5 (Countries 21-25): W. Europe, Baltic, Mediterranean, Middle East, SE Asia
+                ['pin-france', 'pin-latvia', 'pin-malta', 'pin-israel', 'pin-malaysia'],
 
-                // Sequence 6 (Countries 26-30): C. Europe, Baltic, S. Europe, W. Europe, Mediterranean
-                ['pin-switzerland', 'pin-latvia', 'pin-italy', 'pin-netherlands', 'pin-malta'],
+                // Sequence 6 (Countries 26-30): W. Europe, C. Europe, S. Europe, S. Asia, SE Asia
+                ['pin-netherlands', 'pin-austria', 'pin-italy', 'pin-india', 'pin-singapore'],
 
-                // Sequence 7 (Countries 31-35): W. Europe, C. Europe, N. Europe, W. Europe, C. Europe
-                ['pin-belgium', 'pin-austria', 'pin-denmark', 'pin-luxembourg', 'pin-slovakia']
+                // Sequence 7 (Countries 31-35): W. Europe, N. Europe, Alps, W. Africa, Indian Ocean
+                ['pin-belgium', 'pin-denmark', 'pin-switzerland', 'pin-mali', 'pin-maldives']
             ];
 
             let cohortIndex = 0;
@@ -967,38 +967,38 @@
                     if (el) el.classList.add('active');
                 }, 0));
 
-                // 250 ms: Country 2 appears (Country 1 remains)
+                // 500 ms: Country 2 appears (Country 1 remains)
                 stepTimers.push(setTimeout(() => {
                     const el = document.getElementById(currentCohort[1]);
                     if (el) el.classList.add('active');
-                }, 250));
+                }, 500));
 
-                // 500 ms: Country 3 appears (Countries 1 and 2 remain)
+                // 1000 ms: Country 3 appears (Countries 1 and 2 remain)
                 stepTimers.push(setTimeout(() => {
                     const el = document.getElementById(currentCohort[2]);
                     if (el) el.classList.add('active');
-                }, 500));
+                }, 1000));
 
-                // 750 ms: Country 4 appears (Countries 1, 2, and 3 remain)
+                // 1500 ms: Country 4 appears (Countries 1, 2, and 3 remain)
                 stepTimers.push(setTimeout(() => {
                     const el = document.getElementById(currentCohort[3]);
                     if (el) el.classList.add('active');
-                }, 750));
+                }, 1500));
 
-                // 1000 ms: Country 5 appears (Countries 1, 2, 3, and 4 remain)
+                // 2000 ms: Country 5 appears (Countries 1, 2, 3, and 4 remain)
                 stepTimers.push(setTimeout(() => {
                     const el = document.getElementById(currentCohort[4]);
                     if (el) el.classList.add('active');
-                }, 1000));
+                }, 2000));
 
-                // 1250 ms: Sequence clears. All elements (Countries 1 through 5) disappear simultaneously.
+                // 2500 ms: Sequence clears. All elements (Countries 1 through 5) disappear simultaneously.
                 stepTimers.push(setTimeout(() => {
                     clearAllActivePins();
-                }, 1250));
+                }, 2500));
 
-                // 1500 ms: Next sequence begins!
+                // 3000 ms: Next sequence begins!
                 cohortIndex = (cohortIndex + 1) % cohorts.length;
-                mainTimer = setTimeout(runSequence, 1500);
+                mainTimer = setTimeout(runSequence, 3000);
             };
 
             const start = () => {
