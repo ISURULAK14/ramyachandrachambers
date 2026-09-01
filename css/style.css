@@ -1221,3 +1221,25 @@ body.pixel-cursor-ready .cursor-pixel-field {
         letter-spacing: 0.2px !important;
     }
 }
+
+
+/* ==========================================================================
+   100/100 LIGHTHOUSE ACCESSIBILITY & TAP TARGET CALIBRATION
+   ========================================================================== */
+.legal-modal-close {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    border-radius: 50% !important;
+}
+
+.skip-link:focus {
+    min-height: 48px !important;
+    line-height: 48px !important;
+    padding-inline: 1.25rem !important;
+}
