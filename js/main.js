@@ -157,64 +157,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 4. World Map Active Pin Cycling (35 Sovereign Jurisdictions)
+    // 4. World Map Active Pin Cycling (Sleek Global Single-Pin Rotation)
+    const mapWrapper = document.querySelector('.map-wrapper');
     const pins = [...document.querySelectorAll('.map-pin')];
     if (pins.length) {
-                const cohorts = [
-            ['pin-usa', 'pin-singapore', 'pin-portugal', 'pin-germany', 'pin-norway'],
-            ['pin-japan', 'pin-india', 'pin-zanzibar', 'pin-austria', 'pin-uk'],
-            ['pin-australia', 'pin-mali', 'pin-switzerland', 'pin-sweden', 'pin-romania'],
-            ['pin-china', 'pin-srilanka', 'pin-israel', 'pin-greece', 'pin-netherlands'],
-            ['pin-nz', 'pin-bangladesh', 'pin-malta', 'pin-ireland', 'pin-luxembourg'],
-            ['pin-korea', 'pin-maldives', 'pin-uae', 'pin-belgium', 'pin-latvia'],
-            ['pin-malaysia', 'pin-italy', 'pin-france', 'pin-denmark', 'pin-slovakia']
+        let pinIndex = 0;
+        let timer = null;
+        let isHovered = false;
+
+        const featuredPinIds = [
+            'pin-srilanka', 'pin-uk', 'pin-usa', 'pin-australia', 
+            'pin-japan', 'pin-germany', 'pin-singapore', 'pin-dubai', 
+            'pin-switzerland', 'pin-india', 'pin-nz', 'pin-france', 
+            'pin-china', 'pin-maldives', 'pin-italy', 'pin-netherlands'
         ];
-        let cohortIndex = 0;
-        let stepTimers = [];
-        let mainTimer = null;
-        let isRunning = false;
 
         const clearAllActivePins = () => pins.forEach(p => p.classList.remove('active'));
-        const clearStepTimers = () => {
-            stepTimers.forEach(t => clearTimeout(t));
-            stepTimers = [];
+
+        const activateNext = () => {
+            if (isHovered) return;
+            clearAllActivePins();
+            const pinId = featuredPinIds[pinIndex % featuredPinIds.length];
+            const el = document.getElementById(pinId);
+            if (el) el.classList.add('active');
+            pinIndex++;
         };
 
-        const runSequence = () => {
-            clearStepTimers();
-            clearAllActivePins();
-            const currentCohort = cohorts[cohortIndex];
-            if (!currentCohort) return;
+        const startSequence = () => {
+            if (timer) clearInterval(timer);
+            activateNext();
+            timer = setInterval(activateNext, 2400);
+        };
 
-            currentCohort.forEach((id, idx) => {
-                stepTimers.push(setTimeout(() => {
-                    const el = document.getElementById(id);
-                    if (el) el.classList.add('active');
-                }, idx * 500));
+        const stopSequence = () => {
+            if (timer) clearInterval(timer);
+            timer = null;
+        };
+
+        if (mapWrapper) {
+            mapWrapper.addEventListener('mouseenter', () => {
+                isHovered = true;
+                stopSequence();
+                clearAllActivePins();
             });
+            mapWrapper.addEventListener('mouseleave', () => {
+                isHovered = false;
+                startSequence();
+            });
+        }
 
-            stepTimers.push(setTimeout(clearAllActivePins, 2500));
-            cohortIndex = (cohortIndex + 1) % cohorts.length;
-            mainTimer = setTimeout(runSequence, 3000);
-        };
+        pins.forEach(pin => {
+            pin.addEventListener('mouseenter', () => {
+                clearAllActivePins();
+                pin.classList.add('active');
+            });
+            pin.addEventListener('mouseleave', () => {
+                if (!isHovered) pin.classList.remove('active');
+            });
+        });
 
-        const startPins = () => {
-            if (isRunning) return;
-            isRunning = true;
-            runSequence();
-        };
-        const stopPins = () => {
-            isRunning = false;
-            if (mainTimer) clearTimeout(mainTimer);
-            mainTimer = null;
-            clearStepTimers();
-            clearAllActivePins();
-        };
+        startSequence();
 
-        startPins();
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) stopPins();
-            else startPins();
+            if (document.hidden) stopSequence();
+            else if (!isHovered) startSequence();
         });
     }
 
