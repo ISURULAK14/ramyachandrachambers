@@ -262,7 +262,52 @@
     }
     </script>
 
-    <link rel="stylesheet" href="css/style.css?v=7.0.0">
+    <style>
+    /* Critical Above-the-Fold CSS for Instant LCP & 0 CLS */
+    :root {
+      --bg-primary: #05101c;
+      --bg-surface: #0b1c2d;
+      --bg-card: rgba(14, 30, 48, 0.75);
+      --accent-main: #dfb35d;
+      --accent-light: #f4d08a;
+      --text-primary: #f0f4f8;
+      --text-secondary: #9cb1c9;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 1rem; }
+    .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .hero-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 7rem 1.5rem 4rem; position: relative; text-align: center; }
+    .hero-container { max-width: 900px; margin: 0 auto; width: 100%; position: relative; z-index: 10; }
+    .hero-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.25rem; }
+    .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text-secondary); max-width: 720px; margin: 0 auto 2rem; font-weight: 400; }
+    .banner-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 650px; margin: 0 auto 2.5rem; }
+    @media (min-width: 768px) { .banner-stats { grid-template-columns: repeat(4, 1fr); } }
+    .stat-card { background: var(--bg-card); border: 1px solid rgba(223, 179, 93, 0.25); border-radius: 12px; padding: 1.25rem 0.75rem; text-align: center; }
+    .stat-value { font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700; color: var(--accent-main); }
+    .stat-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.25rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.75rem; border-radius: 30px; font-weight: 600; text-decoration: none; min-height: 48px; min-width: 48px; transition: transform 0.2s, background 0.2s; }
+    .btn-primary { background: linear-gradient(135deg, #dfb35d, #b88d3b); color: #05101c; }
+    .btn-secondary { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
+    /* Content-visibility for below-the-fold performance boost */
+    .content-visibility-auto { content-visibility: auto; contain-intrinsic-size: 1px 700px; }
+</style>
+    <!-- Non-Blocking Asynchronous Full Stylesheet with display: swap -->
+    <link rel="preload" as="style" href="css/style.css?v=7.0.0" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css?v=7.0.0"></noscript>
     <!-- Security & XSS Protection Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com https://*.googleapis.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self' mailto: tel: https:;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">

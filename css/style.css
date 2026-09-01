@@ -1243,3 +1243,39 @@ body.pixel-cursor-ready .cursor-pixel-field {
     line-height: 48px !important;
     padding-inline: 1.25rem !important;
 }
+
+
+/* ==========================================================================
+   STRICT WEB-VITAL & PERFORMANCE OPTIMIZATIONS (95+ MOBILE PAGESPEED)
+   ========================================================================== */
+
+/* 1. Content-Visibility for Below-the-Fold Instant First Paint */
+.content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 650px;
+}
+
+/* 2. Hardware Acceleration & Compositing for Zero Jank */
+.site-header,
+.ambient-blob,
+.banner-stats,
+.map-wrapper,
+.review-card,
+.office-card-2,
+.legal-modal-backdrop {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* 3. Image aspect ratio preservation for 0 CLS */
+img {
+    aspect-ratio: attr(width) / attr(height);
+    max-width: 100%;
+    height: auto;
+}
+
+.map-bg-img {
+    aspect-ratio: 1112 / 580;
+    width: 100%;
+    height: auto;
+}
