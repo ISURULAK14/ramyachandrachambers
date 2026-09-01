@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rgchambers-v1.0.1';
+const CACHE_NAME = 'rgchambers-v3.0.0';
 
 const PRECACHE_ASSETS = [
   '/',
