@@ -1249,11 +1249,7 @@ body.pixel-cursor-ready .cursor-pixel-field {
    STRICT WEB-VITAL & PERFORMANCE OPTIMIZATIONS (95+ MOBILE PAGESPEED)
    ========================================================================== */
 
-/* 1. Content-Visibility for Below-the-Fold Instant First Paint */
-.content-visibility-auto {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 650px;
-}
+
 
 /* 2. Hardware Acceleration & Compositing for Zero Jank */
 .site-header,
@@ -1278,4 +1274,29 @@ img {
     aspect-ratio: 1112 / 580;
     width: 100%;
     height: auto;
+}
+
+
+/* Guarantee Stats in One Single Horizontal Row across all screen sizes */
+.banner-stats {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.5rem !important;
+    max-width: 650px !important;
+    margin: 0 auto 2.5rem !important;
+}
+
+@media (max-width: 600px) {
+    .banner-stats {
+        gap: 0.35rem !important;
+    }
+    .stat-card {
+        padding: 0.65rem 0.35rem !important;
+    }
+    .stat-value {
+        font-size: 1.25rem !important;
+    }
+    .stat-label {
+        font-size: 0.60rem !important;
+    }
 }

@@ -294,39 +294,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Initialize map pin sequence with IntersectionObserver and requestIdleCallback for maximum INP score
-        const mapObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if ('requestIdleCallback' in window) {
-                        requestIdleCallback(() => startSequence(), { timeout: 1000 });
-                    } else {
-                        setTimeout(() => startSequence(), 100);
-                    }
-                    mapObserver.disconnect();
-                }
-            });
-        }, { rootMargin: '200px 0px' });
-        if (mapWrapper) mapObserver.observe(mapWrapper);
-        else startSequence();
+        startSequence();
 
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) stopSequence();
-            else // Initialize map pin sequence with IntersectionObserver and requestIdleCallback for maximum INP score
-        const mapObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if ('requestIdleCallback' in window) {
-                        requestIdleCallback(() => startSequence(), { timeout: 1000 });
-                    } else {
-                        setTimeout(() => startSequence(), 100);
-                    }
-                    mapObserver.disconnect();
-                }
-            });
-        }, { rootMargin: '200px 0px' });
-        if (mapWrapper) mapObserver.observe(mapWrapper);
-        else startSequence();
+            else startSequence();
         });
     }
 
@@ -573,11 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 isTabActive = !document.hidden;
                 if (isTabActive) {
                     scrollDelta = 0;
-                    if ('requestIdleCallback' in window) {
-                requestIdleCallback(() => renderCosmos(), { timeout: 1500 });
-            } else {
-                setTimeout(() => renderCosmos(), 200);
-            }
+                    renderCosmos();
                 } else {
                     cancelAnimationFrame(animId);
                 }
@@ -594,11 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 animId = requestAnimationFrame(renderCosmos);
             };
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(() => renderCosmos(), { timeout: 1500 });
-            } else {
-                setTimeout(() => renderCosmos(), 200);
-            }
+            renderCosmos();
         }
     }
 
