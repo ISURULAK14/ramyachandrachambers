@@ -149,14 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. World Map Active Pin Cycling (35 Sovereign Jurisdictions)
     const pins = [...document.querySelectorAll('.map-pin')];
     if (pins.length) {
-        const cohorts = [
-            ['pin-usa', 'pin-uk', 'pin-sweden', 'pin-romania', 'pin-japan'],
-            ['pin-france', 'pin-germany', 'pin-denmark', 'pin-singapore', 'pin-australia'],
-            ['pin-italy', 'pin-netherlands', 'pin-norway', 'pin-korea', 'pin-nz'],
-            ['pin-switzerland', 'pin-austria', 'pin-latvia', 'pin-uae', 'pin-malaysia'],
-            ['pin-belgium', 'pin-luxembourg', 'pin-ireland', 'pin-israel', 'pin-india'],
-            ['pin-portugal', 'pin-slovakia', 'pin-maldives', 'pin-bangladesh', 'pin-china'],
-            ['pin-greece', 'pin-malta', 'pin-mali', 'pin-zanzibar', 'pin-srilanka']
+                const cohorts = [
+            ['pin-usa', 'pin-singapore', 'pin-portugal', 'pin-germany', 'pin-norway'],
+            ['pin-japan', 'pin-india', 'pin-zanzibar', 'pin-austria', 'pin-uk'],
+            ['pin-australia', 'pin-mali', 'pin-switzerland', 'pin-sweden', 'pin-romania'],
+            ['pin-china', 'pin-srilanka', 'pin-israel', 'pin-greece', 'pin-netherlands'],
+            ['pin-nz', 'pin-bangladesh', 'pin-malta', 'pin-ireland', 'pin-luxembourg'],
+            ['pin-korea', 'pin-maldives', 'pin-uae', 'pin-belgium', 'pin-latvia'],
+            ['pin-malaysia', 'pin-italy', 'pin-france', 'pin-denmark', 'pin-slovakia']
         ];
         let cohortIndex = 0;
         let stepTimers = [];
