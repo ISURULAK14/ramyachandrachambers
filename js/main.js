@@ -236,10 +236,9 @@ document.addEventListener('DOMContentLoaded', () => {
         resetTimer();
     }
 
-    // 6. Practice Areas / Services Accordion Cards
+        // 6. Practice Areas / Services Accordion Cards
     const serviceGrid = document.querySelector('.services-grid');
     const serviceCards = [...document.querySelectorAll('.service-card')];
-    const serviceTimers = new WeakMap();
 
     function setServiceState(card, open) {
         if (!card) return;
@@ -247,12 +246,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const header = card.querySelector('.accordion-header');
         const arrow = card.querySelector('.arrow-icon');
         if (!content) return;
-        clearTimeout(serviceTimers.get(card));
         card.classList.toggle('is-open', open);
         if (header) header.setAttribute('aria-expanded', String(open));
-        content.style.maxHeight = open ? `${content.scrollHeight}px` : '0px';
+        content.style.maxHeight = open ? `${content.scrollHeight + 60}px` : '0px';
         if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-        if (open) serviceTimers.set(card, setTimeout(() => closeServiceRow(card), 10000));
     }
 
     function getServiceRow(card) {
@@ -263,60 +260,31 @@ document.addEventListener('DOMContentLoaded', () => {
         return serviceCards.slice(rowStart, rowStart + columnCount);
     }
 
-    function closeAllServiceCards() {
-        serviceCards.forEach(card => {
-            card.classList.remove('is-opening');
-            setServiceState(card, false);
-        });
-        if (serviceGrid) serviceGrid.classList.remove('row-open');
-    }
-
-    function closeServiceRow(card) {
-        getServiceRow(card).forEach(rowCard => {
-            rowCard.classList.remove('is-opening');
-            setServiceState(rowCard, false);
-        });
-        if (serviceGrid && !serviceCards.some(c => c.classList.contains('is-open'))) {
-            serviceGrid.classList.remove('row-open');
-        }
-    }
-
-    function openServiceRow(row) {
-        if (!row.length) return;
-        if (serviceGrid) serviceGrid.classList.add('row-open');
-        row.forEach((card, index) => {
-            card.style.setProperty('--service-delay', `${index * 90}ms`);
-            card.classList.add('is-opening');
-            setServiceState(card, true);
-            setTimeout(() => card.classList.remove('is-opening'), 1500 + index * 140);
-        });
-    }
-
     window.toggleAccordion = function(element) {
         const card = element ? element.closest('.service-card') : null;
         if (!card) return;
-        if (window.matchMedia('(max-width: 600px)').matches) {
-            const isOpen = card.classList.contains('is-open');
-            serviceCards.filter(c => c !== card).forEach(c => {
-                c.classList.remove('is-opening');
-                setServiceState(c, false);
+        const isOpen = card.classList.contains('is-open');
+
+        if (window.innerWidth <= 900) {
+            // Mobile & Tablet: single card toggle
+            serviceCards.forEach(c => {
+                if (c !== card) setServiceState(c, false);
             });
-            if (serviceGrid) serviceGrid.classList.remove('row-open');
-            if (isOpen) {
-                card.classList.remove('is-opening');
-                setServiceState(card, false);
+            setServiceState(card, !isOpen);
+        } else {
+            // Desktop: toggle row
+            const row = getServiceRow(card);
+            const rowIsOpen = row.length > 0 && row.every(rc => rc.classList.contains('is-open'));
+            if (rowIsOpen) {
+                row.forEach(rc => setServiceState(rc, false));
+                if (serviceGrid && !serviceCards.some(c => c.classList.contains('is-open'))) {
+                    serviceGrid.classList.remove('row-open');
+                }
             } else {
-                card.style.setProperty('--service-delay', '0ms');
-                card.classList.add('is-opening');
-                setServiceState(card, true);
-                setTimeout(() => card.classList.remove('is-opening'), 1650);
+                if (serviceGrid) serviceGrid.classList.add('row-open');
+                row.forEach(rc => setServiceState(rc, true));
             }
-            return;
         }
-        const row = getServiceRow(card);
-        const rowIsOpen = row.length > 0 && row.every(rc => rc.classList.contains('is-open'));
-        if (rowIsOpen) closeServiceRow(card);
-        else openServiceRow(row);
     };
 
     if (serviceCards.length) {
@@ -326,30 +294,31 @@ document.addEventListener('DOMContentLoaded', () => {
             header.setAttribute('role', 'button');
             header.setAttribute('tabindex', '0');
             header.setAttribute('aria-expanded', 'false');
-            header.addEventListener('keydown', event => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.toggleAccordion(header);
+            });
+            header.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    e.stopPropagation();
                     window.toggleAccordion(header);
                 }
             });
-            header.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.toggleAccordion(header);
-            });
-        });
-
-        document.addEventListener('pointerdown', event => {
-            if (!event.target.closest('.service-card')) closeAllServiceCards();
         });
 
         document.addEventListener('keydown', event => {
-            if (event.key === 'Escape') closeAllServiceCards();
+            if (event.key === 'Escape') {
+                serviceCards.forEach(card => setServiceState(card, false));
+                if (serviceGrid) serviceGrid.classList.remove('row-open');
+            }
         });
 
         window.addEventListener('resize', () => {
             serviceCards.filter(card => card.classList.contains('is-open')).forEach(card => {
                 const content = card.querySelector('.accordion-content');
-                if (content) content.style.maxHeight = `${content.scrollHeight}px`;
+                if (content) content.style.maxHeight = `${content.scrollHeight + 60}px`;
             });
         }, { passive: true });
     }
