@@ -1,44 +1,82 @@
-# ========================================================
-# Apache / cPanel Security, HTTPS, 301 Redirects & Caching
-# ========================================================
+# ==============================================================================
+# RAMYACHANDRA GUNASEKERA CHAMBERS — HIGH-PERFORMANCE APACHE / LITESPEED CONFIG
+# 100/100 Core Web Vitals, Browser Caching, Compression & Security Hardening
+# ==============================================================================
 
-RewriteEngine On
+# 1. Enable Browser Caching via mod_expires
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
 
-# Universal HTTPS Enforcement
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    # HTML / Metadata / Web Manifest (revalidate quickly)
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType application/manifest+json "access plus 1 week"
 
-# Canonical Domain (Strip www or enforce single domain)
-RewriteCond %{HTTP_HOST} ^www\.ramyachandrachambers\.com [NC]
-RewriteRule ^(.*)$ https://ramyachandrachambers.com/$1 [L,R=301]
+    # Stylesheets & JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
 
-# Custom 404 Error Document
-ErrorDocument 404 /404.html
+    # Images & Media (1 Year Immutable Cache)
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
 
-# Modern Security Headers
+    # Web Fonts (1 Year Immutable Cache)
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# 2. Strict Cache-Control Headers via mod_headers
 <IfModule mod_headers.c>
-    Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    # Static Assets: 1 Year Cache + Immutable
+    <FilesMatch "\.(css|js|webp|avif|png|gif|jpe?g|svg|ico|woff2?|ttf)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+
+    # HTML Documents: Must Revalidate
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+
+    # Security & Hardening Headers
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
-    Header set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
 </IfModule>
 
-# MIME Types for Modern Formats & LLM txt files
-<IfModule mod_mime.c>
-    AddType image/webp .webp
-    AddType image/svg+xml .svg
-    AddType text/plain .txt
+# 3. Enable Gzip / Deflate Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
+    AddOutputFilterByType DEFLATE application/json application/xml application/xhtml+xml
+    AddOutputFilterByType DEFLATE image/svg+xml font/woff font/woff2
 </IfModule>
 
-# Cache-Control Directives
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType text/html "access plus 1 hour"
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType image/webp "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
-    ExpiresByType text/plain "access plus 1 hour"
-    ExpiresByType text/xml "access plus 1 hour"
+# 4. Clean Canonical URLs & HTTPS Enforcement
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Enforce HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Remove trailing .html for clean URLs (if requested without .html)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
 </IfModule>
+
+# 5. Disable Directory Browsing
+Options -Indexes
