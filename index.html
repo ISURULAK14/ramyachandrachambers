@@ -489,15 +489,13 @@
     .hero-container { max-width: 900px; margin: 0 auto; width: 100%; position: relative; z-index: 10; }
     .hero-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.25rem; }
     .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text-secondary); max-width: 720px; margin: 0 auto 2rem; font-weight: 400; }
-    .banner-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; max-width: 650px; margin: 0 auto 2.5rem; }
-    .stat-card { background: var(--bg-card); border: 1px solid rgba(223, 179, 93, 0.25); border-radius: 12px; padding: 1.25rem 0.75rem; text-align: center; }
-    .stat-value { font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700; color: var(--accent-main); }
-    .stat-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.25rem; }
+    .banner-stats { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; align-items: stretch !important; gap: clamp(0.45rem, 1.5vw, 1.25rem) !important; width: min(98vw, 65.5rem) !important; max-width: min(98vw, 1048px) !important; margin: 0 auto 2.5rem auto !important; }
+    .stat-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: flex-start !important; text-align: center !important; min-width: 0 !important; width: 100% !important; }
+    .stat-value { font-family: var(--font-serif); font-size: clamp(1.56rem, 4.25vw, 2.94rem) !important; font-weight: 700; color: var(--accent-main); line-height: 1.15; white-space: nowrap; }
+    .stat-label { font-family: var(--font-sans); font-size: clamp(0.625rem, 1.60vw, 0.925rem) !important; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: clamp(0.2px, 0.05em, 0.8px); margin-top: 0.35rem; }
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.75rem; border-radius: 30px; font-weight: 600; text-decoration: none; min-height: 48px; min-width: 48px; transition: transform 0.2s, background 0.2s; }
     .btn-primary { background: linear-gradient(135deg, #dfb35d, #b88d3b); color: #05101c; }
     .btn-secondary { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
-    /* Content-visibility for below-the-fold performance boost */
-    .content-visibility-auto { content-visibility: auto; contain-intrinsic-size: 1px 700px; }
 </style>
     <!-- Non-Blocking Asynchronous Full Stylesheet with display: swap -->
     <link rel="preload" as="style" href="css/style.css?v=7.0.0" onload="this.onload=null;this.rel='stylesheet'">
