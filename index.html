@@ -458,7 +458,7 @@
     </script>
 
     <style>
-    /* Critical Above-the-Fold CSS for Instant LCP & 0 CLS */
+    /* Critical Above-the-Fold CSS for Instant LCP & Absolute 0.00 CLS */
     :root {
       --bg-primary: #05101c;
       --bg-surface: #0b1c2d;
@@ -469,9 +469,10 @@
       --text-secondary: #9cb1c9;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+      --title-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background-color: var(--bg-primary); }
     body {
       background-color: var(--bg-primary);
       color: var(--text-primary);
@@ -483,16 +484,57 @@
       -moz-osx-font-smoothing: grayscale;
     }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
-    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 1rem; }
-    .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    
+    /* Navigation layout reservation */
+    .site-header, .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 1rem; }
+    .header-container, .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; min-height: 52px; }
+    .nav-links { display: flex; list-style: none; gap: 1.5rem; margin: 0; padding: 0; }
+    
+    /* Hero layout exact reservation */
     .hero-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 7rem 1.5rem 4rem; position: relative; text-align: center; }
-    .hero-container { max-width: 900px; margin: 0 auto; width: 100%; position: relative; z-index: 10; }
-    .hero-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.25rem; }
+    .hero-container { max-width: 1120px; margin: 0 auto; width: 100%; position: relative; z-index: 10; }
+    
+    .hero-title { font-family: var(--font-serif); font-size: clamp(4.0rem, 6.8vw, 6.4rem) !important; max-width: 1120px; margin-bottom: 1.5rem; color: var(--text-primary); text-shadow: var(--title-shadow); line-height: .98; letter-spacing: 1px; }
+    .hero-title-stepped { display: flex; flex-direction: column; align-items: center; gap: .08em; width: min(100%, 1120px); margin-inline: auto; line-height: .98; --title-step: clamp(4.0rem, 7.8vw, 8.5rem); }
+    .hero-title-stepped .title-word { position: relative; display: block; min-height: 1em; white-space: nowrap; text-align: center; text-shadow: 0 14px 34px rgba(0,0,0,.56); color: var(--text-primary); will-change: transform; }
+    .hero-title-stepped .title-word-one { transform: translateX(calc(var(--title-step) * -1)) !important; }
+    .hero-title-stepped .title-word-two { transform: translateX(0) !important; }
+    .hero-title-stepped .title-word-three { transform: translateX(calc(var(--title-step) * 1.04)) !important; }
+    .hero-title-stepped .unique-cap { font-size: 1.15em; margin-right: .04em; letter-spacing: 0; }
+
+    @media (max-width: 768px) {
+        .hero-title-stepped { width: 100% !important; max-width: 100% !important; font-size: clamp(2.95rem, 11.8vw, 4.1rem) !important; gap: .08em !important; line-height: 1.05 !important; --title-step: clamp(1.2rem, 5.2vw, 2.2rem) !important; }
+        .hero-title-stepped .title-word-three { transform: translateX(calc(var(--title-step) * 1.7)) !important; }
+    }
+    
     .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text-secondary); max-width: 720px; margin: 0 auto 2rem; font-weight: 400; }
+    
+    /* Stats Bar (+2 inches width & +25% font size) */
     .banner-stats { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; align-items: stretch !important; gap: clamp(0.45rem, 1.5vw, 1.25rem) !important; width: min(98vw, 65.5rem) !important; max-width: min(98vw, 1048px) !important; margin: 0 auto 2.5rem auto !important; }
     .stat-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: flex-start !important; text-align: center !important; min-width: 0 !important; width: 100% !important; }
     .stat-value { font-family: var(--font-serif); font-size: clamp(1.56rem, 4.25vw, 2.94rem) !important; font-weight: 700; color: var(--accent-main); line-height: 1.15; white-space: nowrap; }
     .stat-label { font-family: var(--font-sans); font-size: clamp(0.625rem, 1.60vw, 0.925rem) !important; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: clamp(0.2px, 0.05em, 0.8px); margin-top: 0.35rem; }
+    
+    /* Modals & Dialogs (Lock out of flow completely on initial load) */
+    .legal-modal-backdrop, .consultation-modal-backdrop, [role="dialog"], .modal {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 9999 !important;
+    }
+    .legal-modal-backdrop.active, .consultation-modal-backdrop.active, [role="dialog"].active, .modal.active {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.75rem; border-radius: 30px; font-weight: 600; text-decoration: none; min-height: 48px; min-width: 48px; transition: transform 0.2s, background 0.2s; }
     .btn-primary { background: linear-gradient(135deg, #dfb35d, #b88d3b); color: #05101c; }
     .btn-secondary { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
@@ -803,7 +845,7 @@
 
             <div class="reveal reveal-scale">
                 <div class="map-wrapper">
-                    <img src="world_map.svg" class="map-bg-img" alt="Global Jurisdictions World Map" width="4378" height="2435" loading="eager">
+                    <img src="world_map.svg" class="map-bg-img" alt="Global Jurisdictions World Map" width="1112" height="580" loading="lazy" decoding="async">
                     <div class="map-pins-container" id="map-pins-container">
                         <div id="pin-usa" class="map-pin pin-usa"><div class="pin-label">United States</div></div>
                         <div id="pin-romania" class="map-pin pin-romania"><div class="pin-label">Romania</div></div>
