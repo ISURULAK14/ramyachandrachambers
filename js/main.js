@@ -713,3 +713,33 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
 });
+    // Client-Side Email Obfuscation Protection (Anti-Spam Scraper Defense)
+    function initProtectedEmails() {
+        document.querySelectorAll('.protected-email').forEach(function(el) {
+            var user = el.getAttribute('data-user');
+            var domain = el.getAttribute('data-domain');
+            if (user && domain) {
+                var email = user + '@' + domain;
+                el.addEventListener('click', function(e) {
+                    if (el.getAttribute('href') === '#') {
+                        el.setAttribute('href', 'mailto:' + email);
+                    }
+                }, { passive: true });
+                el.addEventListener('mouseenter', function() {
+                    el.setAttribute('href', 'mailto:' + email);
+                }, { passive: true });
+            }
+        });
+        document.querySelectorAll('.email-text').forEach(function(el) {
+            var user = el.getAttribute('data-user');
+            var domain = el.getAttribute('data-domain');
+            if (user && domain) {
+                el.textContent = user + '@' + domain;
+            }
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProtectedEmails);
+    } else {
+        initProtectedEmails();
+    }
