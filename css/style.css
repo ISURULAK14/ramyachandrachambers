@@ -1382,3 +1382,7 @@ img {
     pointer-events: none !important;
     opacity: 0.85 !important;
 }
+/* Fix layout centering and grid container collapse */
+body { display: block !important; margin: 0 auto !important; max-width: 1440px !important; width: 100% !important; background-color: #0b0f19 !important; color: #e5e7eb !important; }
+.container, main, section { max-width: 1280px !important; margin-left: auto !important; margin-right: auto !important; width: 100% !important; box-sizing: border-box !important; }
+header { width: 100% !important; max-width: 1440px !important; margin: 0 auto !important; }
