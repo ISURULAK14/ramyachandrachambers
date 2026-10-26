@@ -1371,22 +1371,26 @@ img {
 }
 
 
-/* Responsive Review Card Widget Containers */
+/* Seamless Responsive Review Widget Containment - Preserves Exact Box Dimensions */
 .review-card {
-    min-height: 400px !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    padding: 0 !important;
+    width: 100% !important;
+    max-width: 580px !important;
+    min-height: 450px !important;
+    padding: var(--location-card-padding) !important;
+    border-radius: var(--slab-radius) !important;
     display: flex !important;
-    align-items: stretch !important;
-    justify-content: stretch !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 .review-card iframe {
     width: 100% !important;
     height: 100% !important;
-    min-height: 400px !important;
+    min-height: 380px !important;
+    flex: 1 1 auto !important;
     border: none !important;
-    border-radius: inherit !important;
-    overflow: hidden !important;
+    border-radius: 12px !important;
+    overflow: auto !important;
     display: block !important;
 }
