@@ -8,7 +8,7 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(self)
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com https://widget.tagembed.com https://*.tagembed.com https://embedsocial.com https://*.embedsocial.com; connect-src 'self' https://api.indexnow.org https://www.bing.com https://www.google-analytics.com; object-src 'none'; base-uri 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com https://widget.tagembed.com https://*.tagembed.com https://embedsocial.com https://*.embedsocial.com; connect-src 'self' https://api.indexnow.org https://www.bing.com https://www.google-analytics.com https://cloudflareinsights.com; object-src 'none'; base-uri 'self';
   X-Robots-Tag: all
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
