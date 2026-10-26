@@ -12,40 +12,34 @@
   X-Robots-Tag: all
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-/*.webp
+/css/*
   Cache-Control: public, max-age=31536000, immutable
 
-/*.svg
+/js/*
   Cache-Control: public, max-age=31536000, immutable
 
-/*.jfif
+/photo.webp
   Cache-Control: public, max-age=31536000, immutable
 
-/*.gif
+/photo-opt.webp
   Cache-Control: public, max-age=31536000, immutable
 
-/*.png
+/favicon.ico
   Cache-Control: public, max-age=31536000, immutable
 
-/*.jpg
+/apple-touch-icon.png
   Cache-Control: public, max-age=31536000, immutable
 
-/*.jpeg
+/android-chrome-192x192.png
   Cache-Control: public, max-age=31536000, immutable
 
-/*.ico
+/android-chrome-512x512.png
   Cache-Control: public, max-age=31536000, immutable
 
-/*.woff2
+/searchlogo.svg
   Cache-Control: public, max-age=31536000, immutable
 
-/*.woff
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.js
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.css
+/world_map.svg
   Cache-Control: public, max-age=31536000, immutable
 
 /robots.txt
