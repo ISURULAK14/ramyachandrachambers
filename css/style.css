@@ -1241,6 +1241,9 @@ body.pixel-cursor-ready .cursor-pixel-field {
 /* 2. Hardware Acceleration & Compositing for Zero Jank */
 .site-header,
 .ambient-blob,
+.ambient-layer,
+.hero-glow-orb,
+.hero-aurora-band,
 .banner-stats,
 .map-wrapper,
 .review-card,
@@ -1248,6 +1251,7 @@ body.pixel-cursor-ready .cursor-pixel-field {
 .legal-modal-backdrop {
     transform: translateZ(0);
     backface-visibility: hidden;
+    will-change: transform, opacity;
 }
 
 /* 3. Image aspect ratio preservation for 0 CLS */
