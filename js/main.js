@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = [...document.querySelectorAll('.nav-link')];
     const sections = [...document.querySelectorAll('section[id]')];
     const navEl = document.querySelector('nav.site-nav') || document.querySelector('nav');
+    let cachedNavHeight = 70;
+    const updateNavHeight = () => { if (navEl) cachedNavHeight = navEl.offsetHeight || 70; };
+    if ('requestIdleCallback' in window) { requestIdleCallback(updateNavHeight); } else { setTimeout(updateNavHeight, 200); }
+    window.addEventListener('resize', updateNavHeight, { passive: true });
 
     function setActiveNav(targetId) {
         if (!navLinks.length) return;
