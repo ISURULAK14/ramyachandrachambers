@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="css/style.min.css?v=9.9.2" as="style">
 
     <!-- Optimized Non-Blocking Google Fonts -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" crossorigin>
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap">
     </noscript>
@@ -32,7 +33,7 @@
       document.head.appendChild(s);
     }
     if ('requestIdleCallback' in window) {
-      window.addEventListener('load', function() { requestIdleCallback(loadGtag, { timeout: 2500 }); });
+      window.addEventListener('load', function() { requestIdleCallback(loadGtag, { timeout: 6000 }); });
     } else {
       window.addEventListener('load', function() { setTimeout(loadGtag, 1500); });
     }
@@ -222,9 +223,9 @@
 }
     </script>
 
-    <link rel="stylesheet" href="css/style.min.css?v=7.0.0">
+    <link rel="stylesheet" href="css/style.min.css?v=9.9.2">
     <!-- Security & XSS Protection Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com https://*.googleapis.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self' mailto: tel: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com https://*.googleapis.com https://widget.tagembed.com https://*.tagembed.com https://embedsocial.com https://*.embedsocial.com; connect-src 'self' https://api.indexnow.org https://www.bing.com https://www.google-analytics.com https://region1.google-analytics.com https://cloudflareinsights.com; base-uri 'self'; form-action 'self' mailto: tel: https:;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -267,22 +268,26 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="site-nav" role="navigation" aria-label="Main Navigation">
+    <nav id="main-nav" class="site-nav" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
-            <a href="/" class="logo" aria-label="Ramyachandra Gunasekera Chambers Home">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            <a href="/" data-target="#home" data-page="index.html" class="logo" aria-label="RG Chambers - Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                    <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                    <path d="M7 21h10"/>
+                    <path d="M12 3v18"/>
+                    <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
                 </svg>
-                <span class="serif">RG CHAMBERS</span>
+                RG CHAMBERS
             </a>
-            <ul class="nav-links" role="menubar">
-                <li role="none"><a href="index.html#home" class="nav-link" role="menuitem">Home</a></li>
-                <li role="none"><a href="index.html#about" class="nav-link" role="menuitem">About</a></li>
-                <li role="none"><a href="index.html#services" class="nav-link" role="menuitem">Services</a></li>
-                <li role="none"><a href="index.html#practice-areas" class="nav-link" role="menuitem">Practice Areas</a></li>
-                <li role="none"><a href="index.html#testimonials" class="nav-link" role="menuitem">Clients Worldwide</a></li>
-                <li role="none"><a href="faq.html" class="nav-link active" role="menuitem" aria-current="page">FAQ</a></li>
-                <li role="none"><a href="index.html#contact" class="nav-link" role="menuitem">Contact</a></li>
+            <ul class="nav-links">
+                <li><a href="/#home" class="nav-link">Home</a></li>
+                <li><a href="/#about" class="nav-link">About</a></li>
+                <li><a href="/#services" class="nav-link">Services</a></li>
+                <li><a href="/#practice-areas" class="nav-link">Practice Areas</a></li>
+                <li><a href="/#testimonials" class="nav-link">Clients Worldwide</a></li>
+                <li><a href="faq.html" class="nav-link active" aria-current="page">FAQ</a></li>
+                <li><a href="/#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -606,17 +611,28 @@
         </div>
     </footer>
 
-    <!-- Privacy Policy Modal -->
-    <div id="privacy-modal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title" hidden>
-        <div class="legal-modal-backdrop" id="privacy-backdrop"></div>
-        <div class="legal-modal-dialog glass-panel">
-            <div class="legal-modal-header">
-                <h3 id="privacy-modal-title" class="serif">Client Privacy &amp; Data Protection</h3>
-                <button type="button" class="legal-modal-close" id="close-privacy-btn" aria-label="Close Privacy Policy">&times;</button>
-            </div>
+    <!-- Accessible Legal Modals for Privacy Policy & Terms of Engagement -->
+    <div id="privacy-modal" class="legal-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+        <div class="legal-modal-content glass-panel">
+            <button class="legal-modal-close" aria-label="Close Privacy Policy Modal">&times;</button>
+            <h2 id="privacy-modal-title" class="legal-modal-heading">Privacy Policy &amp; Client Confidentiality</h2>
             <div class="legal-modal-body">
-                <p><strong>Ramyachandra Gunasekera Chambers</strong> is bound by the strict statutory duties of legal professional privilege and advocate-client confidentiality under Sri Lankan law.</p>
-                <p>Any documentation, personal data, title deeds, or instructions submitted to our chambers are maintained under strict security and used exclusively for legal representation, deed attestation, or company filings.</p>
+                <p><strong>Ramyachandra Gunasekera Chambers</strong> is dedicated to upholding the strictest standards of legal confidentiality, ethical advocacy, and professional privilege under the statutes of Sri Lanka, the Evidence Ordinance (Sections 126–129), and the Bar Association guidelines.</p>
+                <p><strong>Information Handling &amp; Privilege:</strong> All correspondence, consultation requests, title deeds, and case particulars submitted via digital channels, telephone, or during in-person chamber sessions at Fort and Kamburugamuwa are protected under professional Attorney-Client privilege. Instructions are handled directly by Senior Attorney Ramyachandra Gunasekera.</p>
+                <p><strong>Strict Privacy Guarantee:</strong> This website maintains zero commercial advertising networks, zero tracking cookies, zero data broking, and zero third-party behavioral profiling trackers. We enforce referrer suppression and client origin privacy.</p>
+                <p><strong>Transport Security:</strong> Digital connectivity to this site is fortified with modern 256-bit TLS encryption, strict HTTP Strict Transport Security (HSTS Preload), and hardened Content Security Policies.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="terms-modal" class="legal-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title">
+        <div class="legal-modal-content glass-panel">
+            <button class="legal-modal-close" aria-label="Close Terms of Engagement Modal">&times;</button>
+            <h2 id="terms-modal-title" class="legal-modal-heading">Terms of Engagement</h2>
+            <div class="legal-modal-body">
+                <p><strong>General Informational Notice:</strong> The materials and information made available on this website are presented exclusively for general informational context regarding the chamber practice of Attorney-at-Law and Notary Public Ramyachandra Gunasekera.</p>
+                <p><strong>Retainer &amp; Representation:</strong> Formal legal representation in judicial proceedings, deed attestation, title examinations, or corporate registrations is established solely through official appointment, proxy signing, and mutually agreed engagement terms.</p>
+                <p><strong>Jurisdiction:</strong> All chamber services and client representations are conducted subject to the statutory jurisdiction of the courts of Sri Lanka.</p>
             </div>
         </div>
     </div>
@@ -640,6 +656,6 @@
     <!-- Interactive FAQ Script -->
 
     <!-- Main Deferred JavaScript -->
-    <script defer src="js/main.min.js?v=7.0.0"></script>
+    <script defer src="js/main.min.js?v=9.9.2"></script>
 </body>
 </html>

@@ -109,7 +109,7 @@ section{padding:8.5rem 1.25rem 4.5rem}.sr-only{position:absolute;width:1px;heigh
 .faq-chevron{width:18px;height:18px;transition:transform 0.4s cubic-bezier(.16,1,.3,1)}
 .faq-card.is-open .faq-chevron{transform:rotate(180deg)}
 .faq-card.is-open .faq-toggle-icon{background:linear-gradient(135deg,#c5a870,#dfb35d);color:#05101c;border-color:#dfb35d;box-shadow:0 0 18px rgba(214,183,124,0.5)}
-.faq-.faq-body{max-height:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(.22,1,.36,1),opacity 0.35s ease;opacity:0}
+.faq-body{max-height:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(.22,1,.36,1),opacity 0.35s ease;opacity:0}
 .faq-card.is-open .faq-body{opacity:1}
 .faq-inner{padding:0 2.2rem 2rem 2.2rem;border-top:1px solid rgba(214,183,124,0.15);margin-top:0.2rem;padding-top:1.4rem}
 .faq-answer-text p{color:#cbd5e1;font-size:1.02rem;line-height:1.8;margin-bottom:0.9rem;font-weight:300}
@@ -174,9 +174,9 @@ section{padding:8.5rem 1.25rem 4.5rem}.sr-only{position:absolute;width:1px;heigh
 .legal-modal-header h3{font-size:1.6rem;color:#ffffff;margin:0}
 .legal-modal-close{background:none;border:none;color:var(--text-muted);font-size:2rem;cursor:pointer;line-height:1;padding:0.2rem;transition:color 0.2s ease}
 .legal-modal-close:hover{color:var(--accent-main)}
-.legal-modal-.legal-modal-body{color:#cbd5e1;font-size:0.98rem;line-height:1.75;display:flex;flex-direction:column;gap:0.9rem}
-.legal-modal-.legal-modal-body p{margin:0}
-.legal-modal-.legal-modal-body strong{color:#ffffff}
+.legal-modal-body{color:#cbd5e1;font-size:0.98rem;line-height:1.75;display:flex;flex-direction:column;gap:0.9rem}
+.legal-modal-body p{margin:0}
+.legal-modal-body strong{color:#ffffff}
 
 /* 404 Header and Logo text */
 .header{width:100%}
