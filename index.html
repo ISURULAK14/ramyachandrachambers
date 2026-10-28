@@ -55,10 +55,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="geo.region" content="LK-3">
+    <!-- Geographic & Local Business Meta Tags (GEO / Local SEO) -->
+    <meta name="geo.region" content="LK-31">
     <meta name="geo.placename" content="Matara, Southern Province, Sri Lanka">
     <meta name="geo.position" content="5.9449;80.5438">
     <meta name="ICBM" content="5.9449, 80.5438">
+    <meta property="business:contact_data:street_address" content="No. 33, Sri Dharmarama Mawatha, Fort">
+    <meta property="business:contact_data:locality" content="Matara">
+    <meta property="business:contact_data:region" content="Southern Province">
+    <meta property="business:contact_data:postal_code" content="81000">
+    <meta property="business:contact_data:country_name" content="Sri Lanka">
+    <meta property="place:location:latitude" content="5.9449">
+    <meta property="place:location:longitude" content="80.5438">
     <meta name="coverage" content="Worldwide (35+ Sovereign Jurisdictions: USA, UK, Australia, Europe, East Asia, Middle East, Africa)">
     <meta name="distribution" content="Global">
     <meta name="target_country" content="LK, US, GB, AU, CA, NZ, DE, FR, IT, CH, NL, BE, AT, SE, NO, DK, IE, PT, GR, MT, RO, SK, LU, LV, JP, KR, CN, SG, MY, IN, BD, MV, AE, IL, ML, TZ">
@@ -134,6 +142,73 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "@id": "https://ramyachandrachambers.com/#attorney-person",
+      "name": "Ramyachandra Gunasekera",
+      "alternateName": [
+        "Attorney Ramyachandra Gunasekera",
+        "Ramyachandra Gunasekera Attorney-at-Law"
+      ],
+      "jobTitle": "Senior Attorney-at-Law & Notary Public",
+      "worksFor": {
+        "@id": "https://ramyachandrachambers.com/#organization"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Sri Lanka Law College"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Enrolled Attorney-at-Law of the Supreme Court of the Democratic Socialist Republic of Sri Lanka",
+          "credentialCategory": "Professional Legal License"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Warrant of Notary Public (English & Sinhala)",
+          "credentialCategory": "Notarial License"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Registered Company Secretary (DRC)",
+          "credentialCategory": "Corporate Governance License"
+        }
+      ],
+      "memberOf": [
+        {
+          "@type": "Organization",
+          "name": "Bar Association of Sri Lanka (BASL)"
+        },
+        {
+          "@type": "Organization",
+          "name": "Matara Bar Association"
+        }
+      ],
+      "knowsAbout": [
+        "Civil Litigation Sri Lanka",
+        "Criminal Defense Advocacy",
+        "Partition Law Act No 21 of 1977",
+        "Property Conveyancing & Deed Drafting",
+        "30-Year Title Search of Encumbrances",
+        "Companies Act No 07 of 2007 Incorporation",
+        "Beneficial Ownership BO Disclosures DRC",
+        "Non-Resident Power of Attorney Consular Legalization",
+        "Testamentary & Last Will Probate Administration",
+        "Foreign Direct Investment FDI Southern Province"
+      ],
+      "knowsLanguage": [
+        "en",
+        "si",
+        "ta"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/ramyachandrachambers",
+        "https://www.srilankabarlaw.org/member/ramyachandra-gunasekera",
+        "https://maps.google.com/?cid=126488349202"
+      ],
+      "description": "Senior practicing Attorney-at-Law, Notary Public, and Registered Company Secretary with over 35 years of legal practice in the District Court, Magistrate's Court, and Southern Province Courts of Sri Lanka."
+    },
+    {
       "@type": [
         "Organization",
         "LegalService",
@@ -144,21 +219,30 @@
       "alternateName": [
         "RG Chambers",
         "Ramyachandra Gunasekera Law Firm",
-        "Attorney Ramyachandra Chambers"
+        "Attorney Ramyachandra Chambers",
+        "Ramyachandra Chambers Matara"
       ],
       "url": "https://ramyachandrachambers.com/",
       "logo": "https://ramyachandrachambers.com/searchlogo.svg",
       "image": "https://ramyachandrachambers.com/photo.gif",
       "description": "Premier legal counsel, deed drafting, title conveyancing, notary public attestations, private limited company registration, and court litigation in Matara and across Sri Lanka.",
       "telephone": "+94412226755",
-      "email": "<span class="email-text" data-user="ramyachandra" data-domain="sltnet.lk">[Protected Chambers Email]</span>",
+      "email": "ramyachandra@sltnet.lk",
       "foundingDate": "1988",
+      "founder": {
+        "@id": "https://ramyachandrachambers.com/#attorney-person"
+      },
+      "employee": [
+        {
+          "@id": "https://ramyachandrachambers.com/#attorney-person"
+        }
+      ],
       "sameAs": [
         "https://www.linkedin.com/company/ramyachandrachambers",
         "https://www.srilankabarlaw.org/member/ramyachandra-gunasekera",
         "https://maps.google.com/?cid=126488349202"
       ],
-      "priceRange": "$$",
+      "priceRange": "$",
       "knowsLanguage": [
         "en",
         "si",
@@ -184,6 +268,42 @@
         "Labour Law Sri Lanka"
       ],
       "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Matara District"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Southern Province, Sri Lanka"
+        },
+        {
+          "@type": "City",
+          "name": "Matara"
+        },
+        {
+          "@type": "City",
+          "name": "Galle"
+        },
+        {
+          "@type": "City",
+          "name": "Mirissa"
+        },
+        {
+          "@type": "City",
+          "name": "Weligama"
+        },
+        {
+          "@type": "City",
+          "name": "Hambantota"
+        },
+        {
+          "@type": "City",
+          "name": "Tangalle"
+        },
+        {
+          "@type": "City",
+          "name": "Colombo"
+        },
         {
           "@type": "Country",
           "name": "Sri Lanka"
@@ -266,7 +386,7 @@
         "cssSelector": [
           ".hero-title",
           ".hero-subtitle",
-          ".about-text",
+          ".section-desc",
           ".faq-question",
           ".faq-answer-text"
         ]
@@ -279,35 +399,45 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Property Deed Drafting & Conveyancing"
+              "name": "Property Deed Drafting & Title Conveyancing",
+              "url": "https://ramyachandrachambers.com/deed-lawyer-matara.html",
+              "description": "30-year Land Registry title investigations, deeds of transfer, deeds of gift, and lease agreements in Matara and Southern Province."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Notary Public Attestations & Title Searches"
+              "name": "Notary Public Attestations & Statutory Swearing",
+              "url": "https://ramyachandrachambers.com/notary-public-matara.html",
+              "description": "Licensed Notary Public attestations, affidavits, powers of attorney, and consular document certifications."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Private Limited Company Registration & Secretarial"
+              "name": "Private Limited Company Registration & Secretarial Practice",
+              "url": "https://ramyachandrachambers.com/company-registration-matara.html",
+              "description": "Official DRC e-ROC company incorporation, Form 1/18/19 filings, Articles of Association, Beneficial Ownership (BO) disclosures, and TIN registration."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "District & Magistrate Court Litigation Advocacy"
+              "name": "District Court & Magistrate Court Litigation Advocacy",
+              "url": "https://ramyachandrachambers.com/#services",
+              "description": "Senior courtroom advocacy in land partition suits, civil trials, bail applications, and criminal defense in Matara."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Non-Resident Power of Attorney & Consular Legalization"
+              "name": "Non-Resident Power of Attorney & Diaspora Legal Counsel",
+              "url": "https://ramyachandrachambers.com/#clients",
+              "description": "Cross-border representation, consular power of attorney execution, and property oversight for Sri Lankans living in UK, Australia, USA, Canada, and EU."
             }
           }
         ]
@@ -316,13 +446,13 @@
     {
       "@type": "LegalService",
       "@id": "https://ramyachandrachambers.com/#head-office",
-      "name": "Ramyachandra Gunasekera Chambers \u2014 Matara Fort (Head Office)",
+      "name": "Ramyachandra Gunasekera Chambers — Matara Fort (Head Office)",
       "parentOrganization": {
         "@id": "https://ramyachandrachambers.com/#organization"
       },
       "url": "https://ramyachandrachambers.com/",
       "telephone": "+94412226755",
-      "priceRange": "$$",
+      "priceRange": "$",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -368,13 +498,13 @@
     {
       "@type": "LegalService",
       "@id": "https://ramyachandrachambers.com/#kamburugamuwa-office",
-      "name": "Ramyachandra Gunasekera Chambers \u2014 Kamburugamuwa / Mirissa (Branch Office)",
+      "name": "Ramyachandra Gunasekera Chambers — Kamburugamuwa / Mirissa (Branch Office)",
       "parentOrganization": {
         "@id": "https://ramyachandrachambers.com/#organization"
       },
       "url": "https://ramyachandrachambers.com/",
       "telephone": "+94412239429",
-      "priceRange": "$$",
+      "priceRange": "$",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -437,6 +567,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "Who is the senior attorney at Ramyachandra Gunasekera Chambers in Matara?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ramyachandra Gunasekera is a senior Attorney-at-Law, Notary Public, Commissioner for Oaths, and Registered Company Secretary with over 35 years of active legal practice in Sri Lanka, having represented clients continuously since 1988 across the Matara Court Complex and Southern Province."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "How can I register a property deed in Matara and Southern Sri Lanka?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -457,6 +595,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. Non-resident clients can execute a Special or General Power of Attorney before a Sri Lankan Diplomatic Mission, Embassy, High Commission, or local notary abroad with consular legalization and stamping at the Registrar General's Department in Sri Lanka."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What courts in Sri Lanka does Ramyachandra Gunasekera Chambers appear in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chambers provides courtroom representation primarily in the District Court of Matara, Magistrate's Court of Matara, High Court of the Southern Province, and Civil Appellate High Court, with counsel coordination for Court of Appeal and Supreme Court proceedings in Colombo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are the chambers offices located in Southern Sri Lanka?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Head Office is located at No. 33, Sri Dharmarama Mawatha, Fort, Matara 81000 (steps from the Matara District Court Complex). The Branch Office is located at Labima Road, Kamburugamuwa 81750 (convenient for Mirissa, Weligama, and the southern tourist coast)."
           }
         }
       ]
