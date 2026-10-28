@@ -747,3 +747,37 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         initProtectedEmails();
     }
+
+
+    // Deferred Iframe Loading (Performance & Zero TBT Penalty)
+    function initLazyIframes() {
+        var iframes = document.querySelectorAll('iframe[data-src]');
+        if (!iframes.length) return;
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries, obs) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var frame = entry.target;
+                        if (frame.dataset.src) {
+                            frame.src = frame.dataset.src;
+                            frame.removeAttribute('data-src');
+                        }
+                        obs.unobserve(frame);
+                    }
+                });
+            }, { rootMargin: '350px' });
+            iframes.forEach(function(f) { observer.observe(f); });
+        } else {
+            iframes.forEach(function(f) {
+                if (f.dataset.src) {
+                    f.src = f.dataset.src;
+                    f.removeAttribute('data-src');
+                }
+            });
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLazyIframes);
+    } else {
+        initLazyIframes();
+    }
