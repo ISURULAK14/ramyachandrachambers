@@ -476,13 +476,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openModal(modal) {
         if (!modal) return;
-        modal.classList.add('is-open');
+        modal.classList.add('is-open', 'active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
     }
     function closeModal(modal) {
         if (!modal) return;
-        modal.classList.remove('is-open');
+        modal.classList.remove('is-open', 'active');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     }
@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [privacyModal, termsModal].forEach(modal => {
         if (!modal) return;
         modal.addEventListener('click', (e) => {
-            if (e.target === modal || e.target.classList.contains('legal-modal-close')) {
+            if (e.target === modal || e.target.closest('.legal-modal-close')) {
                 closeModal(modal);
             }
         });
