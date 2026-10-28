@@ -92,72 +92,100 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Counter Rolling Cadence
     const stats = [...document.querySelectorAll('.stat-value[data-target]')];
     if (stats.length) {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const duration = 2400;
+        const restDuration = 3000;
+        const timerEase = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+        let isVisible = true;
+        let isRunning = false;
+        let currentRaf = null;
+        let cycleTimeout = null;
+
+        const stopCycle = () => {
+            if (currentRaf) {
+                cancelAnimationFrame(currentRaf);
+                currentRaf = null;
+            }
+            if (cycleTimeout) {
+                clearTimeout(cycleTimeout);
+                cycleTimeout = null;
+            }
+            isRunning = false;
+        };
+
+        const runCountCycle = () => {
+            stopCycle();
+            isRunning = true;
+
             stats.forEach(el => {
-                const target = el.getAttribute('data-target');
                 const suffix = el.getAttribute('data-suffix') || '';
-                el.textContent = target + suffix;
+                el.textContent = '0' + suffix;
             });
-        } else {
-            const duration = 2400;
-            const restDuration = 3000;
-            const timerEase = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
-            let isVisible = true;
-            let currentRaf = null;
+            const startTime = performance.now();
+            let lastVals = new Map();
 
-            const runCountCycle = () => {
+            const step = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = timerEase(progress);
+
                 stats.forEach(el => {
+                    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
                     const suffix = el.getAttribute('data-suffix') || '';
-                    el.textContent = '0' + suffix;
+                    let currentVal = Math.round(target * ease);
+                    if (progress >= 1) currentVal = target;
+
+                    if (lastVals.get(el) !== currentVal) {
+                        lastVals.set(el, currentVal);
+                        el.textContent = currentVal + suffix;
+                    }
                 });
 
-                const startTime = performance.now();
-                let lastVals = new Map();
-
-                const step = (currentTime) => {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const ease = timerEase(progress);
-
+                if (progress < 1) {
+                    currentRaf = requestAnimationFrame(step);
+                } else {
+                    currentRaf = null;
                     stats.forEach(el => {
-                        const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+                        const target = el.getAttribute('data-target');
                         const suffix = el.getAttribute('data-suffix') || '';
-                        let currentVal = Math.round(target * ease);
-                        if (progress >= 1) currentVal = target;
-
-                        if (lastVals.get(el) !== currentVal) {
-                            lastVals.set(el, currentVal);
-                            el.textContent = currentVal + suffix;
-                        }
+                        el.textContent = target + suffix;
                     });
-
-                    if (progress < 1) {
-                        currentRaf = requestAnimationFrame(step);
-                    } else {
-                        stats.forEach(el => {
-                            const target = el.getAttribute('data-target');
-                            const suffix = el.getAttribute('data-suffix') || '';
-                            el.textContent = target + suffix;
-                        });
-                        setTimeout(() => {
-                            if (isVisible) runCountCycle();
-                        }, restDuration);
-                    }
-                };
-                currentRaf = requestAnimationFrame(step);
+                    cycleTimeout = setTimeout(() => {
+                        cycleTimeout = null;
+                        if (isVisible) {
+                            runCountCycle();
+                        } else {
+                            isRunning = false;
+                        }
+                    }, restDuration);
+                }
             };
+            currentRaf = requestAnimationFrame(step);
+        };
 
+        const statsBanner = document.querySelector('.banner-stats');
+        if ('IntersectionObserver' in window && statsBanner) {
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     isVisible = entry.isIntersecting;
-                    if (isVisible && !currentRaf) runCountCycle();
+                    if (isVisible) {
+                        if (!isRunning) runCountCycle();
+                    } else {
+                        stopCycle();
+                    }
                 });
-            }, { threshold: 0.2 });
+            }, { threshold: 0.05, rootMargin: '50px' });
+            statsObserver.observe(statsBanner);
+        } else {
+            runCountCycle();
+        }
 
-            const statsBanner = document.querySelector('.banner-stats');
-            if (statsBanner) statsObserver.observe(statsBanner);
-            else runCountCycle();
+        if (statsBanner) {
+            const rect = statsBanner.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                runCountCycle();
+            }
         }
     }
 
