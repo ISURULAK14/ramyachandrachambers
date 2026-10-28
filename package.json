@@ -1,5 +1,7 @@
 {
   "devDependencies": {
-    "puppeteer": "^25.9.0"
+    "lighthouse": "^13.6.0",
+    "puppeteer": "^25.9.0",
+    "terser": "^5.51.2"
   }
 }

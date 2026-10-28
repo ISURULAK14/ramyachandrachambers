@@ -166,11 +166,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const statsBanner = document.querySelector('.banner-stats');
         if ('IntersectionObserver' in window && statsBanner) {
+            let hasInitialDeferredRun = false;
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     isVisible = entry.isIntersecting;
                     if (isVisible) {
-                        if (!isRunning) runCountCycle();
+                        if (!isRunning) {
+                            if (!hasInitialDeferredRun) {
+                                hasInitialDeferredRun = true;
+                                setTimeout(runCountCycle, 1500);
+                            } else {
+                                runCountCycle();
+                            }
+                        }
                     } else {
                         stopCycle();
                     }
@@ -178,14 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, { threshold: 0.05, rootMargin: '50px' });
             statsObserver.observe(statsBanner);
         } else {
-            runCountCycle();
-        }
-
-        if (statsBanner) {
-            const rect = statsBanner.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                runCountCycle();
-            }
+            setTimeout(runCountCycle, 1500);
         }
     }
 
@@ -326,11 +327,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        startSequence();
+        if ('IntersectionObserver' in window && mapWrapper) {
+            const mapObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) startSequence();
+                    else stopSequence();
+                });
+            }, { rootMargin: '100px' });
+            mapObserver.observe(mapWrapper);
+        } else {
+            startSequence();
+        }
 
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) stopSequence();
-            else startSequence();
+            else if (mapWrapper && mapWrapper.getBoundingClientRect().top < window.innerHeight) startSequence();
         });
     }
 
@@ -594,7 +605,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 animId = requestAnimationFrame(renderCosmos);
             };
-            renderCosmos();
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => { animId = requestAnimationFrame(renderCosmos); }, { timeout: 2000 });
+            } else {
+                setTimeout(() => { animId = requestAnimationFrame(renderCosmos); }, 500);
+            }
         }
     }
 
