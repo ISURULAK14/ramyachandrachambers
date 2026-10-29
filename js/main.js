@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const targetEl = document.querySelector(href);
                     if (targetEl) {
                         e.preventDefault();
-                        const navHeight = navEl ? navEl.offsetHeight : 70;
+                        const navHeight = cachedNavHeight || 70;
                         const targetTop = Math.max(0, targetEl.offsetTop - navHeight + 2);
                         window.scrollTo({ top: targetTop, behavior: 'smooth' });
                         setActiveNav(targetEl.id);
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const targetEl = document.querySelector(window.location.hash);
                 if (targetEl) {
-                    const navHeight = navEl ? navEl.offsetHeight : 70;
+                    const navHeight = cachedNavHeight || 70;
                     const targetTop = Math.max(0, targetEl.offsetTop - navHeight + 2);
                     window.scrollTo({ top: targetTop, behavior: 'smooth' });
                     setActiveNav(targetEl.id);
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     navEl.classList.toggle('scrolled', window.scrollY > 30);
                 }
                 if (sections.length) {
-                    const navHeight = navEl ? navEl.offsetHeight : 70;
+                    const navHeight = cachedNavHeight || 70;
                     const marker = window.scrollY + navHeight + 100;
                     let current = sections[0].id;
                     sections.forEach(sec => {
