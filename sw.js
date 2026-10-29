@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rgchambers-v7.0.0';
+const CACHE_NAME = 'rgchambers-v8.0.0';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -12,7 +12,9 @@ const PRECACHE_ASSETS = [
   '/notary-public-matara.html',
   '/deed-lawyer-matara.html',
   '/company-registration-matara.html',
+  '/css/style.min.css?v=9.9.2',
   '/css/style.css',
+  '/js/main.min.js?v=9.9.4',
   '/js/main.js',
   '/searchlogo.svg',
   '/favicon.ico',
