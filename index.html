@@ -32,6 +32,23 @@
 
     <style>
     /* Critical Above-the-Fold CSS for Instant LCP & Absolute 0.00 CLS */
+    /* Ambient system locked out of document flow from frame 1 (prevents 157px CLS jump) */
+    .global-ambient-system, .cursor-pixel-field {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      overflow: hidden !important;
+    }
+    .ambient-cosmos-canvas {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none !important;
+    }
 
     /* RG Pure-CSS Legal Crest Micro-Loader (350ms Instant Reveal) */
     .rg-preloader {
