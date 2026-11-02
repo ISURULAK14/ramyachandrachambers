@@ -17,7 +17,11 @@ URL_LIST = [
     "https://ramyachandrachambers.com/services.html",
     "https://ramyachandrachambers.com/practice-areas.html",
     "https://ramyachandrachambers.com/testimonials.html",
-    "https://ramyachandrachambers.com/contact.html"
+    "https://ramyachandrachambers.com/contact.html",
+    "https://ramyachandrachambers.com/faq.html",
+    "https://ramyachandrachambers.com/deed-lawyer-matara.html",
+    "https://ramyachandrachambers.com/notary-public-matara.html",
+    "https://ramyachandrachambers.com/company-registration-matara.html"
 ]
 
 ENDPOINTS = [
