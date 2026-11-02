@@ -56,3 +56,11 @@
 /llms-full.txt
   Cache-Control: public, max-age=3600
   Content-Type: text/plain; charset=utf-8
+
+/.well-known/ai.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8
+
+/ai.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8

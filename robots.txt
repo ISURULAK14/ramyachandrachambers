@@ -100,6 +100,10 @@ Allow: /*.jfif$
 Allow: /*.woff2$
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /ai.txt
+Allow: /.well-known/ai.txt
+Allow: /.well-known/agents.json
+Allow: /.well-known/security.txt
 
 # Discovery
 Sitemap: https://ramyachandrachambers.com/sitemap.xml
