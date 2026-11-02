@@ -1,3 +1,4 @@
+ServerSignature Off
 # ==============================================================================
 # RAMYACHANDRA GUNASEKERA CHAMBERS — HIGH-PERFORMANCE APACHE / LITESPEED CONFIG
 # 100/100 Core Web Vitals, Browser Caching, Compression & Security Hardening
