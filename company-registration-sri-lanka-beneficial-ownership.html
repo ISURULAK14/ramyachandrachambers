@@ -111,6 +111,70 @@
       ]
     }
     </script>
+    <style>
+        .editorial-canvas {
+            background: #09121d !important;
+            background: radial-gradient(circle at 50% 0%, #0e1c2c 0%, #070e17 100%) !important;
+            border: 1px solid rgba(212, 175, 55, 0.2) !important;
+            box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.03) !important;
+            border-radius: 14px !important;
+        }
+        .editorial-prose {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.82;
+            letter-spacing: 0.01em;
+        }
+        .editorial-prose p {
+            margin: 1.15rem 0;
+            color: #cbd5e1;
+        }
+        .editorial-prose strong {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+        .editorial-prose h2 {
+            color: #dfb35d;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.75rem;
+            line-height: 1.3;
+            margin-top: 2.5rem;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid rgba(223, 179, 93, 0.2);
+        }
+        .editorial-callout {
+            background: rgba(14, 25, 40, 0.9);
+            border-left: 3px solid #dfb35d;
+            border-radius: 0 8px 8px 0;
+            padding: 1.35rem 1.6rem;
+            margin: 1.8rem 0;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+        }
+        .editorial-callout p {
+            margin: 0.4rem 0;
+            color: #cbd5e1;
+        }
+        .editorial-callout strong {
+            color: #f3cf7a;
+        }
+        .editorial-links-box {
+            background: rgba(11, 20, 32, 0.92);
+            border: 1px solid rgba(223, 179, 93, 0.25);
+            border-radius: 8px;
+            padding: 1.5rem 1.8rem;
+            margin-top: 2.5rem;
+        }
+        .editorial-links-box a {
+            color: #dfb35d;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+        .editorial-links-box a:hover {
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
     <!-- RG Legal Crest Preloader -->
@@ -161,7 +225,7 @@
 
     <main id="main-content" role="main">
         <section style="padding: 160px 5% 100px; min-height: 80vh; display: flex; justify-content: center; align-items: flex-start;">
-            <div class="glass-panel" style="max-width: 960px; width: 100%; padding: clamp(2rem, 5vw, 4rem); position: relative;">
+            <div class="editorial-canvas" style="max-width: 960px; width: 100%; padding: clamp(2rem, 5vw, 4rem); position: relative;">
                 
                 <!-- Breadcrumbs -->
                 <nav class="breadcrumb-trail" aria-label="Breadcrumb Trail">
@@ -178,7 +242,7 @@
                     <p style="color: var(--text-secondary); font-size: 1.05rem;">Statutory procedure under Companies Act No. 07 of 2007, DRC e-ROC digital incorporation, Form 1/18/19 filings, and the new mandatory Beneficial Ownership regulations.</p>
                 </header>
 
-                <article class="guide-article" style="color: var(--text-primary); font-size: 1.02rem; line-height: 1.85;">
+                <article class="editorial-prose">
                     
                     <h2 class="serif" style="font-size: 1.8rem; color: #dfb35d; margin-top: 2rem; margin-bottom: 0.8rem;">1. Corporate Legal Framework in Sri Lanka</h2>
                     <p>In Sri Lanka, the incorporation, administration, and governance of corporate bodies is governed by the <strong>Companies Act No. 07 of 2007</strong> (as amended) and regulated by the <strong>Department of the Registrar of Companies (DRC)</strong>. A <strong>Private Limited Company (PVT LTD)</strong> is the preeminent vehicle for domestic enterprises, foreign direct investment (FDI), and tourism ventures across the Southern Province (Matara, Mirissa, Weligama, Galle).</p>

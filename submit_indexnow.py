@@ -24,7 +24,10 @@ URL_LIST = [
     "https://ramyachandrachambers.com/company-registration-matara.html",
     "https://ramyachandrachambers.com/overseas-power-of-attorney-sri-lanka.html",
     "https://ramyachandrachambers.com/land-registry-title-search-sri-lanka.html",
-    "https://ramyachandrachambers.com/company-registration-sri-lanka-beneficial-ownership.html"
+    "https://ramyachandrachambers.com/company-registration-sri-lanka-beneficial-ownership.html",
+    "https://ramyachandrachambers.com/land-partition-law-procedure-sri-lanka.html",
+    "https://ramyachandrachambers.com/foreign-investment-property-acquisition-sri-lanka.html",
+    "https://ramyachandrachambers.com/last-will-testamentary-probate-sri-lanka.html"
 ]
 
 ENDPOINTS = [
