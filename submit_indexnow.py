@@ -21,7 +21,10 @@ URL_LIST = [
     "https://ramyachandrachambers.com/faq.html",
     "https://ramyachandrachambers.com/deed-lawyer-matara.html",
     "https://ramyachandrachambers.com/notary-public-matara.html",
-    "https://ramyachandrachambers.com/company-registration-matara.html"
+    "https://ramyachandrachambers.com/company-registration-matara.html",
+    "https://ramyachandrachambers.com/overseas-power-of-attorney-sri-lanka.html",
+    "https://ramyachandrachambers.com/land-registry-title-search-sri-lanka.html",
+    "https://ramyachandrachambers.com/company-registration-sri-lanka-beneficial-ownership.html"
 ]
 
 ENDPOINTS = [
@@ -48,10 +51,18 @@ def submit():
         print(f"Submitting to {endpoint}...")
         try:
             req = urllib.request.Request(endpoint, data=data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=10, context=ctx) as response:
-                print(f"  Response [{response.status}]: {response.reason}")
+            with urllib.request.urlopen(req, context=ctx, timeout=10) as response:
+                status = response.getcode()
+                body = response.read().decode('utf-8')
+                print(f"  Status: {status} OK")
+        except urllib.error.HTTPError as e:
+            print(f"  HTTPError: {e.code} - {e.reason}")
+            try:
+                print(f"  Response: {e.read().decode('utf-8')}")
+            except Exception:
+                pass
         except Exception as e:
-            print(f"  Notice: {e} (Normal if DNS/Domain is live on Cloudflare)")
+            print(f"  Error: {e}")
 
 if __name__ == "__main__":
     submit()
