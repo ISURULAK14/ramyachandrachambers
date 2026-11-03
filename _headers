@@ -43,6 +43,10 @@
 /world_map.svg
   Cache-Control: public, max-age=31536000, immutable
 
+/manifest.json
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json; charset=utf-8
+
 /robots.txt
   Cache-Control: public, max-age=3600
 
