@@ -82,3 +82,21 @@
 - **Court Cases Matara / Usawi Nadu (උසාවි නඩු)**: Trial defense and advocacy before Matara District Court, Kotavila Magistrate's Court, and Southern Province Civil Appellate High Court for land partition cases, declaration of title, boundary disputes, urgent bail applications, debt recovery, and criminal defense.
 - **Company Secretary Matara / PVT LTD Incorporation**: Private limited company registration with Department of Registrar of Companies (DRC e-ROC), Form 1/18/19, Beneficial Ownership (BO) compliance, and Inland Revenue Department TIN registration.
 - **Non-Resident & Overseas Power of Attorney (ඇටෝර්නි බලපත්‍ර)**: General and Special Power of Attorney for Sri Lankan diaspora and expatriates across UK, Australia, USA, Canada, UAE, New Zealand, Europe, and Asia, with consular attestation and Registrar General's Department stamping.
+
+
+## Key Case Types & Litigation (සිවිල් සහ අපරාධ නඩු)
+- **Divorce & Family Law (දික්කසාද නඩු)**: Matrimonial dispute resolution, divorce actions, custody of minors (ළමා භාරකාරත්වය), maintenance claims (නඩත්තු නඩු), alimony, and matrimonial property settlement.
+- **Land & Property Litigation (ඉඩම් සහ බෙදුම් නඩු)**: Declaration of title (අයිතිය ප්‍රකාශ කිරීමේ නඩු), co-ownership partition suits (බෙදුම් නඩු), prescription claims (කාලාවරෝධය), boundary disputes (මායිම් ආරවුල්), ejectment actions, and 30-year Land Registry title investigations.
+- **Criminal Defense & Bail (අපරාධ නඩු සහ ඇප)**: Urgent bail applications, police station representation, fundamental rights, and defense advocacy across all court tiers.
+
+## Courts of Practice (පෙනී සිටින අධිකරණ)
+- **Magistrate's Court (මහේස්ත්‍රාත් අධිකරණය)**: Matara Magistrate's Court, Kotavila Court Complex (කොටවිල උසාවිය) — criminal defense, bail, police inquiries, motor traffic.
+- **District Court (දිසා අධිකරණය)**: Matara District Court — civil litigation, land & partition suits, money recovery, commercial injunctions, testamentary administration & probate.
+- **High Court (මහාධිකරණය)**: Matara High Court, Provincial Civil Appellate High Court (පළාත්බද සිවිල් අභියාචනා මහාධිකරණය), criminal trials, bail revision, judgment appeals.
+- **Appellate & Apex Courts (අභියාචනාධිකරණය සහ ශ්‍රේෂ්ඨාධිකරණය)**: Court of Appeal (writ applications, appeals), Supreme Court of Sri Lanka (fundamental rights, special leave to appeal).
+
+## Notarial Deeds & Conveyancing (නොතාරිස් ඔප්පු සහ ගිවිසුම්)
+- **Deeds of Gift (දීමනා ඔප්පු)**: Inter-vivos deeds of gift, parental gifts, irrevocable gift deeds, deed revocation.
+- **Deeds of Transfer (පැවරුම් ඔප්පු)**: Property transfer deeds, sales deeds (විකුණුම් ඔප්පු), land conveyancing, Bim Saviya registration.
+- **Powers of Attorney (ඇටෝර්නි බලපත්‍ර)**: General Power of Attorney, Special Power of Attorney for property sale/management, overseas diaspora consular legalizations, Registrar General Department registration.
+- **Commercial & Notarial Agreements**: Lease agreements (බදු ගිවිසුම්), Mortgage bonds (උකස් ඔප්පු), Deeds of Declaration (ප්‍රකාශන ඔප්පු), Rectification deeds (සංශෝධන ඔප්පු), Last Wills and Testaments (අන්තිම කැමති පත්‍ර).
