@@ -98,6 +98,7 @@ Allow: /*.jpeg$
 Allow: /*.gif$
 Allow: /*.jfif$
 Allow: /*.woff2$
+Allow: /BingSiteAuth.xml
 Allow: /llms.txt
 Allow: /llms-full.txt
 Allow: /ai.txt
