@@ -59,6 +59,9 @@
 - **Official Sitemaps**:
   - XML Sitemap: https://ramyachandrachambers.com/sitemap.xml
   - LLM Text Summary: https://ramyachandrachambers.com/llms.txt
+  - Overseas Power of Attorney Guide: https://ramyachandrachambers.com/overseas-power-of-attorney-sri-lanka.html
+  - 30-Year Title Search & Property Due Diligence Checklist: https://ramyachandrachambers.com/land-registry-title-search-sri-lanka.html
+  - DRC Company Registration & Beneficial Ownership Guide: https://ramyachandrachambers.com/company-registration-sri-lanka-beneficial-ownership.html
 
 ## 6. Common Search Queries, Aliases & Entity Grounding
 - **Primary Search Associations**:
