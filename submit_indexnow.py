@@ -8,8 +8,10 @@ import json
 import ssl
 
 HOST = "ramyachandrachambers.com"
-KEY = "8796e635b2be4fbb80453e5cd791ed92"
-KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
+KEYS = [
+    "4a8f9c2d1e7b304586f0a12e34d56789",
+    "8796e635b2be4fbb80453e5cd791ed92"
+]
 
 URL_LIST = [
     "https://ramyachandrachambers.com/",
@@ -38,36 +40,38 @@ ENDPOINTS = [
 ]
 
 def submit():
-    payload = {
-        "host": HOST,
-        "key": KEY,
-        "keyLocation": KEY_LOCATION,
-        "urlList": URL_LIST
-    }
-    data = json.dumps(payload).encode('utf-8')
+    ctx = ssl.create_default_context()
     headers = {
         "Content-Type": "application/json; charset=utf-8",
         "User-Agent": "IndexNowSubmitter/1.0 (ramyachandrachambers.com)"
     }
 
-    ctx = ssl.create_default_context()
+    for key in KEYS:
+        key_location = f"https://{HOST}/{key}.txt"
+        payload = {
+            "host": HOST,
+            "key": key,
+            "keyLocation": key_location,
+            "urlList": URL_LIST
+        }
+        data = json.dumps(payload).encode('utf-8')
 
-    for endpoint in ENDPOINTS:
-        print(f"Submitting {len(URL_LIST)} URLs to {endpoint} with key {KEY}...")
-        try:
-            req = urllib.request.Request(endpoint, data=data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, context=ctx, timeout=10) as response:
-                status = response.getcode()
-                body = response.read().decode('utf-8')
-                print(f"  Status: {status} OK")
-        except urllib.error.HTTPError as e:
-            print(f"  HTTPError: {e.code} - {e.reason}")
+        print(f"\n--- Submitting with Key: {key} ---")
+        for endpoint in ENDPOINTS:
+            print(f"Submitting {len(URL_LIST)} URLs to {endpoint}...")
             try:
-                print(f"  Response: {e.read().decode('utf-8')}")
-            except Exception:
-                pass
-        except Exception as e:
-            print(f"  Error: {e}")
+                req = urllib.request.Request(endpoint, data=data, headers=headers, method="POST")
+                with urllib.request.urlopen(req, context=ctx, timeout=10) as response:
+                    status = response.getcode()
+                    print(f"  Status: {status} OK")
+            except urllib.error.HTTPError as e:
+                print(f"  HTTPError: {e.code} - {e.reason}")
+                try:
+                    print(f"  Response: {e.read().decode('utf-8')}")
+                except Exception:
+                    pass
+            except Exception as e:
+                print(f"  Error: {e}")
 
 if __name__ == "__main__":
     submit()
