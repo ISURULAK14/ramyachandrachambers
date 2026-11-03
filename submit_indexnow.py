@@ -8,7 +8,7 @@ import json
 import ssl
 
 HOST = "ramyachandrachambers.com"
-KEY = "e4f971b3e8c24d1a980562e84c31ab7d"
+KEY = "8796e635b2be4fbb80453e5cd791ed92"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
 
 URL_LIST = [
@@ -18,16 +18,18 @@ URL_LIST = [
     "https://ramyachandrachambers.com/practice-areas.html",
     "https://ramyachandrachambers.com/testimonials.html",
     "https://ramyachandrachambers.com/contact.html",
-    "https://ramyachandrachambers.com/faq.html",
-    "https://ramyachandrachambers.com/deed-lawyer-matara.html",
     "https://ramyachandrachambers.com/notary-public-matara.html",
+    "https://ramyachandrachambers.com/deed-lawyer-matara.html",
     "https://ramyachandrachambers.com/company-registration-matara.html",
+    "https://ramyachandrachambers.com/faq.html",
     "https://ramyachandrachambers.com/overseas-power-of-attorney-sri-lanka.html",
     "https://ramyachandrachambers.com/land-registry-title-search-sri-lanka.html",
     "https://ramyachandrachambers.com/company-registration-sri-lanka-beneficial-ownership.html",
     "https://ramyachandrachambers.com/land-partition-law-procedure-sri-lanka.html",
     "https://ramyachandrachambers.com/foreign-investment-property-acquisition-sri-lanka.html",
-    "https://ramyachandrachambers.com/last-will-testamentary-probate-sri-lanka.html"
+    "https://ramyachandrachambers.com/last-will-testamentary-probate-sri-lanka.html",
+    "https://ramyachandrachambers.com/privacy-policy.html",
+    "https://ramyachandrachambers.com/terms-of-engagement.html"
 ]
 
 ENDPOINTS = [
@@ -51,7 +53,7 @@ def submit():
     ctx = ssl.create_default_context()
 
     for endpoint in ENDPOINTS:
-        print(f"Submitting to {endpoint}...")
+        print(f"Submitting {len(URL_LIST)} URLs to {endpoint} with key {KEY}...")
         try:
             req = urllib.request.Request(endpoint, data=data, headers=headers, method="POST")
             with urllib.request.urlopen(req, context=ctx, timeout=10) as response:
