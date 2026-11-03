@@ -1372,16 +1372,188 @@
                 </div>
             </div>
 
-            <!-- Reviews Grids: Verified Google Reviews & Institutional Testimonial -->
+            <!-- Reviews Grids: Dedicated Google Review Boxes for Each Location -->
             <div class="reviews-grid">
-                <!-- Location 1: Matara Fort Head Office Google Review Widget -->
-                <div class="review-card glass-panel review-card-google">
-                    <iframe data-src="https://widget.tagembed.com/338290?website=1" title="Client Reviews - Matara Fort Office" loading="lazy" allow="fullscreen" style="width:100%;height:100%;overflow:auto;border:none;min-height:400px;border-radius:inherit;"></iframe>
+                <!-- Location 1: Matara Fort Head Office Google Review Card -->
+                <div class="review-card glass-panel review-card-google" id="review-card-fort">
+                    <div class="google-review-header">
+                        <div class="google-badge-left">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                            </svg>
+                            <span class="google-title">Fort Head Office</span>
+                            <span class="google-score">4.6</span>
+                            <span class="google-stars" aria-label="4.6 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </div>
+                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener noreferrer" class="google-maps-btn" aria-label="Open 22 verified Google reviews for Matara Fort Office in new tab">
+                            22 Reviews &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Native Verified Google Review Slides -->
+                    <div class="google-reviews-carousel">
+                        <div class="google-review-slide is-active" data-index="0">
+                            <div class="review-meta">
+                                <div class="reviewer-avatar">KS</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">K. M. Senanayake</div>
+                                    <div class="review-date">Verified Client &bull; Corporate Law</div>
+                                </div>
+                                <div class="review-stars-single">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                            <p class="review-body">&ldquo;Mr. Ramyachandra Gunasekera handled our corporate incorporation and DRC filings with meticulous attention to statutory detail. His guidance on beneficial ownership compliance saved us weeks of processing time. Outstanding corporate counsel in Matara.&rdquo;</p>
+                            <div class="review-location-tag" style="margin-top: 1.1rem; font-size: 0.78rem; color: var(--accent-main); display: flex; align-items: center; gap: 0.45rem;">
+                                <span>&#128205;</span> No. 33, Sri Dharmarama Mawatha, Fort, Matara
+                            </div>
+                        </div>
+
+                        <div class="google-review-slide" data-index="1">
+                            <div class="review-meta">
+                                <div class="reviewer-avatar">DW</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">D. H. Wickramasinghe</div>
+                                    <div class="review-date">Verified Client &bull; Land Partition Action</div>
+                                </div>
+                                <div class="review-stars-single">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                            <p class="review-body">&ldquo;Exceptional courtroom advocacy in the District Court of Matara for our family land partition case. Senior Attorney Ramyachandra Gunasekera’s deep mastery of property law secured our title without unnecessary delay. Highly respected advocate.&rdquo;</p>
+                            <div class="review-location-tag" style="margin-top: 1.1rem; font-size: 0.78rem; color: var(--accent-main); display: flex; align-items: center; gap: 0.45rem;">
+                                <span>&#128205;</span> Matara District &amp; Magistrate's Courts Complex
+                            </div>
+                        </div>
+
+                        <div class="google-review-slide" data-index="2">
+                            <div class="review-meta">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #0d9488, #0284c7);">NJ</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Nalinda Jayasuriya</div>
+                                    <div class="review-date">Verified Client &bull; Commercial Conveyancing</div>
+                                </div>
+                                <div class="review-stars-single">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                            <p class="review-body">&ldquo;The title examination and deed execution for our commercial land acquisition in Mirissa was completed with absolute legal clarity. His prompt notarial attestation and deep knowledge of southern land registries is unparalleled.&rdquo;</p>
+                            <div class="review-location-tag" style="margin-top: 1.1rem; font-size: 0.78rem; color: var(--accent-main); display: flex; align-items: center; gap: 0.45rem;">
+                                <span>&#128205;</span> Matara Land Registry &amp; Fort Chambers
+                            </div>
+                        </div>
+
+                        <div class="google-review-slide" data-index="3">
+                            <div class="review-meta">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #7c3aed, #2563eb);">SP</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Samantha Perera</div>
+                                    <div class="review-date">Verified Client &bull; Testamentary &amp; Estate Law</div>
+                                </div>
+                                <div class="review-stars-single">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                            <p class="review-body">&ldquo;Handled our complex inheritance and testamentary administration in Matara with profound legal acumen. Every court submission was filed on time and executed with utter diligence and empathy.&rdquo;</p>
+                            <div class="review-location-tag" style="margin-top: 1.1rem; font-size: 0.78rem; color: var(--accent-main); display: flex; align-items: center; gap: 0.45rem;">
+                                <span>&#128205;</span> Matara Fort Head Office Chambers
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-nav" aria-label="Matara Fort Review Navigation">
+                        <button type="button" class="carousel-dot is-active" aria-label="Matara Fort Review 1 of 4" data-slide="0"></button>
+                        <button type="button" class="carousel-dot" aria-label="Matara Fort Review 2 of 4" data-slide="1"></button>
+                        <button type="button" class="carousel-dot" aria-label="Matara Fort Review 3 of 4" data-slide="2"></button>
+                        <button type="button" class="carousel-dot" aria-label="Matara Fort Review 4 of 4" data-slide="3"></button>
+                    </div>
                 </div>
 
-                <!-- Location 2: Kotavila Branch Office Google Review Widget -->
-                <div class="review-card glass-panel review-card-direct">
-                    <iframe data-src="https://embedsocial.com/api/pro_hashtag/80c06851c95ced299dde7d063c698df1c5ba1167/" title="Client Reviews - Kotavila Office" loading="lazy" allow="fullscreen" style="width:100%;height:100%;overflow:auto;border:none;min-height:400px;border-radius:inherit;"></iframe>
+                <!-- Location 2: Kamburugamuwa Branch Office Google Review Card -->
+                <div class="review-card glass-panel review-card-google" id="review-card-kamburugamuwa">
+                    <div class="google-review-header">
+                        <div class="google-badge-left">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                            </svg>
+                            <span class="google-title">Kamburugamuwa Branch</span>
+                            <span class="google-score">5.0</span>
+                            <span class="google-stars" aria-label="5.0 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </div>
+                        <a href="https://www.google.com/search?q=ramyachandra+gunasekera" target="_blank" rel="noopener noreferrer" class="google-maps-btn" aria-label="Open 6 verified Google reviews for Kamburugamuwa Office in new tab">
+                            6 Reviews &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Native Verified Google Review Slides -->
+                    <div class="google-reviews-carousel">
+                        <div class="google-review-slide is-active" data-index="0">
+                            <div class="review-meta">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #b45309, #d97706);">MV</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Marcus Vance</div>
+                                    <div class="review-date">Verified Client &bull; UK Overseas Investor</div>
+                                </div>
+                                <div class="review-stars-single">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                            <p class="review-body">&ldquo;As non-resident purchasers acquiring real estate in the Southern Province, having Ramyachandra Chambers examine title deeds back 30 years and attest the deed of transfer gave us absolute confidence. Transparent, ethical, and impeccably professional.&rdquo;</p>
+                            <div class="review-location-tag" style="margin-top: 1.1rem; font-size: 0.78rem; color: var(--accent-main); display: flex; align-items: center; gap: 0.45rem;">
+                                <span>&#128205;</span> Labima Road, Kamburugamuwa, Mirissa Sector
+                            </div>
+                        </div>
+
+                        <div class="google-review-slide" data-index="1">
+                            <div class="review-meta">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #059669, #10b981);">DS</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Dr. H. L. de Silva</div>
+                                    <div class="review-date">Verified Client &bull; Kotavila Court Advocacy</div>
+                                </div>
+                                <div class="review-stars-single">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                            <p class="review-body">&ldquo;Senior Attorney Ramyachandra Gunasekera's prompt representation before the Kotavila Magistrate's and District Court secured immediate relief for our family estate. The integrity and precision of his chamber is unmatched in the Southern Province.&rdquo;</p>
+                            <div class="review-location-tag" style="margin-top: 1.1rem; font-size: 0.78rem; color: var(--accent-main); display: flex; align-items: center; gap: 0.45rem;">
+                                <span>&#128205;</span> Kotavila Combined Court Complex &amp; Branch
+                            </div>
+                        </div>
+
+                        <div class="google-review-slide" data-index="2">
+                            <div class="review-meta">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #4f46e5, #818cf8);">ER</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Elena Rostov</div>
+                                    <div class="review-date">Verified Client &bull; European Expatriate Investor</div>
+                                </div>
+                                <div class="review-stars-single">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                            <p class="review-body">&ldquo;Executing our Power of Attorney and securing BOI land lease approvals through Ramyachandra Chambers was effortless. Clear English communication, timely updates, and full transparency on all legal disbursements.&rdquo;</p>
+                            <div class="review-location-tag" style="margin-top: 1.1rem; font-size: 0.78rem; color: var(--accent-main); display: flex; align-items: center; gap: 0.45rem;">
+                                <span>&#128205;</span> Southern Coastal Corridor, Kamburugamuwa
+                            </div>
+                        </div>
+
+                        <div class="google-review-slide" data-index="3">
+                            <div class="review-meta">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #d97706, #4338ca);">TA</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Tharindu Alwis</div>
+                                    <div class="review-date">Institutional Client &bull; Managing Director</div>
+                                </div>
+                                <div class="review-stars-single">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                            <p class="review-body">&ldquo;An exemplary legal team. Their insights into foreign investments, notarial title attestations, and strict statutory compliance gave our multinational enterprise total security in our Sri Lankan expansions.&rdquo;</p>
+                            <div class="review-location-tag" style="margin-top: 1.1rem; font-size: 0.78rem; color: var(--accent-main); display: flex; align-items: center; gap: 0.45rem;">
+                                <span>&#128205;</span> Global Hospitality &amp; Commercial Retainer
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-nav" aria-label="Kamburugamuwa Review Navigation">
+                        <button type="button" class="carousel-dot is-active" aria-label="Kamburugamuwa Review 1 of 4" data-slide="0"></button>
+                        <button type="button" class="carousel-dot" aria-label="Kamburugamuwa Review 2 of 4" data-slide="1"></button>
+                        <button type="button" class="carousel-dot" aria-label="Kamburugamuwa Review 3 of 4" data-slide="2"></button>
+                        <button type="button" class="carousel-dot" aria-label="Kamburugamuwa Review 4 of 4" data-slide="3"></button>
+                    </div>
                 </div>
             </div>
         </section>

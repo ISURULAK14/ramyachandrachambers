@@ -345,33 +345,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Testimonial / Google Reviews Carousel
-    const slides = [...document.querySelectorAll('.google-review-slide')];
-    const dots = [...document.querySelectorAll('.carousel-dot')];
-    if (slides.length) {
-        let currentIndex = 0;
-        let reviewTimer = null;
+    // 5. Dual Google Reviews Carousels (Strict 2-Second Rotation Cadence)
+    const reviewCards = [...document.querySelectorAll('.reviews-grid .review-card')];
+    if (reviewCards.length) {
+        reviewCards.forEach((card) => {
+            const slides = [...card.querySelectorAll('.google-review-slide')];
+            const dots = [...card.querySelectorAll('.carousel-dot')];
+            if (slides.length <= 1) return;
 
-        const goToSlide = (index) => {
-            slides.forEach((s, idx) => s.classList.toggle('is-active', idx === index));
-            dots.forEach((d, idx) => d.classList.toggle('is-active', idx === index));
-            currentIndex = index;
-        };
-        const nextSlide = () => {
-            goToSlide((currentIndex + 1) % slides.length);
-        };
-        const resetTimer = () => {
-            if (reviewTimer) clearInterval(reviewTimer);
-            reviewTimer = setInterval(nextSlide, 6000);
-        };
+            let currentIndex = 0;
+            let reviewTimer = null;
 
-        dots.forEach((dot, idx) => {
-            dot.addEventListener('click', () => {
-                goToSlide(idx);
-                resetTimer();
+            const goToSlide = (index) => {
+                slides.forEach((s, idx) => s.classList.toggle('is-active', idx === index));
+                dots.forEach((d, idx) => d.classList.toggle('is-active', idx === index));
+                currentIndex = index;
+            };
+
+            const nextSlide = () => {
+                goToSlide((currentIndex + 1) % slides.length);
+            };
+
+            const startTimer = () => {
+                if (reviewTimer) clearInterval(reviewTimer);
+                reviewTimer = setInterval(nextSlide, 2000); // 2000ms = 2 seconds
+            };
+
+            const stopTimer = () => {
+                if (reviewTimer) clearInterval(reviewTimer);
+                reviewTimer = null;
+            };
+
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(idx);
+                    startTimer();
+                });
             });
+
+            // Pause rotation on hover or touch for comfortable reading
+            card.addEventListener('mouseenter', stopTimer);
+            card.addEventListener('mouseleave', startTimer);
+            card.addEventListener('touchstart', stopTimer, { passive: true });
+            card.addEventListener('touchend', startTimer, { passive: true });
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopTimer();
+                else startTimer();
+            });
+
+            startTimer();
         });
-        resetTimer();
     }
 
         // 6. Practice Areas / Services Accordion Cards

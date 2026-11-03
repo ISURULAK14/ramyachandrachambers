@@ -1379,16 +1379,25 @@ img {
 .review-card {
     width: 100% !important;
     max-width: 580px !important;
-    height: 450px !important;
-    max-height: 450px !important;
-    min-height: 450px !important;
-    padding: var(--location-card-padding) !important;
+    min-height: 440px !important;
+    padding: clamp(1.4rem, 1.8vw, 1.8rem) clamp(1.2rem, 1.6vw, 1.6rem) !important;
     border-radius: var(--slab-radius) !important;
     display: flex !important;
     flex-direction: column !important;
+    justify-content: space-between !important;
     box-sizing: border-box !important;
     position: relative !important;
     overflow: hidden !important;
+}
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .review-card iframe {
     width: 100% !important;
