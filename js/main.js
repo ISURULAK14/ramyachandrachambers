@@ -17,12 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = [...document.querySelectorAll('section[id]')];
     const navEl = document.querySelector('nav.site-nav') || document.querySelector('nav');
     let cachedNavHeight = 70;
-    const updateNavHeight = () => { if (navEl) cachedNavHeight = navEl.offsetHeight || 70; };
-    if ('requestIdleCallback' in window) { requestIdleCallback(updateNavHeight); } else { setTimeout(updateNavHeight, 200); }
-    window.addEventListener('resize', updateNavHeight, { passive: true });
+    let sectionOffsets = [];
+    const updateMeasurements = () => {
+        if (navEl) cachedNavHeight = navEl.offsetHeight || 70;
+        sectionOffsets = sections.map(sec => ({ id: sec.id, top: sec.offsetTop }));
+    };
+    if ('requestIdleCallback' in window) { requestIdleCallback(updateMeasurements); } else { setTimeout(updateMeasurements, 200); }
+    window.addEventListener('resize', updateMeasurements, { passive: true });
+    window.addEventListener('load', () => setTimeout(updateMeasurements, 400), { passive: true });
 
+    let activeNavId = '';
     function setActiveNav(targetId) {
-        if (!navLinks.length) return;
+        if (!navLinks.length || targetId === activeNavId) return;
+        activeNavId = targetId;
         navLinks.forEach(link => {
             const href = link.getAttribute('href') || '';
             const isMatch = href === `#${targetId}` || href === `/#${targetId}` || (targetId === 'home' && (href === '/' || href === '#home' || href === '/#home'));
@@ -66,22 +73,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let scrollTicking = false;
+        let isScrolledCached = false;
         window.addEventListener('scroll', () => {
             if (scrollTicking) return;
             scrollTicking = true;
             requestAnimationFrame(() => {
-                if (navEl) {
-                    navEl.classList.toggle('scrolled', window.scrollY > 30);
+                const scrollY = window.scrollY;
+                const isScrolled = scrollY > 30;
+                if (navEl && isScrolled !== isScrolledCached) {
+                    isScrolledCached = isScrolled;
+                    navEl.classList.toggle('scrolled', isScrolled);
                 }
-                if (sections.length) {
-                    const navHeight = cachedNavHeight || 70;
-                    const marker = window.scrollY + navHeight + 100;
-                    let current = sections[0].id;
-                    sections.forEach(sec => {
-                        if (marker >= sec.offsetTop) {
-                            current = sec.id;
+                if (sectionOffsets.length) {
+                    const marker = scrollY + (cachedNavHeight || 70) + 100;
+                    let current = sectionOffsets[0].id;
+                    for (let i = 0; i < sectionOffsets.length; i++) {
+                        if (marker >= sectionOffsets[i].top) {
+                            current = sectionOffsets[i].id;
                         }
-                    });
+                    }
                     setActiveNav(current);
                 }
                 scrollTicking = false;

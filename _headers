@@ -43,6 +43,33 @@
 /world_map.svg
   Cache-Control: public, max-age=31536000, immutable
 
+/fort.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/kotavila1.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/kotavila2.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/fort.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/kotavila1.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/kotavila2.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/photo.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon-16x16.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon-32x32.png
+  Cache-Control: public, max-age=31536000, immutable
+
 /manifest.json
   Cache-Control: public, max-age=86400
   Content-Type: application/manifest+json; charset=utf-8
