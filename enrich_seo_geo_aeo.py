@@ -17,7 +17,7 @@ enhanced_schema = {
       "logo": "https://ramyachandrachambers.com/searchlogo.svg",
       "image": "https://ramyachandrachambers.com/photo.gif",
       "description": "Premier legal counsel, deed drafting, title conveyancing, notary public attestations, private limited company registration, and court litigation in Matara and across Sri Lanka.",
-      "telephone": "+94412226755",
+      "telephone": "+94412239429",
       "email": "ramyachandra@sltnet.lk",
       "foundingDate": "1988",
       "priceRange": "$$",
@@ -72,7 +72,7 @@ enhanced_schema = {
       "name": "Ramyachandra Gunasekera Chambers — Matara Fort (Head Office)",
       "parentOrganization": { "@id": "https://ramyachandrachambers.com/#organization" },
       "url": "https://ramyachandrachambers.com/",
-      "telephone": "+94412226755",
+      "telephone": "+94412239429",
       "priceRange": "$$",
       "openingHoursSpecification": [
         {
@@ -114,7 +114,7 @@ enhanced_schema = {
       "name": "Ramyachandra Gunasekera Chambers — Kamburugamuwa / Mirissa (Branch Office)",
       "parentOrganization": { "@id": "https://ramyachandrachambers.com/#organization" },
       "url": "https://ramyachandrachambers.com/",
-      "telephone": "+94412239457",
+      "telephone": "+94412239429",
       "priceRange": "$$",
       "openingHoursSpecification": [
         {
