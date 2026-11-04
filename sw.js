@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rgchambers-v8.0.4';
+const CACHE_NAME = 'rgchambers-v8.0.5';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -12,7 +12,15 @@ const PRECACHE_ASSETS = [
   '/notary-public-matara.html',
   '/deed-lawyer-matara.html',
   '/company-registration-matara.html',
-  '/css/style.min.css?v=9.9.2',
+  '/overseas-power-of-attorney-sri-lanka.html',
+  '/land-registry-title-search-sri-lanka.html',
+  '/company-registration-sri-lanka-beneficial-ownership.html',
+  '/land-partition-law-procedure-sri-lanka.html',
+  '/foreign-investment-property-acquisition-sri-lanka.html',
+  '/last-will-testamentary-probate-sri-lanka.html',
+  '/privacy-policy.html',
+  '/terms-of-engagement.html',
+  '/css/style.min.css?v=9.9.3',
   '/css/style.css',
   '/js/main.min.js?v=9.9.4',
   '/js/main.js',

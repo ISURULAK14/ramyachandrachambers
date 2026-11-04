@@ -114,7 +114,7 @@ enhanced_schema = {
       "name": "Ramyachandra Gunasekera Chambers — Kamburugamuwa / Mirissa (Branch Office)",
       "parentOrganization": { "@id": "https://ramyachandrachambers.com/#organization" },
       "url": "https://ramyachandrachambers.com/",
-      "telephone": "+94412239429",
+      "telephone": "+94412239457",
       "priceRange": "$$",
       "openingHoursSpecification": [
         {
