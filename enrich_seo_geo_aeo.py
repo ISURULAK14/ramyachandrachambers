@@ -78,14 +78,8 @@ enhanced_schema = {
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:30",
-          "closes": "17:30"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Saturday"],
-          "opens": "09:00",
-          "closes": "14:00"
+          "opens": "08:00",
+          "closes": "17:00"
         }
       ],
       "address": {
@@ -105,7 +99,7 @@ enhanced_schema = {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "28"
+        "reviewCount": "37"
       }
     },
     {

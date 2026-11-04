@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rgchambers-v8.0.5';
+const CACHE_NAME = 'rgchambers-v8.0.6';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -20,7 +20,7 @@ const PRECACHE_ASSETS = [
   '/last-will-testamentary-probate-sri-lanka.html',
   '/privacy-policy.html',
   '/terms-of-engagement.html',
-  '/css/style.min.css?v=9.9.3',
+  '/css/style.min.css?v=9.9.5',
   '/css/style.css',
   '/js/main.min.js?v=9.9.5',
   '/js/main.js',
