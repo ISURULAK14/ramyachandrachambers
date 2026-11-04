@@ -345,12 +345,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Dual Google Reviews Carousels (Strict 2-Second Rotation Cadence)
+    // 5. Dual Google Reviews Carousels (All Reviews Cycled Every 2 Seconds with Scroll Buttons)
     const reviewCards = [...document.querySelectorAll('.reviews-grid .review-card')];
     if (reviewCards.length) {
         reviewCards.forEach((card) => {
             const slides = [...card.querySelectorAll('.google-review-slide')];
             const dots = [...card.querySelectorAll('.carousel-dot')];
+            const prevBtn = card.querySelector('.carousel-prev');
+            const nextBtn = card.querySelector('.carousel-next');
+            const counter = card.querySelector('.carousel-counter');
             if (slides.length <= 1) return;
 
             let currentIndex = 0;
@@ -360,15 +363,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 slides.forEach((s, idx) => s.classList.toggle('is-active', idx === index));
                 dots.forEach((d, idx) => d.classList.toggle('is-active', idx === index));
                 currentIndex = index;
+                if (counter) {
+                    counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+                }
             };
 
             const nextSlide = () => {
                 goToSlide((currentIndex + 1) % slides.length);
             };
 
+            const prevSlide = () => {
+                goToSlide((currentIndex - 1 + slides.length) % slides.length);
+            };
+
             const startTimer = () => {
                 if (reviewTimer) clearInterval(reviewTimer);
-                reviewTimer = setInterval(nextSlide, 2000); // 2000ms = 2 seconds
+                reviewTimer = setInterval(nextSlide, 2000); // Strict 2-second rotation
             };
 
             const stopTimer = () => {
@@ -383,108 +393,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    startTimer();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    startTimer();
+                });
+            }
+
             // Pause rotation on hover or touch for comfortable reading
             card.addEventListener('mouseenter', stopTimer);
             card.addEventListener('mouseleave', startTimer);
             card.addEventListener('touchstart', stopTimer, { passive: true });
             card.addEventListener('touchend', startTimer, { passive: true });
 
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) stopTimer();
-                else startTimer();
-            });
-
             startTimer();
         });
     }
-
-        // 6. Practice Areas / Services Accordion Cards
-    const serviceGrid = document.querySelector('.services-grid');
-    const serviceCards = [...document.querySelectorAll('.service-card')];
-
-    function setServiceState(card, open) {
-        if (!card) return;
-        const content = card.querySelector('.accordion-content');
-        const header = card.querySelector('.accordion-header');
-        const arrow = card.querySelector('.arrow-icon');
-        if (!content) return;
-        card.classList.toggle('is-open', open);
-        if (header) header.setAttribute('aria-expanded', String(open));
-        content.style.maxHeight = open ? `${content.scrollHeight + 60}px` : '0px';
-        if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-    }
-
-    function getServiceRow(card) {
-        if (!serviceGrid) return [card];
-        const columnCount = Math.max(1, getComputedStyle(serviceGrid).gridTemplateColumns.split(' ').filter(Boolean).length);
-        const cardIndex = serviceCards.indexOf(card);
-        const rowStart = Math.floor(cardIndex / columnCount) * columnCount;
-        return serviceCards.slice(rowStart, rowStart + columnCount);
-    }
-
-    window.toggleAccordion = function(element) {
-        const card = element ? element.closest('.service-card') : null;
-        if (!card) return;
-        const isOpen = card.classList.contains('is-open');
-
-        if (window.innerWidth <= 900) {
-            // Mobile & Tablet: single card toggle
-            serviceCards.forEach(c => {
-                if (c !== card) setServiceState(c, false);
-            });
-            setServiceState(card, !isOpen);
-        } else {
-            // Desktop: toggle row
-            const row = getServiceRow(card);
-            const rowIsOpen = row.length > 0 && row.every(rc => rc.classList.contains('is-open'));
-            if (rowIsOpen) {
-                row.forEach(rc => setServiceState(rc, false));
-                if (serviceGrid && !serviceCards.some(c => c.classList.contains('is-open'))) {
-                    serviceGrid.classList.remove('row-open');
-                }
-            } else {
-                if (serviceGrid) serviceGrid.classList.add('row-open');
-                row.forEach(rc => setServiceState(rc, true));
-            }
-        }
-    };
-
-    if (serviceCards.length) {
-        serviceCards.forEach(card => {
-            const header = card.querySelector('.accordion-header');
-            if (!header) return;
-            header.setAttribute('role', 'button');
-            header.setAttribute('tabindex', '0');
-            header.setAttribute('aria-expanded', 'false');
-            header.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                window.toggleAccordion(header);
-            });
-            header.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    window.toggleAccordion(header);
-                }
-            });
-        });
-
-        document.addEventListener('keydown', event => {
-            if (event.key === 'Escape') {
-                serviceCards.forEach(card => setServiceState(card, false));
-                if (serviceGrid) serviceGrid.classList.remove('row-open');
-            }
-        });
-
-        window.addEventListener('resize', () => {
-            serviceCards.filter(card => card.classList.contains('is-open')).forEach(card => {
-                const content = card.querySelector('.accordion-content');
-                if (content) content.style.maxHeight = `${content.scrollHeight + 60}px`;
-            });
-        }, { passive: true });
-    }
-
     // 7. Scroll Reveal Animation
     if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {

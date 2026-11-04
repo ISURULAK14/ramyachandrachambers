@@ -22,7 +22,7 @@ const PRECACHE_ASSETS = [
   '/terms-of-engagement.html',
   '/css/style.min.css?v=9.9.3',
   '/css/style.css',
-  '/js/main.min.js?v=9.9.4',
+  '/js/main.min.js?v=9.9.5',
   '/js/main.js',
   '/searchlogo.svg',
   '/favicon.ico',
