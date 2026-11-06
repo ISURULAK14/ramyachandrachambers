@@ -36,7 +36,9 @@ URL_LIST = [
 
 ENDPOINTS = [
     "https://api.indexnow.org/indexnow",
-    "https://www.bing.com/indexnow"
+    "https://www.bing.com/indexnow",
+    "https://yandex.com/indexnow",
+    "https://search.seznam.cz/indexnow"
 ]
 
 def submit():
