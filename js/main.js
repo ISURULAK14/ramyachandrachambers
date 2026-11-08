@@ -426,6 +426,69 @@ document.addEventListener('DOMContentLoaded', () => {
             startTimer();
         });
     }
+
+    // 6. Practice Areas / Services Accordion Cards
+    const serviceGrid = document.querySelector('.services-grid');
+    const serviceCards = [...document.querySelectorAll('.service-card')];
+
+    function setServiceState(card, open) {
+        if (!card) return;
+        const content = card.querySelector('.accordion-content');
+        const header = card.querySelector('.accordion-header');
+        const arrow = card.querySelector('.arrow-icon');
+        if (!content) return;
+        card.classList.toggle('is-open', open);
+        if (header) header.setAttribute('aria-expanded', String(open));
+        content.style.maxHeight = open ? `${content.scrollHeight + 60}px` : '0px';
+        if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+
+    function getServiceRow(card) {
+        if (!serviceGrid) return [card];
+        const columnCount = Math.max(1, getComputedStyle(serviceGrid).gridTemplateColumns.split(' ').filter(Boolean).length);
+        const cardIndex = serviceCards.indexOf(card);
+        const rowStart = Math.floor(cardIndex / columnCount) * columnCount;
+        return serviceCards.slice(rowStart, rowStart + columnCount);
+    }
+
+    window.toggleAccordion = function(element) {
+        const card = element ? element.closest('.service-card') : null;
+        if (!card) return;
+        const isOpen = card.classList.contains('is-open');
+
+        if (window.innerWidth <= 900) {
+            // Mobile & Tablet: single card toggle
+            serviceCards.forEach(c => {
+                if (c !== card) setServiceState(c, false);
+            });
+            setServiceState(card, !isOpen);
+        } else {
+            // Desktop: toggle row
+            const row = getServiceRow(card);
+            const rowIsOpen = row.length > 0 && row.every(rc => rc.classList.contains('is-open'));
+            if (rowIsOpen) {
+                row.forEach(rc => setServiceState(rc, false));
+                if (serviceGrid && !serviceCards.some(c => c.classList.contains('is-open'))) {
+                    serviceGrid.classList.remove('row-open');
+                }
+            } else {
+                if (serviceGrid) serviceGrid.classList.add('row-open');
+                row.forEach(rc => setServiceState(rc, true));
+            }
+        }
+    };
+
+    if (serviceCards.length) {
+        serviceCards.forEach(card => {
+            const header = card.querySelector('.accordion-header');
+            if (header) {
+                header.addEventListener('click', () => {
+                    window.toggleAccordion(header);
+                });
+            }
+        });
+    }
+
     // 7. Scroll Reveal Animation
     if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
