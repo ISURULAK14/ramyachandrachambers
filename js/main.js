@@ -536,6 +536,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeModal(modal);
             }
         });
+        const closeBtn = modal.querySelector('.legal-modal-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeModal(modal);
+            });
+        }
     });
 
     document.addEventListener('keydown', (e) => {
