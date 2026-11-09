@@ -89,7 +89,7 @@ async function runE2ETests() {
 
     // Click Service Card 1 -> Opens row
     await page.click('.service-card:nth-child(1) .accordion-header');
-    await new Promise(r => setTimeout(r, 400));
+    await new Promise(r => setTimeout(r, 900));
     const card1Open = await page.evaluate(() => {
       const card = document.querySelector('.service-card:nth-child(1)');
       const content = card.querySelector('.accordion-content');
