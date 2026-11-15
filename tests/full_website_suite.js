@@ -778,6 +778,62 @@ async function runFullSuite() {
     });
     check(swStatus === 'registered', `Service Worker registers cleanly over HTTP (${swStatus})`);
 
+    // 5J. Three.js Frosted Glass Background + Grid + Cursor Light + Resize Verification
+    await page.setViewport({ width: 1440, height: 900 });
+    await page.goto(BASE + '/', { waitUntil: 'networkidle0' });
+    await new Promise(r => setTimeout(r, 400));
+    const glassCanvas = await page.evaluate(() => {
+      const c = document.getElementById('frosted-glass-canvas');
+      if (!c) return null;
+      const s = getComputedStyle(c);
+      const rect = c.getBoundingClientRect();
+      return {
+        position: s.position,
+        zIndex: s.zIndex,
+        pointerEvents: s.pointerEvents,
+        w: Math.round(rect.width),
+        h: Math.round(rect.height),
+        state: window.__rgFrostedGlass || null
+      };
+    });
+    check(
+      glassCanvas &&
+      glassCanvas.position === 'fixed' &&
+      glassCanvas.zIndex === '-1' &&
+      glassCanvas.pointerEvents === 'none' &&
+      glassCanvas.w === 1440 &&
+      glassCanvas.h === 900,
+      'Frosted Glass Canvas: fixed fullscreen beneath DOM (z-index: -1, pointer-events: none)'
+    );
+    if (glassCanvas && glassCanvas.state) {
+      const st = glassCanvas.state;
+      check(
+        st.active && st.transmission >= 0.9 && st.roughness >= 0.20 && st.ior >= 1.30 && st.hasNormalMap && st.hasGridOverlay === false,
+        `Three.js Video-Matched Hammered Glass active without square grid (transmission=${st.transmission}, roughness=${st.roughness}, ior=${st.ior}, grid=${st.hasGridOverlay})`
+      );
+      check(
+        st.hasShapes === true,
+        'Physical underlying botanical emerald assets rendered behind transmissive glass plane'
+      );
+      check(
+        st.hasCursorBacklight === false && st.lightPos === null,
+        'Cursor backlight completely removed (zero front glare or cursor hotspot over text)'
+      );
+      await new Promise(r => setTimeout(r, 250));
+      const st2 = await page.evaluate(() => window.__rgFrostedGlass);
+      check(
+        st2 && st2.elapsedTime > st.elapsedTime,
+        `Animation loop actively progressing (time: ${st.elapsedTime.toFixed(2)}s -> ${st2.elapsedTime.toFixed(2)}s)`
+      );
+    }
+    await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+    await new Promise(r => setTimeout(r, 250));
+    const resizedCanvas = await page.evaluate(() => {
+      const r = document.getElementById('frosted-glass-canvas')?.getBoundingClientRect();
+      return r ? { w: Math.round(r.width), h: Math.round(r.height) } : null;
+    });
+    check(resizedCanvas && resizedCanvas.w === 390 && resizedCanvas.h === 844, 'Frosted Glass Canvas resizes responsively on window resize');
+
     await page.close();
   } finally {
     await browser.close();

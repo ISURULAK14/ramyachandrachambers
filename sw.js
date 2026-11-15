@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rgchambers-v11.1.0';
+const CACHE_NAME = 'rgchambers-v15.0.0';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -20,10 +20,15 @@ const PRECACHE_ASSETS = [
   '/last-will-testamentary-probate-sri-lanka.html',
   '/privacy-policy.html',
   '/terms-of-engagement.html',
-  '/css/style.min.css?v=11.1.0',
+  '/css/style.min.css?v=11.0.0',
   '/css/style.css',
   '/js/main.min.js?v=11.0.0',
   '/js/main.js',
+  '/js/frosted-glass-bg.min.js?v=9.0.0',
+  '/js/frosted-glass-bg.js?v=6.0.0',
+  '/js/vendor/three.module.js',
+  '/js/vendor/three.core.js',
+  '/assets/frosted-normal.png',
   '/searchlogo.svg',
   '/favicon.ico',
   '/favicon-32x32.png',

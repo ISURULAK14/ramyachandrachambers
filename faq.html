@@ -3,12 +3,27 @@
 <head>
     <!-- Critical Dark Frame Initialization (Zero White Flash) -->
     <style id="rg-critical-base">
-      html, body {
+      html {
         background-color: #03120e !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+      }
+      body {
+        background-color: transparent !important;
         color: #f8fafc !important;
         margin: 0 !important;
         padding: 0 !important;
         overflow-x: hidden !important;
+      }
+      #frosted-glass-canvas {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: -1 !important;
+        pointer-events: none !important;
       }
     </style>
 
@@ -24,15 +39,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preload" href="css/style.min.css?v=11.1.0" as="style">
+    <link rel="preload" href="css/style.min.css?v=11.0.0" as="style">
     <link rel="preload" href="https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.min.css?v=11.1.0">
+    <link rel="stylesheet" href="css/style.min.css?v=11.0.0">
 
-    <!-- Optimized Non-Blocking Google Fonts with display=swap -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" crossorigin>
+    <!-- Optimized Non-Blocking Google Fonts with display=optional -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=optional" media="print" onload="this.media='all'" crossorigin>
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=optional">
     </noscript>
 
           <!-- Optimized Non-Blocking Google Analytics (Zero TBT Penalty) -->
@@ -328,6 +343,7 @@
     </script>
 </head>
 <body>
+    <canvas id="frosted-glass-canvas" aria-hidden="true"></canvas>
     <!-- RG Pure-CSS Legal Crest Micro-Loader (350ms instant prestigious reveal) -->
     <div class="rg-preloader" aria-hidden="true">
         <div class="rg-preloader-content">
@@ -854,5 +870,6 @@
 
     <!-- Main Deferred JavaScript -->
     <script defer src="js/main.min.js?v=11.0.0"></script>
+    <script type="module" src="js/frosted-glass-bg.min.js?v=9.0.0"></script>
 </body>
 </html>
