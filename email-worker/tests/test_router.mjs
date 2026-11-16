@@ -107,7 +107,7 @@ async function runTests() {
   const testEmails = [
     'client@example.com',
     'john.doe+test@sub.domain.co.uk',
-    'ramyachndra@sltnet.lk',
+    'ramyachandra@sltnet.lk',
     'complex-name_123@googlemail.com'
   ];
   for (const email of testEmails) {
@@ -138,16 +138,16 @@ async function runTests() {
   console.log('✓ HMAC-SHA256 signing and constant-time verification passed');
 
   console.log('--- TEST 3: Sender Whitelist Verification ---');
-  const allowed = 'ramyachndra@sltnet.lk, backup@gmail.com';
-  assert.strictEqual(isAllowedSender('ramyachndra@sltnet.lk', allowed), true);
-  assert.strictEqual(isAllowedSender('RAMYACHNDRA@SLTNET.LK', allowed), true);
+  const allowed = 'ramyachandra@sltnet.lk, backup@gmail.com';
+  assert.strictEqual(isAllowedSender('ramyachandra@sltnet.lk', allowed), true);
+  assert.strictEqual(isAllowedSender('RAMYACHANDRA@SLTNET.LK', allowed), true);
   assert.strictEqual(isAllowedSender('backup@gmail.com', allowed), true);
   assert.strictEqual(isAllowedSender('hacker@evil.com', allowed), false);
   assert.strictEqual(isAllowedSender('spoofed@sltnet.lk', allowed), false);
   console.log('✓ Sender whitelist passed');
 
   console.log('--- TEST 4: Authentication-Results Verification ---');
-  const allowedList = ['ramyachndra@sltnet.lk', 'backup@gmail.com'];
+  const allowedList = ['ramyachandra@sltnet.lk', 'backup@gmail.com'];
   
   const headersValidSpf = new Headers({
     'Authentication-Results': 'mx.cloudflare.net; spf=pass (domain of sltnet.lk designates 192.0.2.1 as permitted sender)'
