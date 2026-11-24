@@ -2597,8 +2597,3 @@ button:disabled:active,
   }
 }
 
-/* Performance: Defer layout of below-the-fold heavy containers */
-#contact {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 1200px;
-}
