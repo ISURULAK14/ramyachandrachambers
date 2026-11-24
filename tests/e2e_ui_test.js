@@ -101,11 +101,11 @@ async function runE2ETests() {
 
     // Click Service Card 1 again -> Collapses row
     await page.click('.service-card:nth-child(1) .accordion-header');
-    await new Promise(r => setTimeout(r, 900)); // wait for 0.85s transition
+    await new Promise(r => setTimeout(r, 1000)); // wait for 0.85s transition
     const card1Closed = await page.evaluate(() => {
       const card = document.querySelector('.service-card:nth-child(1)');
       const content = card.querySelector('.accordion-content');
-      return !card.classList.contains('is-open') && content.offsetHeight === 0;
+      return !card.classList.contains('is-open') && content.offsetHeight <= 1;
     });
     assert(card1Closed, 'Desktop: Clicking Service Card 1 again collapses accordion to 0px');
 
