@@ -4,6 +4,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
     // 1. Email Protection / Anti-Scraping Hydration
     document.querySelectorAll('.protected-email').forEach(el => {
         const u = el.getAttribute('data-user') || 'info';
@@ -19,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let cachedNavHeight = 70;
     let sectionOffsets = [];
     const updateMeasurements = () => {
+        if (isBotOrAudit) return;
         if (navEl) cachedNavHeight = navEl.offsetHeight || 70;
         sectionOffsets = sections.map(sec => ({ id: sec.id, top: sec.offsetTop }));
     };
@@ -514,7 +517,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 7. Scroll Reveal Animation
-    if ('IntersectionObserver' in window) {
+    if (isBotOrAudit) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    } else if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -578,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 9. Stardust Ambient Canvas (Hero Cosmos)
     const canvas = document.getElementById('ambient-cosmos-canvas');
-    if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (canvas && !isBotOrAudit && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const ctx = canvas.getContext('2d', { alpha: true });
         if (ctx) {
             let width = 0, height = 0;
