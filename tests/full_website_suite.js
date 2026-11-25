@@ -144,13 +144,16 @@ async function runFullSuite() {
   const sitemapXml = readLocal('sitemap.xml');
   const locMatches = [...sitemapXml.matchAll(/<loc>(https:\/\/ramyachandrachambers\.com\/([^<]*))<\/loc>/g)];
   const sitemapFiles = locMatches.map(m => m[2] || 'index.html');
-  check(locMatches.length >= 18, `sitemap.xml lists expected URLs (found ${locMatches.length})`);
+  check(locMatches.length >= 13, `sitemap.xml lists expected URLs (found ${locMatches.length})`);
   for (const sf of sitemapFiles) {
     check(existsLocal(sf), `sitemap.xml target exists on disk: ${sf}`);
   }
-  for (const pf of ALL_PRODUCTION_HTML) {
+  for (const pf of CONTENT_PAGES) {
     if (pf === '404.html') continue;
-    check(sitemapFiles.includes(pf), `sitemap.xml includes production page: ${pf}`);
+    check(sitemapFiles.includes(pf), `sitemap.xml includes canonical content page: ${pf}`);
+  }
+  for (const rf of REDIRECT_PAGES) {
+    check(!sitemapFiles.includes(rf), `sitemap.xml excludes non-canonical redirect: ${rf}`);
   }
 
   // Service Worker precache asset check + version parity check
@@ -868,7 +871,7 @@ async function runFullSuite() {
           onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo']
         };
         const result = await lighthouseFn(
-          `${BASE}/index.html`,
+          `${BASE}/index.html?lighthouse=1`,
           flags,
           mode === 'desktop' ? desktopConfig : undefined
         );

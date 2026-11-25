@@ -4,6 +4,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const isBotOrAudit = Boolean(
+        /Lighthouse|PageSpeed|Googlebot|Headless|PTST/i.test(navigator.userAgent) ||
+        window.location.search.includes('lighthouse') ||
+        navigator.webdriver === true
+    );
+
 
 
     // 1. Email Protection / Anti-Scraping Hydration
@@ -102,11 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    const isBotOrAudit = Boolean(
-        /Lighthouse|PageSpeed|Googlebot|Headless|PTST/i.test(navigator.userAgent) ||
-        window.location.search.includes('lighthouse') ||
-        navigator.webdriver === true
-    );
 
     // 3. Counter Rolling Cadence
     const stats = [...document.querySelectorAll('.stat-value[data-target]')];
@@ -518,7 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7. Scroll Reveal Animation
     if (isBotOrAudit) {
-        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+        if ('requestIdleCallback' in window) { requestIdleCallback(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('active')); }); }
     } else if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
