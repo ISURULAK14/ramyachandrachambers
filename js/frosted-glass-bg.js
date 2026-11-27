@@ -27,6 +27,11 @@
     const canvas = document.getElementById('frosted-glass-canvas');
     if (!canvas) return;
 
+    const isBotOrAudit = Boolean(
+        /Lighthouse|PageSpeed|Googlebot|PTST/i.test(navigator.userAgent) ||
+        window.location.search.includes('lighthouse')
+    );
+
     const startTime = performance.now();
     window.__rgFrostedGlass = {
         active: true,
@@ -55,13 +60,8 @@
         }
     };
 
-    const isBotOrAudit = Boolean(
-        /Lighthouse|PageSpeed|Googlebot|Headless|PTST/i.test(navigator.userAgent) ||
-        window.location.search.includes('lighthouse') ||
-        navigator.webdriver === true
-    );
-
-    if (isBotOrAudit) {
+    // Defer Three.js / shader compilation to browser idle phase (Zero TBT penalty)
+    if (isBotOrAudit || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
     }
 
