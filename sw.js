@@ -1,14 +1,9 @@
-const CACHE_NAME = 'rgchambers-v22.3.0';
+const CACHE_NAME = 'rgchambers-v22.7.0';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
-  '/about.html',
-  '/services.html',
-  '/practice-areas.html',
-  '/testimonials.html',
   '/faq.html',
-  '/contact.html',
   '/notary-public-matara.html',
   '/deed-lawyer-matara.html',
   '/company-registration-matara.html',
@@ -20,27 +15,27 @@ const PRECACHE_ASSETS = [
   '/last-will-testamentary-probate-sri-lanka.html',
   '/privacy-policy.html',
   '/terms-of-engagement.html',
-  '/css/style.min.css?v=11.0.0',
-  '/css/style.css',
+  '/css/style.min.css',
+  '/css/subpages.min.css',
+  '/css/enhancements.min.css',
   '/js/main.min.js?v=11.0.0',
-  '/js/main.js',
   '/js/frosted-glass-bg.min.js?v=15.0.0',
-  '/js/frosted-glass-bg.min.js',
-  '/js/frosted-glass-bg.js',
   '/js/vendor/three.module.js',
   '/js/vendor/three.core.js',
-  '/assets/frosted-normal.png',
+  '/assets/frosted-normal.webp',
+  '/assets/fonts/cormorant-garamond-latin.woff2',
+  '/assets/fonts/cormorant-garamond-italic-latin.woff2',
+  '/assets/fonts/montserrat-latin.woff2',
   '/searchlogo.svg',
   '/favicon.ico',
   '/favicon-32x32.png',
   '/favicon-16x16.png',
   '/apple-touch-icon.png',
-  '/site.webmanifest',
+  '/manifest.json',
   '/photo.webp',
   '/fort.webp',
   '/kotavila1.webp',
   '/kotavila2.webp',
-  '/world_map.svg'
 ];
 
 self.addEventListener('install', event => {

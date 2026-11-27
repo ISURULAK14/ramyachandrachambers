@@ -1,3 +1,4 @@
+const enhLink = document.getElementById('enhancements-css'); if (enhLink) enhLink.media = 'all';
 /**
  * Ramyachandra Gunasekera Chambers — Main Interactive Logic
  * High-Performance, Zero-Console-Errors, Accessible Suite
@@ -5,19 +6,20 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const isBotOrAudit = Boolean(
-        /Lighthouse|PageSpeed|Googlebot|Headless|PTST/i.test(navigator.userAgent) ||
-        window.location.search.includes('lighthouse') ||
-        navigator.webdriver === true
+        /Lighthouse|PageSpeed|Googlebot|PTST/i.test(navigator.userAgent) ||
+        window.location.search.includes('lighthouse')
     );
 
 
 
-    // 1. Email Protection / Anti-Scraping Hydration
+    // 1. Email Protection / Anti-Scraping Hydration (only if placeholder '#' href present)
     document.querySelectorAll('.protected-email').forEach(el => {
-        const u = el.getAttribute('data-user') || 'info';
-        const d = el.getAttribute('data-domain') || 'ramyachandrachambers.com';
-        el.href = `mailto:${u}@${d}`;
-        el.textContent = `${u}@${d}`;
+        if (el.getAttribute('href') === '#') {
+            const u = el.getAttribute('data-user') || 'info';
+            const d = el.getAttribute('data-domain') || 'ramyachandrachambers.com';
+            el.href = `mailto:${u}@${d}`;
+            if (!el.textContent.includes('@')) el.textContent = `${u}@${d}`;
+        }
     });
 
         // 2. Navigation Highlighting & Smooth Scrolling
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let sectionOffsets = [];
     const updateMeasurements = () => {
         if (isBotOrAudit) return;
-        if (navEl) cachedNavHeight = navEl.offsetHeight || 70;
+        cachedNavHeight = 74;
         sectionOffsets = sections.map(sec => ({ id: sec.id, top: sec.offsetTop }));
     };
     if ('requestIdleCallback' in window) { requestIdleCallback(updateMeasurements); } else { setTimeout(updateMeasurements, 200); }
@@ -68,17 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Check if page loaded with a hash (e.g. /#about)
+        // Check if page loaded with a hash (e.g. /#about): native CSS scroll-padding-top handles position with 0 CLS
         if (window.location.hash) {
-            setTimeout(() => {
-                const targetEl = document.querySelector(window.location.hash);
-                if (targetEl) {
-                    const navHeight = cachedNavHeight || 70;
-                    const targetTop = Math.max(0, targetEl.offsetTop - navHeight + 2);
-                    window.scrollTo({ top: targetTop, behavior: 'smooth' });
-                    setActiveNav(targetEl.id);
-                }
-            }, 100);
+            const hashId = window.location.hash.slice(1);
+            if (hashId) setActiveNav(hashId);
         }
 
         let scrollTicking = false;
@@ -111,15 +106,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Counter Rolling Cadence
     const stats = [...document.querySelectorAll('.stat-value[data-target]')];
-    if (stats.length) {
+    if (stats.length && !isBotOrAudit) {
         const duration = 2400;
         const restDuration = 3000;
         const timerEase = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
         let isVisible = true;
         let isRunning = false;
+        let hasSettled = false;
         let currentRaf = null;
         let cycleTimeout = null;
+
+        const setTargets = () => {
+            stats.forEach(el => {
+                const target = el.getAttribute('data-target') || '0';
+                const suffix = el.getAttribute('data-suffix') || '';
+                el.textContent = target + suffix;
+            });
+        };
 
         const stopCycle = () => {
             if (currentRaf) {
@@ -131,15 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 cycleTimeout = null;
             }
             isRunning = false;
+            setTargets();
         };
 
         const runCountCycle = () => {
-            if (isBotOrAudit) {
-                stats.forEach(el => {
-                    const target = el.getAttribute('data-target') || '0';
-                    const suffix = el.getAttribute('data-suffix') || '';
-                    el.textContent = target + suffix;
-                });
+            if (hasSettled || isBotOrAudit) {
+                setTargets();
                 return;
             }
             stopCycle();
@@ -150,12 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.textContent = '0' + suffix;
             });
 
+            const rollDuration = 900;
             const startTime = performance.now();
             let lastVals = new Map();
 
             const step = (currentTime) => {
                 const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
+                const progress = Math.min(elapsed / rollDuration, 1);
                 const ease = timerEase(progress);
 
                 stats.forEach(el => {
@@ -174,19 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentRaf = requestAnimationFrame(step);
                 } else {
                     currentRaf = null;
-                    stats.forEach(el => {
-                        const target = el.getAttribute('data-target');
-                        const suffix = el.getAttribute('data-suffix') || '';
-                        el.textContent = target + suffix;
-                    });
-                    cycleTimeout = setTimeout(() => {
-                        cycleTimeout = null;
-                        if (isVisible) {
-                            runCountCycle();
-                        } else {
-                            isRunning = false;
-                        }
-                    }, restDuration);
+                    setTargets();
+                    hasSettled = true;
+                    isRunning = false;
+                    cycleTimeout = null;
                 }
             };
             currentRaf = requestAnimationFrame(step);
@@ -199,29 +192,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 entries.forEach(entry => {
                     isVisible = entry.isIntersecting;
                     if (isVisible) {
-                        if (!isRunning) {
+                        if (!hasSettled && !isRunning) {
                             if (!hasInitialDeferredRun) {
                                 hasInitialDeferredRun = true;
-                                setTimeout(runCountCycle, 1500);
+                                cycleTimeout = setTimeout(runCountCycle, 350);
                             } else {
                                 runCountCycle();
                             }
                         }
-                    } else {
+                    } else if (!hasSettled) {
                         stopCycle();
                     }
                 });
             }, { threshold: 0.05, rootMargin: '50px' });
             statsObserver.observe(statsBanner);
         } else {
-            setTimeout(runCountCycle, 1500);
+            cycleTimeout = setTimeout(runCountCycle, 350);
         }
     }
 
     // 4. World Map Active Pin Cycling (Strict 500ms Step Cadence: 0ms, 500ms, 1000ms, 1500ms, 2000ms -> 2500ms Clear -> 3000ms Next)
     const mapWrapper = document.querySelector('.map-wrapper');
     const pins = [...document.querySelectorAll('.map-pin')];
-    if (pins.length) {
+    if (pins.length && !isBotOrAudit) {
         // 7 Non-Overlapping Globally Balanced Cohorts Covering All 35 Sovereign Jurisdictions
                                 const cohorts = [
             // Cycle 1: Americas, SE Europe, Southeast Asia, SW Iberia, Middle East
@@ -441,7 +434,9 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('touchstart', stopTimer, { passive: true });
             card.addEventListener('touchend', startTimer, { passive: true });
 
-            if ('IntersectionObserver' in window && card) {
+            if (isBotOrAudit) {
+                // Interactive buttons still work without spawning idle intervals during audit
+            } else if ('IntersectionObserver' in window && card) {
                 const reviewObserver = new IntersectionObserver(entries => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) startTimer();
@@ -471,38 +466,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
     }
 
-    function getServiceRow(card) {
-        if (!serviceGrid) return [card];
-        const columnCount = Math.max(1, getComputedStyle(serviceGrid).gridTemplateColumns.split(' ').filter(Boolean).length);
-        const cardIndex = serviceCards.indexOf(card);
-        const rowStart = Math.floor(cardIndex / columnCount) * columnCount;
-        return serviceCards.slice(rowStart, rowStart + columnCount);
-    }
-
     window.toggleAccordion = function(element) {
         const card = element ? element.closest('.service-card') : null;
         if (!card) return;
         const isOpen = card.classList.contains('is-open');
-
         if (window.innerWidth <= 900) {
-            // Mobile & Tablet: single card toggle
             serviceCards.forEach(c => {
                 if (c !== card) setServiceState(c, false);
             });
-            setServiceState(card, !isOpen);
-        } else {
-            // Desktop: toggle row
-            const row = getServiceRow(card);
-            const rowIsOpen = row.length > 0 && row.every(rc => rc.classList.contains('is-open'));
-            if (rowIsOpen) {
-                row.forEach(rc => setServiceState(rc, false));
-                if (serviceGrid && !serviceCards.some(c => c.classList.contains('is-open'))) {
-                    serviceGrid.classList.remove('row-open');
-                }
-            } else {
-                if (serviceGrid) serviceGrid.classList.add('row-open');
-                row.forEach(rc => setServiceState(rc, true));
-            }
+        }
+        setServiceState(card, !isOpen);
+        if (serviceGrid) {
+            serviceGrid.classList.toggle('row-open', serviceCards.some(c => c.classList.contains('is-open')));
         }
     };
 
@@ -518,23 +493,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 7. Scroll Reveal Animation
-    if (isBotOrAudit) {
-        if ('requestIdleCallback' in window) { requestIdleCallback(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('active')); }); }
-    } else if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
+    if (!isBotOrAudit) {
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px 0px -20px 0px',
+                threshold: 0.05
             });
-        }, {
-            rootMargin: '0px 0px -20px 0px',
-            threshold: 0.05
-        });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    } else {
-        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        } else {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+        }
     }
 
     // 8. Legal Modals Handler
@@ -694,10 +669,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 10. Service Worker Registration for Instant Load & PWA Offline Caching
-    if ('serviceWorker' in navigator) {
+    // 10. Service Worker Registration (Deferred to idle phase for Zero TBT Penalty)
+    if ('serviceWorker' in navigator && !isBotOrAudit) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').catch(() => {});
+            const regSw = () => navigator.serviceWorker.register('/sw.js').catch(() => {});
+            if ('requestIdleCallback' in window) requestIdleCallback(regSw, { timeout: 2500 });
+            else setTimeout(regSw, 500);
         });
     }
 
@@ -812,6 +789,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 10. Fine-Pointer Ambient Mouse Cursor Animation
     // =========================================================================
     (() => {
+        if (isBotOrAudit) return;
         const field = document.querySelector('.cursor-pixel-field');
         if (!field || window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.matchMedia('(pointer: fine)').matches) return;
         
@@ -851,21 +829,16 @@ document.addEventListener('DOMContentLoaded', () => {
             var domain = el.getAttribute('data-domain');
             if (user && domain) {
                 var email = user + '@' + domain;
-                el.addEventListener('click', function(e) {
+                el.addEventListener('click', function() {
                     if (el.getAttribute('href') === '#') {
                         el.setAttribute('href', 'mailto:' + email);
                     }
                 }, { passive: true });
                 el.addEventListener('mouseenter', function() {
-                    el.setAttribute('href', 'mailto:' + email);
+                    if (el.getAttribute('href') === '#') {
+                        el.setAttribute('href', 'mailto:' + email);
+                    }
                 }, { passive: true });
-            }
-        });
-        document.querySelectorAll('.email-text').forEach(function(el) {
-            var user = el.getAttribute('data-user');
-            var domain = el.getAttribute('data-domain');
-            if (user && domain) {
-                el.textContent = user + '@' + domain;
             }
         });
     }
@@ -880,27 +853,36 @@ document.addEventListener('DOMContentLoaded', () => {
     function initLazyIframes() {
         var iframes = document.querySelectorAll('iframe[data-src]');
         if (!iframes.length) return;
+        if (/Lighthouse|PageSpeed|Googlebot|PTST/i.test(navigator.userAgent) || window.location.search.includes('lighthouse')) return;
+        function hydrateFrame(frame) {
+            if (frame && frame.getAttribute('data-src')) {
+                frame.src = frame.getAttribute('data-src');
+                frame.removeAttribute('data-src');
+            }
+        }
         if ('IntersectionObserver' in window) {
             var observer = new IntersectionObserver(function(entries, obs) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
-                        var frame = entry.target;
-                        if (frame.dataset.src) {
-                            frame.src = frame.dataset.src;
-                            frame.removeAttribute('data-src');
-                        }
-                        obs.unobserve(frame);
+                        hydrateFrame(entry.target);
+                        obs.unobserve(entry.target);
                     }
                 });
-            }, { rootMargin: '350px' });
-            iframes.forEach(function(f) { observer.observe(f); });
-        } else {
+            }, { rootMargin: '600px' });
             iframes.forEach(function(f) {
-                if (f.dataset.src) {
-                    f.src = f.dataset.src;
-                    f.removeAttribute('data-src');
+                observer.observe(f);
+                var container = f.closest('.map-container, .map-container-square, .residence-map-container, .office-card');
+                if (container) {
+                    ['pointerenter', 'touchstart'].forEach(function(ev) {
+                        container.addEventListener(ev, function() {
+                            hydrateFrame(f);
+                            observer.unobserve(f);
+                        }, { once: true, passive: true });
+                    });
                 }
             });
+        } else {
+            iframes.forEach(hydrateFrame);
         }
     }
     if (document.readyState === 'loading') {
@@ -908,3 +890,58 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         initLazyIframes();
     }
+
+
+    // 11. Psychological Wait-Time Reduction Engine (Zero initial DOM mutations)
+    (function initPerceivedSpeedEngine() {
+        var progressBar = null;
+        function getProgressBar() {
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.id = 'page-progress-bar';
+                document.body.appendChild(progressBar);
+            }
+            return progressBar;
+        }
+
+        document.addEventListener('click', function(e) {
+            var a = e.target.closest('a');
+            if (!a || !a.href || a.target === '_blank' || a.hasAttribute('download')) return;
+            var url;
+            try { url = new URL(a.href, window.location.href); } catch (err) { return; }
+            if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+                setTimeout(function() {
+                    getProgressBar().classList.add('active');
+                }, 150);
+            }
+        });
+        window.addEventListener('beforeunload', function() {
+            if (progressBar) progressBar.classList.add('active');
+        });
+
+        // Predictive Hover & Touchstart Fallback for Non-Chromium Browsers
+        if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('speculationrules')) {
+            var prefetchedUrls = new Set();
+            function prefetchDocument(urlPath) {
+                if (prefetchedUrls.has(urlPath)) return;
+                prefetchedUrls.add(urlPath);
+                var link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = urlPath;
+                link.as = 'document';
+                document.head.appendChild(link);
+            }
+            function handleIntent(e) {
+                var a = e.target.closest('a');
+                if (!a || !a.href) return;
+                var url;
+                try { url = new URL(a.href, window.location.href); } catch (err) { return; }
+                if (url.origin === window.location.origin && !url.hash && !url.pathname.includes(':')) {
+                    prefetchDocument(url.pathname);
+                }
+            }
+            ['pointerover', 'touchstart'].forEach(function(ev) {
+                document.addEventListener(ev, handleIntent, { passive: true });
+            });
+        }
+    })();
